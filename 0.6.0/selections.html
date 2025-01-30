@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Selection language &mdash; Chemfiles 0.6.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.6.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.6.0
+ documentation" href="index.html" />
+    <link rel="next" title="Usage examples" href="example.html" />
+    <link rel="prev" title="Chemfiles features overview" href="overview.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Selection language</a><ul>
+<li><a class="reference internal" href="#selectors">Selectors</a></li>
+<li><a class="reference internal" href="#elisions">Elisions</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="overview.html" title="Previous Chapter: Chemfiles features overview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Chemfiles fea...</span>
+    </a>
+  </li>
+  <li>
+    <a href="example.html" title="Next Chapter: Usage examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage examples &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="selection-language">
+<span id="id1"></span><h1>Selection language<a class="headerlink" href="#selection-language" title="Permalink to this headline">¶</a></h1>
+<p>Chemfiles selection language allows to select some atoms in a <a class="reference internal" href="overview.html#overview-frame"><span class="std std-ref">Frame</span></a> matching a set of constraints. For examples, <code class="docutils literal"><span class="pre">atom:</span> <span class="pre">name</span> <span class="pre">H</span>
+<span class="pre">and</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">15</span></code> would select all <em>single atoms</em> whose name is <code class="docutils literal"><span class="pre">H</span></code> and x
+coordinate is bigger than 15.</p>
+<p>Chemfiles selections differs from the well-known <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a> selections by the fact
+that they are <em>multiple selections</em>: we can select more than one atom at once.
+All selections starts with a context, indicating the number of atoms we are
+selecting, and the relation between these atoms. Existing contextes are
+<code class="docutils literal"><span class="pre">atoms</span></code> or <code class="docutils literal"><span class="pre">one</span></code>, <code class="docutils literal"><span class="pre">pairs</span></code> or <code class="docutils literal"><span class="pre">two</span></code>, <code class="docutils literal"><span class="pre">three</span></code> and <code class="docutils literal"><span class="pre">four</span></code>  to select
+one, two, three or four independent atoms; and <code class="docutils literal"><span class="pre">bonds</span></code>, <code class="docutils literal"><span class="pre">angles</span></code> and
+<code class="docutils literal"><span class="pre">dihedrals</span></code> for two, three or four bonded atoms.</p>
+<p>A selection is built using a context and a set of constraints separated by a
+colon. For example, <code class="docutils literal"><span class="pre">atoms:</span> <span class="pre">name</span> <span class="pre">==</span> <span class="pre">H</span></code> will select all atoms whose name is
+<code class="docutils literal"><span class="pre">H</span></code>. <code class="docutils literal"><span class="pre">angles:</span> <span class="pre">name($2)</span> <span class="pre">==</span> <span class="pre">O</span> <span class="pre">and</span> <span class="pre">distance($1,</span> <span class="pre">$3)</span> <span class="pre">&lt;</span> <span class="pre">1.5</span></code> will select all sets
+of three bonded atoms forming an angle such that the name of the second atom is
+<code class="docutils literal"><span class="pre">O</span></code> and the distance between the first and the third atom is less than 1.5.</p>
+<p>These constraints are created using <em>selectors</em>. Selectors are small functions
+which can be applied to one or more atoms. The <code class="docutils literal"><span class="pre">name</span></code>, <code class="docutils literal"><span class="pre">mass</span></code> and <code class="docutils literal"><span class="pre">z</span></code>
+selectors are applied to one atom and give the name, the mass and the z
+coordinate of this atom. Other selectors can be applied to two or more atoms,
+like <code class="docutils literal"><span class="pre">distance</span></code> or <code class="docutils literal"><span class="pre">angle</span></code>. When using a selection with more than one atom,
+selectors refers to the different atoms with the <code class="docutils literal"><span class="pre">$1</span></code>, <code class="docutils literal"><span class="pre">$2</span></code>, <code class="docutils literal"><span class="pre">$3</span></code> or
+<code class="docutils literal"><span class="pre">$4</span></code> variables: <code class="docutils literal"><span class="pre">name($3)</span></code> will give the name of the third atom, and so on.
+Then we compare the selector result for a given atom with a value, either from
+another selector &#8212; <code class="docutils literal"><span class="pre">name($1)</span> <span class="pre">!=</span> <span class="pre">name($2)</span></code> &#8212; or a literal value &#8212;
+<code class="docutils literal"><span class="pre">mass($2)</span> <span class="pre">&lt;</span> <span class="pre">4</span></code>. The comparison operators are <code class="docutils literal"><span class="pre">==</span></code> (equals); <code class="docutils literal"><span class="pre">!=</span></code> (not
+equals); <code class="docutils literal"><span class="pre">&lt;</span></code> (less than), <code class="docutils literal"><span class="pre">&lt;=</span></code> (less or equals); <code class="docutils literal"><span class="pre">&gt;</span></code> (more than); and <code class="docutils literal"><span class="pre">&gt;=</span></code>
+(more or equals).</p>
+<p>Finally, constraints are combined with boolean operators. The <code class="docutils literal"><span class="pre">and</span></code> operator
+is true if both side of the expression are true; the <code class="docutils literal"><span class="pre">or</span></code> operator is true if
+either side of the expression is true; and the <code class="docutils literal"><span class="pre">not</span></code> operator reverse true to
+false and false to true. <code class="docutils literal"><span class="pre">name($1)</span> <span class="pre">==</span> <span class="pre">H</span> <span class="pre">and</span> <span class="pre">not</span> <span class="pre">x($1)</span> <span class="pre">&lt;</span> <span class="pre">5.0</span></code> and <code class="docutils literal"><span class="pre">(z($2)</span> <span class="pre">&lt;</span> <span class="pre">45</span>
+<span class="pre">and</span> <span class="pre">name($4)</span> <span class="pre">==</span> <span class="pre">O)</span> <span class="pre">or</span> <span class="pre">name($1)</span> <span class="pre">==</span> <span class="pre">C</span></code> are complex selections using booleans
+operators.</p>
+<p>In order to remove ambiguity when using multiple boolean operations, selections
+should use parentheses. If no parentheses are present, all operators will be
+treated as left-associatives.</p>
+<div class="section" id="selectors">
+<h2>Selectors<a class="headerlink" href="#selectors" title="Permalink to this headline">¶</a></h2>
+<p>The following selectors are implemented in chemfiles:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">all</span></code>: select all the atoms;</li>
+<li><code class="docutils literal"><span class="pre">none</span></code>: select none of the atoms;</li>
+<li><code class="docutils literal"><span class="pre">name</span></code>: select atoms based on their name;</li>
+<li><code class="docutils literal"><span class="pre">index</span></code>: select atoms based on their index in the frame;</li>
+<li><code class="docutils literal"><span class="pre">mass</span></code>: select atoms based on their mass;</li>
+<li><code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code> and <code class="docutils literal"><span class="pre">z</span></code>: select atoms based on their position cartesian components;</li>
+<li><code class="docutils literal"><span class="pre">vx</span></code>, <code class="docutils literal"><span class="pre">vy</span></code> and <code class="docutils literal"><span class="pre">vz</span></code>: select atoms based on their velocity cartesian components;</li>
+</ul>
+<p>Additional selectors ideas are welcome if they cannot be created easily from a
+combinaison of the above. If you don&#8217;t know if your selector idea can be
+created from a combinaison, just ask!</p>
+</div>
+<div class="section" id="elisions">
+<h2>Elisions<a class="headerlink" href="#elisions" title="Permalink to this headline">¶</a></h2>
+<p>This multiple selection language can be a bit verbose for simpler cases, so it
+is sometimes allowed to remove parts of the selection. First, in the <code class="docutils literal"><span class="pre">atom</span></code>
+context, the <code class="docutils literal"><span class="pre">$1</span></code> variable is optional, and <code class="docutils literal"><span class="pre">atom:</span> <span class="pre">name($1)</span> <span class="pre">==</span> <span class="pre">H</span></code> is
+equivalent to <code class="docutils literal"><span class="pre">atom:</span> <span class="pre">name</span> <span class="pre">==</span> <span class="pre">H</span></code>.</p>
+<p>Then, if no context is given, the <code class="docutils literal"><span class="pre">atom</span></code> context is used. This make <code class="docutils literal"><span class="pre">atom:</span>
+<span class="pre">name</span> <span class="pre">==</span> <span class="pre">H</span></code> equivalent to <code class="docutils literal"><span class="pre">name</span> <span class="pre">==</span> <span class="pre">H</span></code>.</p>
+<p>And finally, the <code class="docutils literal"><span class="pre">==</span></code> comparison operator is the default one if no operator is
+precised. This means that we can write <code class="docutils literal"><span class="pre">name</span> <span class="pre">H</span></code> instead of <code class="docutils literal"><span class="pre">name</span> <span class="pre">==</span> <span class="pre">H</span></code>.</p>
+<p>At the end, using all these elisions rules, <code class="docutils literal"><span class="pre">atom:</span> <span class="pre">name($1)</span> <span class="pre">==</span> <span class="pre">H</span> <span class="pre">or</span> <span class="pre">name($1)</span> <span class="pre">==</span>
+<span class="pre">O</span></code> is equivalent to <code class="docutils literal"><span class="pre">name</span> <span class="pre">H</span> <span class="pre">or</span> <span class="pre">name</span> <span class="pre">O</span></code>; and <code class="docutils literal"><span class="pre">bond:</span> <span class="pre">name($1)</span> <span class="pre">==</span> <span class="pre">C</span> <span class="pre">and</span>
+<span class="pre">mass($2)</span> <span class="pre">==</span> <span class="pre">4.5</span></code> is equivalent to <code class="docutils literal"><span class="pre">bond:</span> <span class="pre">name($1)</span> <span class="pre">C</span> <span class="pre">and</span> <span class="pre">mass($2)</span> <span class="pre">4.5</span></code>.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

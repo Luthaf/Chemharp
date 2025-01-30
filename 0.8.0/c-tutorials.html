@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>C Tutorials &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Supported formats" href="formats.html" />
+    <link rel="prev" title="C++ Tutorials" href="cxx-tutorials.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">C Tutorials</a><ul>
+<li><a class="reference internal" href="#read-a-single-frame">Read a single frame</a></li>
+<li><a class="reference internal" href="#generating-a-structure">Generating a structure</a></li>
+<li><a class="reference internal" href="#using-selections">Using selections</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="cxx-tutorials.html" title="Previous Chapter: C++ Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C++ Tutorials</span>
+    </a>
+  </li>
+  <li>
+    <a href="formats.html" title="Next Chapter: Supported formats"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Supported formats &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="c-tutorials">
+<span id="id1"></span><h1>C Tutorials<a class="headerlink" href="#c-tutorials" title="Permalink to this headline">¶</a></h1>
+<p>This section present some hand-on tutorials to the chemfiles C API. These
+examples do exaclty the same thing as the <a class="reference internal" href="cxx-tutorials.html#cxx-tutorials"><span class="std std-ref">C++ ones</span></a>, using
+the C API instead of the C++ API. As such, they are much more verbose. They also
+do not correclty check for error conditions. When using the C API, you should
+alway check that the return value of the functions is <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>.</p>
+<p>All the code here is under the <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC-0 Universal Licence</a> which means that you
+are free to do whatever you want with it (<em>i.e.</em> it is Public Domain code)</p>
+<div class="section" id="read-a-single-frame">
+<h2>Read a single frame<a class="headerlink" href="#read-a-single-frame" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorials we will read a frame from a trajectory, and print the indexes
+of all the atom in the half-space <code class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">5</span></code>.</p>
+<p>We start by including the headers we need: chemfiles header, <code class="docutils literal"><span class="pre">`stdio.h</span></code> for
+printing and <code class="docutils literal"><span class="pre">stdlib.h</span></code> for <code class="docutils literal"><span class="pre">malloc</span></code>. All the public functions of chemfiles
+are accessible through the <code class="docutils literal"><span class="pre">chemfiles.h</span></code> header, which is the only header
+needed.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;chemfiles.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>Then we open a <a class="reference internal" href="capi/chfl_trajectory.html#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_TRAJECTORY</span></code></a> in read (<code class="docutils literal"><span class="pre">'r'</span></code>) and read the first
+frame.  We need to allocate memory for the <a class="reference internal" href="capi/chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_FRAME</span></code></a> before calling
+<a class="reference internal" href="capi/chfl_trajectory.html#_CPPv220chfl_trajectory_readP15CHFL_TRAJECTORYP10CHFL_FRAME" title="chfl_trajectory_read"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_trajectory_read()</span></code></a>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We can now and get the positions of the atoms and the number of atoms in the
+frame with the <a class="reference internal" href="capi/chfl_frame.html#_CPPv220chfl_frame_positionsP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t" title="chfl_frame_positions"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_frame_positions()</span></code></a> function:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Knowning the total number of atoms in the frame, we can allocate memory to store
+the indices of the atoms with <code class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">5</span></code>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="o">*</span> <span class="n">less_than_five</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">natoms</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">size_t</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Iterating through the atoms in the frame, we get the ones matching our
+condition. We need to track the number of <code class="docutils literal"><span class="pre">matched</span></code> atoms to know where to add
+them in the <code class="docutils literal"><span class="pre">less_than_five</span></code> array.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="n">matched</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">less_than_five</span><span class="p">[</span><span class="n">matched</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">i</span><span class="p">;</span>
+        <span class="n">matched</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>At the end we can print our results</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Atoms with x &lt; 5:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">matched</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  - %lu&quot;</span><span class="p">,</span> <span class="n">less_than_five</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And free all allocated memory. We don’t need to free <code class="docutils literal"><span class="pre">positions</span></code>, as it points
+into memory allocated and controlled by the frame.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">free</span><span class="p">(</span><span class="n">less_than_five</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+</pre></div>
+</div>
+<details><summary><a>Click here to see the whole program</a></summary><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;chemfiles.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+    <span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+
+    <span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+    <span class="kt">size_t</span><span class="o">*</span> <span class="n">less_than_five</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">natoms</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">size_t</span><span class="p">));</span>
+
+    <span class="kt">size_t</span> <span class="n">matched</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">less_than_five</span><span class="p">[</span><span class="n">matched</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">i</span><span class="p">;</span>
+            <span class="n">matched</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Atoms with x &lt; 5:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">matched</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  - %lu&quot;</span><span class="p">,</span> <span class="n">less_than_five</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="n">free</span><span class="p">(</span><span class="n">less_than_five</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details><p>For more information about reading frame in a trajectory, see the following
+functions:</p>
+<ul class="simple">
+<li><a class="reference internal" href="capi/chfl_trajectory.html#_CPPv222chfl_trajectory_nstepsP15CHFL_TRAJECTORYP8uint64_t" title="chfl_trajectory_nsteps"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_trajectory_nsteps()</span></code></a> to know when to stop reading</li>
+<li><a class="reference internal" href="capi/chfl_trajectory.html#_CPPv225chfl_trajectory_read_stepP15CHFL_TRAJECTORY8uint64_tP10CHFL_FRAME" title="chfl_trajectory_read_step"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_trajectory_read_step()</span></code></a> to directlty read a given step.</li>
+<li><a class="reference internal" href="capi/chfl_trajectory.html#_CPPv224chfl_trajectory_set_cellP15CHFL_TRAJECTORYPK9CHFL_CELL" title="chfl_trajectory_set_cell"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_trajectory_set_cell()</span></code></a> and
+<a class="reference internal" href="capi/chfl_trajectory.html#_CPPv228chfl_trajectory_set_topologyP15CHFL_TRAJECTORYPK13CHFL_TOPOLOGY" title="chfl_trajectory_set_topology"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_trajectory_set_topology()</span></code></a> to specify an unit cell or a topology
+for all frames in a trajectory.</li>
+</ul>
+</div>
+<div class="section" id="generating-a-structure">
+<h2>Generating a structure<a class="headerlink" href="#generating-a-structure" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know how to read frames from a trajectory, let’s try to create a new
+structure and write it to a file. As previsouly, we start by including the
+chemfiles header:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;chemfiles.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>Everything starts with a <a class="reference internal" href="capi/chfl_topology.html#_CPPv213CHFL_TOPOLOGY" title="CHFL_TOPOLOGY"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_TOPOLOGY</span></code></a>. This is the type that
+defines the atoms and the connectivity in a system. Here, we add three
+<a class="reference internal" href="capi/chfl_atom.html#_CPPv29CHFL_ATOM" title="CHFL_ATOM"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_ATOM</span></code></a> and two bonds to create a water molecule.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">C</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We can then create a <a class="reference internal" href="capi/chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_FRAME</span></code></a> and set its topology. We free the
+topology right after, because we no longer need it.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">chfl_frame_set_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once we set the topology, we can set the positions</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+<span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Another possibility is to directly add atoms and bonds to the frame. Here we
+define a second molecule representing carbon dioxyde.
+<a class="reference internal" href="capi/chfl_frame.html#_CPPv219chfl_frame_add_atomP10CHFL_FRAMEPK9CHFL_ATOMK13chfl_vector3dK13chfl_vector3d" title="chfl_frame_add_atom"><code class="xref cpp cpp-func docutils literal"><span class="pre">chfl_frame_add_atom()</span></code></a> takes three arguments: the atom, the position
+and the velocity of the atom. Here we use <code class="docutils literal"><span class="pre">NULL</span></code> for the velocity, because we
+are not interested in it.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">O</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">O</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_bond</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="n">chfl_frame_add_bond</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Finally, we can set the <a class="reference internal" href="capi/chfl_cell.html#_CPPv29CHFL_CELL" title="CHFL_CELL"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_CELL</span></code></a> associated with this frame. We
+also free the cell memory, as it is no longer needed.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+<span class="n">chfl_frame_set_cell</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cell</span><span class="p">);</span>
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now that our frame is constructed, it is time to write it to a file. For that,
+we open a trajectory in write (<code class="docutils literal"><span class="pre">'w'</span></code>) mode, and write to it.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water-co2.pdb&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+<span class="n">chfl_trajectory_write</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>And free all remaining memory with the right function.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
+</pre></div>
+</div>
+<details><summary><a>Click here to see the whole program</a></summary><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;chemfiles.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">C</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+
+    <span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+    <span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">chfl_frame_set_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">topology</span><span class="p">);</span>
+    <span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+
+    <span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+    <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+
+    <span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">O</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">O</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">chfl_frame_add_bond</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n">chfl_frame_add_bond</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+    <span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+    <span class="n">chfl_frame_set_cell</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cell</span><span class="p">);</span>
+    <span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water-co2.pdb&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_write</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+<div class="section" id="using-selections">
+<h2>Using selections<a class="headerlink" href="#using-selections" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know how to read and write frame from trajectories, how about we do
+a bit a filtering? In this tutorial, we will read all the frames from a file,
+and use <a class="reference internal" href="selections.html#selection-language"><span class="std std-ref">selections</span></a> to filter which atoms we will
+write back to another file. This example will also show how chemfiles can be
+used to convert from a file format to another one.</p>
+<p>We start by opening the two trajectories we will need</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">input</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;input.arc&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">output</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;output.pdb&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We create a <a class="reference internal" href="capi/chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_FRAME</span></code></a> and a <a class="reference internal" href="capi/chfl_selection.html#_CPPv214CHFL_SELECTION" title="CHFL_SELECTION"><code class="xref cpp cpp-type docutils literal"><span class="pre">CHFL_SELECTION</span></code></a> object to
+filter the atoms we want to keep.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_SELECTION</span><span class="o">*</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">chfl_selection</span><span class="p">(</span><span class="s">&quot;name Zn or name N&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Then we get the number of steps in the trajectory</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">uint64_t</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_trajectory_nsteps</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nsteps</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>And iterate over the frames in the trajectory</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">step</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">step</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">step</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>From here, we need to use the selection to get the atoms we want to remove. This
+is a two steps process: first we evaluate the selection and get the number of
+matches</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">uint64_t</span> <span class="n">n_matches</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_selection_evaluate</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n_matches</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Second we allocate some memory and get all the matches (represented as
+<a class="reference internal" href="capi/chfl_selection.html#_CPPv210chfl_match" title="chfl_match"><code class="xref cpp cpp-class docutils literal"><span class="pre">chfl_match</span></code></a>):</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">chfl_match</span><span class="o">*</span> <span class="n">matches</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">n_matches</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">chfl_match</span><span class="p">));</span>
+<span class="n">chfl_selection_matches</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">matches</span><span class="p">,</span> <span class="n">n_matches</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We can get the index of atoms in a <cite>to_remove</cite> array</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">uint64_t</span><span class="o">*</span> <span class="n">to_remove</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">n_matches</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">uint64_t</span><span class="p">));</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n_matches</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">to_remove</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to remove the atoms from the frame, we need to sort <code class="docutils literal"><span class="pre">to_remove</span></code> in
+descending order: removing the atom at index i will shift the index of all the
+atoms after i. So we need start from the end and work toward the start of the
+frame. The <code class="docutils literal"><span class="pre">compare_matches</span></code> function is used to do this sorting in reverse
+order with the standard <a class="reference external" href="http://en.cppreference.com/w/c/algorithm/qsort">qsort function</a>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">qsort</span><span class="p">(</span><span class="n">to_remove</span><span class="p">,</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">n_matches</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">uint64_t</span><span class="p">),</span> <span class="n">compare_matches</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n_matches</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">to_remove</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, we can write the cleaned frame to the output file, and free the memory
+we allocated:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">chfl_trajectory_write</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+
+<span class="n">free</span><span class="p">(</span><span class="n">to_remove</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">matches</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">compare_matches</span></code> function we used to sort the matches is defined as
+follow:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">compare_matches</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">left</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">size_t</span><span class="o">*</span><span class="p">)</span><span class="n">lhs</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">right</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">size_t</span><span class="o">*</span><span class="p">)</span><span class="n">rhs</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">left</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<details><summary><a>Click here to see the whole program</a></summary><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;chemfiles.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">compare_matches</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">rhs</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">input</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;input.arc&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">output</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;output.pdb&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+    <span class="n">CHFL_SELECTION</span><span class="o">*</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">chfl_selection</span><span class="p">(</span><span class="s">&quot;name Zn or name N&quot;</span><span class="p">);</span>
+
+    <span class="kt">uint64_t</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">chfl_trajectory_nsteps</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nsteps</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">step</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">step</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">step</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+
+        <span class="kt">uint64_t</span> <span class="n">n_matches</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">chfl_selection_evaluate</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n_matches</span><span class="p">);</span>
+        <span class="n">chfl_match</span><span class="o">*</span> <span class="n">matches</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">n_matches</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">chfl_match</span><span class="p">));</span>
+        <span class="n">chfl_selection_matches</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">matches</span><span class="p">,</span> <span class="n">n_matches</span><span class="p">);</span>
+
+        <span class="kt">uint64_t</span><span class="o">*</span> <span class="n">to_remove</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">n_matches</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">uint64_t</span><span class="p">));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n_matches</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">to_remove</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="n">qsort</span><span class="p">(</span><span class="n">to_remove</span><span class="p">,</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">n_matches</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">uint64_t</span><span class="p">),</span> <span class="n">compare_matches</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n_matches</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">to_remove</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="n">chfl_trajectory_write</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">to_remove</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">matches</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">compare_matches</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">left</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">size_t</span><span class="o">*</span><span class="p">)</span><span class="n">lhs</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">right</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">size_t</span><span class="o">*</span><span class="p">)</span><span class="n">rhs</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">left</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</details></div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Miscelaneous functions &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../devdoc/contributing.html" />
+    <link rel="prev" title="Function manipulating CHFL_PROPERTY" href="chfl_property.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Miscelaneous functions</a><ul>
+<li><a class="reference internal" href="#error-handling">Error handling</a></li>
+<li><a class="reference internal" href="#warnings">Warnings</a></li>
+<li><a class="reference internal" href="#configuration-files">Configuration files</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_property.html" title="Previous Chapter: Function manipulating CHFL_PROPERTY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../devdoc/contributing.html" title="Next Chapter: Contributing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Contributing &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="miscelaneous-functions">
+<h1>Miscelaneous functions<a class="headerlink" href="#miscelaneous-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="error-handling">
+<h2>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>Apart from the <em>constructor</em> functions (the functions returning pointers to the
+chemfiles types); all the functions return a status code from the
+<code class="docutils literal notranslate"><span class="pre">chfl_status</span></code> enum:</p>
+<dl class="type">
+<dt id="_CPPv311chfl_status">
+<span id="_CPPv211chfl_status"></span><span id="chfl_status"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59"></span><em class="property">enum </em><code class="descname">chfl_status</code><a class="headerlink" href="#_CPPv311chfl_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">chfl_status</span></code> list the possible values for the return status code of chemfiles functions. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv312CHFL_SUCCESS">
+<span id="_CPPv212CHFL_SUCCESS"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a0faa8eb88fb8bcdbb8fea3699bc8bab2"></span><code class="descname">CHFL_SUCCESS</code> = 0<a class="headerlink" href="#_CPPv312CHFL_SUCCESS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for successful operations. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv317CHFL_MEMORY_ERROR">
+<span id="_CPPv217CHFL_MEMORY_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59aaafa9c392ee2954d1b400b0951ba9ce6"></span><code class="descname">CHFL_MEMORY_ERROR</code> = 1<a class="headerlink" href="#_CPPv317CHFL_MEMORY_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error concerning memory: out of memory, wrong size for pre-allocated buffers, <em>etc.</em> </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv315CHFL_FILE_ERROR">
+<span id="_CPPv215CHFL_FILE_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59ab54a0ee991866736a32efb6e9bec2554"></span><code class="descname">CHFL_FILE_ERROR</code> = 2<a class="headerlink" href="#_CPPv315CHFL_FILE_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error concerning files: the file do not exist, the user does not have rights to open it, <em>etc.</em> </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv317CHFL_FORMAT_ERROR">
+<span id="_CPPv217CHFL_FORMAT_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a91a73606f53ba8a2229d4fd3d33b1af1"></span><code class="descname">CHFL_FORMAT_ERROR</code> = 3<a class="headerlink" href="#_CPPv317CHFL_FORMAT_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error in file formating, i.e. for invalid files. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv320CHFL_SELECTION_ERROR">
+<span id="_CPPv220CHFL_SELECTION_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59afe372a55872986a08dcca8a3969983dc"></span><code class="descname">CHFL_SELECTION_ERROR</code> = 4<a class="headerlink" href="#_CPPv320CHFL_SELECTION_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for invalid selection strings. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv324CHFL_CONFIGURATION_ERROR">
+<span id="_CPPv224CHFL_CONFIGURATION_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a507152334502f3e9c56b0195f6aa7a1b"></span><code class="descname">CHFL_CONFIGURATION_ERROR</code> = 5<a class="headerlink" href="#_CPPv324CHFL_CONFIGURATION_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for configuration files errors. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv318CHFL_OUT_OF_BOUNDS">
+<span id="_CPPv218CHFL_OUT_OF_BOUNDS"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a13b8a32b662d61d1494b4b598778a815"></span><code class="descname">CHFL_OUT_OF_BOUNDS</code> = 6<a class="headerlink" href="#_CPPv318CHFL_OUT_OF_BOUNDS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for out of bounds errors. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv319CHFL_PROPERTY_ERROR">
+<span id="_CPPv219CHFL_PROPERTY_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59abbbf96f5f6fe30c421ab8ec4e291179d"></span><code class="descname">CHFL_PROPERTY_ERROR</code> = 7<a class="headerlink" href="#_CPPv319CHFL_PROPERTY_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for errors related to properties. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv318CHFL_GENERIC_ERROR">
+<span id="_CPPv218CHFL_GENERIC_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a8cbb75bdfcccefb65419de3d3a1d305e"></span><code class="descname">CHFL_GENERIC_ERROR</code> = 254<a class="headerlink" href="#_CPPv318CHFL_GENERIC_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for any other error from Chemfiles. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv314CHFL_CXX_ERROR">
+<span id="_CPPv214CHFL_CXX_ERROR"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a8b48d2211408e1bc5815229335232aad"></span><code class="descname">CHFL_CXX_ERROR</code> = 255<a class="headerlink" href="#_CPPv314CHFL_CXX_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error in the C++ standard library. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv315chfl_last_errorv">
+<span id="_CPPv215chfl_last_errorv"></span><span id="chfl_last_error__void"></span><span class="target" id="misc_8h_1a42463a8d7f7b39e35608c54b45cc5a3b"></span><em class="property">const</em> char *<code class="descname">chfl_last_error</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315chfl_last_errorv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the last error message.</p>
+<p>The last error message is a thread local variable, so you need to call this function in the thread from where the error happened.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Generate an error</span>
+<span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;noformat&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">error</span> <span class="o">=</span> <span class="n">chfl_last_error</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="s">&quot;file at &#39;noformat&#39; does not have an extension, provide a format name to read it&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A null-terminated string containing the last error message </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv317chfl_clear_errorsv">
+<span id="_CPPv217chfl_clear_errorsv"></span><span id="chfl_clear_errors__void"></span><span class="target" id="misc_8h_1a8422670732257efed91262d3281fcd2b"></span><a class="reference internal" href="#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_clear_errors</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv317chfl_clear_errorsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear the thread local last error message.</p>
+<p>The last error message is a thread local variable, so this function will only clear it in the thread where it is called.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Generate an error</span>
+<span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;noformat&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">error</span> <span class="o">=</span> <span class="n">chfl_last_error</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_clear_errors</span><span class="p">();</span>
+
+<span class="n">error</span> <span class="o">=</span> <span class="n">chfl_last_error</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
+<p>The chemfiles library send warnings when it encounters malformed files, or any
+other condition that the user might want to know about. By default, these
+warnings are printed to the standard error stream.
+<a class="reference internal" href="#_CPPv325chfl_set_warning_callback21chfl_warning_callback" title="chfl_set_warning_callback"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_set_warning_callback()</span></code></a> allow to redirect these warning by giving
+it a callback function to be called on each warning event.</p>
+<dl class="type">
+<dt id="_CPPv321chfl_warning_callback">
+<span id="_CPPv221chfl_warning_callback"></span><span id="chfl_warning_callback"></span><span class="target" id="misc_8h_1aedecf8acfe372243658987ee1fa66999"></span><em class="property">typedef </em>void (*<code class="descname">chfl_warning_callback</code>)<span class="sig-paren">(</span><em class="property">const</em> char *message<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv321chfl_warning_callback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback type that can be used to process warning events. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv325chfl_set_warning_callback21chfl_warning_callback">
+<span id="_CPPv225chfl_set_warning_callback21chfl_warning_callback"></span><span id="chfl_set_warning_callback__chfl_warning_callback"></span><span class="target" id="misc_8h_1a7962fc0c102c5105193edae28f922458"></span><a class="reference internal" href="#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_set_warning_callback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv321chfl_warning_callback" title="chfl_warning_callback">chfl_warning_callback</a> <em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv325chfl_set_warning_callback21chfl_warning_callback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the global warning <code class="docutils literal notranslate"><span class="pre">callback</span></code> to be used for each warning event.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">LAST_WARNING</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">warning_callback</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">LAST_WARNING</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="mi">1024</span><span class="p">);</span>
+    <span class="n">LAST_WARNING</span><span class="p">[</span><span class="mi">1023</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">chfl_set_warning_callback</span><span class="p">(</span><span class="n">warning_callback</span><span class="p">);</span>
+
+    <span class="c1">// Generate a warning event</span>
+    <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;noformat&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+    <span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">LAST_WARNING</span><span class="p">,</span> <span class="s">&quot;file at &#39;noformat&#39; does not have an extension, provide a format name to read it&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code> </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="configuration-files">
+<h2>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h2>
+<p>You can add more <a class="reference internal" href="../configuration.html#configuration"><span class="std std-ref">configuration</span></a> file to chemfiles with
+<a class="reference internal" href="#_CPPv322chfl_add_configurationPKc" title="chfl_add_configuration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_add_configuration()</span></code></a>.</p>
+<dl class="function">
+<dt id="_CPPv322chfl_add_configurationPKc">
+<span id="_CPPv222chfl_add_configurationPKc"></span><span id="chfl_add_configuration__cCP"></span><span class="target" id="misc_8h_1af2779ee356090b53037a80b98b22fbaf"></span><a class="reference internal" href="#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_add_configuration</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv322chfl_add_configurationPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read configuration data from the file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<p>By default, chemfiles reads configuration from any file name <code class="docutils literal notranslate"><span class="pre">.chemfilesrc</span></code> in the current directory or any parent directory. This function can be used to add data from another configuration file.</p>
+<p>This function will fail if there is no file at <code class="docutils literal notranslate"><span class="pre">path</span></code>, or if the file is incorectly formatted. Data from the new configuration file will overwrite any existing data.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">chfl_add_configuration</span><span class="p">(</span><span class="s">&quot;local-file.toml&quot;</span><span class="p">);</span>
+
+<span class="c1">// reading a frame will now use atom names from the configuration</span>
+<span class="c1">// ...</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

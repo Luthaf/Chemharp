@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Usage examples &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="index.html" />
+    <link rel="next" title="Supported formats" href="formats.html" />
+    <link rel="prev" title="Chemfiles selections" href="selections.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Usage examples</a><ul>
+<li><a class="reference internal" href="#usage-from-c">Usage from C++</a><ul>
+<li><a class="reference internal" href="#read-a-single-frame-indexes-cpp">Read a single frame (indexes.cpp)</a></li>
+<li><a class="reference internal" href="#read-multiple-frames-rmsd-cpp">Read Multiple frames (rmsd.cpp)</a></li>
+<li><a class="reference internal" href="#write-frames-convert-cpp">Write frames (convert.cpp)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Usage from C</a><ul>
+<li><a class="reference internal" href="#read-a-single-frame-indexes-c">Read a single frame (indexes.c)</a></li>
+<li><a class="reference internal" href="#read-multiple-frames-rmsd-c">Read Multiple frames (rmsd.c)</a></li>
+<li><a class="reference internal" href="#write-frames-convert-c">Write frames (convert.c)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="selections.html" title="Previous Chapter: Chemfiles selections"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Chemfiles sel...</span>
+    </a>
+  </li>
+  <li>
+    <a href="formats.html" title="Next Chapter: Supported formats"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Supported for... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="usage-examples">
+<h1>Usage examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h1>
+<p>All the code here is under the <a class="reference external" href="http://creativecommons.org/publicdomain/zero/1.0/">CC-0 Universal Licence</a>
+which means that you are free to do whatever you want with it (<em>i.e.</em> it is Public
+Domain code)</p>
+<p>This page contains the following examples, written in all the languages
+supported by chemfiles:</p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">indexes</span></code> program read the first frame of a trajectory and fill a
+vector called <code class="docutils literal"><span class="pre">indexes</span></code> with the indexes of all the atom obeying the
+<span class="math">\(x &lt; 5\)</span> relation.</li>
+<li>The <code class="docutils literal"><span class="pre">rmsd</span></code> program read all the frames from a trajectory, and compute the
+root mean square displacement of the 10th atom in the frame.</li>
+<li>The <code class="docutils literal"><span class="pre">convert</span></code> program read all the frames from a trajectory, set the unit
+cell and the topology of the frame, and then write it back to another file.
+The input file contain here the trajectory of a single water molecule, but
+without any topological or cell information. So the program add these
+informations to a new trajectory file.</li>
+</ul>
+<div class="section" id="usage-from-c">
+<h2>Usage from C++<a class="headerlink" href="#usage-from-c" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-a-single-frame-indexes-cpp">
+<h3>Read a single frame (indexes.cpp)<a class="headerlink" href="#read-a-single-frame-indexes-cpp" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;chemfiles.hpp&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">traj</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">);</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span><span class="p">;</span>
+
+    <span class="n">traj</span> <span class="o">&gt;&gt;</span> <span class="n">frame</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">indexes</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">frame</span><span class="p">.</span><span class="n">natoms</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">indexes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Atoms with x &lt; 5: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">indexes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;  - &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-multiple-frames-rmsd-cpp">
+<h3>Read Multiple frames (rmsd.cpp)<a class="headerlink" href="#read-multiple-frames-rmsd-cpp" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;chemfiles.hpp&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">traj</span><span class="p">(</span><span class="s">&quot;filename.nc&quot;</span><span class="p">);</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">distances</span><span class="p">;</span>
+
+    <span class="c1">// Accumulate the distances to the origin of the 10th atom throughtout the</span>
+    <span class="c1">// trajectory</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">traj</span><span class="p">.</span><span class="n">done</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">traj</span> <span class="o">&gt;&gt;</span> <span class="n">frame</span><span class="p">;</span>
+        <span class="c1">// Position of the 10th atom</span>
+        <span class="k">auto</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">()[</span><span class="mi">9</span><span class="p">];</span>
+        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+        <span class="n">distances</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">distance</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">double</span> <span class="n">mean</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">distances</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">distances</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">/</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">distances</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="kt">double</span> <span class="n">rmsd</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">dist</span> <span class="p">:</span> <span class="n">distances</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rmsd</span> <span class="o">+=</span> <span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">dist</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">dist</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">rmsd</span> <span class="o">/=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">distances</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="n">rmsd</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">rmsd</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Root-mean square displacement is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">rmsd</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-frames-convert-cpp">
+<h3>Write frames (convert.cpp)<a class="headerlink" href="#write-frames-convert-cpp" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;chemfiles.hpp&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">input</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">);</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span><span class="p">{};</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Topology</span> <span class="n">water_topology</span><span class="p">{};</span>
+    <span class="c1">// Orthorombic UnitCell with lengths of 20, 15 and 35 A</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">UnitCell</span> <span class="n">cell</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span>
+
+    <span class="c1">// Create Atoms</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Atom</span> <span class="n">O</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Atom</span> <span class="n">H</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Fill the topology with one water molecule</span>
+    <span class="n">water_topology</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+    <span class="n">water_topology</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+    <span class="n">water_topology</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+    <span class="n">water_topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">water_topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">output</span><span class="p">(</span><span class="s">&quot;water.pdb&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">input</span><span class="p">.</span><span class="n">done</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">input</span> <span class="o">&gt;&gt;</span> <span class="n">frame</span><span class="p">;</span>
+        <span class="c1">// Set the frame cell and topology</span>
+        <span class="n">frame</span><span class="p">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+        <span class="n">frame</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="n">water_topology</span><span class="p">);</span>
+        <span class="c1">// Write the frame to the output file, using PDB format</span>
+        <span class="n">output</span> <span class="o">&lt;&lt;</span> <span class="n">frame</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Usage from C<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-a-single-frame-indexes-c">
+<h3>Read a single frame (indexes.c)<a class="headerlink" href="#read-a-single-frame-indexes-c" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;chemfiles.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">traj</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;tests/files/xyz/helium.xyz&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">traj</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="n">frame</span><span class="p">))</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+    <span class="kt">size_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="p">(</span><span class="o">*</span><span class="n">positions</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+    <span class="kt">unsigned</span><span class="o">*</span> <span class="n">indexes</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">natoms</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">unsigned</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">indexes</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">unsigned</span> <span class="n">last_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">indexes</span><span class="p">[</span><span class="n">last_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">last_index</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Atoms with x &lt; 5:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">natoms</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  - %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Number of atoms: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">traj</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">positions</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nl">error</span><span class="p">:</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error, cleaning up …</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">traj</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">positions</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-multiple-frames-rmsd-c">
+<h3>Read Multiple frames (rmsd.c)<a class="headerlink" href="#read-multiple-frames-rmsd-c" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;chemfiles.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">traj</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;filename.nc&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="p">(</span><span class="o">*</span><span class="n">positions</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">distances</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">traj</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">frame</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+    <span class="kt">size_t</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">chfl_trajectory_nsteps</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nsteps</span><span class="p">);</span>
+
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="n">nsteps</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">distances</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+    <span class="c1">// Accumulate the distances to the origin of the 10th atom throughtout the</span>
+    <span class="c1">// trajectory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="n">frame</span><span class="p">))</span>
+            <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+        <span class="kt">size_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">// Position of the 10th atom</span>
+        <span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">positions</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>
+                               <span class="n">positions</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">positions</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                               <span class="n">positions</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">positions</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+        <span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">double</span> <span class="n">mean</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mean</span> <span class="o">+=</span> <span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">mean</span> <span class="o">/=</span> <span class="n">nsteps</span><span class="p">;</span>
+
+    <span class="kt">double</span> <span class="n">rmsd</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rmsd</span> <span class="o">+=</span> <span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">rmsd</span> <span class="o">/=</span> <span class="n">nsteps</span><span class="p">;</span>
+    <span class="n">rmsd</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">rmsd</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Root-mean square displacement is: %f&quot;</span><span class="p">,</span> <span class="n">rmsd</span><span class="p">);</span>
+
+    <span class="c1">// Free the memory</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">traj</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">distances</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">positions</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nl">error</span><span class="p">:</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error, cleaning up …</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">traj</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">distances</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">positions</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-frames-convert-c">
+<h3>Write frames (convert.c)<a class="headerlink" href="#write-frames-convert-c" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;chemfiles.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">input</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">output</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.pdb&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">water_topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+    <span class="c1">// Orthorombic UnitCell with lengths of 20, 15 and 35 A</span>
+    <span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span>
+
+    <span class="c1">// Create Atoms</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">frame</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">water_topology</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span>
+        <span class="n">cell</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">O</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">H</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">output</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+            <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+
+    <span class="c1">// Fill the topology with one water molecule</span>
+    <span class="n">chfl_topology_append</span><span class="p">(</span><span class="n">water_topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_topology_append</span><span class="p">(</span><span class="n">water_topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+    <span class="n">chfl_topology_append</span><span class="p">(</span><span class="n">water_topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">water_topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">water_topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="kt">size_t</span> <span class="n">nsteps</span><span class="p">;</span>
+    <span class="n">chfl_trajectory_nsteps</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nsteps</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+        <span class="c1">// Set the frame cell and topology</span>
+        <span class="n">chfl_frame_set_cell</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cell</span><span class="p">);</span>
+        <span class="n">chfl_frame_set_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">water_topology</span><span class="p">);</span>
+        <span class="c1">// Write the frame to the output file, using PDB format</span>
+        <span class="n">chfl_trajectory_write</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+    <span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">water_topology</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nl">error</span><span class="p">:</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error, cleaning up …</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+    <span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+    <span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+    <span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+    <span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">water_topology</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

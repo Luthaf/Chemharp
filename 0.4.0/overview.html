@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chemfiles features overview &mdash; Chemfiles 0.4.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.4.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.4.0
+ documentation" href="index.html" />
+    <link rel="next" title="Usage examples" href="example.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.4</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Chemfiles features overview</a><ul>
+<li><a class="reference internal" href="#trajectory-the-main-entry-point">Trajectory: the main entry point</a></li>
+<li><a class="reference internal" href="#frame-data-from-a-simulation-step">Frame: data from a simulation step</a></li>
+<li><a class="reference internal" href="#topology-how-are-the-atoms-organised">Topology: how are the atoms organised</a></li>
+<li><a class="reference internal" href="#atom-building-blocks-for-simulations">Atom: building blocks for simulations</a></li>
+<li><a class="reference internal" href="#unitcell-wrapping-the-atoms-together">UnitCell: wrapping the atoms together</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Installation</span>
+    </a>
+  </li>
+  <li>
+    <a href="example.html" title="Next Chapter: Usage examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage examples &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/overview.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="chemfiles-features-overview">
+<span id="overview"></span><h1>Chemfiles features overview<a class="headerlink" href="#chemfiles-features-overview" title="Permalink to this headline">¶</a></h1>
+<p>This figure represent how the basic types of chemfiles are arganised and how they
+interact together. The only types a chemfiles user should worry about are the
+<code class="docutils literal"><span class="pre">Trajectory</span></code>, <code class="docutils literal"><span class="pre">Frame</span></code>, <code class="docutils literal"><span class="pre">Topology</span></code>, <code class="docutils literal"><span class="pre">Atom</span></code> and <code class="docutils literal"><span class="pre">UnitCell</span></code> types. All of
+these are described in this section.</p>
+<img alt="_images/classes.png" class="align-center" src="_images/classes.png" />
+<p>They are various way of interacting with these types, all of them being described
+in the <a class="reference internal" href="index.html#classes-reference"><span class="std std-ref">Classes and functions reference</span></a> section for the C++ interface. All the bindings may not
+provide all the functionalities, so if something is missing, just
+<a class="reference external" href="https://github.com/chemfiles/chemfiles/issues/new">ask for it!</a></p>
+<div class="section" id="trajectory-the-main-entry-point">
+<span id="overview-trajectory"></span><h2>Trajectory: the main entry point<a class="headerlink" href="#trajectory-the-main-entry-point" title="Permalink to this headline">¶</a></h2>
+<p>A <code class="docutils literal"><span class="pre">Trajectory</span></code> uses a file and a format together to read simulation data from
+the file. It can read and write one or many <code class="docutils literal"><span class="pre">Frame</span></code> to this file. The file
+type and the format are automatically determined from the extention.</p>
+</div>
+<div class="section" id="frame-data-from-a-simulation-step">
+<span id="overview-frame"></span><h2>Frame: data from a simulation step<a class="headerlink" href="#frame-data-from-a-simulation-step" title="Permalink to this headline">¶</a></h2>
+<p>A <code class="docutils literal"><span class="pre">Frame</span></code> holds data for one step of a simulation. As not all formats provides
+all the types of informations, some fields may be initialized to a default value.</p>
+<p>A <code class="docutils literal"><span class="pre">Frame</span></code> may contains the following data:</p>
+<ul class="simple">
+<li>Positions for all the atoms in the system;</li>
+<li>Velocities for all the atoms in the system;</li>
+<li>The <code class="docutils literal"><span class="pre">Topology</span></code> of the system;</li>
+<li>The <code class="docutils literal"><span class="pre">UnitCell</span></code> of the system.</li>
+</ul>
+</div>
+<div class="section" id="topology-how-are-the-atoms-organised">
+<span id="overview-topology"></span><h2>Topology: how are the atoms organised<a class="headerlink" href="#topology-how-are-the-atoms-organised" title="Permalink to this headline">¶</a></h2>
+<p>A <code class="docutils literal"><span class="pre">Topology</span></code> describes the organisation of the particles in the system.
+What are they names, how are they bonded together, … A topology is mainly a list
+of <code class="docutils literal"><span class="pre">Atom</span></code> in the system.</p>
+</div>
+<div class="section" id="atom-building-blocks-for-simulations">
+<span id="overview-atom"></span><h2>Atom: building blocks for simulations<a class="headerlink" href="#atom-building-blocks-for-simulations" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">Atom</span></code> type contains basic information about the atoms in the system:
+the name (if it is disponible), mass, kind of atom and so on. Atoms are not
+limited to plain chemical elements. Four types of atoms are defined: <em>Element</em>
+are Atoms from the periodic classification; <em>Corse grained</em> atoms are particles
+taking together more than one element (<em>CH4</em> or <em>H2O</em> are examples); <em>Dummy</em>
+atoms are fictitous points associated with some data, like the fourth site in
+the TIP4P model of water; and <em>Undefined</em> atoms are all the other atoms types.</p>
+</div>
+<div class="section" id="unitcell-wrapping-the-atoms-together">
+<span id="overview-cell"></span><h2>UnitCell: wrapping the atoms together<a class="headerlink" href="#unitcell-wrapping-the-atoms-together" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">UnitCell</span></code> type describe the boundary conditions of the system: where are
+the boundaries, and what is the periodicity of theses boundaries. An unit cell
+can be of three types: <em>Infinite</em>, <em>Orthorombic</em> or <em>Triclinic</em>. Inifinite cells
+does not have any boundaries. Orthorombic cells are defined by three orthogonals
+vectors, and Triclinic cells are defined by three vectors without any constrains.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

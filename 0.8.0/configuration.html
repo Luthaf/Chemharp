@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Configuration files &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Properties" href="properties.html" />
+    <link rel="prev" title="Selection language" href="selections.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Configuration files</a><ul>
+<li><a class="reference internal" href="#types-atomic-type-renaming"><code class="docutils literal"><span class="pre">[types]</span></code>: atomic type renaming</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="selections.html" title="Previous Chapter: Selection language"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selection language</span>
+    </a>
+  </li>
+  <li>
+    <a href="properties.html" title="Next Chapter: Properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Properties &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="configuration-files">
+<span id="configuration"></span><h1>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h1>
+<p>Chemfiles can be configured using <a class="reference external" href="https://github.com/toml-lang/toml">TOML</a> configuration files. By default,
+chemfiles will read configuration from any file named <code class="docutils literal"><span class="pre">.chemfilesrc</span></code> in the
+current directory or any parent directory. Data from directories higher in the
+filesystem will be used instead of the one lower in the filesystem. For example,
+with the following filesystem:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>
+├── .chemfilesrc <span class="o">(</span><span class="m">1</span><span class="o">)</span>
+└── work
+    ├── .chemfilesrc <span class="o">(</span><span class="m">2</span><span class="o">)</span>
+    ├── test-1
+    │   ├── trajectory.xyz
+    │   └── ...
+    └── test-2
+        ├── .chemfilesrc <span class="o">(</span><span class="m">3</span><span class="o">)</span>
+        ├── trajectory.nc
+        └── ...
+</pre></div>
+</div>
+<p>Running chemfiles from <code class="docutils literal"><span class="pre">$HOME/</span></code> will only use the configuration file <code class="docutils literal"><span class="pre">(1)</span></code>,
+running it from <code class="docutils literal"><span class="pre">$HOME/work/test-1</span></code> will use the configuration file <code class="docutils literal"><span class="pre">(2)</span></code>
+first and then from <code class="docutils literal"><span class="pre">(1)</span></code>, and running it from <code class="docutils literal"><span class="pre">$HOME/work/test-2</span></code> will use
+configuration data from <code class="docutils literal"><span class="pre">(3)</span></code>, then <code class="docutils literal"><span class="pre">(2)</span></code> and then <code class="docutils literal"><span class="pre">(1)</span></code>.</p>
+<p>Configuration files should be valid <a class="reference external" href="https://github.com/toml-lang/toml">TOML</a> files, and can contain various
+sections.</p>
+<div class="section" id="types-atomic-type-renaming">
+<h2><code class="docutils literal"><span class="pre">[types]</span></code>: atomic type renaming<a class="headerlink" href="#types-atomic-type-renaming" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">[types]</span></code> section of the configuration file allow to change atomic types
+to make sure they match element name. For example, in a simulatiion where water
+molecules are named <code class="docutils literal"><span class="pre">Hw-Ow-Hw</span></code>, one may use this section of the input file
+like this:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>[types]
+Ow = &quot;O&quot;
+Hw = &quot;H&quot;
+</pre></div>
+</div>
+<p>Renaming atomic type allow to ensure that bonds will be guessed right, and that
+the right atomic data can be accessed.</p>
+<p>The <code class="docutils literal"><span class="pre">[types]</span></code> section contains multiple key wich are the old atom type,
+associated with string values wich are the new atom type.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

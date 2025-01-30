@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Format classes &mdash; Chemfiles 0.4.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.4.0
+ documentation" href="../index.html" />
+    <link rel="up" title="Chemfiles internals" href="internals.html" />
+    <link rel="prev" title="File classes" href="file.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.4</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">Format</span></code> classes</a><ul>
+<li><a class="reference internal" href="#abstract-class">Abstract class</a></li>
+<li><a class="reference internal" href="#implemented-formats">Implemented formats</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="file.html" title="Previous Chapter: File classes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; File classes</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/devdoc/format.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="format-classes">
+<span id="format-class"></span><h1><code class="docutils literal"><span class="pre">Format</span></code> classes<a class="headerlink" href="#format-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abstract-class">
+<h2>Abstract class<a class="headerlink" href="#abstract-class" title="Permalink to this headline">¶</a></h2>
+<p>This classe only define the interface, which as to be implemented by all formats.</p>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format"></span><em>class</em> <code class="descname">chemfiles::Format</code></dt>
+<dd><p>Abstract base class for formats reader and writer </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Type</p>
+<dl class="typedef">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1aa9bf34c8a44b7ab8435dc615a5e42d06"></span>typedef <a class="reference internal" href="file.html#project0classchemfiles_1_1_basic_file"><span class="std std-ref">BasicFile</span></a> <code class="descname">file_t</code></dt>
+<dd><p><a class="reference internal" href="file.html#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> class to use with this <a class="reference internal" href="#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a>. This is for registration in the Factory. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1a5987699bf57f9d087ec1a75a7a784e21"></span><code class="descname">Format</code><span class="sig-paren">(</span><a class="reference internal" href="file.html#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> &amp; <em>f</em><span class="sig-paren">)</span></dt>
+<dd><p>Constructor associating a file to this <a class="reference internal" href="#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a> instance. The file should have the file_t class. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1aff3b8eec3d10529a11637ea4bdc606c4"></span>virtual void <code class="descname">read_step</code><span class="sig-paren">(</span>const size_t <em>step</em>, <a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>The step to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1aa11b98ebc235a57f64b81feb3fa13ffb"></span>virtual void <code class="descname">read</code><span class="sig-paren">(</span><a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1ad592ef519f5e77caaa98bb6597824c7d"></span>virtual void <code class="descname">write</code><span class="sig-paren">(</span>const <a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Write a step (frame) to the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to be writen</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1a2fe0dcff782169e958deb8a801bc383c"></span>virtual size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const = 0</dt>
+<dd><p>Get the number of frames in the associated file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The number of frames </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_format_1acf6a4c488a14aa184bc3bf79a9dbf875"></span>virtual std::string <code class="descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const = 0</dt>
+<dd><p>A short string describing the format. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="implemented-formats">
+<h2>Implemented formats<a class="headerlink" href="#implemented-formats" title="Permalink to this headline">¶</a></h2>
+<p>These classes implement the interface defined previously.</p>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_x_y_z_format"></span><em>class</em> <code class="descname">chemfiles::XYZFormat</code></dt>
+<dd><p>XYZ file format reader. </p>
+<p>The format is described at <a class="reference external" href="http://openbabel.org/wiki/XYZ">http://openbabel.org/wiki/XYZ</a> </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_x_y_z_format_1a167a703d7c6a8d52e9b4740543511006"></span>virtual void <code class="descname">read_step</code><span class="sig-paren">(</span>const size_t <em>step</em>, <a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>The step to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_x_y_z_format_1a82a4e2a1d05bb348893f9003cdc3f9fc"></span>virtual void <code class="descname">read</code><span class="sig-paren">(</span><a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_x_y_z_format_1aead32f7af054584d1b5b1463166e67b9"></span>virtual void <code class="descname">write</code><span class="sig-paren">(</span>const <a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Write a step (frame) to the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to be writen</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_x_y_z_format_1a3fb0f4885655dadeeb575b7bc0cbda1a"></span>virtual std::string <code class="descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>A short string describing the format. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_x_y_z_format_1af4cb51abc185fa64e8bfc2cfbb7f1e90"></span>virtual size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the number of frames in the associated file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The number of frames </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_format"></span><em>class</em> <code class="descname">chemfiles::NCFormat</code></dt>
+<dd><p>Amber NetCDF file format reader. </p>
+<p><a class="reference external" href="http://ambermd.org/netcdf/nctraj.xhtml">http://ambermd.org/netcdf/nctraj.xhtml</a> </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_format_1a3898cd71d891724adb89416f4e62c7cb"></span>virtual void <code class="descname">read_step</code><span class="sig-paren">(</span>const size_t <em>step</em>, <a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>The step to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_format_1a592c91915cc47cea6347812a44e59f64"></span>virtual void <code class="descname">read</code><span class="sig-paren">(</span><a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_format_1af54aaa5881bfc24e9bd3a15d15f5d93e"></span>virtual void <code class="descname">write</code><span class="sig-paren">(</span>const <a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Write a step (frame) to the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to be writen</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_format_1a18abcfbfb2d415800f7d2d8ae6656877"></span>virtual size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the number of frames in the associated file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The number of frames </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_format_1a0ab185b520231b13c4d72a36f5e0e799"></span>virtual std::string <code class="descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>A short string describing the format. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_molfile"></span>template &lt;MolfileFormat <em>F</em>&gt;</dt>
+<dt>
+<em>class</em> <code class="descname">chemfiles::Molfile</code></dt>
+<dd><p>Use of VMD <a class="reference internal" href="#project0classchemfiles_1_1_molfile"><span class="std std-ref">Molfile</span></a> plugins as format reader/writer. This class is templated by a value in the MolfileFormat enum. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_molfile_1a5c121b30a342cc9c72ec3d7b4621c505"></span>virtual void <code class="descname">read</code><span class="sig-paren">(</span><a class="reference internal" href="../classes/frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step from the associated file. </p>
+<p>
+This function can throw an exception in case of error. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to fill</p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_molfile_1a833ccbfc0e1c249ac9e0374fcb37c317"></span>virtual std::string <code class="descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>A short string describing the format. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_molfile_1a374f9de890b1ca2dea2cf9c6cc589c9c"></span>virtual size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the number of frames in the associated file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The number of frames </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="project0namespacechemfiles_1aec3747f46780336a3f4005a397235c07"></span><strong>MolfileFormat enum</strong></dt>
+<dd><p>List all the VMD molfile plugins enabled. For more documentation about VMD molfile plugins, please see: <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/">http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/</a> </p>
+<p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">PDB</span></code> - <p>PDB file format. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">DCD</span></code> - <p>DCD binary file format. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">GRO</span></code> - <p>Gromacs .gro file format. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">TRR</span></code> - <p>Gromacs .trr file format. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">XTC</span></code> - <p>Gromacs .xtc file format. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">TRJ</span></code> - <p>Gromacs .trj file format. </p>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

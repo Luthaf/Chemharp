@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function manipulating CHFL_FRAME &mdash; Chemfiles 0.6.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.6.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C interface reference" href="index.html" />
+    <link rel="next" title="Function manipulating CHFL_ATOM" href="chfl_atom.html" />
+    <link rel="prev" title="Function manipulating CHFL_TRAJECTORY" href="chfl_trajectory.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_trajectory.html" title="Previous Chapter: Function manipulating CHFL_TRAJECTORY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_atom.html" title="Next Chapter: Function manipulating CHFL_ATOM"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Function mani... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-frame">
+<span id="capi-frame"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code><a class="headerlink" href="#function-manipulating-chfl-frame" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a4028357754400956bee8d38c7221e1dc"></span>CHFL_FRAME * <code class="descname">chfl_frame</code><span class="sig-paren">(</span>size_t <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Create an empty frame with initial capacity of <code class="docutils literal"><span class="pre">natoms</span></code>. It will be resized by the library as needed. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the frame, or NULL in case of error </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>the size of the wanted frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a2678cadacf393adf7628c16cf3913dbd"></span>int <code class="descname">chfl_frame_atoms_count</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, size_t * <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the current number of atoms in the frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to analyse </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>the number of atoms in the frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a2f3088df7987cc2593f9cd478e1c9cbf"></span>int <code class="descname">chfl_frame_resize</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, size_t <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Resize the positions and the velocities in frame, to make space for N atoms. </p>
+<p>This function may invalidate any pointer to the positions or the velocities if the new size is bigger than the old one. In all the cases, previous data is conserved. This function conserve the presence of absence of velocities.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>The new number of atoms. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a089731afd36131f2eaa89ee71e1d404c"></span>int <code class="descname">chfl_frame_positions</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, float(**) <em>data</em>[3], size_t * <em>size</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a pointer to the positions array from a frame. </p>
+<p>The positions are stored as a N x 3 array, this function set a pointer to point to the first element of this array, and give the value of N. If the frame is resized (by writing to it, or calling <code class="docutils literal"><span class="pre">chfl_frame_resize</span></code>), the pointer is invalidated.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A pointer to a pointer to float[3] array, which will point to the data </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">size</span></code> - <p>A pointer to the an integer to be filled with the array size </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1afaca69e958dc91aa26a62d26138260fc"></span>int <code class="descname">chfl_frame_velocities</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, float(**) <em>data</em>[3], size_t * <em>size</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a pointer to the velocities array from a frame. </p>
+<p>The velocities are stored as a <code class="docutils literal"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">3</span></code> array, this function set a pointer to point to the first element of this array, and give the value of N. If the frame is resized (by writing to it, or calling <code class="docutils literal"><span class="pre">chfl_frame_resize</span></code>), the pointer is invalidated.</p>
+<p>If the frame do not have velocity, this will return an error. Use <code class="docutils literal"><span class="pre">chfl_frame_add_velocities</span></code> to add velocities to a frame before calling this function.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A pointer to a pointer to float[3] array, which will point to the data </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">size</span></code> - <p>A pointer to the an integer to be filled with the array size </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a0f4a5b1d67321596cfc859d8b4b12b80"></span>int <code class="descname">chfl_frame_has_velocities</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, bool * <em>has_velocities</em><span class="sig-paren">)</span></dt>
+<dd><p>Ask wether this frame contains velocity data or not. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">has_velocities</span></code> - <p>A boolean, will be true if the frame have velocities, false otherwise. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1acbbb2c5332d638592ae38560ad539ca2"></span>int <code class="descname">chfl_frame_add_velocities</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Add velocity storage to this frame. </p>
+<p>The storage is initialized with the result of <code class="docutils literal"><span class="pre">chfl_frame_atoms_count</span></code> as number of atoms. If the frame already have velocities, this does nothing.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ac7f16b9f1cc239f978e36bcb537bd4f4"></span>int <code class="descname">chfl_frame_set_cell</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, const CHFL_CELL * <em>cell</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the UnitCell of a Frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>The new cell </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ad6ff2e118d42cdbc9ea69a512493932c"></span>int <code class="descname">chfl_frame_set_topology</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, const CHFL_TOPOLOGY * <em>topology</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the Topology of a Frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The new topology </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aded2e146ca96055f352c579b58d114b6"></span>int <code class="descname">chfl_frame_step</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, size_t * <em>step</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the Frame step, i.e. the frame number in the trajectory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>This will contains the step number </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a3f6b5880a977ce1d5e79b0aad48c95fd"></span>int <code class="descname">chfl_frame_set_step</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, size_t <em>step</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the Frame step. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>The new frame step </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ab96e581a67d38aea2dbb14b53ef7a49e"></span>int <code class="descname">chfl_frame_guess_topology</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Guess the bonds, angles and dihedrals in the system. </p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles and dihedrals are guessed from the bonds.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The Frame to analyse </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a84b0143ae242e65712c24786a6398553"></span>int <code class="descname">chfl_frame_free</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroy a frame, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to destroy </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

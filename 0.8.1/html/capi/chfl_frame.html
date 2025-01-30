@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Function manipulating CHFL_FRAME &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function manipulating CHFL_TOPOLOGY" href="chfl_topology.html" />
+    <link rel="prev" title="Function manipulating CHFL_TRAJECTORY" href="chfl_trajectory.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal notranslate"><span class="pre">CHFL_FRAME</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_trajectory.html" title="Previous Chapter: Function manipulating CHFL_TRAJECTORY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_topology.html" title="Next Chapter: Function manipulating CHFL_TOPOLOGY"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Function mani... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-frame">
+<span id="capi-frame"></span><h1>Function manipulating <code class="docutils literal notranslate"><span class="pre">CHFL_FRAME</span></code><a class="headerlink" href="#function-manipulating-chfl-frame" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv310CHFL_FRAME">
+<span id="_CPPv210CHFL_FRAME"></span><span id="CHFL_FRAME"></span><span class="target" id="types_8h_1a2ee77be9758e461009fbb146db5742d9"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> <code class="descname">CHFL_FRAME</code><a class="headerlink" href="#_CPPv310CHFL_FRAME" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An opaque type handling frames.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">CHFL_FRAME</span></code> contains data from one simulation step: the current unit cell, the topology, the positions, and the velocities of the particles in the system. If some information is missing (topology or velocity or unit cell), the corresponding data is filled with a default value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv310chfl_framev">
+<span id="_CPPv210chfl_framev"></span><span id="chfl_frame__void"></span><span class="target" id="frame_8h_1a5ecb6d7bd460334efc1199db0915e3cd"></span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<code class="descname">chfl_frame</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv310chfl_framev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new empty frame.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal notranslate"><span class="pre">chfl_frame_free</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the frame, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv315chfl_frame_copyPK10CHFL_FRAME">
+<span id="_CPPv215chfl_frame_copyPK10CHFL_FRAME"></span><span id="chfl_frame_copy__CHFL_FRAMECP"></span><span class="target" id="frame_8h_1a581c347305507f4f93396732428b6fab"></span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<code class="descname">chfl_frame_copy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315chfl_frame_copyPK10CHFL_FRAME" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a copy of a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal notranslate"><span class="pre">chfl_frame_free</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">chfl_frame_copy</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">copy</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the new frame, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv322chfl_frame_atoms_countPK10CHFL_FRAMEP8uint64_t">
+<span id="_CPPv222chfl_frame_atoms_countPK10CHFL_FRAMEP8uint64_t"></span><span id="chfl_frame_atoms_count__CHFL_FRAMECP.uint64_tP"></span><span class="target" id="frame_8h_1aedf73393aafee073331e9f0dc8503166"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_atoms_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t *<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv322chfl_frame_atoms_countPK10CHFL_FRAMEP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the current number of atoms in a <code class="docutils literal notranslate"><span class="pre">frame</span></code> in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">size</span></code></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv317chfl_frame_resizeP10CHFL_FRAME8uint64_t">
+<span id="_CPPv217chfl_frame_resizeP10CHFL_FRAME8uint64_t"></span><span id="chfl_frame_resize__CHFL_FRAMEP.uint64_t"></span><span class="target" id="frame_8h_1a20df4290372e964b54c9580227f51a2f"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_resize</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv317chfl_frame_resizeP10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resize the positions, velocities and topology in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>, to have space for <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms.</p>
+<p>This function may invalidate any pointer to the positions or the velocities if the new size is bigger than the old one. In all the cases, previous data is conserved. This function conserve the presence or absence of velocities.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">55</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">55</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319chfl_frame_add_atomP10CHFL_FRAMEPK9CHFL_ATOMK13chfl_vector3dK13chfl_vector3d">
+<span id="_CPPv219chfl_frame_add_atomP10CHFL_FRAMEPK9CHFL_ATOMK13chfl_vector3dK13chfl_vector3d"></span><span id="chfl_frame_add_atom__CHFL_FRAMEP.CHFL_ATOMCP.chfl_vector3dC.chfl_vector3dC"></span><span class="target" id="frame_8h_1aa82b0b898ddd5401b9af8131f3cd625b"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_add_atom</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_atom.html#_CPPv39CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv313chfl_vector3d" title="chfl_vector3d">chfl_vector3d</a> <em>position</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv313chfl_vector3d" title="chfl_vector3d">chfl_vector3d</a> <em>velocity</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319chfl_frame_add_atomP10CHFL_FRAMEPK9CHFL_ATOMK13chfl_vector3dK13chfl_vector3d" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add an <code class="docutils literal notranslate"><span class="pre">atom</span></code> and the corresponding <code class="docutils literal notranslate"><span class="pre">position</span></code> and <code class="docutils literal notranslate"><span class="pre">velocity</span></code> data to a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">velocity</span></code> can be <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no velocity is associated with the atom.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv317chfl_frame_removeP10CHFL_FRAME8uint64_t">
+<span id="_CPPv217chfl_frame_removeP10CHFL_FRAME8uint64_t"></span><span id="chfl_frame_remove__CHFL_FRAMEP.uint64_t"></span><span class="target" id="frame_8h_1ad0a1eaafe0548b83d7f639ebaedbf59e"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_remove</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv317chfl_frame_removeP10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>This modify all the atoms indexes after <code class="docutils literal notranslate"><span class="pre">i</span></code>, and invalidate any pointer obtained using <code class="docutils literal notranslate"><span class="pre">chfl_frame_positions</span></code> or <code class="docutils literal notranslate"><span class="pre">chfl_frame_velocities</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">37</span><span class="p">);</span>
+<span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">39</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv320chfl_frame_positionsP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t">
+<span id="_CPPv220chfl_frame_positionsP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t"></span><span id="chfl_frame_positions__CHFL_FRAMEP.chfl_vector3dPP.uint64_tP"></span><span class="target" id="frame_8h_1a31114878e02fd8d1358561f0a0bcd1b6"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_positions</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <a class="reference internal" href="index.html#_CPPv313chfl_vector3d" title="chfl_vector3d">chfl_vector3d</a> **<em>positions</em>, uint64_t *<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv320chfl_frame_positionsP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the positions array from a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>Positions are stored as a <code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">x</span> <span class="pre">3</span></code> array, this function set the pointer pointed to by <code class="docutils literal notranslate"><span class="pre">positions</span></code> to point to the first element of this array, and give the number of atoms in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<p>If the frame is resized (by writing to it, or calling <code class="docutils literal notranslate"><span class="pre">chfl_frame_resize</span></code>, <code class="docutils literal notranslate"><span class="pre">chfl_frame_remove</span></code> or <code class="docutils literal notranslate"><span class="pre">chfl_frame_add_atom</span></code>), the pointer is invalidated. If the frame is freed using <code class="docutils literal notranslate"><span class="pre">chfl_frame_free</span></code>, the pointer is freed too. There is then no need to free the <code class="docutils literal notranslate"><span class="pre">*positions</span></code> pointer for the caller of this function.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// use positions[i] here</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv321chfl_frame_velocitiesP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t">
+<span id="_CPPv221chfl_frame_velocitiesP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t"></span><span id="chfl_frame_velocities__CHFL_FRAMEP.chfl_vector3dPP.uint64_tP"></span><span class="target" id="frame_8h_1aba0f6e1a3b2c451b99607a77adbc9aaf"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_velocities</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <a class="reference internal" href="index.html#_CPPv313chfl_vector3d" title="chfl_vector3d">chfl_vector3d</a> **<em>velocities</em>, uint64_t *<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv321chfl_frame_velocitiesP10CHFL_FRAMEPP13chfl_vector3dP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the velocities array from a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>Velocities are stored as a <code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">x</span> <span class="pre">3</span></code> array, this function set the pointer pointed to by <code class="docutils literal notranslate"><span class="pre">positions</span></code> to point to the first element of this array, and give the number of atoms in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<p>If the frame is resized (by writing to it, or calling <code class="docutils literal notranslate"><span class="pre">chfl_frame_resize</span></code>, <code class="docutils literal notranslate"><span class="pre">chfl_frame_remove</span></code> or <code class="docutils literal notranslate"><span class="pre">chfl_frame_add_atom</span></code>), the pointer is invalidated. If the frame is freed using <code class="docutils literal notranslate"><span class="pre">chfl_frame_free</span></code>, the pointer is freed too. There is then no need to free the <code class="docutils literal notranslate"><span class="pre">*velocity</span></code> pointer for the caller of this function.</p>
+<p>If the frame does not have velocity, this will return an error. Use <code class="docutils literal notranslate"><span class="pre">chfl_frame_add_velocities</span></code> to add velocities to a frame before calling this function.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_add_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="n">chfl_vector3d</span><span class="o">*</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// use velocities[i] here</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv325chfl_frame_has_velocitiesPK10CHFL_FRAMEPb">
+<span id="_CPPv225chfl_frame_has_velocitiesPK10CHFL_FRAMEPb"></span><span id="chfl_frame_has_velocities__CHFL_FRAMECP.bP"></span><span class="target" id="frame_8h_1add79d0a8f3ce93bbb66984ca0d99ca2a"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_has_velocities</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, bool *<em>has_velocities</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv325chfl_frame_has_velocitiesPK10CHFL_FRAMEPb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if this <code class="docutils literal notranslate"><span class="pre">frame</span></code> contains velocity data, and store the result in <code class="docutils literal notranslate"><span class="pre">has_velocities</span></code></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="kt">bool</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">chfl_frame_has_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv325chfl_frame_add_velocitiesP10CHFL_FRAME">
+<span id="_CPPv225chfl_frame_add_velocitiesP10CHFL_FRAME"></span><span id="chfl_frame_add_velocities__CHFL_FRAMEP"></span><span class="target" id="frame_8h_1ab34bfd28a7007ce0cfa81f7ec4fd981f"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_add_velocities</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv325chfl_frame_add_velocitiesP10CHFL_FRAME" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add velocity data to this <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>The velocities are initialized to <code class="docutils literal notranslate"><span class="pre">(chfl_vector3d){0,</span> <span class="pre">0,</span> <span class="pre">0}</span></code>. If the frame already has velocities, this does nothing.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_frame_add_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">chfl_frame_has_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319chfl_frame_set_cellP10CHFL_FRAMEPK9CHFL_CELL">
+<span id="_CPPv219chfl_frame_set_cellP10CHFL_FRAMEPK9CHFL_CELL"></span><span id="chfl_frame_set_cell__CHFL_FRAMEP.CHFL_CELLCP"></span><span class="target" id="frame_8h_1a6298d59ca1940a9f60dc8d1b9d722f9c"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_set_cell</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_cell.html#_CPPv39CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319chfl_frame_set_cellP10CHFL_FRAMEPK9CHFL_CELL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the unit cell of a <code class="docutils literal notranslate"><span class="pre">frame</span></code> to <code class="docutils literal notranslate"><span class="pre">cell</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">});</span>
+
+<span class="n">chfl_frame_set_cell</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cell</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv323chfl_frame_set_topologyP10CHFL_FRAMEPK13CHFL_TOPOLOGY">
+<span id="_CPPv223chfl_frame_set_topologyP10CHFL_FRAMEPK13CHFL_TOPOLOGY"></span><span id="chfl_frame_set_topology__CHFL_FRAMEP.CHFL_TOPOLOGYCP"></span><span class="target" id="frame_8h_1a002c8dc86aee3f705fc07e9e558d1170"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_set_topology</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_topology.html#_CPPv313CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv323chfl_frame_set_topologyP10CHFL_FRAMEPK13CHFL_TOPOLOGY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the topology of a <code class="docutils literal notranslate"><span class="pre">frame</span></code> to <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>Calling this function with a topology that does not contain the right number of atom will return an error.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="p">{</span>
+    <span class="c1">// Build the topology</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_set_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">topology</span><span class="p">);</span>
+
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319chfl_frame_add_bondP10CHFL_FRAME8uint64_t8uint64_t">
+<span id="_CPPv219chfl_frame_add_bondP10CHFL_FRAME8uint64_t8uint64_t"></span><span id="chfl_frame_add_bond__CHFL_FRAMEP.uint64_t.uint64_t"></span><span class="target" id="frame_8h_1a5522cb0af93ac817baeaf9fb91e4f54c"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_add_bond</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em>, uint64_t <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319chfl_frame_add_bondP10CHFL_FRAME8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p> <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv322chfl_frame_remove_bondP10CHFL_FRAME8uint64_t8uint64_t">
+<span id="_CPPv222chfl_frame_remove_bondP10CHFL_FRAME8uint64_t8uint64_t"></span><span id="chfl_frame_remove_bond__CHFL_FRAMEP.uint64_t.uint64_t"></span><span class="target" id="frame_8h_1a4b0429e35126fe92c0ec5f35eb3a802e"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_remove_bond</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em>, uint64_t <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv322chfl_frame_remove_bondP10CHFL_FRAME8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>This function does nothing if there is no bond between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+<p> <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv322chfl_frame_add_residueP10CHFL_FRAMEPK12CHFL_RESIDUE">
+<span id="_CPPv222chfl_frame_add_residueP10CHFL_FRAMEPK12CHFL_RESIDUE"></span><span id="chfl_frame_add_residue__CHFL_FRAMEP.CHFL_RESIDUECP"></span><span class="target" id="frame_8h_1ab0f624d01c4c817f50de5d809548cfc3"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_add_residue</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_residue.html#_CPPv312CHFL_RESIDUE" title="CHFL_RESIDUE">CHFL_RESIDUE</a> *<em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv322chfl_frame_add_residueP10CHFL_FRAMEPK12CHFL_RESIDUE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a copy of <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>The residue id must not already be in this frame’s topology, and the residue must contain only atoms that are not already in another residue.</p>
+<p> <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv315chfl_frame_stepPK10CHFL_FRAMEP8uint64_t">
+<span id="_CPPv215chfl_frame_stepPK10CHFL_FRAMEP8uint64_t"></span><span id="chfl_frame_step__CHFL_FRAMECP.uint64_tP"></span><span class="target" id="frame_8h_1a0e3b6fb1717770f877da0fa5cde70546"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_step</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t *<em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315chfl_frame_stepPK10CHFL_FRAMEP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a <code class="docutils literal notranslate"><span class="pre">frame</span></code> step, <em>i.e.</em> the frame number in the trajectory in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="kt">uint64_t</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">chfl_frame_step</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319chfl_frame_set_stepP10CHFL_FRAME8uint64_t">
+<span id="_CPPv219chfl_frame_set_stepP10CHFL_FRAME8uint64_t"></span><span id="chfl_frame_set_step__CHFL_FRAMEP.uint64_t"></span><span class="target" id="frame_8h_1a9db537d2fe02477a9eea551fff71f94c"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_set_step</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319chfl_frame_set_stepP10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set a <code class="docutils literal notranslate"><span class="pre">frame</span></code> step, <em>i.e.</em> the frame number in the trajectory to <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_frame_set_step</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">678</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_step</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">step</span> <span class="o">==</span> <span class="mi">678</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv325chfl_frame_guess_topologyP10CHFL_FRAME">
+<span id="_CPPv225chfl_frame_guess_topologyP10CHFL_FRAME"></span><span id="chfl_frame_guess_topology__CHFL_FRAMEP"></span><span class="target" id="frame_8h_1a2a746cb2ead545e09bc3b28757f66835"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_guess_topology</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv325chfl_frame_guess_topologyP10CHFL_FRAME" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Guess the bonds, angles and dihedrals in a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles and dihedrals are guessed from the bonds.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Building a frame containing a Cl2 molecule</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">Cl</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Cl&quot;</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">Cl</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">Cl</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">Cl</span><span class="p">);</span>
+
+<span class="c1">// Check that the topology does not contain any bond</span>
+<span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="kt">uint64_t</span> <span class="n">bonds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+
+<span class="n">chfl_frame_guess_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="c1">// Get a copie of the new topology</span>
+<span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319chfl_frame_distancePK10CHFL_FRAME8uint64_t8uint64_tPd">
+<span id="_CPPv219chfl_frame_distancePK10CHFL_FRAME8uint64_t8uint64_tPd"></span><span id="chfl_frame_distance__CHFL_FRAMECP.uint64_t.uint64_t.doubleP"></span><span class="target" id="frame_8h_1a416dfdccf13d5f870047153a6bc0ad9f"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_distance</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em>, uint64_t <em>j</em>, double *<em>distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319chfl_frame_distancePK10CHFL_FRAME8uint64_t8uint64_tPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the distance between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>, accounting for periodic boundary conditions. The result is placed in <code class="docutils literal notranslate"><span class="pre">distance</span></code>, and expressed in angstroms.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_distance</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">distance</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">distance</span> <span class="o">==</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv316chfl_frame_anglePK10CHFL_FRAME8uint64_t8uint64_t8uint64_tPd">
+<span id="_CPPv216chfl_frame_anglePK10CHFL_FRAME8uint64_t8uint64_t8uint64_tPd"></span><span id="chfl_frame_angle__CHFL_FRAMECP.uint64_t.uint64_t.uint64_t.doubleP"></span><span class="target" id="frame_8h_1aeed2999291becf4e58dbb2236aa5b960"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_angle</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em>, uint64_t <em>j</em>, uint64_t <em>k</em>, double *<em>angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv316chfl_frame_anglePK10CHFL_FRAME8uint64_t8uint64_t8uint64_tPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>, accounting for periodic boundary conditions. The result is placed in <code class="docutils literal notranslate"><span class="pre">angle</span></code>, and expressed in radians.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">angle</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_angle</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">angle</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">angle</span> <span class="o">-</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319chfl_frame_dihedralPK10CHFL_FRAME8uint64_t8uint64_t8uint64_t8uint64_tPd">
+<span id="_CPPv219chfl_frame_dihedralPK10CHFL_FRAME8uint64_t8uint64_t8uint64_t8uint64_tPd"></span><span id="chfl_frame_dihedral__CHFL_FRAMECP.uint64_t.uint64_t.uint64_t.uint64_t.doubleP"></span><span class="target" id="frame_8h_1ad817e08fd648d0a3e9ba281aeab54326"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_dihedral</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em>, uint64_t <em>j</em>, uint64_t <em>k</em>, uint64_t <em>m</em>, double *<em>dihedral</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319chfl_frame_dihedralPK10CHFL_FRAME8uint64_t8uint64_t8uint64_t8uint64_tPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>, accounting for periodic boundary conditions. The result is placed in <code class="docutils literal notranslate"><span class="pre">dihedral</span></code>, and expressed in radians.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">dihedral</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_dihedral</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dihedral</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">dihedral</span> <span class="o">-</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv323chfl_frame_out_of_planePK10CHFL_FRAME8uint64_t8uint64_t8uint64_t8uint64_tPd">
+<span id="_CPPv223chfl_frame_out_of_planePK10CHFL_FRAME8uint64_t8uint64_t8uint64_t8uint64_tPd"></span><span id="chfl_frame_out_of_plane__CHFL_FRAMECP.uint64_t.uint64_t.uint64_t.uint64_t.doubleP"></span><span class="target" id="frame_8h_1a3727ab717b173aacf7370257f1a45737"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_out_of_plane</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>i</em>, uint64_t <em>j</em>, uint64_t <em>k</em>, uint64_t <em>m</em>, double *<em>distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv323chfl_frame_out_of_planePK10CHFL_FRAME8uint64_t8uint64_t8uint64_t8uint64_tPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the out of plane distance formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> in the <code class="docutils literal notranslate"><span class="pre">frame</span></code>, accounting for periodic boundary conditions. The result is placed in <code class="docutils literal notranslate"><span class="pre">distance</span></code> and expressed in angstroms.</p>
+<p>This is the distance betweent the atom j and the ikm plane. The j atom is the center of the improper dihedral angle formed by i, j, k and m.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_out_of_plane</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">distance</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">distance</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv323chfl_frame_set_propertyP10CHFL_FRAMEPKcPK13CHFL_PROPERTY">
+<span id="_CPPv223chfl_frame_set_propertyP10CHFL_FRAMEPKcPK13CHFL_PROPERTY"></span><span id="chfl_frame_set_property__CHFL_FRAMEP.cCP.CHFL_PROPERTYCP"></span><span class="target" id="frame_8h_1ad94840be0bb597cb0e78b007d1013ea7"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_set_property</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <em class="property">const</em> char *<em>name</em>, <em class="property">const</em> <a class="reference internal" href="chfl_property.html#_CPPv313CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv323chfl_frame_set_propertyP10CHFL_FRAMEPKcPK13CHFL_PROPERTY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a new <code class="docutils literal notranslate"><span class="pre">property</span></code> with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> to this <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>If a property with the same name already exists, this function override the existing property with the new one.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_frame_set_property</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">,</span> <span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+
+<span class="n">property</span> <span class="o">=</span> <span class="n">chfl_frame_get_property</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_property_get_double</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv323chfl_frame_get_propertyPK10CHFL_FRAMEPKc">
+<span id="_CPPv223chfl_frame_get_propertyPK10CHFL_FRAMEPKc"></span><span id="chfl_frame_get_property__CHFL_FRAMECP.cCP"></span><span class="target" id="frame_8h_1ad096e3df6d911bb8ac476d499427b975"></span><a class="reference internal" href="chfl_property.html#_CPPv313CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<code class="descname">chfl_frame_get_property</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, <em class="property">const</em> char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv323chfl_frame_get_propertyPK10CHFL_FRAMEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> in this <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>This function returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is no property exist with the given name.</p>
+<p>The user of this function is responsible to deallocate memory using the <code class="docutils literal notranslate"><span class="pre">chfl_property_free</span></code> function.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_frame_set_property</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">,</span> <span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+
+<span class="n">property</span> <span class="o">=</span> <span class="n">chfl_frame_get_property</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_property_get_double</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv315chfl_frame_freeP10CHFL_FRAME">
+<span id="_CPPv215chfl_frame_freeP10CHFL_FRAME"></span><span id="chfl_frame_free__CHFL_FRAMEP"></span><span class="target" id="frame_8h_1af571750d2f7d3d5d22735b3754eb4feb"></span><a class="reference internal" href="misc.html#_CPPv311chfl_status" title="chfl_status">chfl_status</a> <code class="descname">chfl_frame_free</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv310CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315chfl_frame_freeP10CHFL_FRAME" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the memory associated with a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code> </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

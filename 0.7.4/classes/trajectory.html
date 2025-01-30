@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Trajectory &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Frames" href="frame.html" />
+    <link rel="prev" title="C++ interface reference" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Trajectory</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: C++ interface reference"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C++ interface...</span>
+    </a>
+  </li>
+  <li>
+    <a href="frame.html" title="Next Chapter: Frames"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Frames &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="trajectory">
+<span id="class-trajectory"></span><h1>Trajectory<a class="headerlink" href="#trajectory" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles10TrajectoryE">
+<span id="chemfiles::Trajectory"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">Trajectory</code><a class="headerlink" href="#_CPPv2N9chemfiles10TrajectoryE" title="Permalink to this definition">¶</a></dt>
+<dd><p>A `Trajectory` is a chemistry file on the hard drive. It is the entry point of the chemfiles library.</p>
+<p>A `Trajectory` is made with a `File` and a `Format`. The `File` implements all the physical operations, while the `Format` provides a way to interpret the file. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N10Trajectory10TrajectoryERKNSt6stringEcRKNSt6stringE">
+<span id="Trajectory::Trajectory__ssCR.c.ssCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1a9e21724d22dd183b55334e000145753f"></span><code class="descname">Trajectory</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>filename</em>, char <em>mode</em> = 'r', <em class="property">const</em> std::string &amp;<em>format</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory10TrajectoryERKNSt6stringEcRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a file, automatically gessing the file format and type from the extension.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">filename</span></code>: The file path. In `w` or `a` modes, the file is created if it does not exist yet. In `r` mode, an exception is thrown is the file does not exist yet. </li>
+<li><code class="docutils literal"><span class="pre">mode</span></code>: Opening mode for the file. Default mode is `r` for read. Other supported modes depends on the underlying format and are `w` for write, and `a` for append. `w` mode discard any previously existing file. </li>
+<li><code class="docutils literal"><span class="pre">format</span></code>: Specific format to use. Needed when there is no way to guess the format from the extension of the file, or when this guess would be wrong. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory4readEv">
+<span id="Trajectory::read"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1a6247e1a8ed641ca41dd1dbaa2c8acc78"></span>Frame <code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory4readEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next frame in the trajectory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory9read_stepEK6size_t">
+<span id="Trajectory::read_step__sC"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1a3aea1fa5d7d66e59203e55dbc6a626e8"></span>Frame <code class="descname">read_step</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory9read_stepEK6size_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a single frame at specific step from the trajectory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory5writeERK5Frame">
+<span id="Trajectory::write__FrameCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1abf140b77f7fbd5fbd0f0d34cd7335d0b"></span>void <code class="descname">write</code><span class="sig-paren">(</span><em class="property">const</em> Frame &amp;<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory5writeERK5Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a single frame to the trajectory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory12set_topologyERK8Topology">
+<span id="Trajectory::set_topology__TopologyCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1ad502664223e7b00fffac517e4d00d48b"></span>void <code class="descname">set_topology</code><span class="sig-paren">(</span><em class="property">const</em> Topology &amp;<em>top</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory12set_topologyERK8Topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="topology.html#chemfilesclasschemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> of all the <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> read or written to `topology`. This replace any topology in the file being read, or in the <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> being written. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory12set_topologyERKNSt6stringERKNSt6stringE">
+<span id="Trajectory::set_topology__ssCR.ssCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1a19d25d8e3a8029c1bc2cceee33be5f52"></span>void <code class="descname">set_topology</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>filename</em>, <em class="property">const</em> std::string &amp;<em>format</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory12set_topologyERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the <a class="reference internal" href="topology.html#chemfilesclasschemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> of the first <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> of the following file as <a class="reference internal" href="topology.html#chemfilesclasschemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> for all the <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> read or written. This replace any topology in the file being read, or in the <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> being written. The optional parameter `format` can be used to specify the topology file format. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory8set_cellERK8UnitCell">
+<span id="Trajectory::set_cell__UnitCellCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1a682665df76b45e07cdf65516ce3ec8ef"></span>void <code class="descname">set_cell</code><span class="sig-paren">(</span><em class="property">const</em> UnitCell &amp;<em>new_cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory8set_cellERK8UnitCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit cell of all the <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> read or written to `cell`. This replace any cell in the file being read, or in the <a class="reference internal" href="frame.html#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> being written. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles10Trajectory6nstepsEv">
+<span id="chemfiles::Trajectory::nstepsC"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1a5710e77c5fd55cea8a550c40235d4095"></span>size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles10Trajectory6nstepsEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of steps (the number of Frames) in this trajectory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK10Trajectory4doneEv">
+<span id="Trajectory::doneC"></span><span class="target" id="chemfilesclasschemfiles_1_1_trajectory_1ac123dbd07da628beba717a54c52218a5"></span>bool <code class="descname">done</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK10Trajectory4doneEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Have we read all the Frames in this file ? </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

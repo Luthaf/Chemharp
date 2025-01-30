@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Binary files implementations &#8212; Chemfiles 0.11.0-dev documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=284a2d1d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/chemfiles.css?v=6ef80559" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=ea5b7e3f"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Format classes" href="../format.html" />
+    <link rel="prev" title="Text file implementations" href="text-files.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11-dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="text-files.html" title="Previous Chapter: Text file implementations"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Text file imp...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../format.html" title="Next Chapter: Format classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Format classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Chemfiles internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../internals.html#sources-organization">Sources organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html#classes-organization">Classes organization</a></li>
+</ul>
+</li>
+</ul>
+
+<form action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="binary-files-implementations">
+<h1>Binary files implementations<a class="headerlink" href="#binary-files-implementations" title="Permalink to this heading">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFileE">
+<span id="_CPPv3N9chemfiles16LittleEndianFileE"></span><span id="_CPPv2N9chemfiles16LittleEndianFileE"></span><span id="chemfiles::LittleEndianFile"></span><span class="target" id="classchemfiles_1_1_little_endian_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LittleEndianFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles10BinaryFileE" title="chemfiles::BinaryFile"><span class="n"><span class="pre">BinaryFile</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_i16EP7int16_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_i16EP7int16_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_i16EP7int16_t6size_t"></span><span id="chemfiles::LittleEndianFile::read_i16__int16_tP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a91e55785b392ba7d0d91c9b63e87f2f9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i16</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_i16EP7int16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_u16EP8uint16_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_u16EP8uint16_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_u16EP8uint16_t6size_t"></span><span id="chemfiles::LittleEndianFile::read_u16__uint16_tP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a3065d789ea91f04b1f070b54b48874db"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_u16</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_u16EP8uint16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit unsigned integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_i32EP7int32_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_i32EP7int32_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_i32EP7int32_t6size_t"></span><span id="chemfiles::LittleEndianFile::read_i32__int32_tP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a22a1a5f03cdd4079096879e1408850cc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_i32EP7int32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_u32EP8uint32_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_u32EP8uint32_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_u32EP8uint32_t6size_t"></span><span id="chemfiles::LittleEndianFile::read_u32__uint32_tP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a1573df50fb734d538f6c8bab2b391df8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_u32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_u32EP8uint32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit unsigned integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_i64EP7int64_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_i64EP7int64_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_i64EP7int64_t6size_t"></span><span id="chemfiles::LittleEndianFile::read_i64__int64_tP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1acaba640dab2b1d899a965ab77efdfccb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i64</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_i64EP7int64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_u64EP8uint64_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_u64EP8uint64_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_u64EP8uint64_t6size_t"></span><span id="chemfiles::LittleEndianFile::read_u64__uint64_tP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1aa1ecf96696919bdfc40a714be9301ed9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_u64</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_u64EP8uint64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit unsigned integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_f32EPf6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_f32EPf6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_f32EPf6size_t"></span><span id="chemfiles::LittleEndianFile::read_f32__floatP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1af98e5155978911e5356ba5f1eea6227c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f32</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_f32EPf6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit floating point numbers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile8read_f64EPd6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile8read_f64EPd6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile8read_f64EPd6size_t"></span><span id="chemfiles::LittleEndianFile::read_f64__doubleP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a4af57972ffd7954a57f56b03f377a51f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f64</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile8read_f64EPd6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit floating point numbers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_i16EPK7int16_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_i16EPK7int16_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_i16EPK7int16_t6size_t"></span><span id="chemfiles::LittleEndianFile::write_i16__int16_tCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a4131bc4a1c01d8cd252f8215bf2594c2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_i16</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_i16EPK7int16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit signed integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_u16EPK8uint16_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_u16EPK8uint16_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_u16EPK8uint16_t6size_t"></span><span id="chemfiles::LittleEndianFile::write_u16__uint16_tCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a749c341f32e8eca901a9d16bc4d5f89e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_u16</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_u16EPK8uint16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit unsigned integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_i32EPK7int32_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_i32EPK7int32_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_i32EPK7int32_t6size_t"></span><span id="chemfiles::LittleEndianFile::write_i32__int32_tCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a15baac056e16f83f5e12b28ca58186ef"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_i32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_i32EPK7int32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit signed integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_u32EPK8uint32_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_u32EPK8uint32_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_u32EPK8uint32_t6size_t"></span><span id="chemfiles::LittleEndianFile::write_u32__uint32_tCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a0735ceeaf3f29edb7ce7d2999c77429d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_u32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_u32EPK8uint32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit unsigned integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_i64EPK7int64_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_i64EPK7int64_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_i64EPK7int64_t6size_t"></span><span id="chemfiles::LittleEndianFile::write_i64__int64_tCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a8eea41918cdff580473f14736f9eda97"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_i64</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_i64EPK7int64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit signed integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_u64EPK8uint64_t6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_u64EPK8uint64_t6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_u64EPK8uint64_t6size_t"></span><span id="chemfiles::LittleEndianFile::write_u64__uint64_tCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a22453d0d37725d55edbad3b028e18a35"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_u64</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_u64EPK8uint64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit unsigned integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_f32EPKf6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_f32EPKf6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_f32EPKf6size_t"></span><span id="chemfiles::LittleEndianFile::write_f32__floatCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1ab826ef73bc11f6138a254dec4cfcdf0a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_f32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_f32EPKf6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit floating point numbers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LittleEndianFile9write_f64EPKd6size_t">
+<span id="_CPPv3N9chemfiles16LittleEndianFile9write_f64EPKd6size_t"></span><span id="_CPPv2N9chemfiles16LittleEndianFile9write_f64EPKd6size_t"></span><span id="chemfiles::LittleEndianFile::write_f64__doubleCP.s"></span><span class="target" id="classchemfiles_1_1_little_endian_file_1a18da130fd32e73204819c1e0716c560a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_f64</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles16LittleEndianFile9write_f64EPKd6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit floating point numbers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFileE">
+<span id="_CPPv3N9chemfiles13BigEndianFileE"></span><span id="_CPPv2N9chemfiles13BigEndianFileE"></span><span id="chemfiles::BigEndianFile"></span><span class="target" id="classchemfiles_1_1_big_endian_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BigEndianFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles10BinaryFileE" title="chemfiles::BinaryFile"><span class="n"><span class="pre">BinaryFile</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subclassed by <a class="reference internal" href="#classchemfiles_1_1_x_d_r_file"><span class="std std-ref">chemfiles::XDRFile</span></a>, <a class="reference internal" href="#classchemfiles_1_1netcdf3_1_1_netcdf3_file"><span class="std std-ref">chemfiles::netcdf3::Netcdf3File</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_i16EP7int16_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_i16EP7int16_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_i16EP7int16_t6size_t"></span><span id="chemfiles::BigEndianFile::read_i16__int16_tP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1aa595d761894db14adc720a4638a28b4f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i16</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_i16EP7int16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_u16EP8uint16_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_u16EP8uint16_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_u16EP8uint16_t6size_t"></span><span id="chemfiles::BigEndianFile::read_u16__uint16_tP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1ac449597e64ac0bbb8a491b8ea6f35857"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_u16</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_u16EP8uint16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit unsigned integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_i32EP7int32_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_i32EP7int32_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_i32EP7int32_t6size_t"></span><span id="chemfiles::BigEndianFile::read_i32__int32_tP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a1c163963cae5422cefefcdd47c23180a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_i32EP7int32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_u32EP8uint32_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_u32EP8uint32_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_u32EP8uint32_t6size_t"></span><span id="chemfiles::BigEndianFile::read_u32__uint32_tP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a5bd5a70038ae15e5b7745dd4f1ade734"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_u32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_u32EP8uint32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit unsigned integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_i64EP7int64_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_i64EP7int64_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_i64EP7int64_t6size_t"></span><span id="chemfiles::BigEndianFile::read_i64__int64_tP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1af00e325c98cd56f5ecbbaa410abaa232"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i64</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_i64EP7int64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_u64EP8uint64_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_u64EP8uint64_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_u64EP8uint64_t6size_t"></span><span id="chemfiles::BigEndianFile::read_u64__uint64_tP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a6cc9ad6e936f198d2a33aaf49bbb7ca9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_u64</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_u64EP8uint64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit unsigned integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_f32EPf6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_f32EPf6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_f32EPf6size_t"></span><span id="chemfiles::BigEndianFile::read_f32__floatP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a4ba1e79c879c493a2a3dcf02b6f399e0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f32</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_f32EPf6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit floating point numbers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile8read_f64EPd6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile8read_f64EPd6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile8read_f64EPd6size_t"></span><span id="chemfiles::BigEndianFile::read_f64__doubleP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a0caa8e1555da38639228ddcfbe52f9cc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f64</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile8read_f64EPd6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit floating point numbers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_i16EPK7int16_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_i16EPK7int16_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_i16EPK7int16_t6size_t"></span><span id="chemfiles::BigEndianFile::write_i16__int16_tCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a15b791667fb6bd3bbf77d7848f1bcb0c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_i16</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_i16EPK7int16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit signed integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_u16EPK8uint16_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_u16EPK8uint16_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_u16EPK8uint16_t6size_t"></span><span id="chemfiles::BigEndianFile::write_u16__uint16_tCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a395787b8db4e4e1167edddab6e9c75e2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_u16</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_u16EPK8uint16_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 16-bit unsigned integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_i32EPK7int32_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_i32EPK7int32_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_i32EPK7int32_t6size_t"></span><span id="chemfiles::BigEndianFile::write_i32__int32_tCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a0c8358be2b865b1657ebec8e8dc3f476"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_i32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_i32EPK7int32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit signed integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_u32EPK8uint32_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_u32EPK8uint32_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_u32EPK8uint32_t6size_t"></span><span id="chemfiles::BigEndianFile::write_u32__uint32_tCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a4e76ee7b9516123cc9468ce04fe0117e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_u32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_u32EPK8uint32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit unsigned integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_i64EPK7int64_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_i64EPK7int64_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_i64EPK7int64_t6size_t"></span><span id="chemfiles::BigEndianFile::write_i64__int64_tCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a36cedc674c5a13f09554b160a2ad0792"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_i64</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_i64EPK7int64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit signed integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_u64EPK8uint64_t6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_u64EPK8uint64_t6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_u64EPK8uint64_t6size_t"></span><span id="chemfiles::BigEndianFile::write_u64__uint64_tCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a50e1db13fbbfe77a872e1fa26d012e1e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_u64</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_u64EPK8uint64_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit unsigned integers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_f32EPKf6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_f32EPKf6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_f32EPKf6size_t"></span><span id="chemfiles::BigEndianFile::write_f32__floatCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1aa2917492a2c2736300b22197a46f39f9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_f32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_f32EPKf6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit floating point numbers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13BigEndianFile9write_f64EPKd6size_t">
+<span id="_CPPv3N9chemfiles13BigEndianFile9write_f64EPKd6size_t"></span><span id="_CPPv2N9chemfiles13BigEndianFile9write_f64EPKd6size_t"></span><span id="chemfiles::BigEndianFile::write_f64__doubleCP.s"></span><span class="target" id="classchemfiles_1_1_big_endian_file_1a69e3874fba7309f867496c4155583270"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_f64</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">final</span></span><a class="headerlink" href="#_CPPv4N9chemfiles13BigEndianFile9write_f64EPKd6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit floating point numbers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7netcdf311Netcdf3FileE">
+<span id="_CPPv3N9chemfiles7netcdf311Netcdf3FileE"></span><span id="_CPPv2N9chemfiles7netcdf311Netcdf3FileE"></span><span id="chemfiles::netcdf3::Netcdf3File"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Netcdf3File</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles13BigEndianFileE" title="chemfiles::BigEndianFile"><span class="n"><span class="pre">BigEndianFile</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles7netcdf311Netcdf3FileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An implementation of NetCDF version 3 (or classic) binary files, using 64-bit offsets for variables.</p>
+<p>A NetCDF 3 file contains global attributes (i.e. key/values associated with the file); a set of named and sized dimensions, one of which can be unlimited (called the record dimension in the code); and a set of variables. Each variable is linked to some dimensions, and can have its own attributes. Variables which use the record dimension are stored separately, and have a different API in this implementation.</p>
+<p>NetCDF 3 files are stored using big endian, regardless of the native system endianess. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File10attributesEv">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File10attributesEv"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File10attributesEv"></span><span id="chemfiles::netcdf3::Netcdf3File::attributesC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a4e7b126536366fa8af49b73a148d6660"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">Value</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">attributes</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File10attributesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get all the global attribute for this file. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File9attributeERKNSt6stringE">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File9attributeERKNSt6stringE"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File9attributeERKNSt6stringE"></span><span id="chemfiles::netcdf3::Netcdf3File::attribute__ssCRC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1acacc4ef3d425b287dea742fe0e1cf74d"></span><a class="reference internal" href="../../classes/helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">Value</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">attribute</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File9attributeERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the global attribute with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> for this file, if it exists. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File9variablesEv">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File9variablesEv"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File9variablesEv"></span><span id="chemfiles::netcdf3::Netcdf3File::variablesC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1acae241b8a340fefc1f9f35f5f10c5b26"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">Variable</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">variables</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File9variablesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get all the variables for this file. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7netcdf311Netcdf3File8variableERKNSt6stringE">
+<span id="_CPPv3N9chemfiles7netcdf311Netcdf3File8variableERKNSt6stringE"></span><span id="_CPPv2N9chemfiles7netcdf311Netcdf3File8variableERKNSt6stringE"></span><span id="chemfiles::netcdf3::Netcdf3File::variable__ssCR"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a3f197979020b672257677108162f0f30"></span><a class="reference internal" href="../../classes/helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">Variable</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">variable</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7netcdf311Netcdf3File8variableERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the variable with the given name in this file if it exists. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File10dimensionsEv">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File10dimensionsEv"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File10dimensionsEv"></span><span id="chemfiles::netcdf3::Netcdf3File::dimensionsC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a0df14aeee16ad1a4f6cd7361835b326f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">Dimension</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dimensions</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File10dimensionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get all the dimensions defined in this file. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7netcdf311Netcdf3File10add_recordEv">
+<span id="_CPPv3N9chemfiles7netcdf311Netcdf3File10add_recordEv"></span><span id="_CPPv2N9chemfiles7netcdf311Netcdf3File10add_recordEv"></span><span id="chemfiles::netcdf3::Netcdf3File::add_record"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a42089cac36b280dc3f61aed431827941"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_record</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7netcdf311Netcdf3File10add_recordEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add an empty new record to this file, increasing the record dimension by one </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File9n_recordsEv">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File9n_recordsEv"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File9n_recordsEv"></span><span id="chemfiles::netcdf3::Netcdf3File::n_recordsC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a339606c5a475a105716b410b186f4303"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">n_records</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File9n_recordsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get the current number of records in the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File11record_sizeEv">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File11record_sizeEv"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File11record_sizeEv"></span><span id="chemfiles::netcdf3::Netcdf3File::record_sizeC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a2aa6702e0be585208b0e2b7219049418"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">record_size</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File11record_sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get the size in bytes of a full record entry, including all record variables </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles7netcdf311Netcdf3File11initializedEv">
+<span id="_CPPv3NK9chemfiles7netcdf311Netcdf3File11initializedEv"></span><span id="_CPPv2NK9chemfiles7netcdf311Netcdf3File11initializedEv"></span><span id="chemfiles::netcdf3::Netcdf3File::initializedC"></span><span class="target" id="classchemfiles_1_1netcdf3_1_1_netcdf3_file_1a7f7f59a78d7fc7ee519852f9ad34a250"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialized</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles7netcdf311Netcdf3File11initializedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Was this file already intialized (i.e. all variables/dimensions/etc. have been defined)? </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7TNGFileE">
+<span id="_CPPv3N9chemfiles7TNGFileE"></span><span id="_CPPv2N9chemfiles7TNGFileE"></span><span id="chemfiles::TNGFile"></span><span class="target" id="classchemfiles_1_1_t_n_g_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TNGFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles4FileE" title="chemfiles::File"><span class="n"><span class="pre">File</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles7TNGFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple RAII capsule for <code class="docutils literal notranslate"><span class="pre">tng_trajectory_t</span></code>, handling the creation and destruction of the file as needed. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFileE">
+<span id="_CPPv3N9chemfiles7XDRFileE"></span><span id="_CPPv2N9chemfiles7XDRFileE"></span><span id="chemfiles::XDRFile"></span><span class="target" id="classchemfiles_1_1_x_d_r_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">XDRFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles13BigEndianFileE" title="chemfiles::BigEndianFile"><span class="n"><span class="pre">BigEndianFile</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Partial implementation of XDR according to RFC 4506 (see: <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc4506">https://datatracker.ietf.org/doc/html/rfc4506</a>) Including additional helper routines for GROMACS </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile15read_gmx_stringEv">
+<span id="_CPPv3N9chemfiles7XDRFile15read_gmx_stringEv"></span><span id="_CPPv2N9chemfiles7XDRFile15read_gmx_stringEv"></span><span id="chemfiles::XDRFile::read_gmx_string"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a6a0a1e9ca7e2af49322a1db1e5645f7a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_gmx_string</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile15read_gmx_stringEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a non-compliant GROMACS string A GROMACS string stores the length of the string including the NULL terminator as int32 before the XDR compliant string data without the terminator. An XDR string has the same representation as opaque data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile16write_gmx_stringERKNSt6stringE">
+<span id="_CPPv3N9chemfiles7XDRFile16write_gmx_stringERKNSt6stringE"></span><span id="_CPPv2N9chemfiles7XDRFile16write_gmx_stringERKNSt6stringE"></span><span id="chemfiles::XDRFile::write_gmx_string__ssCR"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a9ff7b7107ba00fed1895bf8dcecc2f7d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_gmx_string</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile16write_gmx_stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a non-compliant GROMACS string. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile26read_gmx_compressed_floatsERNSt6vectorIfEE">
+<span id="_CPPv3N9chemfiles7XDRFile26read_gmx_compressed_floatsERNSt6vectorIfEE"></span><span id="_CPPv2N9chemfiles7XDRFile26read_gmx_compressed_floatsERNSt6vectorIfEE"></span><span id="chemfiles::XDRFile::read_gmx_compressed_floats__std::vector:float:R"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1aa0423e10172fff699841509d0b6d7fd7"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_gmx_compressed_floats</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile26read_gmx_compressed_floatsERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read compressed GROMACS floats and returns the precision. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile27write_gmx_compressed_floatsERKNSt6vectorIfEEf">
+<span id="_CPPv3N9chemfiles7XDRFile27write_gmx_compressed_floatsERKNSt6vectorIfEEf"></span><span id="_CPPv2N9chemfiles7XDRFile27write_gmx_compressed_floatsERKNSt6vectorIfEEf"></span><span id="chemfiles::XDRFile::write_gmx_compressed_floats__std::vector:float:CR.float"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a469fd8fe0e79ac29291256df04a7da58"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_gmx_compressed_floats</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">precision</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile27write_gmx_compressed_floatsERKNSt6vectorIfEEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write compressed GROMACS floats with a given precision. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile12read_gmx_boxEb">
+<span id="_CPPv3N9chemfiles7XDRFile12read_gmx_boxEb"></span><span id="_CPPv2N9chemfiles7XDRFile12read_gmx_boxEb"></span><span id="chemfiles::XDRFile::read_gmx_box__b"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a614cb33430f4bdedf5865ea53277cf12"></span><a class="reference internal" href="../../classes/unitcell.html#_CPPv4N9chemfiles8UnitCellE" title="chemfiles::UnitCell"><span class="n"><span class="pre">UnitCell</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_gmx_box</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_double</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile12read_gmx_boxEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the GROMACS simulation box in nano meters. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile23read_single_size_as_i32Ev">
+<span id="_CPPv3N9chemfiles7XDRFile23read_single_size_as_i32Ev"></span><span id="_CPPv2N9chemfiles7XDRFile23read_single_size_as_i32Ev"></span><span id="chemfiles::XDRFile::read_single_size_as_i32"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a454e04987334f0084fba6bebde2adcad"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_single_size_as_i32</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile23read_single_size_as_i32Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read an unsigned size value as i32 by performing a checked conversion. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile8read_f32EPf6size_t">
+<span id="_CPPv3N9chemfiles7XDRFile8read_f32EPf6size_t"></span><span id="_CPPv2N9chemfiles7XDRFile8read_f32EPf6size_t"></span><span id="chemfiles::XDRFile::read_f32__floatP.s"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a4adb28d8169935b3d37c392ae745c13c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f32</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile8read_f32EPf6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit floating point numbers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile8read_f32ERNSt6vectorIfEE">
+<span id="_CPPv3N9chemfiles7XDRFile8read_f32ERNSt6vectorIfEE"></span><span id="_CPPv2N9chemfiles7XDRFile8read_f32ERNSt6vectorIfEE"></span><span id="chemfiles::XDRFile::read_f32__std::vector:float:R"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1ab386299ef27911871c4eea74de33b7c6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile8read_f32ERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly as many 32-bit floating point numbers as fit in the pre-allocated vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile8read_f64EPd6size_t">
+<span id="_CPPv3N9chemfiles7XDRFile8read_f64EPd6size_t"></span><span id="_CPPv2N9chemfiles7XDRFile8read_f64EPd6size_t"></span><span id="chemfiles::XDRFile::read_f64__doubleP.s"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a5927b974cd31f66e64577b26af0be09d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f64</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile8read_f64EPd6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 64-bit floating point numbers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile8read_f64ERNSt6vectorIdEE">
+<span id="_CPPv3N9chemfiles7XDRFile8read_f64ERNSt6vectorIdEE"></span><span id="_CPPv2N9chemfiles7XDRFile8read_f64ERNSt6vectorIdEE"></span><span id="chemfiles::XDRFile::read_f64__std::vector:double:R"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a7c2e09edf14aff36549d29c61130afad"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_f64</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile8read_f64ERNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly as many 64-bit floating point numbers as fit in the pre-allocated vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile8read_i32EP7int32_t6size_t">
+<span id="_CPPv3N9chemfiles7XDRFile8read_i32EP7int32_t6size_t"></span><span id="_CPPv2N9chemfiles7XDRFile8read_i32EP7int32_t6size_t"></span><span id="chemfiles::XDRFile::read_i32__int32_tP.s"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a2f27355b9d57aed0553ece8ccd4fcd50"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile8read_i32EP7int32_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit signed integers, and store them in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile8read_i32ERNSt6vectorI7int32_tEE">
+<span id="_CPPv3N9chemfiles7XDRFile8read_i32ERNSt6vectorI7int32_tEE"></span><span id="_CPPv2N9chemfiles7XDRFile8read_i32ERNSt6vectorI7int32_tEE"></span><span id="chemfiles::XDRFile::read_i32__std::vector:int32_t:R"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1a3464ee9efc3aeb4ea4632258acbff7e5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_i32</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile8read_i32ERNSt6vectorI7int32_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read exactly as many 32-bit signed integers as fit in the pre-allocated vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile9write_f32EPKf6size_t">
+<span id="_CPPv3N9chemfiles7XDRFile9write_f32EPKf6size_t"></span><span id="_CPPv2N9chemfiles7XDRFile9write_f32EPKf6size_t"></span><span id="chemfiles::XDRFile::write_f32__floatCP.s"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1ae643caf56045d410c7576a220378c498"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_f32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile9write_f32EPKf6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write exactly <code class="docutils literal notranslate"><span class="pre">count</span></code> 32-bit floating point numbers taken from the <code class="docutils literal notranslate"><span class="pre">data</span></code> array to the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7XDRFile9write_f32ERKNSt6vectorIfEE">
+<span id="_CPPv3N9chemfiles7XDRFile9write_f32ERKNSt6vectorIfEE"></span><span id="_CPPv2N9chemfiles7XDRFile9write_f32ERKNSt6vectorIfEE"></span><span id="chemfiles::XDRFile::write_f32__std::vector:float:CR"></span><span class="target" id="classchemfiles_1_1_x_d_r_file_1ad88dae7fbe02d48d0b1069b4c8d4b130"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_f32</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7XDRFile9write_f32ERKNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write all 32-bit floating point numbers from the pre-allocated vector. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

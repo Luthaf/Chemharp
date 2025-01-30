@@ -1,0 +1,25 @@
+dd {
+    margin-left: 2em;
+}
+
+a {
+    color: #3da48e;
+}
+
+.note a {
+    color: #b0f9e9;
+}
+
+pre {
+    color: black;
+}
+
+code {
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+hr.docutils {
+    border: 1px solid;
+    width: 50%
+}

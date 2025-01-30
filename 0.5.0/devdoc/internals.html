@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chemfiles internals &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="../index.html" />
+    <link rel="next" title="File classes" href="file.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Chemfiles internals</a><ul>
+<li><a class="reference internal" href="#sources-organisation">Sources organisation</a></li>
+<li><a class="reference internal" href="#classes-organisation">Classes organisation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="contributing.html" title="Previous Chapter: Contributing"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Contributing</span>
+    </a>
+  </li>
+  <li>
+    <a href="file.html" title="Next Chapter: File classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">File classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="chemfiles-internals">
+<h1>Chemfiles internals<a class="headerlink" href="#chemfiles-internals" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sources-organisation">
+<h2>Sources organisation<a class="headerlink" href="#sources-organisation" title="Permalink to this headline">¶</a></h2>
+<p>You may find the following directory in the chemfiles sources :</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">cmake</span></code>: some CMake modules used for build configuration;</li>
+<li><code class="docutils literal"><span class="pre">doc</span></code>: this documentation;</li>
+<li><code class="docutils literal"><span class="pre">examples</span></code>: usage examples for C and C++ interfaces;</li>
+<li><code class="docutils literal"><span class="pre">external</span></code>: external libraries used by chemfiles;</li>
+<li><code class="docutils literal"><span class="pre">include</span></code>: the headers of chemfiles;</li>
+<li><code class="docutils literal"><span class="pre">scripts</span></code>: some python scripts used for developpement.</li>
+<li><code class="docutils literal"><span class="pre">src</span></code>: the sources of the library;</li>
+<li><code class="docutils literal"><span class="pre">tests</span></code>: the sources of the unit tests;</li>
+</ul>
+</div>
+<div class="section" id="classes-organisation">
+<h2>Classes organisation<a class="headerlink" href="#classes-organisation" title="Permalink to this headline">¶</a></h2>
+<p>Chemfiles is written in C++11, in an object-oriented fashion. A <code class="docutils literal"><span class="pre">Trajectory</span></code>
+is built on the top of two other private classes: a <a class="reference internal" href="file.html#file-class"><span class="std std-ref">File</span></a> and a
+<a class="reference internal" href="format.html#format-class"><span class="std std-ref">Format</span></a>. The <code class="docutils literal"><span class="pre">File</span></code> classes provides IO operation, and the
+<code class="docutils literal"><span class="pre">Format</span></code> classes do all the work for reading/writing information from the <code class="docutils literal"><span class="pre">File</span></code>.</p>
+<img alt="../_images/classes.png" class="align-center" src="../_images/classes.png" />
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="file.html#abstract-classes">Abstract classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file.html#implemented-classes">Implemented classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format.html#abstract-class">Abstract class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#implemented-formats">Implemented formats</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>All the File to Format associations are managed by the TrajectoryFactory class.</p>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_factory"></span><em>class</em> <code class="descname">chemfiles::TrajectoryFactory</code></dt>
+<dd><p>This class allow to register at compile time various <a class="reference internal" href="format.html#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a> and the associated <a class="reference internal" href="file.html#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> class, giving at runtime the good format when asked politely.</p>
+<p>Each couple (<a class="reference internal" href="file.html#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a>, <a class="reference internal" href="format.html#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a>) is represented by a trajectory_builder_t instance, and can be registered by an extension, or by a <a class="reference internal" href="format.html#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a> name. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_factory_1a520eb78b5e4107d1d5516810d7fbb9f0"></span>trajectory_builder_t <code class="descname">format</code><span class="sig-paren">(</span>const string &amp; <em>name</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a trajectory_builder from a format type name. </p>
+<p>
+Throws an error if the format can not be found <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A trajectory_builder corresponding to the format, if the format name is found in the list of registered formats.</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">name</span></code> - <p>the format name </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_factory_1ab1a8e213fcdd5fbaf75182c66399b303"></span>trajectory_builder_t <code class="descname">by_extension</code><span class="sig-paren">(</span>const string &amp; <em>ext</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a trajectory_builder from a format <code class="docutils literal"><span class="pre">extention</span></code>. </p>
+<p>
+Throws an error if the format can not be found <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A trajectory_builder corresponding to the format, if the format extension is found in the list of registered extensions.</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">ext</span></code> - <p>the format extention </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_factory_1a899a0b9bc00ed3d71f732de26709c3f7"></span>void <code class="descname">register_format</code><span class="sig-paren">(</span>const string &amp; <em>name</em>, trajectory_builder_t <em>tb</em><span class="sig-paren">)</span></dt>
+<dd><p>Register a trajectory_builder in the internal format names list. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_factory_1a97c8af705c2969f8a146634c220d46ad"></span>void <code class="descname">register_extension</code><span class="sig-paren">(</span>const string &amp; <em>ext</em>, trajectory_builder_t <em>tb</em><span class="sig-paren">)</span></dt>
+<dd><p>Register an trajectory_builder in the internal extensions list. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_factory_1ac5dc1493b048ef27f7b1e5920c107721"></span><a class="reference internal" href="#project0classchemfiles_1_1_trajectory_factory"><span class="std std-ref">TrajectoryFactory</span></a> &amp; <code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Get the instance of the <a class="reference internal" href="#project0classchemfiles_1_1_trajectory_factory"><span class="std std-ref">TrajectoryFactory</span></a>. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; Chemfiles 0.4.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.4.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.4.0
+ documentation" href="index.html" />
+    <link rel="next" title="Chemfiles features overview" href="overview.html" />
+    <link rel="prev" title="Chemfiles, an efficient IO library for chemistry file formats" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.4</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#pre-compiled-binaries">Pre-compiled binaries</a></li>
+<li><a class="reference internal" href="#building-from-sources">Building from sources</a><ul>
+<li><a class="reference internal" href="#core-library-dependencies">Core library dependencies</a><ul>
+<li><a class="reference internal" href="#on-unix-like-systems-linux-os-x">On UNIX-like systems (Linux, OS X, ...)</a></li>
+<li><a class="reference internal" href="#on-windows">On Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-steps">Build steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: Chemfiles, an efficient IO library for chemistry file formats"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Chemfiles, an...</span>
+    </a>
+  </li>
+  <li>
+    <a href="overview.html" title="Next Chapter: Chemfiles features overview"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Chemfiles fea... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/installation.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-compiled-binaries">
+<h2>Pre-compiled binaries<a class="headerlink" href="#pre-compiled-binaries" title="Permalink to this headline">¶</a></h2>
+<p>A few precompiled binary of the latest release are provided through the <a class="reference external" href="http://conda.pydata.org/docs/">conda</a>
+cross-plateform package manager. These binary provide the C++, C and Python
+interfaces. To install them, you can use:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>conda install -c https://conda.anaconda.org/luthaf chemfiles
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-from-sources">
+<h2>Building from sources<a class="headerlink" href="#building-from-sources" title="Permalink to this headline">¶</a></h2>
+<p>If you want full control over the way the code is built, you can built chemfiles from
+sources.</p>
+<div class="section" id="core-library-dependencies">
+<h3>Core library dependencies<a class="headerlink" href="#core-library-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>In order to build the core library, you will need a C++11 compiler, like g++&gt;4.9 or
+clang++&gt;3.3. Chemfiles is tested against GCC, Clang and Intel C++ compilers, and
+is ISO C++11, so it should compile with other compilers as well. Please report
+any sucessfull compilation with other compilers!</p>
+<p>Some optional functionalities of chemfiles needs aditional library. As the
+functionalities are activated when configuring the build, these additionals libraries
+are optionals. Here is the list of these libraries:</p>
+<ul class="simple">
+<li>The <a class="reference external" href="http://www.unidata.ucar.edu/software/netcdf/">NetCDF</a> library is needed to read and write the AMBER NetCDF format.
+It is available in all the package managers.</li>
+</ul>
+<p>Finally, chemfiles needs uses the <a class="reference external" href="http://cmake.org/">CMake</a> build system, which is also available
+in all the package managers.</p>
+<div class="section" id="on-unix-like-systems-linux-os-x">
+<h4>On UNIX-like systems (Linux, OS X, ...)<a class="headerlink" href="#on-unix-like-systems-linux-os-x" title="Permalink to this headline">¶</a></h4>
+<p>All these dependencies can be installed in one command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># On apt-get based distributions</span>
+apt-get update
+apt-get install cmake libnetcdf-dev
+
+<span class="c1"># On yum based distributions</span>
+yum install epel-release <span class="c1"># The EPEL repository have the netcdf lib</span>
+yum install cmake netcdf-devel netcdf-cxx-devel
+
+<span class="c1"># On OS X with Homebrew</span>
+brew tap homebrew/science
+brew install cmake netcdf
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-windows">
+<h4>On Windows<a class="headerlink" href="#on-windows" title="Permalink to this headline">¶</a></h4>
+<p>You can use either MSVC 2015 compiler, or <a class="reference external" href="http://mingw-w64.org/doku.php">mingw-w64</a> provided gcc. <a class="reference external" href="http://msys2.github.io/">MSYS2</a> offer a
+package manager to install all the needed libraries. I recomend using it if you have
+no preference over your compiler. After the initial installation steps, you can run
+the following to install a recent C++ compiler:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># On 64-bits windows</span>
+pacman -S mingw64/mingw-w64-x86_64-gcc
+
+<span class="c1"># On 32-bits windows</span>
+pacman -S mingw32/mingw-w64-i686-gcc
+</pre></div>
+</div>
+<p>You will also need to install cmake, which can be found <a class="reference external" href="http://www.cmake.org/download/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="build-steps">
+<h3>Build steps<a class="headerlink" href="#build-steps" title="Permalink to this headline">¶</a></h3>
+<p>You can get the source code from either git, or from the <a class="reference external" href="https://github.com/Luthaf/chemfiles/releases">release</a> page of Github.
+In the later case, just unpack the archive wherever you want the source code to live.
+To get the latest developpement version, use git:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> where/you/whant/chemfiles/to/live
+git clone https://github.com/chemfiles/chemfiles
+<span class="nb">cd</span> chemfiles
+</pre></div>
+</div>
+<p>If you want to run the unit and regression tests, you will need the tests data files,
+which are provided as submodules.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git submodule update --init
+</pre></div>
+</div>
+<p>The following command can build and install chemfiles on a standard POSIX environement.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> chemfiles
+mkdir build
+<span class="nb">cd</span> build
+cmake .. <span class="c1"># various options are allowed here</span>
+make
+<span class="c1"># if you whant to run the tests before installing:</span>
+ctest
+make install
+</pre></div>
+</div>
+<p>To use the other generator from CMake (XCode, VisualStudio, …), please refer to
+the doccumentation of CMake.</p>
+<p>The <strong class="command">cmake</strong> step can be further configured by using the curse-based GUI
+(<strong class="command">ccmake .</strong>) or providing some command-line arguments. Here are the
+most important options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="24%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Default value</th>
+<th class="head">Effect/Informations</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">-DCMAKE_INSTALL_PREFIX=prefix</span></code></td>
+<td><code class="file docutils literal"><span class="pre">/usr/local</span></code></td>
+<td>Set the installation prefix
+to <code class="docutils literal"><span class="pre">prefix</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-DCMAKE_BUILD_TYPE=type</span></code></td>
+<td><code class="docutils literal"><span class="pre">release</span></code></td>
+<td>Set to <code class="docutils literal"><span class="pre">debug</span></code> for debug
+informations</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">-DBUILD_SHARED_LIBS=ON|OFF</span></code></td>
+<td><code class="docutils literal"><span class="pre">OFF</span></code></td>
+<td>Build shared library instead
+of static one.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-DBUILD_DOCUMENTATION=ON|OFF</span></code></td>
+<td><code class="docutils literal"><span class="pre">OFF</span></code></td>
+<td>Build the documentation.
+This needs <a class="reference external" href="http://sphinx-doc.org/">sphinx</a> and
+<a class="reference external" href="http://doxygen.org/">doxygen</a> to be installed</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">-DBUILD_TESTS=ON|OFF</span></code></td>
+<td><code class="docutils literal"><span class="pre">OFF</span></code></td>
+<td>Build the test suite.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-DENABLE_NETCDF=ON|OFF</span></code></td>
+<td><code class="docutils literal"><span class="pre">OFF</span></code></td>
+<td>Enable the Amber NetCDF
+format</td>
+</tr>
+</tbody>
+</table>
+<p>For instance, to install to <code class="file docutils literal"><span class="pre">$HOME/local</span></code>, use:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/local ..
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

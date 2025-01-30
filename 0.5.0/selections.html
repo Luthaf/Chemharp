@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chemfiles selections &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="index.html" />
+    <link rel="next" title="Usage examples" href="example.html" />
+    <link rel="prev" title="Chemfiles features overview" href="overview.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Chemfiles selections</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="overview.html" title="Previous Chapter: Chemfiles features overview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Chemfiles fea...</span>
+    </a>
+  </li>
+  <li>
+    <a href="example.html" title="Next Chapter: Usage examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage examples &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="chemfiles-selections">
+<span id="selection-language"></span><h1>Chemfiles selections<a class="headerlink" href="#chemfiles-selections" title="Permalink to this headline">¶</a></h1>
+<p>Chemfiles selection language is based on the similar selection language provided by
+<a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a>. A selection is a string, and evaluating a selection consist to take this
+string and a <a class="reference internal" href="overview.html#overview-frame"><span class="std std-ref">Frame</span></a>, and get the indexes of atoms in the frame
+matching the selection.</p>
+<p>The selection string can contain names, numbers and operators. Name are sequences of
+letter, numbers and <code class="docutils literal"><span class="pre">_</span></code> (underscore) in any order, starting by a letter. Numbers
+can be integers, floating-point numbers using a dot (<code class="docutils literal"><span class="pre">.</span></code>) as decimal separator, or
+numbers in scientific notation (<code class="docutils literal"><span class="pre">456.745e-45</span></code>). Operators can be any of <code class="docutils literal"><span class="pre">==</span> <span class="pre">!=</span> <span class="pre">&lt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span></code>.
+These operators means respectivly equal; not equal; less; less or equal; more and
+more or equal.</p>
+<p>Simple selections consist of a selector and a condition. Supported selectors are:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">all</span></code> and <code class="docutils literal"><span class="pre">none</span></code>: Select respectively all and none of the atoms.</li>
+<li><code class="docutils literal"><span class="pre">name</span></code>: select atoms based on their name. This selector support three forms:
+<code class="docutils literal"><span class="pre">name</span> <span class="pre">==</span> <span class="pre">&lt;value&gt;</span></code>, <code class="docutils literal"><span class="pre">name</span> <span class="pre">!=</span> <span class="pre">&lt;value&gt;</span></code> and a short form <code class="docutils literal"><span class="pre">name</span> <span class="pre">&lt;value&gt;</span></code>
+which is equivalent to <code class="docutils literal"><span class="pre">name</span> <span class="pre">==</span> <span class="pre">&lt;value&gt;</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">index</span></code>: select atoms based on their index in the frame. Any operator can be used,
+and the atom index is compared to a positive integer value. The short form
+<code class="docutils literal"><span class="pre">index</span> <span class="pre">&lt;value&gt;</span></code> is equivalent to <code class="docutils literal"><span class="pre">index</span> <span class="pre">==</span> <span class="pre">&lt;value&gt;</span></code>. Examples: <code class="docutils literal"><span class="pre">index</span> <span class="pre">&lt;</span> <span class="pre">6</span></code>,
+<code class="docutils literal"><span class="pre">index</span> <span class="pre">&gt;=</span> <span class="pre">42</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">mass</span></code>: select atoms based on their mass. Any operator can be used. The short form
+<code class="docutils literal"><span class="pre">mass</span> <span class="pre">&lt;value&gt;</span></code> is equivalent to <code class="docutils literal"><span class="pre">mass</span> <span class="pre">==</span> <span class="pre">&lt;value&gt;</span></code>. Examples: <code class="docutils literal"><span class="pre">mass</span> <span class="pre">&lt;</span> <span class="pre">2.0</span></code>,
+<code class="docutils literal"><span class="pre">mass</span> <span class="pre">==</span> <span class="pre">4.2</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code> and <code class="docutils literal"><span class="pre">z</span></code>: select atoms based on their position components. Any
+operator can be used, and their is no short form with this selection. <code class="docutils literal"><span class="pre">==</span></code> and
+<code class="docutils literal"><span class="pre">!=</span></code> can be used, but comparing floating point values will procude strange
+results most of the time. Examples: <code class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">5.3</span></code>; <code class="docutils literal"><span class="pre">z</span> <span class="pre">&lt;=</span> <span class="pre">5.3</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">vx</span></code>, <code class="docutils literal"><span class="pre">vy</span></code> and <code class="docutils literal"><span class="pre">vz</span></code>: select atoms based on their velocity components. These
+selectors works the same way as <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code> and <code class="docutils literal"><span class="pre">z</span></code>.</li>
+</ul>
+<p>Simple selections can be combined together using booleans operations:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;selection_1&gt;</span> <span class="pre">and</span> <span class="pre">&lt;selection_2&gt;</span></code>: an atom will match this selction if and only
+if it matches <em>selection_1</em> and <em>selection_2</em>;</li>
+<li><code class="docutils literal"><span class="pre">&lt;selection_1&gt;</span> <span class="pre">or</span> <span class="pre">&lt;selection_2&gt;</span></code>: an atom will match this selction if it matches
+any of <em>selection_1</em> or <em>selection_2</em>;</li>
+<li><code class="docutils literal"><span class="pre">not</span> <span class="pre">&lt;selection&gt;</span></code>: an atom will match this selction if and only if it DO NOT
+matches <em>selection</em>.</li>
+</ul>
+<p>In order to remove ambiguity when using multiple boolean operations, selections
+should use parentheses. If no parentheses are present, all operators will be
+considered left-associatives.</p>
+<p>Some more complex selections:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>name H and not x &lt; 5.0
+(z &lt; 45 and name O) or name C
+vx &gt; 3 or vy &gt; 3 or vz &gt; 3
+</pre></div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

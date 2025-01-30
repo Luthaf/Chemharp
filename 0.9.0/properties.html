@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Properties &#8212; Chemfiles 0.9.0
+ documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/chemfiles.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++ interface reference" href="classes/index.html" />
+    <link rel="prev" title="Configuration files" href="configuration.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.9</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="configuration.html" title="Previous Chapter: Configuration files"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configuration files</span>
+    </a>
+  </li>
+  <li>
+    <a href="classes/index.html" title="Next Chapter: C++ interface reference"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">C++ interface... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#atomic-properties">Atomic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#residue-properties">Residue properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frame-properties">Frame properties</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="properties">
+<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h1>
+<p>When reading files, chemfiles read multiple kind of data: positions, velocities,
+atomic informations (name, type, mass, charge, …), bonds and other
+connectivity elements. This model allow to read the most commonly available data
+in various formats. But sometimes, a format defines additional information.
+Instead of adding a new field/function for every kind of data there can be in a
+file, chemfiles defines a generic interface to read and store this additional
+data. These additional data are stored inside properties.</p>
+<p>A property has a name and a value. The value can either be a real number, a
+string, a boolean value (true/false) or a 3 dimmensional vector. A property is
+either stored inside an atom, and associated with this atom (for example the
+total atomic force), or stored in and associated with a frame. The later case is
+used for general properties, such as the temperature of the system, or the
+author of the file.</p>
+<p>This section documents which format set and use properties.</p>
+<div class="section" id="atomic-properties">
+<h2>Atomic properties<a class="headerlink" href="#atomic-properties" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Format</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>altloc</td>
+<td>string</td>
+<td>MMTF</td>
+<td>On reading, this property is set the the alternative location
+character stored in both of these formats. On writing, this character is stored
+with the <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> or <code class="docutils literal notranslate"><span class="pre">HETATM</span></code> record. If the property is not set, a space
+character is used.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>mmCIF</td>
+<td>On reading, this property is set the the alternative location
+character stored in both of these formats. On writing, this character is stored
+with the <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> or <code class="docutils literal notranslate"><span class="pre">HETATM</span></code> record. If the property is not set, a space
+character is used.</td>
+</tr>
+<tr class="row-even"><td>sybyl</td>
+<td>string</td>
+<td>MOL2</td>
+<td>The <strong>sybyl</strong> atom type is typically stored in a MOL2 file in a column
+between the Z coordinate and the residue id. These types typically consist of
+an element ID, a period, then a hybridization state (eg <code class="docutils literal notranslate"><span class="pre">C.2</span></code> or <code class="docutils literal notranslate"><span class="pre">O.3</span></code>).
+When reading, if the sybyl type column contains a period or is a valid element
+ID, this property is set to the value in the column. Otherwise, the property is
+not set and the atom type is guessed from the atom name. When writing, if this
+propery is set, then this value is written between the Z coordinate and the
+residue number. Otherwise, the atom’s type is used to replace the <strong>sybyl</strong>
+type.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="residue-properties">
+<h2>Residue properties<a class="headerlink" href="#residue-properties" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Format</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>chainid</td>
+<td>string</td>
+<td>mmCIF</td>
+<td>The <strong>chainname</strong> defines the name assigned to a protein chain by
+biologists. It is is a single character used to group residues which are linked
+together in a biologic assembly. It is unique to both the biologic assembly and
+the crystal structure.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>PDB</td>
+<td>For <code class="docutils literal notranslate"><span class="pre">PDB</span></code> files, the <strong>chainid</strong> is identical to <strong>chainname</strong></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>MMTF</td>
+<td>The <strong>chainname</strong> defines the name assigned to a protein chain by
+biologists. It is is a single character used to group residues which are linked
+together in a biologic assembly. It is unique to both the biologic assembly and
+the crystal structure.</td>
+</tr>
+<tr class="row-odd"><td>assembly</td>
+<td>string</td>
+<td>MMTF</td>
+<td>The <strong>assembly</strong> property defines the assignment of biologically
+relevent groupings of residues in a crystal structure. For example, the PDBID
+<code class="docutils literal notranslate"><span class="pre">4XUF</span></code> contains two biologically identical copies of the protein FLT3, labled
+<code class="docutils literal notranslate"><span class="pre">bioA</span></code> and <code class="docutils literal notranslate"><span class="pre">bioB</span></code>, as this protein does not function as a homodimer. The
+PDBID <code class="docutils literal notranslate"><span class="pre">3OGF</span></code>, however, is a homodimer and therefore only contains one
+biological assembly with two chains. This property is not used for writing.</td>
+</tr>
+<tr class="row-even"><td>insertion_code</td>
+<td>string</td>
+<td>PDB</td>
+<td>On reading, this <strong>insertion_code</strong> is set to the insertion code of the
+residue. This code is stored as a single character in the PDB file after the
+residue id. If this character is a space character, the property is not set. On
+writing, this character is stored with the <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> or <code class="docutils literal notranslate"><span class="pre">HETATM</span></code> record. If the
+property is not set, a space character is used.</td>
+</tr>
+<tr class="row-odd"><td>composition_type</td>
+<td>string</td>
+<td>MMTF</td>
+<td>The <strong>composition_type</strong> defines how residues are chemically bonded.
+For example, the majority of proteins consist of <code class="docutils literal notranslate"><span class="pre">L-peptide</span> <span class="pre">linking</span></code>
+residues, RNAs consist of <code class="docutils literal notranslate"><span class="pre">L-RNA</span> <span class="pre">linking</span></code>, DNAs consist of <code class="docutils literal notranslate"><span class="pre">L-DNA</span> <span class="pre">linking</span></code>,
+and saccharides consist of <code class="docutils literal notranslate"><span class="pre">D-saccharide</span></code>. See <code class="docutils literal notranslate"><span class="pre">chemCompType</span></code> in the mmCIF
+dictionary for more details. Since this is a required group property, <code class="docutils literal notranslate"><span class="pre">other</span></code>
+is used when writing unless specified.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>mmCIF</td>
+<td>The <strong>composition_type</strong> defines how residues are chemically bonded.
+For example, the majority of proteins consist of <code class="docutils literal notranslate"><span class="pre">L-peptide</span> <span class="pre">linking</span></code>
+residues, RNAs consist of <code class="docutils literal notranslate"><span class="pre">L-RNA</span> <span class="pre">linking</span></code>, DNAs consist of <code class="docutils literal notranslate"><span class="pre">L-DNA</span> <span class="pre">linking</span></code>,
+and saccharides consist of <code class="docutils literal notranslate"><span class="pre">D-saccharide</span></code>. See <code class="docutils literal notranslate"><span class="pre">chemCompType</span></code> in the mmCIF
+dictionary for more details.</td>
+</tr>
+<tr class="row-odd"><td>secondary_structure</td>
+<td>string</td>
+<td>PDB</td>
+<td>On reading, the <strong>secondary_structure</strong> is assigned via <code class="docutils literal notranslate"><span class="pre">HELIX</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHEET</span></code>, and <code class="docutils literal notranslate"><span class="pre">TURN</span></code> records. If a residue is listed in a <code class="docutils literal notranslate"><span class="pre">SHEET</span></code> record,
+then the <strong>secondary_structure</strong> is set to <code class="docutils literal notranslate"><span class="pre">extended</span></code>. Similarly, the <code class="docutils literal notranslate"><span class="pre">TURN</span></code>
+record will set residues as <code class="docutils literal notranslate"><span class="pre">turn</span></code>. The <code class="docutils literal notranslate"><span class="pre">HELIX</span></code> record is more complex as
+the <cite>PDB</cite> standard allows for multiple types of helicies include <code class="docutils literal notranslate"><span class="pre">alpha</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pi</span></code>, and <code class="docutils literal notranslate"><span class="pre">3-10</span></code> helicies. This property is not used for writing.</td>
+</tr>
+<tr class="row-even"><td>chainname</td>
+<td>string</td>
+<td>mmCIF</td>
+<td>The <strong>chainname</strong> defines the name assigned to a protein chain by
+biologists. It is is a single character used to group residues which are linked
+together in a crystallographic file where it may <em>not</em> be unique. This name <em>is</em>
+unique to a given biological assembly, however.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>PDB</td>
+<td>The <strong>chainname</strong> defines the name assigned to a protein chain by
+biologists. It is is a single character used to group residues which are linked
+together in a crystallographic file where it may not be unique.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>MMTF</td>
+<td>The <strong>chainname</strong> defines the name assigned to a protein chain by
+biologists. It is is a single character used to group residues which are linked
+together in a crystallographic file where it may <em>not</em> be unique. This name <em>is</em>
+unique to a given biological assembly, however.</td>
+</tr>
+<tr class="row-odd"><td>is_standard_pdb</td>
+<td>bool</td>
+<td>MMTF</td>
+<td>When reading, <strong>is_standard_pdb</strong> is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> when the
+<code class="docutils literal notranslate"><span class="pre">composition_type</span></code> for the group is related to peptide or nucleotide
+linkage. See the <code class="docutils literal notranslate"><span class="pre">composition_type</span></code> property for residues for more
+information. This property is ignored while writing.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>PDB</td>
+<td>When reading, <strong>is_standard_pdb</strong> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> for residues
+defined with a <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> record, and <code class="docutils literal notranslate"><span class="pre">false</span></code> for atoms defined with an
+<code class="docutils literal notranslate"><span class="pre">HETATM</span></code> record. When writing, <strong>is_standard_pdb</strong> is used to determine
+whether to emit an <code class="docutils literal notranslate"><span class="pre">HETATM</span></code> or an <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> record. If the property is not set,
+<code class="docutils literal notranslate"><span class="pre">HETATM</span></code> is used.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>mmCIF</td>
+<td>When reading, <strong>is_standard_pdb</strong> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> when
+<code class="docutils literal notranslate"><span class="pre">_atom_site.group_PDB</span></code> is <code class="docutils literal notranslate"><span class="pre">ATOM</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> when it is <code class="docutils literal notranslate"><span class="pre">HETATM</span></code>, and is
+unset in the absense of this field. When writing, <strong>is_standard_pdb</strong> is used
+to determine whether to use <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> or <code class="docutils literal notranslate"><span class="pre">HETATM</span></code> for <code class="docutils literal notranslate"><span class="pre">_atom_site.group_PDB</span></code>.
+If the property is not set, <code class="docutils literal notranslate"><span class="pre">HETATM</span></code> is used.</td>
+</tr>
+<tr class="row-even"><td>chainindex</td>
+<td>number</td>
+<td>MMTF</td>
+<td>The <strong>chainindex</strong> is a numeric representation of the <strong>chainindex</strong>
+and it may be removed in a future release.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frame-properties">
+<h2>Frame properties<a class="headerlink" href="#frame-properties" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Format</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>deposition_date</td>
+<td>string</td>
+<td>MMTF</td>
+<td>Date (YYYY-MM-DD format) of the deposition in the PDB. Read from the <code class="docutils literal notranslate"><span class="pre">depositionDate</span></code> field.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>PDB</td>
+<td>Date (DD-MMM-YY format) of the deposition in the PDB. Read from the <code class="docutils literal notranslate"><span class="pre">HEADER</span></code> record.</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>string</td>
+<td>MMTF</td>
+<td>The text in the <code class="docutils literal notranslate"><span class="pre">title</span></code> field is used as the frame <strong>name</strong> when reading.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>MOL2</td>
+<td>The first line after <code class="docutils literal notranslate"><span class="pre">&#64;&lt;TRIPOS&gt;MOLECULE</span></code> is used as the frame <strong>name</strong> when reading.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>SDF</td>
+<td>The first line of an SDF file is used as the frame <strong>name</strong> when reading.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>mmCIF</td>
+<td>The text in the <code class="docutils literal notranslate"><span class="pre">_struct.title</span></code> field is used as the frame <strong>name</strong> when reading.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>GRO</td>
+<td>The first line of a GRO file is used as the frame <strong>name</strong> when reading.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>PDB</td>
+<td>The text described by the <code class="docutils literal notranslate"><span class="pre">TITLE</span></code> record is used as the frame <strong>name</strong> when reading.</td>
+</tr>
+<tr class="row-even"><td>classification</td>
+<td>string</td>
+<td>PDB</td>
+<td>The classification of a structure assigned by the PDB. Read from the <code class="docutils literal notranslate"><span class="pre">HEADER</span></code> record.</td>
+</tr>
+<tr class="row-odd"><td>pdb_idcode</td>
+<td>string</td>
+<td>MMTF</td>
+<td>Four letter code for structures deposited in the PDB. Read from the <code class="docutils literal notranslate"><span class="pre">structuresId</span></code> field.</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>PDB</td>
+<td>Four letter code for structures deposited in the PDB. Read from the <code class="docutils literal notranslate"><span class="pre">HEADER</span></code> record.</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>mmCIF</td>
+<td>Four letter code for structures deposited in the PDB. Read from the <code class="docutils literal notranslate"><span class="pre">_entry.id</span></code> field.</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, the SDF format reads any property formated as <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">&lt;...&gt;</span></code>, using
+the value inside the angle brackets (<code class="docutils literal notranslate"><span class="pre">...</span></code> here) as the property name.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

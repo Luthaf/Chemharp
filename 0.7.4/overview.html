@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chemfiles classes overview &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="index.html" />
+    <link rel="next" title="Usage examples" href="example.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Chemfiles classes overview</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Installation</span>
+    </a>
+  </li>
+  <li>
+    <a href="example.html" title="Next Chapter: Usage examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage examples &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="chemfiles-classes-overview">
+<span id="overview"></span><h1>Chemfiles classes overview<a class="headerlink" href="#chemfiles-classes-overview" title="Permalink to this headline">¶</a></h1>
+<p>This figure represents how the basic classes of chemfiles are organised and how
+they interact together. The only classes a chemfiles user should worry about are
+the <code class="docutils literal"><span class="pre">Trajectory</span></code>, <code class="docutils literal"><span class="pre">Frame</span></code>, <code class="docutils literal"><span class="pre">Topology</span></code>, <code class="docutils literal"><span class="pre">Residue</span></code>, <code class="docutils literal"><span class="pre">Atom</span></code>, <code class="docutils literal"><span class="pre">UnitCell</span></code>
+and <code class="docutils literal"><span class="pre">Selection</span></code>. All of these are described in this section.</p>
+<p>They are various way of interacting with these classes, all of them being
+described in the <a class="reference internal" href="index.html#classes-reference"><span class="std std-ref">Classes and functions reference</span></a> section for the C++ interface.</p>
+<img alt="_images/classes.png" class="align-center" src="_images/classes.png" />
+<p>A <code class="docutils literal"><span class="pre">Trajectory</span></code> is the main entry point of chemfiles. It reads one or many
+<code class="docutils literal"><span class="pre">Frame</span></code> from a file on the disk using a specific format. The file type and the
+format are automatically determined from the extention.</p>
+<p>A <code class="docutils literal"><span class="pre">Frame</span></code> holds data for one step of a simulation, consisting in the positions
+for all the atoms; optionally the velocities for all the atoms; the <code class="docutils literal"><span class="pre">Topology</span></code>
+and the <code class="docutils literal"><span class="pre">UnitCell</span></code> of the system.</p>
+<p>The <code class="docutils literal"><span class="pre">Topology</span></code> describes the organisation of the particles in the system. It
+contains a list of <code class="docutils literal"><span class="pre">Atom</span></code> in the system, and informations about which atoms
+are bonded together. A <code class="docutils literal"><span class="pre">Residue</span></code> is a group of atoms bonded together, which
+may or may not corresponds to molecules. When working with bio-molecules and
+specifically proteins from the PDB data bank, the residues should correspond to
+amino-acids in the protein.</p>
+<p>The <code class="docutils literal"><span class="pre">Atom</span></code> class contains basic information about the atoms in the system: the
+name (if it is available), mass, kind of atom and so on. Atoms are not limited
+to plain chemical elements.</p>
+<p>The <code class="docutils literal"><span class="pre">UnitCell</span></code> class describes the boundary conditions of the system: where are
+the boundaries, and what is the periodicity of theses boundaries. An unit cell
+can be of three types: <em>Infinite</em>, <em>Orthorombic</em> or <em>Triclinic</em>. Infinite cells
+do not have any boundaries. Orthorombic cells are defined by three orthogonals
+vectors, and triclinic cells are defined by three vectors without any
+constrain.</p>
+<p>Chemfiles also provides a <a class="reference internal" href="selections.html#selection-language"><span class="std std-ref">selection language</span></a>,
+implemented in the <code class="docutils literal"><span class="pre">Selection</span></code> class. This selection language allows the users
+to select a group of atoms from a <code class="docutils literal"><span class="pre">Frame</span></code> using a selection string. Examples
+of selections strings are <code class="docutils literal"><span class="pre">&quot;name</span> <span class="pre">H&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;(x</span> <span class="pre">&lt;</span> <span class="pre">45</span> <span class="pre">and</span> <span class="pre">name</span> <span class="pre">O)</span> <span class="pre">or</span> <span class="pre">name</span> <span class="pre">C&quot;</span></code>.</p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

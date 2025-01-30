@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>File classes &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="../index.html" />
+    <link rel="up" title="Chemfiles internals" href="internals.html" />
+    <link rel="next" title="Format classes" href="format.html" />
+    <link rel="prev" title="Chemfiles internals" href="internals.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">File</span></code> classes</a><ul>
+<li><a class="reference internal" href="#abstract-classes">Abstract classes</a></li>
+<li><a class="reference internal" href="#implemented-classes">Implemented classes</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="internals.html" title="Previous Chapter: Chemfiles internals"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Chemfiles int...</span>
+    </a>
+  </li>
+  <li>
+    <a href="format.html" title="Next Chapter: Format classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Format classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="file-classes">
+<span id="file-class"></span><h1><code class="docutils literal"><span class="pre">File</span></code> classes<a class="headerlink" href="#file-classes" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">File</span></code> classes provide abstraction of the IO operation, allowing for the same
+format to be used with on-disk files, network files, memory-mapped files,
+compressed files, <em>etc.</em></p>
+<p>Depending on the kind of format, either a <code class="docutils literal"><span class="pre">TextFile</span></code> or a <code class="docutils literal"><span class="pre">BinaryFile</span></code> is needed,
+and will provide different informations.</p>
+<div class="section" id="abstract-classes">
+<h2>Abstract classes<a class="headerlink" href="#abstract-classes" title="Permalink to this headline">¶</a></h2>
+<p>These classes only define the interface, which as to be implemented by all sub-classes.</p>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_file"></span><em>class</em> <code class="descname">chemfiles::File</code></dt>
+<dd><p>Abstract base class for file representation. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_file_1abd2af162e448ac816e369897020dfd90"></span>virtual bool <code class="descname">is_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Is the file opended ? </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_file_1a1babe628233f4aff41beaa745c79dbda"></span>virtual void <code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Sync any content in the underlying buffer to the disk. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_file_1af78fa2d30a4938fc61a739c7de5c9790"></span>const std::string &amp; <code class="descname">filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p><a class="reference internal" href="#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> name, i.e. complete path to this file on disk. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_file_1a9a22299e4bf367a154c01c0abe07cc67"></span>const std::string &amp; <code class="descname">mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p><a class="reference internal" href="#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> opening mode. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file"></span><em>class</em> <code class="descname">chemfiles::TextFile</code></dt>
+<dd><p>Abstract base class representing a text file. This class is inteded to be inherited by any form of text files: compressed files, memory-mapped files, and any other. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1ab0de0c810515941acaca257807af15cc"></span>virtual const std::string &amp; <code class="descname">getline</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Read a line from the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1a596d67dd3b2162aa4fa748c205bd22dc"></span>virtual <a class="reference internal" href="#project0classchemfiles_1_1_text_file"><span class="std std-ref">TextFile</span></a> &amp; <code class="descname">operator&gt;&gt;</code><span class="sig-paren">(</span>std::string &amp; <em>line</em><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Read a line from the file, stream version. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1ad2edad2fb329b13d4e16c30c9fc6c9b2"></span>virtual const std::vector&lt; std::string &gt; &amp; <code class="descname">readlines</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Read <code class="docutils literal"><span class="pre">n</span></code> lines from the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1ac912871fd4a6fd302226e52b8e359710"></span>virtual void <code class="descname">rewind</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Reset the file cursor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1ae58894b663678c3b9b9126c7f9f0f1cb"></span>virtual size_t <code class="descname">nlines</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Number of lines in the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1af61dceb0c51e603a0133c1595c11928f"></span>virtual bool <code class="descname">eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0</dt>
+<dd><p>Are we at the end of the file ? </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1a7abcee9b1e574f4f314545e2e6316a39"></span>virtual void <code class="descname">writeline</code><span class="sig-paren">(</span>const std::string &amp;<span class="sig-paren">)</span> = 0</dt>
+<dd><p>Write a string to the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1af5b8633b22ace2d6ce1ecebcb6aa4eaa"></span>virtual void <code class="descname">writelines</code><span class="sig-paren">(</span>const std::vector&lt; std::string &gt; &amp;<span class="sig-paren">)</span> = 0</dt>
+<dd><p>Write a vector of lines to the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_text_file_1aa8548edf158ee5568b247e55baa3316b"></span><a class="reference internal" href="#project0classchemfiles_1_1_text_file"><span class="std std-ref">TextFile</span></a> &amp; <code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>const char * <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Needed for resolving the overload ambiguity when using const char[] or const char* arguments. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_binary_file"></span><em>class</em> <code class="descname">chemfiles::BinaryFile</code></dt>
+<dd><p>Abstract base class for binary files representation. </p>
+<p>Because the binary formats can be everything, this class does not provides any of the usual methods for working with streams, and is not intended to be instanciated, but rather to serve as a base class for all the binary file classes. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="implemented-classes">
+<h2>Implemented classes<a class="headerlink" href="#implemented-classes" title="Permalink to this headline">¶</a></h2>
+<p>These classes implement the interface defined previously.</p>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file"></span><em>class</em> <code class="descname">chemfiles::BasicFile</code></dt>
+<dd><p>Basic text file, only a thin wrapper on top of standard C++ fstreams. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a39092f245e6ab1b0891d16f1a7730cea"></span><code class="descname">BasicFile</code><span class="sig-paren">(</span>const std::string &amp; <em>filename</em>, const std::string &amp; <em>mode</em><span class="sig-paren">)</span></dt>
+<dd><p>Open a text file.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The file path. In <code class="docutils literal"><span class="pre">&quot;w&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;a&quot;</span></code> modes, the file is created if it does not exist yet. In &#8220;r&#8221; mode, and exception is throwed is the file does not exist yet. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">mode</span></code> - <p>Opening mode for the file. Supported modes are &#8220;r&#8221; for read, &#8220;w&#8221; for write, and &#8220;a&#8221; for append. &#8220;w&#8221; mode discard any previously existing file. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a106d8daf384734c181eed9e54199790b"></span>virtual const std::string &amp; <code class="descname">getline</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Read a line from the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a98e30444fb4a7f8262f160416ddc890f"></span>virtual <a class="reference internal" href="#project0classchemfiles_1_1_basic_file"><span class="std std-ref">BasicFile</span></a> &amp; <code class="descname">operator&gt;&gt;</code><span class="sig-paren">(</span>std::string &amp; <em>line</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a line from the file, stream version. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a5ec588dbeed16051cb45544e3f3351e3"></span>virtual const std::vector&lt; std::string &gt; &amp; <code class="descname">readlines</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span></dt>
+<dd><p>Read <code class="docutils literal"><span class="pre">n</span></code> lines from the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1adf2217c929cbcea12529e404a18060f8"></span>virtual void <code class="descname">rewind</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Reset the file cursor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1aec24652bd9226619bc9b17d1eb727b11"></span>virtual size_t <code class="descname">nlines</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Number of lines in the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1af07ebda93c3bc46d385c0c1fca042e71"></span>virtual bool <code class="descname">is_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Is the file opended ? </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a6d7eb4215da1083fef576c8a4583c27d"></span>virtual bool <code class="descname">eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Are we at the end of the file ? </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1ac5269756876bb7d04b95523b4c5bf427"></span>virtual void <code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Sync any content in the underlying buffer to the disk. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a460b5bf1cbce10b4b8b547f6acadecca"></span>virtual void <code class="descname">writeline</code><span class="sig-paren">(</span>const std::string &amp;<span class="sig-paren">)</span></dt>
+<dd><p>Write a string to the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_basic_file_1a693c50da051fa0be01abd933be133659"></span>virtual void <code class="descname">writelines</code><span class="sig-paren">(</span>const std::vector&lt; std::string &gt; &amp;<span class="sig-paren">)</span></dt>
+<dd><p>Write a vector of lines to the file. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file"></span><em>class</em> <code class="descname">chemfiles::NCFile</code></dt>
+<dd><p>Wrapper around NetCDF 3 binary files. </p>
+<p>This interface only provide basic functionalities needed by the Amber NetCDF format. This interface is read-only for now. All the operation are guaranteed to return a valid value or throw an error. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a860d376a50b60eea19b2dd3f23a6481c"></span>string <code class="descname">global_attribute</code><span class="sig-paren">(</span>const string &amp; <em>name</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Get a global attribut from the file_. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1af1921a46798c7d81e37abb61dee8049c"></span>size_t <code class="descname">dimension</code><span class="sig-paren">(</span>const string &amp; <em>name</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the value of a specific dimmension. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a1d7ff6ff8a5a91e3ab1fbb7986b8db71"></span>netCDF::NcVar <code class="descname">variable</code><span class="sig-paren">(</span>const string &amp; <em>name</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Get a valid pointer to a NetCDF variable. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a3a7cc1045739187eff8bb187855953f3"></span>template &lt;typename T&gt; </dt>
+<dt>
+T <code class="descname">attribute</code><span class="sig-paren">(</span>const string &amp; <em>var</em>, const string &amp; <em>name</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Get an attribute of type <code class="docutils literal"><span class="pre">T</span></code> and name <code class="docutils literal"><span class="pre">name</span></code> from the variable of name <code class="docutils literal"><span class="pre">var</span></code>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1ac3e135b67ab19eea15e105a7b0392e94"></span>void <code class="descname">add_global_attribute</code><span class="sig-paren">(</span>const string &amp; <em>name</em>, const string &amp; <em>value</em><span class="sig-paren">)</span></dt>
+<dd><p>Create a global attribut in the file_. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a2041fac49b575523f47cdaae02b7ae0b"></span>void <code class="descname">add_dimension</code><span class="sig-paren">(</span>const string &amp; <em>name</em>, size_t <em>value</em> = static_cast&lt; size_t &gt;(-1)<span class="sig-paren">)</span></dt>
+<dd><p>Create a dimmension with the specified value. If <code class="docutils literal"><span class="pre">value</span></code> == -1, then the dimension is infinite </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a17eb7b520b555a35baf7f873eb5c39fb"></span>template &lt;typename T, class... <em>Dims</em>&gt; </dt>
+<dt>
+void <code class="descname">add_variable</code><span class="sig-paren">(</span>const string &amp; <em>name</em>, Dims... <em>dims</em><span class="sig-paren">)</span></dt>
+<dd><p>Create a new variable of type <code class="docutils literal"><span class="pre">T</span></code> with name <code class="docutils literal"><span class="pre">name</span></code> along the dimensions in <code class="docutils literal"><span class="pre">dims</span></code>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a77ed2c5e7b0ecce550b55e87b562b03a"></span>template &lt;typename T&gt; </dt>
+<dt>
+void <code class="descname">add_attribute</code><span class="sig-paren">(</span>const string &amp; <em>var</em>, const string &amp; <em>name</em>, T <em>value</em><span class="sig-paren">)</span></dt>
+<dd><p>Add an attribute of type <code class="docutils literal"><span class="pre">T</span></code> and name <code class="docutils literal"><span class="pre">name</span></code> to the variable with name <code class="docutils literal"><span class="pre">var</span></code>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a1d87c1fb4ef6cc92ada80d7f042819c9"></span>virtual bool <code class="descname">is_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Is the file opended ? </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_n_c_file_1a2d5a2123daa9bd996376ebab87ff02bf"></span>virtual void <code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Sync any content in the underlying buffer to the disk. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

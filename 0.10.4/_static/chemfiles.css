@@ -1,0 +1,72 @@
+dd {
+    margin-left: 2em;
+}
+
+a {
+    color: #3da48e;
+}
+
+.note a {
+    color: #b0f9e9;
+}
+
+pre {
+    color: black;
+    background-color: #f8f8fc;
+    border: none;
+}
+
+code {
+    color: inherit;
+    background-color: #fafaff;
+}
+
+.note code {
+    background-color: #70b6e5;
+}
+
+.chemfiles-selection {
+    background-color: transparent;
+    color: black;
+    border: none;
+}
+
+.chemfiles-selection p:not(.admonition-title) {
+    margin-left: 2em;
+}
+
+.formats-table tr:nth-child(odd) td {
+    background-color: #eee;
+}
+
+.formats-table tr td:nth-of-type(2) ~ td {
+    text-align: center;
+}
+
+.formats-table tr td:nth-of-type(2) ~ td {
+    text-align: center;
+}
+
+/* separation between columns in the formats tables */
+.formats-table tr td:nth-of-type(2),
+.formats-table tr td:nth-of-type(5),
+.formats-table tr td:nth-of-type(8)
+{
+    border-right: 1px solid #bbb;
+}
+
+.red {
+    color: #f36264;
+}
+
+/* Breathe creates class description with both breathe-sectiondef and container
+classes. This make the class description use the container width, and not fit
+on the page anymore. */
+.breathe-sectiondef {
+    width: inherit;
+}
+
+hr.docutils {
+    border: 1px solid;
+    width: 50%
+}

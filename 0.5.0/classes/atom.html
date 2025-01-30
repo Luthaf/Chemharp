@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Atoms and atomic informations &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Unit Cell" href="unitcell.html" />
+    <link rel="prev" title="Topology" href="topology.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Atoms and atomic informations</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="topology.html" title="Previous Chapter: Topology"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Topology</span>
+    </a>
+  </li>
+  <li>
+    <a href="unitcell.html" title="Next Chapter: Unit Cell"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Unit Cell &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="atoms-and-atomic-informations">
+<h1>Atoms and atomic informations<a class="headerlink" href="#atoms-and-atomic-informations" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom"></span><em>class</em> <code class="descname">chemfiles::Atom</code></dt>
+<dd><p>An <a class="reference internal" href="#project0classchemfiles_1_1_atom"><span class="std std-ref">Atom</span></a> is a particle in the current <a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a>. It can be used to store and retrieve informations about a particle, such as mass, name, atomic number, etc. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Type</p>
+<dl class="enum">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a389e4d85f743a0f6241c120f25f4e25b"></span><strong>AtomType enum</strong></dt>
+<dd><p>An <a class="reference internal" href="#project0classchemfiles_1_1_atom"><span class="std std-ref">Atom</span></a> can be of various kind. This is encoded by a value in this enum. </p>
+<p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">ELEMENT</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">0</span></code> - <p>Element from the periodic table of elements. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">COARSE_GRAINED</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">1</span></code> - <p>Coarse-grained atom are composed of more than one element: CH3 groups, amino-acids are coarse-grained atoms. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">DUMMY</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">2</span></code> - <p>Dummy site, with no physical reality. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">UNDEFINED</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">3</span></code> - <p>Undefined atom-type. </p>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1ad7e7492421652da6131e489e8172b141"></span><code class="descname">Atom</code><span class="sig-paren">(</span>const std::string &amp; <em>name</em><span class="sig-paren">)</span></dt>
+<dd><p>Create an element from its <code class="docutils literal"><span class="pre">name</span></code>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1aca233ee44cac57e292c7874bb6d7ce62"></span><code class="descname">Atom</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_atom_1a389e4d85f743a0f6241c120f25f4e25b"><span class="std std-ref">AtomType</span></a> <em>type</em>, const std::string &amp; <em>name</em> = &quot;&quot;<span class="sig-paren">)</span></dt>
+<dd><p>Create an element from its <code class="docutils literal"><span class="pre">name</span></code> and its type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1ac7c0623e431babd5b07644b58cb77323"></span><code class="descname">Atom</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Default is to create an UNDEFINED atom type with no name. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1aeddb1e41e262f85de21de13aed21dd82"></span>const std::string &amp; <code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get a const (non-modifiable) reference to the atom name. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a6f186f21efb1a89d1f1b15469271017a"></span>float <code class="descname">mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the atom mass. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a24e7c536310e80d9cf310902a851b3b7"></span>float <code class="descname">charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the atom charge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a2fb96f7ac51e13d5fe51b877878214bf"></span><a class="reference internal" href="#project0classchemfiles_1_1_atom_1a389e4d85f743a0f6241c120f25f4e25b"><span class="std std-ref">AtomType</span></a> <code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the atom type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a542e87be146ca469c9b008e48c1c5b40"></span>void <code class="descname">set_name</code><span class="sig-paren">(</span>const std::string &amp; <em>n</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the atom name. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1ade186787f8c7f5cf40e3232ff139076a"></span>void <code class="descname">set_mass</code><span class="sig-paren">(</span>float <em>m</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the atom mass. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a20ee195b559f1bb027ed6d864c1eab76"></span>void <code class="descname">set_charge</code><span class="sig-paren">(</span>float <em>c</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the atom charge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a6dd5ee6f3c248645f9f40ef6a28f844a"></span>void <code class="descname">set_type</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_atom_1a389e4d85f743a0f6241c120f25f4e25b"><span class="std std-ref">AtomType</span></a> <em>t</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the atom type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a0ae7ddfaff82b55150508e4eb9aefa4b"></span>std::string <code class="descname">full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Try to get the full element name, return and empty string if this is impossible. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1af12d7b431ea7fee7c9857a3630d5d225"></span>float <code class="descname">vdw_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Try to get the Van der Waals of the atom. Returns -1 if it can not be found. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1a8144dc4ab2ddd532b69e2c0753ca84a7"></span>float <code class="descname">covalent_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Try to get the covalent radius of the atom. Returns -1 if it can not be found. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_atom_1ade4235c4c144049fae9a9549cf7e78f3"></span>int <code class="descname">atomic_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Try to get the atomic number, if defined. Returns -1 if it can not be found. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

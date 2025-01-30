@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Trajectory &mdash; Chemfiles 0.4.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.4.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Frames" href="frame.html" />
+    <link rel="prev" title="C++ interface reference" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.4</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Trajectory</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: C++ interface reference"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C++ interface...</span>
+    </a>
+  </li>
+  <li>
+    <a href="frame.html" title="Next Chapter: Frames"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Frames &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/classes/trajectory.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="trajectory">
+<h1>Trajectory<a class="headerlink" href="#trajectory" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory"></span><em>class</em> <code class="descname">chemfiles::Trajectory</code></dt>
+<dd><p>A <a class="reference internal" href="#project0classchemfiles_1_1_trajectory"><span class="std std-ref">Trajectory</span></a> is a chemistry file on the hard drive. It is the main entry point of the chemfiles library. </p>
+<p>A <a class="reference internal" href="#project0classchemfiles_1_1_trajectory"><span class="std std-ref">Trajectory</span></a> is made with a <a class="reference internal" href="../devdoc/file.html#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> and a <a class="reference internal" href="../devdoc/format.html#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a>. The <a class="reference internal" href="../devdoc/file.html#project0classchemfiles_1_1_file"><span class="std std-ref">File</span></a> implements all the physical operations, while the <a class="reference internal" href="../devdoc/format.html#project0classchemfiles_1_1_format"><span class="std std-ref">Format</span></a> provides a way to interpret the file. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a10b31cfa4096ba483e13af071ff09719"></span><code class="descname">Trajectory</code><span class="sig-paren">(</span>const std::string &amp; <em>filename</em>, const std::string &amp; <em>mode</em> = &quot;r&quot;, const std::string &amp; <em>format</em> = &quot;&quot;<span class="sig-paren">)</span></dt>
+<dd><p>Open a file, automatically gessing the file format and type from the extension.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The file path. In <code class="docutils literal"><span class="pre">&quot;w&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;a&quot;</span></code> modes, the file is created if it does not exist yet. In &#8220;r&#8221; mode, and exception is throwed is the file does not exist yet. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">format</span></code> - <p>Specific format to use. Needed when there is no way to guess the format from the extension of the file, or when this guess would be wrong. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">mode</span></code> - <p>Opening mode for the file. Default mode is &#8220;r&#8221; for read. Other supported modes depends on the underlying format and are &#8220;w&#8221; for write, and &#8220;a&#8221; for append. &#8220;w&#8221; mode discard any previously existing file. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a371525f19b65fbc63f1119993c2f08fe"></span><a class="reference internal" href="#project0classchemfiles_1_1_trajectory"><span class="std std-ref">Trajectory</span></a> &amp; <code class="descname">operator&gt;&gt;</code><span class="sig-paren">(</span><a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read operator, in <em>stream</em> version. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a1ba32d31b011b74958385be72077facb"></span><a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> <code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Read operator, in <em>method</em> version. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1acdcb9dff80f9eb3ba017059038c8533e"></span><a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> <code class="descname">read_step</code><span class="sig-paren">(</span>const size_t<span class="sig-paren">)</span></dt>
+<dd><p>Read operator, in <em>method</em> version with specific step. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a952e415c9beaec22fccc3097a8a7dd35"></span>void <code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Synchronize any content in the underlying buffer to the disk. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a5921c0fffa82595abcd72e178ba70d0f"></span><a class="reference internal" href="#project0classchemfiles_1_1_trajectory"><span class="std std-ref">Trajectory</span></a> &amp; <code class="descname">operator&lt;&lt;</code><span class="sig-paren">(</span>const <a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Write operator, in <em>stream</em> version. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a0cd3a7e6160c85852de9788e5718a7f4"></span>void <code class="descname">write</code><span class="sig-paren">(</span>const <a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Write operator, in <em>method</em> version. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a9d4dcac2bfc9e7076ae17675f644710a"></span>void <code class="descname">topology</code><span class="sig-paren">(</span>const <a class="reference internal" href="topology.html#project0classchemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> &amp;<span class="sig-paren">)</span></dt>
+<dd><p>Set a topology to use while writing or reading format where no topological information is present. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a264ec12ac81caecb8fac9c98eff35b6a"></span>void <code class="descname">topology</code><span class="sig-paren">(</span>const std::string &amp; <em>filename</em><span class="sig-paren">)</span></dt>
+<dd><p>Use the topology of the first frame of the following file to read or write all the following files. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1acedb2debad03f4c319a4d9654bd32567"></span>void <code class="descname">cell</code><span class="sig-paren">(</span>const <a class="reference internal" href="unitcell.html#project0classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> &amp;<span class="sig-paren">)</span></dt>
+<dd><p>Set an unit cell to use while writing or reading format when no information about unit cell is present. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a5710e77c5fd55cea8a550c40235d4095"></span>size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the number of steps (the number of Frames) in this trajectory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_trajectory_1a1088a00b6ac1510c43a489b2dbbe37e2"></span>bool <code class="descname">done</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Have we read all the Frames in this file ? </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

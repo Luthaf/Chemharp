@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Frame &#8212; Chemfiles 0.10.4
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Topology" href="topology.html" />
+    <link rel="prev" title="Trajectory" href="trajectory.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="trajectory.html" title="Previous Chapter: Trajectory"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Trajectory</span>
+    </a>
+  </li>
+  <li>
+    <a href="topology.html" title="Next Chapter: Topology"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Topology &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trajectory.html">Trajectory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residue.html">Residue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atom.html">Atom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unitcell.html">UnitCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html">Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">Miscelaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="frame">
+<span id="class-frame"></span><h1>Frame<a class="headerlink" href="#frame" title="Permalink to this heading">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5FrameE">
+<span id="_CPPv3N9chemfiles5FrameE"></span><span id="_CPPv2N9chemfiles5FrameE"></span><span id="chemfiles::Frame"></span><span class="target" id="classchemfiles_1_1_frame"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Frame</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles5FrameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A frame contains data from one simulation step The <a class="reference internal" href="#classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> class holds data from one step of a simulation: the current topology, the positions, and the velocities of the particles in the system. If some information is missing the corresponding data is filled with a default value. Specifically:</p>
+<p><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cell</span></code> is an infinite unit cell;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">topology</span></code> is empty, and contains no data;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">positions</span></code> is filled with zeros;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">velocities</span></code> is the <code class="docutils literal notranslate"><span class="pre">nullopt</span></code> variant of <a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::optional</span></code></a>.</p></li>
+</ul>
+</p>
+<p>Iterating over a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> will yield all the atoms in the system.</p>
+<p></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame5FrameE8UnitCell">
+<span id="_CPPv3N9chemfiles5Frame5FrameE8UnitCell"></span><span id="_CPPv2N9chemfiles5Frame5FrameE8UnitCell"></span><span id="chemfiles::Frame::Frame__UnitCell"></span><span class="target" id="classchemfiles_1_1_frame_1aa76ec9e9b70bdb103abee001bb928351"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Frame</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="unitcell.html#_CPPv4N9chemfiles8UnitCellE" title="chemfiles::UnitCell"><span class="n"><span class="pre">UnitCell</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">cell</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="unitcell.html#_CPPv4N9chemfiles8UnitCellE" title="chemfiles::UnitCell"><span class="n"><span class="pre">UnitCell</span></span></a><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame5FrameE8UnitCell" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an empty frame with no atoms and the given cell.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame5cloneEv">
+<span id="_CPPv3NK9chemfiles5Frame5cloneEv"></span><span id="_CPPv2NK9chemfiles5Frame5cloneEv"></span><span id="chemfiles::Frame::cloneC"></span><span class="target" id="classchemfiles_1_1_frame_1a55a30870b3f0e1a4b4f7657d4776421f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame5cloneEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a clone (exact copy) of this frame.</p>
+<p>This replace the implicit copy constructor (which is private) to make an explicit copy of the frame.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame8topologyEv">
+<span id="_CPPv3NK9chemfiles5Frame8topologyEv"></span><span id="_CPPv2NK9chemfiles5Frame8topologyEv"></span><span id="chemfiles::Frame::topologyC"></span><span class="target" id="classchemfiles_1_1_frame_1aa902a7cddd97453792b5cd75499dafdc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="topology.html#_CPPv4N9chemfiles8TopologyE" title="chemfiles::Topology"><span class="n"><span class="pre">Topology</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">topology</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame8topologyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the topology of this frame</p>
+<p>It is not possible to get a modifiable reference to the topology, because it would then be possible to remove/add atoms without changing the actual positions and velocity storage. Instead, all the mutating functionalities of the topology are mirrored on the frame (adding and removing bonds, adding residues, <em>etc.</em>)</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame12set_topologyE8Topology">
+<span id="_CPPv3N9chemfiles5Frame12set_topologyE8Topology"></span><span id="_CPPv2N9chemfiles5Frame12set_topologyE8Topology"></span><span id="chemfiles::Frame::set_topology__Topology"></span><span class="target" id="classchemfiles_1_1_frame_1a365987341d81c3d0be2f18f021798f11"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_topology</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="topology.html#_CPPv4N9chemfiles8TopologyE" title="chemfiles::Topology"><span class="n"><span class="pre">Topology</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">topology</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame12set_topologyE8Topology" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the topology of this frame to <code class="docutils literal notranslate"><span class="pre">topology</span></code></p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topology</strong> – the new <a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> to use for this frame</p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n">Error</span></a></span></span> – if the topology size does not match the size of this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame4cellEv">
+<span id="_CPPv3NK9chemfiles5Frame4cellEv"></span><span id="_CPPv2NK9chemfiles5Frame4cellEv"></span><span id="chemfiles::Frame::cellC"></span><span class="target" id="classchemfiles_1_1_frame_1a684dfbc93ebae13e9806d14cab28d711"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="unitcell.html#_CPPv4N9chemfiles8UnitCellE" title="chemfiles::UnitCell"><span class="n"><span class="pre">UnitCell</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">cell</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame4cellEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the unit cell of this frame</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame4cellEv">
+<span id="_CPPv3N9chemfiles5Frame4cellEv"></span><span id="_CPPv2N9chemfiles5Frame4cellEv"></span><span id="chemfiles::Frame::cell"></span><span class="target" id="classchemfiles_1_1_frame_1a56a2051c5586ac0b02c67aa78f3e67f9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="unitcell.html#_CPPv4N9chemfiles8UnitCellE" title="chemfiles::UnitCell"><span class="n"><span class="pre">UnitCell</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">cell</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame4cellEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a reference to the unit cell of this frame</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame8set_cellE8UnitCell">
+<span id="_CPPv3N9chemfiles5Frame8set_cellE8UnitCell"></span><span id="_CPPv2N9chemfiles5Frame8set_cellE8UnitCell"></span><span id="chemfiles::Frame::set_cell__UnitCell"></span><span class="target" id="classchemfiles_1_1_frame_1aca7b0fe8237ad3f9c2cba97fd5cdf5c3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_cell</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="unitcell.html#_CPPv4N9chemfiles8UnitCellE" title="chemfiles::UnitCell"><span class="n"><span class="pre">UnitCell</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">cell</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame8set_cellE8UnitCell" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the unit cell for this frame to <code class="docutils literal notranslate"><span class="pre">cell</span></code></p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cell</strong> – the new <a class="reference internal" href="unitcell.html#classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> to use for this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame4sizeEv">
+<span id="_CPPv3NK9chemfiles5Frame4sizeEv"></span><span id="_CPPv2NK9chemfiles5Frame4sizeEv"></span><span id="chemfiles::Frame::sizeC"></span><span class="target" id="classchemfiles_1_1_frame_1a6682aad9ace784f8a79f8bcbfa07c0a1"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of atoms in this frame</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame9positionsEv">
+<span id="_CPPv3N9chemfiles5Frame9positionsEv"></span><span id="_CPPv2N9chemfiles5Frame9positionsEv"></span><span id="chemfiles::Frame::positions"></span><span class="target" id="classchemfiles_1_1_frame_1ad2fe6c710ecb7d5663a9a28ff75a15c3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles4spanE" title="chemfiles::span"><span class="n"><span class="pre">span</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">positions</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame9positionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the positions (in Angstroms) of the atoms in this frame.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame9positionsEv">
+<span id="_CPPv3NK9chemfiles5Frame9positionsEv"></span><span id="_CPPv2NK9chemfiles5Frame9positionsEv"></span><span id="chemfiles::Frame::positionsC"></span><span class="target" id="classchemfiles_1_1_frame_1afa2697a46827febe7cad5b7ae844fec0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">positions</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame9positionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the positions (in Angstroms) of the atoms in this frame as a const reference</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame14add_velocitiesEv">
+<span id="_CPPv3N9chemfiles5Frame14add_velocitiesEv"></span><span id="_CPPv2N9chemfiles5Frame14add_velocitiesEv"></span><span id="chemfiles::Frame::add_velocities"></span><span class="target" id="classchemfiles_1_1_frame_1a65f05dc9f8d9333924b5060f8e79b3b7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_velocities</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame14add_velocitiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add velocities data storage to this frame.</p>
+<p>If velocities are already defined, this functions does nothing. The new velocities are initialized to 0.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame10velocitiesEv">
+<span id="_CPPv3N9chemfiles5Frame10velocitiesEv"></span><span id="_CPPv2N9chemfiles5Frame10velocitiesEv"></span><span id="chemfiles::Frame::velocities"></span><span class="target" id="classchemfiles_1_1_frame_1a660cb837a4d5e37daf660b3e6bc5510d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles4spanE" title="chemfiles::span"><span class="n"><span class="pre">span</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">velocities</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame10velocitiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get an velocities (in Angstroms/ps) of the atoms in this frame, if this frame contains velocity data.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame10velocitiesEv">
+<span id="_CPPv3NK9chemfiles5Frame10velocitiesEv"></span><span id="_CPPv2NK9chemfiles5Frame10velocitiesEv"></span><span id="chemfiles::Frame::velocitiesC"></span><span class="target" id="classchemfiles_1_1_frame_1ab36d724675be58f15df4cdd2ab6790e4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">velocities</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame10velocitiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get an velocities (in Angstroms/ps) of the atoms in this frame as a const reference, if this frame contains velocity data.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame6resizeE6size_t">
+<span id="_CPPv3N9chemfiles5Frame6resizeE6size_t"></span><span id="_CPPv2N9chemfiles5Frame6resizeE6size_t"></span><span id="chemfiles::Frame::resize__s"></span><span class="target" id="classchemfiles_1_1_frame_1aa1553e858ed80fab2a9dc1fdcf7fff0d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resize</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame6resizeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resize the frame to contain <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms.</p>
+<p>If the new number of atoms is bigger than the old one, missing data is initialized to 0. Pre-existing values are conserved.</p>
+<p>If the new size if smaller than the old one, all atoms and connectivity elements after the new size are removed.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame7reserveE6size_t">
+<span id="_CPPv3N9chemfiles5Frame7reserveE6size_t"></span><span id="_CPPv2N9chemfiles5Frame7reserveE6size_t"></span><span id="chemfiles::Frame::reserve__s"></span><span class="target" id="classchemfiles_1_1_frame_1a46a7564879550be9c63c90dd61e80e5b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reserve</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame7reserveE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocate memory in the frame to have enough size for <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms.</p>
+<p>This function does not change the actual number of atoms in the frame, and should be used as an optimisation.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame8add_atomE4Atom8Vector3D8Vector3D">
+<span id="_CPPv3N9chemfiles5Frame8add_atomE4Atom8Vector3D8Vector3D"></span><span id="_CPPv2N9chemfiles5Frame8add_atomE4Atom8Vector3D8Vector3D"></span><span id="chemfiles::Frame::add_atom__Atom.Vector3D.Vector3D"></span><span class="target" id="classchemfiles_1_1_frame_1ab5a7c46c90d7f10d769a3c431e34281c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_atom</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="atom.html#_CPPv4N9chemfiles4AtomE" title="chemfiles::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">atom</span></span>, <a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span>, <a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">velocity</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame8add_atomE4Atom8Vector3D8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add an <code class="docutils literal notranslate"><span class="pre">atom</span></code> at the given <code class="docutils literal notranslate"><span class="pre">position</span></code> and optionally with the given <code class="docutils literal notranslate"><span class="pre">velocity</span></code>. The <code class="docutils literal notranslate"><span class="pre">velocity</span></code> value will only be used if this frame contains velocity data.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame6removeE6size_t">
+<span id="_CPPv3N9chemfiles5Frame6removeE6size_t"></span><span id="_CPPv2N9chemfiles5Frame6removeE6size_t"></span><span id="chemfiles::Frame::remove__s"></span><span class="target" id="classchemfiles_1_1_frame_1ae423d62f779ac8e6b34b017005d597fb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">remove</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame6removeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in the system.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">chemfiles</span><span class="p">::</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">i</span></code> is bigger than the number of atoms in this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame4stepEv">
+<span id="_CPPv3NK9chemfiles5Frame4stepEv"></span><span id="_CPPv2NK9chemfiles5Frame4stepEv"></span><span id="chemfiles::Frame::stepC"></span><span class="target" id="classchemfiles_1_1_frame_1a2b10f8c7667477ebe8b4f1696f8adea5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame4stepEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the current simulation step.</p>
+<p>The step is set by the <code class="docutils literal notranslate"><a class="reference internal" href="trajectory.html#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">Trajectory</span></span></a></code> when reading a frame.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame8set_stepE6size_t">
+<span id="_CPPv3N9chemfiles5Frame8set_stepE6size_t"></span><span id="_CPPv2N9chemfiles5Frame8set_stepE6size_t"></span><span id="chemfiles::Frame::set_step__s"></span><span class="target" id="classchemfiles_1_1_frame_1af20388be1532cdb99ad3be10a1a0c8fe"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_step</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame8set_stepE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the current simulation step to <code class="docutils literal notranslate"><span class="pre">step</span></code></p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame11guess_bondsEv">
+<span id="_CPPv3N9chemfiles5Frame11guess_bondsEv"></span><span id="_CPPv2N9chemfiles5Frame11guess_bondsEv"></span><span id="chemfiles::Frame::guess_bonds"></span><span class="target" id="classchemfiles_1_1_frame_1ac9dfb41b8a02d482f25b32776fb55b70"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">guess_bonds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame11guess_bondsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Guess the bonds, angles, dihedrals and impropers angles in this frame.</p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles, dihedrals and impropers are guessed from the bonds. The distance criterion uses the Van der Waals radii of the atoms. If this information is missing for a specific atoms, one can use configuration files to provide it.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n">Error</span></a></span></span> – if the Van der Waals radius in unknown for a given atom.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame11clear_bondsEv">
+<span id="_CPPv3N9chemfiles5Frame11clear_bondsEv"></span><span id="_CPPv2N9chemfiles5Frame11clear_bondsEv"></span><span id="chemfiles::Frame::clear_bonds"></span><span class="target" id="classchemfiles_1_1_frame_1a5e24beee41ac2c50f2a649ee0f88a58e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear_bonds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame11clear_bondsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove all connectivity information in the frame’s topology</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame11add_residueE7Residue">
+<span id="_CPPv3N9chemfiles5Frame11add_residueE7Residue"></span><span id="_CPPv2N9chemfiles5Frame11add_residueE7Residue"></span><span id="chemfiles::Frame::add_residue__Residue"></span><span class="target" id="classchemfiles_1_1_frame_1a3a2b1ad8511740039883e1cf96c8d85f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_residue</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue"><span class="n"><span class="pre">Residue</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">residue</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame11add_residueE7Residue" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this frame’s topology.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>residue</strong> – the residue to add to this topology </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">chemfiles</span><span class="p">::</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n">Error</span></a></span></span> – if any atom in the <code class="docutils literal notranslate"><span class="pre">residue</span></code> is already in another residue in this topology. In that case, the topology is not modified. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame8add_bondE6size_t6size_tN4Bond9BondOrderE">
+<span id="_CPPv3N9chemfiles5Frame8add_bondE6size_t6size_tN4Bond9BondOrderE"></span><span id="_CPPv2N9chemfiles5Frame8add_bondE6size_t6size_tN4Bond9BondOrderE"></span><span id="chemfiles::Frame::add_bond__s.s.Bond::BondOrder"></span><span class="target" id="classchemfiles_1_1_frame_1aa591a13133f5e1843c5d5df6e5f75976"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_bond</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">atom_i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">atom_j</span></span>, <a class="reference internal" href="topology.html#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond"><span class="n"><span class="pre">Bond</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="topology.html#_CPPv4N9chemfiles4Bond9BondOrderE" title="chemfiles::Bond::BondOrder"><span class="n"><span class="pre">BondOrder</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">bond_order</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="topology.html#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond"><span class="n"><span class="pre">Bond</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="topology.html#_CPPv4N9chemfiles4Bond9BondOrder7UNKNOWNE" title="chemfiles::Bond::UNKNOWN"><span class="n"><span class="pre">UNKNOWN</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame8add_bondE6size_t6size_tN4Bond9BondOrderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bond in the system, between the atoms at index <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code>.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atom_i</strong> – the index of the first atom in the bond </p></li>
+<li><p><strong>atom_j</strong> – the index of the second atom in the bond </p></li>
+<li><p><strong>bond_order</strong> – the bond order of the new bond </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a6682aad9ace784f8a79f8bcbfa07c0a1"><span class="std std-ref"><span class="pre">size()</span></span></a></code></p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n">Error</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">atom_i</span> <span class="pre">==</span> <span class="pre">atom_j</span></code>, as this is an invalid bond </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame11remove_bondE6size_t6size_t">
+<span id="_CPPv3N9chemfiles5Frame11remove_bondE6size_t6size_t"></span><span id="_CPPv2N9chemfiles5Frame11remove_bondE6size_t6size_t"></span><span id="chemfiles::Frame::remove_bond__s.s"></span><span class="target" id="classchemfiles_1_1_frame_1af57201969b5967e7f3a51cf36170f48b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">remove_bond</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">atom_i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">atom_j</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame11remove_bondE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove a bond in the system, between the atoms at index <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code>.</p>
+<p>If the bond does not exist, this does nothing.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atom_i</strong> – the index of the first atom in the bond </p></li>
+<li><p><strong>atom_j</strong> – the index of the second atom in the bond </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a6682aad9ace784f8a79f8bcbfa07c0a1"><span class="std std-ref"><span class="pre">size()</span></span></a></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5FrameixE6size_t">
+<span id="_CPPv3N9chemfiles5FrameixE6size_t"></span><span id="_CPPv2N9chemfiles5FrameixE6size_t"></span><span id="chemfiles::Frame::subscript-operator__s"></span><span class="target" id="classchemfiles_1_1_frame_1a0da9fd18261d4a195519f6739b5a9b5a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="atom.html#_CPPv4N9chemfiles4AtomE" title="chemfiles::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5FrameixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a reference to the atom at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – the atomic index </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">index</span></code> is greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a6682aad9ace784f8a79f8bcbfa07c0a1"><span class="std std-ref"><span class="pre">size()</span></span></a></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5FrameixE6size_t">
+<span id="_CPPv3NK9chemfiles5FrameixE6size_t"></span><span id="_CPPv2NK9chemfiles5FrameixE6size_t"></span><span id="chemfiles::Frame::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_frame_1a70ff94e9f3cb406b47a0f73cbeabcaaf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="atom.html#_CPPv4N9chemfiles4AtomE" title="chemfiles::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5FrameixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the atom at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – the atomic index </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">index</span></code> is greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a6682aad9ace784f8a79f8bcbfa07c0a1"><span class="std std-ref"><span class="pre">size()</span></span></a></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame8distanceE6size_t6size_t">
+<span id="_CPPv3NK9chemfiles5Frame8distanceE6size_t6size_t"></span><span id="_CPPv2NK9chemfiles5Frame8distanceE6size_t6size_t"></span><span id="chemfiles::Frame::distance__s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a6dea79104333125b2e73e91c1bd41e4f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">distance</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame8distanceE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the distance between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>, accounting for periodic boundary conditions. The distance is expressed in angstroms.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">chemfiles</span><span class="p">::</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">i</span></code> or <code class="docutils literal notranslate"><span class="pre">j</span></code> are bigger than the number of atoms in this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame5angleE6size_t6size_t6size_t">
+<span id="_CPPv3NK9chemfiles5Frame5angleE6size_t6size_t6size_t"></span><span id="_CPPv2NK9chemfiles5Frame5angleE6size_t6size_t6size_t"></span><span id="chemfiles::Frame::angle__s.s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a02805dce6d02365aee6739b209cfd4cf"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">angle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame5angleE6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code>, accounting for periodic boundary conditions. The angle is expressed in radians.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">chemfiles</span><span class="p">::</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> or <code class="docutils literal notranslate"><span class="pre">k</span></code> are bigger than the number of atoms in this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame8dihedralE6size_t6size_t6size_t6size_t">
+<span id="_CPPv3NK9chemfiles5Frame8dihedralE6size_t6size_t6size_t6size_t"></span><span id="_CPPv2NK9chemfiles5Frame8dihedralE6size_t6size_t6size_t6size_t"></span><span id="chemfiles::Frame::dihedral__s.s.s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a4c5bfe641c87cd1a5b4d9f0b59e6be8f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dihedral</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame8dihedralE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the dihedral angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code>, accounting for periodic boundary conditions. The angle is expressed in radians.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">chemfiles</span><span class="p">::</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> or <code class="docutils literal notranslate"><span class="pre">m</span></code> are bigger than the number of atoms in this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame12out_of_planeE6size_t6size_t6size_t6size_t">
+<span id="_CPPv3NK9chemfiles5Frame12out_of_planeE6size_t6size_t6size_t6size_t"></span><span id="_CPPv2NK9chemfiles5Frame12out_of_planeE6size_t6size_t6size_t6size_t"></span><span id="chemfiles::Frame::out_of_plane__s.s.s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a5cc708c8a23dbdcfae46e97c4c288eb6"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">out_of_plane</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame12out_of_planeE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the out of plane distance formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code>, accounting for periodic boundary conditions. The distance is expressed in angstroms.</p>
+<p>This is the distance between the atom j and the ikm plane. The j atom is the center of the improper dihedral angle formed by i, j, k and m.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">chemfiles</span><span class="p">::</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles11OutOfBoundsE" title="chemfiles::OutOfBounds"><span class="n">OutOfBounds</span></a></span></span> – if <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> or <code class="docutils literal notranslate"><span class="pre">m</span></code> are bigger than the number of atoms in this frame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame10propertiesEv">
+<span id="_CPPv3NK9chemfiles5Frame10propertiesEv"></span><span id="_CPPv2NK9chemfiles5Frame10propertiesEv"></span><span id="chemfiles::Frame::propertiesC"></span><span class="target" id="classchemfiles_1_1_frame_1a14f0b97cbd6fc9908d42ba632d7b3631"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">property_map</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">properties</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame10propertiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the map of properties associated with this frame. This map might be iterated over to list the properties of the frame, or directly accessed.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5Frame3setENSt6stringE8Property">
+<span id="_CPPv3N9chemfiles5Frame3setENSt6stringE8Property"></span><span id="_CPPv2N9chemfiles5Frame3setENSt6stringE8Property"></span><span id="chemfiles::Frame::set__ss.Property"></span><span class="target" id="classchemfiles_1_1_frame_1aa16c3f3c1daf9f6d6ce1e5834bc9d94e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="property.html#_CPPv4N9chemfiles8PropertyE" title="chemfiles::Property"><span class="n"><span class="pre">Property</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Frame3setENSt6stringE8Property" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set an arbitrary property for this frame with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>. If a property with this name already exist, it is silently replaced with the new value.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles5Frame3getERKNSt6stringE">
+<span id="_CPPv3NK9chemfiles5Frame3getERKNSt6stringE"></span><span id="_CPPv2NK9chemfiles5Frame3getERKNSt6stringE"></span><span id="chemfiles::Frame::get__ssCRC"></span><span class="target" id="classchemfiles_1_1_frame_1a1d5f9f62707100c43e91cc302119504d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="property.html#_CPPv4N9chemfiles8PropertyE" title="chemfiles::Property"><span class="n"><span class="pre">Property</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles5Frame3getERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <code class="docutils literal notranslate"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> for this frame if it exists.</p>
+<p>If no property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, this function returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I_N8Property4KindEENK9chemfiles5Frame3getE8optionalIN17property_metadataI4kindE4typeEERKNSt6stringE">
+<span id="_CPPv3I_N8Property4KindEENK9chemfiles5Frame3getERKNSt6stringE"></span><span id="_CPPv2I_N8Property4KindEENK9chemfiles5Frame3getERKNSt6stringE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="property.html#_CPPv4N9chemfiles8PropertyE" title="chemfiles::Property"><span class="n"><span class="pre">Property</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="property.html#_CPPv4N9chemfiles8Property4KindE" title="chemfiles::Property::Kind"><span class="n"><span class="pre">Kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kind</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classchemfiles_1_1_frame_1aedf08fe87122be948402417c0be445fd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">property_metadata</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I_N8Property4KindEENK9chemfiles5Frame3getE8optionalIN17property_metadataI4kindE4typeEERKNSt6stringE" title="chemfiles::Frame::get::kind"><span class="n"><span class="pre">kind</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I_N8Property4KindEENK9chemfiles5Frame3getE8optionalIN17property_metadataI4kindE4typeEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <code class="docutils literal notranslate"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> for this frame if it exists, and check that it has the required <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
+<p>If no property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, this function returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p>If a property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, but has a different kind, this function emits a warning and returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p></p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

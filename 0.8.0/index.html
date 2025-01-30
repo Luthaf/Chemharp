@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Chemfiles, a modern library for chemistry file reading and writing &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Chemfiles, a modern library for chemistry file reading and writing</a><ul>
+<li><a class="reference internal" href="#user-manual">User manual</a></li>
+<li><a class="reference internal" href="#classes-and-functions-reference">Classes and functions reference</a></li>
+<li><a class="reference internal" href="#developer-documentation">Developer documentation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="installation.html" title="Next Chapter: Installation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Installation &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="chemfiles-a-modern-library-for-chemistry-file-reading-and-writing">
+<h1>Chemfiles, a modern library for chemistry file reading and writing<a class="headerlink" href="#chemfiles-a-modern-library-for-chemistry-file-reading-and-writing" title="Permalink to this headline">¶</a></h1>
+<p>Chemfiles is a multi-language library written in modern C++ for reading and
+writing from and to molecular trajectory files. These files are created by your
+favorite theoretical chemistry program, and contains informations about atomic
+or residues names and positions. Some format also have additional informations,
+such as velocities, forces, energy, …</p>
+<p>The main targeted audience of chemfiles are chemistry researchers working on
+their own code to do some kind of awesome science, and who do not want to bother
+about handling all the files format that may exist in the world.</p>
+<p>Running simulation (either Quantum Dynamic, Monte Carlo, Molecular Dynamic, or
+any other method) often produce enormous amounts of data, which had to be
+post-processed in order to extract informations. This post-processing step
+involve reading and parsing the data, and computing physical values with the
+help of statistical thermodynamic. Chemfiles tries to help you on the first
+point, by providing the same interface to all the trajectory formats. If you
+ever need to change your output format, your analysis tools will still work the
+same way. Chemfiles is efficient because it allow you to write and debug your
+code only once, and then to re-use it as needed.</p>
+<p>Even if chemfiles is written in C++, it can be used from the most popular
+scientific programming languages: C, Fortran, Python, … You can just pick up
+your favorite language to use it. This part of the documentation presents the
+data model used by chemfiles to store information about the trajectories, and
+how to acess that data in C and C++. The documentation for the other languages
+interfaces to chemfiles are accessibles at the following places:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://chemfiles.github.io/chemfiles.py/latest/">Python interface</a>, usable with Python 2 and 3;</li>
+<li><a class="reference external" href="https://chemfiles.github.io/chemfiles.f03/latest/">Fortran interface</a>, for Fortran 2003;</li>
+<li><a class="reference external" href="https://chemfiles.github.io/Chemfiles.jl/latest/">Julia interface</a>, for <a class="reference external" href="http://julialang.org/">Julia</a> 0.4+;</li>
+<li><a class="reference external" href="https://chemfiles.github.io/chemfiles.rs/latest/">Rust interface</a>, for the <a class="reference external" href="https://www.rust-lang.org/">Rust</a> language;</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Chemfiles follow <a class="reference external" href="http://semver.org/">semantic versionning</a>. This means
+that all 0.x.y versions are compatible for all y, but 0.x and 0.(x+1) are
+not compatible. This also means that when chemfiles reaches 1.0.0, all code
+using 1.0.0 will be compatible with 1.x.y for any x and y.</p>
+</div>
+<div class="section" id="user-manual">
+<h2>User manual<a class="headerlink" href="#user-manual" title="Permalink to this headline">¶</a></h2>
+<p>This section of the documentation will cover how to install chemfiles, give an
+high-level overview of the functionalities and the supported formats. In order
+to use chemfiles in your code, you should refer to the <a class="reference internal" href="#classes-reference"><span class="std std-ref">Classes and functions reference</span></a>.
+If you need help installing or using chemfiles, do not hesitate to ask questions
+in our <a class="reference external" href="https://gitter.im/chemfiles/chemfiles">Gitter chat room</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#pre-compiled-binaries">Pre-compiled binaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#building-from-sources">Building from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-chemfiles-in-your-project">Using chemfiles in your project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cxx-tutorials.html#read-a-single-frame">Read a single frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cxx-tutorials.html#generating-a-structure">Generating a structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cxx-tutorials.html#using-selections">Using selections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c-tutorials.html#read-a-single-frame">Read a single frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c-tutorials.html#generating-a-structure">Generating a structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c-tutorials.html#using-selections">Using selections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formats.html#list-of-supported-formats">List of supported formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formats.html#asking-for-a-new-format">Asking for a new format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selections.html#selectors">Selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selections.html#elisions">Elisions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#types-atomic-type-renaming"><code class="docutils literal"><span class="pre">[types]</span></code>: atomic type renaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="properties.html#atomic-properties">Atomic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="properties.html#frame-properties">Frame properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others.html#vmd-molfile-plugins">VMD Molfile plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others.html#openbabel">OpenBabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others.html#mdtraj">MDTraj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others.html#mdanalysis">MDAnalysis</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="classes-and-functions-reference">
+<span id="classes-reference"></span><h2>Classes and functions reference<a class="headerlink" href="#classes-and-functions-reference" title="Permalink to this headline">¶</a></h2>
+<p>All the public classes (for the C++ interface) and functions (for the C
+interface) are extensively documented here.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classes/trajectory.html">Trajectory class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/frame.html">Frame class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/topology.html">Topology class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/topology.html#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/residue.html">Residue class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/atom.html">Atom class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/unitcell.html">Unit Cell class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/selection.html">Selection class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/misc.html">Miscelaneous classes and functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes/index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_trajectory.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_TRAJECTORY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_frame.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_topology.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_TOPOLOGY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_residue.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_RESIDUE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_atom.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_cell.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_CELL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_selection.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_SELECTION</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/chfl_property.html">Function manipulating <code class="docutils literal"><span class="pre">CHFL_PROPERTY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="capi/misc.html">Miscelaneous functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="developer-documentation">
+<h2>Developer documentation<a class="headerlink" href="#developer-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/contributing.html#i-would-like-to-help-what-can-i-do">I would like to help, what can I do ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/contributing.html#external-project-used">External project used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/contributing.html#coding-style-and-other-formating-issues">Coding style, and other formating issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/internals.html#sources-organisation">Sources organisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/internals.html#classes-organisation">Classes organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/file.html#interface-for-files">Interface for files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/file.html#implemented-classes">Implemented classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/format.html#interface-for-formats">Interface for formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devdoc/format.html#implemented-formats">Implemented formats</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Text file implementations &#8212; Chemfiles 0.10.4
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/chemfiles.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Binary files implementations" href="binary-files.html" />
+    <link rel="prev" title="File classes" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: File classes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; File classes</span>
+    </a>
+  </li>
+  <li>
+    <a href="binary-files.html" title="Next Chapter: Binary files implementations"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Binary files ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Chemfiles internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../internals.html#sources-organization">Sources organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html#classes-organization">Classes organization</a></li>
+</ul>
+</li>
+</ul>
+
+<form action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="text-file-implementations">
+<h1>Text file implementations<a class="headerlink" href="#text-file-implementations" title="Permalink to this heading">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12TextFileImplE">
+<span id="_CPPv3N9chemfiles12TextFileImplE"></span><span id="_CPPv2N9chemfiles12TextFileImplE"></span><span id="chemfiles::TextFileImpl"></span><span class="target" id="classchemfiles_1_1_text_file_impl"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TextFileImpl</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles12TextFileImplE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract base class for readers used by text files. This is specialized for compressed files, and might get extended to network or memory mapped files.</p>
+<p>Any failed operation should throw a <code class="docutils literal notranslate"><a class="reference internal" href="../../classes/misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">chemfiles::FileError</span></span></a></code>. </p>
+<p>Subclassed by <a class="reference internal" href="#classchemfiles_1_1_bz2_file"><span class="std std-ref">chemfiles::Bz2File</span></a>, <a class="reference internal" href="#classchemfiles_1_1_gz_file"><span class="std std-ref">chemfiles::GzFile</span></a>, <a class="reference internal" href="#classchemfiles_1_1_memory_file"><span class="std std-ref">chemfiles::MemoryFile</span></a>, <a class="reference internal" href="#classchemfiles_1_1_plain_file"><span class="std std-ref">chemfiles::PlainFile</span></a>, <a class="reference internal" href="#classchemfiles_1_1_xz_file"><span class="std std-ref">chemfiles::XzFile</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12TextFileImpl5clearEv">
+<span id="_CPPv3N9chemfiles12TextFileImpl5clearEv"></span><span id="_CPPv2N9chemfiles12TextFileImpl5clearEv"></span><span id="chemfiles::TextFileImpl::clear"></span><span class="target" id="classchemfiles_1_1_text_file_impl_1a52f209cfb85c154c1a1cdf8ced5ff415"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles12TextFileImpl5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>clear error and eof flags on the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12TextFileImpl4seekE8uint64_t">
+<span id="_CPPv3N9chemfiles12TextFileImpl4seekE8uint64_t"></span><span id="_CPPv2N9chemfiles12TextFileImpl4seekE8uint64_t"></span><span id="chemfiles::TextFileImpl::seek__uint64_t"></span><span class="target" id="classchemfiles_1_1_text_file_impl_1a4fe8da818a881a31440328a89eacbf8f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seek</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles12TextFileImpl4seekE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set file indicator to <code class="docutils literal notranslate"><span class="pre">position</span></code> characters after the start of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error while seeking </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12TextFileImpl4readEPc6size_t">
+<span id="_CPPv3N9chemfiles12TextFileImpl4readEPc6size_t"></span><span id="_CPPv2N9chemfiles12TextFileImpl4readEPc6size_t"></span><span id="chemfiles::TextFileImpl::read__cP.s"></span><span class="target" id="classchemfiles_1_1_text_file_impl_1a3731e2e471f990ec502b3e1b24b84b11"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles12TextFileImpl4readEPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill up the <code class="docutils literal notranslate"><span class="pre">data</span></code> buffer reading at most <code class="docutils literal notranslate"><span class="pre">count</span></code> characters from the file.</p>
+<p>Returns the amount of characters read. A return value of 0 indicates that the end of file has been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12TextFileImpl5writeEPKc6size_t">
+<span id="_CPPv3N9chemfiles12TextFileImpl5writeEPKc6size_t"></span><span id="_CPPv2N9chemfiles12TextFileImpl5writeEPKc6size_t"></span><span id="chemfiles::TextFileImpl::write__cCP.s"></span><span class="target" id="classchemfiles_1_1_text_file_impl_1a21858aba6b3e548e638622a5de667013"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles12TextFileImpl5writeEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write <code class="docutils literal notranslate"><span class="pre">count</span></code> characters starting at <code class="docutils literal notranslate"><span class="pre">data</span></code> to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if it could not write all of the data to the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PlainFileE">
+<span id="_CPPv3N9chemfiles9PlainFileE"></span><span id="_CPPv2N9chemfiles9PlainFileE"></span><span id="chemfiles::PlainFile"></span><span class="target" id="classchemfiles_1_1_plain_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PlainFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles12TextFileImplE" title="chemfiles::TextFileImpl"><span class="n"><span class="pre">TextFileImpl</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9PlainFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple <a class="reference internal" href="#classchemfiles_1_1_text_file_impl"><span class="std std-ref">TextFileImpl</span></a> reading plain, uncompressed files using <code class="docutils literal notranslate"><span class="pre">FILE*</span></code>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PlainFile9PlainFileERKNSt6stringEN4File4ModeE">
+<span id="_CPPv3N9chemfiles9PlainFile9PlainFileERKNSt6stringEN4File4ModeE"></span><span id="_CPPv2N9chemfiles9PlainFile9PlainFileERKNSt6stringEN4File4ModeE"></span><span id="chemfiles::PlainFile::PlainFile__ssCR.File::Mode"></span><span class="target" id="classchemfiles_1_1_plain_file_1a4c48864ecc7a80acca1432b81e563194"></span><span class="sig-name descname"><span class="n"><span class="pre">PlainFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <a class="reference internal" href="index.html#_CPPv4N9chemfiles4FileE" title="chemfiles::File"><span class="n"><span class="pre">File</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles4File4ModeE" title="chemfiles::File::Mode"><span class="n"><span class="pre">Mode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles9PlainFile9PlainFileERKNSt6stringEN4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open a text file with name <code class="docutils literal notranslate"><span class="pre">filename</span></code> and mode <code class="docutils literal notranslate"><span class="pre">mode</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PlainFile4readEPc6size_t">
+<span id="_CPPv3N9chemfiles9PlainFile4readEPc6size_t"></span><span id="_CPPv2N9chemfiles9PlainFile4readEPc6size_t"></span><span id="chemfiles::PlainFile::read__cP.s"></span><span class="target" id="classchemfiles_1_1_plain_file_1a19e2adb35acbec387fde87e39e7eb4fe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles9PlainFile4readEPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill up the <code class="docutils literal notranslate"><span class="pre">data</span></code> buffer reading at most <code class="docutils literal notranslate"><span class="pre">count</span></code> characters from the file.</p>
+<p>Returns the amount of characters read. A return value of 0 indicates that the end of file has been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PlainFile5writeEPKc6size_t">
+<span id="_CPPv3N9chemfiles9PlainFile5writeEPKc6size_t"></span><span id="_CPPv2N9chemfiles9PlainFile5writeEPKc6size_t"></span><span id="chemfiles::PlainFile::write__cCP.s"></span><span class="target" id="classchemfiles_1_1_plain_file_1a4e38133237c8e580db48e63129f03f7d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles9PlainFile5writeEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write <code class="docutils literal notranslate"><span class="pre">count</span></code> characters starting at <code class="docutils literal notranslate"><span class="pre">data</span></code> to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if it could not write all of the data to the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PlainFile5clearEv">
+<span id="_CPPv3N9chemfiles9PlainFile5clearEv"></span><span id="_CPPv2N9chemfiles9PlainFile5clearEv"></span><span id="chemfiles::PlainFile::clear"></span><span class="target" id="classchemfiles_1_1_plain_file_1ac895fed5ee64040a14f20acc0d38ab85"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles9PlainFile5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>clear error and eof flags on the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PlainFile4seekE8uint64_t">
+<span id="_CPPv3N9chemfiles9PlainFile4seekE8uint64_t"></span><span id="_CPPv2N9chemfiles9PlainFile4seekE8uint64_t"></span><span id="chemfiles::PlainFile::seek__uint64_t"></span><span class="target" id="classchemfiles_1_1_plain_file_1a0ed87a1cbc06bf71eab3488c34d50bbb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seek</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles9PlainFile4seekE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set file indicator to <code class="docutils literal notranslate"><span class="pre">position</span></code> characters after the start of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error while seeking </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MemoryFileE">
+<span id="_CPPv3N9chemfiles10MemoryFileE"></span><span id="_CPPv2N9chemfiles10MemoryFileE"></span><span id="chemfiles::MemoryFile"></span><span class="target" id="classchemfiles_1_1_memory_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MemoryFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles12TextFileImplE" title="chemfiles::TextFileImpl"><span class="n"><span class="pre">TextFileImpl</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles10MemoryFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple <a class="reference internal" href="index.html#classchemfiles_1_1_text_file"><span class="std std-ref">TextFile</span></a> implementation, that wraps memory for reading only. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MemoryFile10MemoryFileENSt10shared_ptrI12MemoryBufferEEN4File4ModeE">
+<span id="_CPPv3N9chemfiles10MemoryFile10MemoryFileENSt10shared_ptrI12MemoryBufferEEN4File4ModeE"></span><span id="_CPPv2N9chemfiles10MemoryFile10MemoryFileENSt10shared_ptrI12MemoryBufferEEN4File4ModeE"></span><span id="chemfiles::MemoryFile::MemoryFile__std::shared_ptr:MemoryBuffer:.File::Mode"></span><span class="target" id="classchemfiles_1_1_memory_file_1a02eddd434c79f47252c8412aaa01c93c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MemoryFile</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">MemoryBuffer</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">memory</span></span>, <a class="reference internal" href="index.html#_CPPv4N9chemfiles4FileE" title="chemfiles::File"><span class="n"><span class="pre">File</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles4File4ModeE" title="chemfiles::File::Mode"><span class="n"><span class="pre">Mode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles10MemoryFile10MemoryFileENSt10shared_ptrI12MemoryBufferEEN4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open <code class="docutils literal notranslate"><span class="pre">memory</span></code> as though it were a file in mode <code class="docutils literal notranslate"><span class="pre">mode</span></code>. No copy of <code class="docutils literal notranslate"><span class="pre">memory</span></code> is made and the original object <strong>MUST</strong> not be freed until this object is destroyed </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MemoryFile4readEPc6size_t">
+<span id="_CPPv3N9chemfiles10MemoryFile4readEPc6size_t"></span><span id="_CPPv2N9chemfiles10MemoryFile4readEPc6size_t"></span><span id="chemfiles::MemoryFile::read__cP.s"></span><span class="target" id="classchemfiles_1_1_memory_file_1a6202c9d610801dd048becbb9aa8582f8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10MemoryFile4readEPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill up the <code class="docutils literal notranslate"><span class="pre">data</span></code> buffer reading at most <code class="docutils literal notranslate"><span class="pre">count</span></code> characters from the file.</p>
+<p>Returns the amount of characters read. A return value of 0 indicates that the end of file has been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MemoryFile5writeEPKc6size_t">
+<span id="_CPPv3N9chemfiles10MemoryFile5writeEPKc6size_t"></span><span id="_CPPv2N9chemfiles10MemoryFile5writeEPKc6size_t"></span><span id="chemfiles::MemoryFile::write__cCP.s"></span><span class="target" id="classchemfiles_1_1_memory_file_1a8c23a0977553dc8ac3635757dade8b8c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10MemoryFile5writeEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write <code class="docutils literal notranslate"><span class="pre">count</span></code> characters starting at <code class="docutils literal notranslate"><span class="pre">data</span></code> to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if it could not write all of the data to the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MemoryFile5clearEv">
+<span id="_CPPv3N9chemfiles10MemoryFile5clearEv"></span><span id="_CPPv2N9chemfiles10MemoryFile5clearEv"></span><span id="chemfiles::MemoryFile::clear"></span><span class="target" id="classchemfiles_1_1_memory_file_1a29a2f1f012d9fbc77f37740313d0c14e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10MemoryFile5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>clear error and eof flags on the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MemoryFile4seekE8uint64_t">
+<span id="_CPPv3N9chemfiles10MemoryFile4seekE8uint64_t"></span><span id="_CPPv2N9chemfiles10MemoryFile4seekE8uint64_t"></span><span id="chemfiles::MemoryFile::seek__uint64_t"></span><span class="target" id="classchemfiles_1_1_memory_file_1af58b14566c9a887660b489553550f589"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seek</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10MemoryFile4seekE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set file indicator to <code class="docutils literal notranslate"><span class="pre">position</span></code> characters after the start of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error while seeking </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6GzFileE">
+<span id="_CPPv3N9chemfiles6GzFileE"></span><span id="_CPPv2N9chemfiles6GzFileE"></span><span id="chemfiles::GzFile"></span><span class="target" id="classchemfiles_1_1_gz_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GzFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles12TextFileImplE" title="chemfiles::TextFileImpl"><span class="n"><span class="pre">TextFileImpl</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles6GzFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An implementation of <a class="reference internal" href="index.html#classchemfiles_1_1_text_file"><span class="std std-ref">TextFile</span></a> for gzip files. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6GzFile6GzFileERKNSt6stringEN4File4ModeE">
+<span id="_CPPv3N9chemfiles6GzFile6GzFileERKNSt6stringEN4File4ModeE"></span><span id="_CPPv2N9chemfiles6GzFile6GzFileERKNSt6stringEN4File4ModeE"></span><span id="chemfiles::GzFile::GzFile__ssCR.File::Mode"></span><span class="target" id="classchemfiles_1_1_gz_file_1a794f0b13e22b335e151da20ed1abd966"></span><span class="sig-name descname"><span class="n"><span class="pre">GzFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <a class="reference internal" href="index.html#_CPPv4N9chemfiles4FileE" title="chemfiles::File"><span class="n"><span class="pre">File</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles4File4ModeE" title="chemfiles::File::Mode"><span class="n"><span class="pre">Mode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles6GzFile6GzFileERKNSt6stringEN4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open a text file with name <code class="docutils literal notranslate"><span class="pre">filename</span></code> and mode <code class="docutils literal notranslate"><span class="pre">mode</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6GzFile4readEPc6size_t">
+<span id="_CPPv3N9chemfiles6GzFile4readEPc6size_t"></span><span id="_CPPv2N9chemfiles6GzFile4readEPc6size_t"></span><span id="chemfiles::GzFile::read__cP.s"></span><span class="target" id="classchemfiles_1_1_gz_file_1a9ccb2877c3954be667990be71358b38f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6GzFile4readEPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill up the <code class="docutils literal notranslate"><span class="pre">data</span></code> buffer reading at most <code class="docutils literal notranslate"><span class="pre">count</span></code> characters from the file.</p>
+<p>Returns the amount of characters read. A return value of 0 indicates that the end of file has been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6GzFile5writeEPKc6size_t">
+<span id="_CPPv3N9chemfiles6GzFile5writeEPKc6size_t"></span><span id="_CPPv2N9chemfiles6GzFile5writeEPKc6size_t"></span><span id="chemfiles::GzFile::write__cCP.s"></span><span class="target" id="classchemfiles_1_1_gz_file_1a49adcb063d5e40239887e7f0272c06d3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6GzFile5writeEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write <code class="docutils literal notranslate"><span class="pre">count</span></code> characters starting at <code class="docutils literal notranslate"><span class="pre">data</span></code> to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if it could not write all of the data to the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6GzFile5clearEv">
+<span id="_CPPv3N9chemfiles6GzFile5clearEv"></span><span id="_CPPv2N9chemfiles6GzFile5clearEv"></span><span id="chemfiles::GzFile::clear"></span><span class="target" id="classchemfiles_1_1_gz_file_1aa1ab0723811f8f75cb26bfe342cea008"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6GzFile5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>clear error and eof flags on the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6GzFile4seekE8uint64_t">
+<span id="_CPPv3N9chemfiles6GzFile4seekE8uint64_t"></span><span id="_CPPv2N9chemfiles6GzFile4seekE8uint64_t"></span><span id="chemfiles::GzFile::seek__uint64_t"></span><span class="target" id="classchemfiles_1_1_gz_file_1ab82a482348d21e4e866445fd48ec1eea"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seek</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6GzFile4seekE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set file indicator to <code class="docutils literal notranslate"><span class="pre">position</span></code> characters after the start of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error while seeking </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6XzFileE">
+<span id="_CPPv3N9chemfiles6XzFileE"></span><span id="_CPPv2N9chemfiles6XzFileE"></span><span id="chemfiles::XzFile"></span><span class="target" id="classchemfiles_1_1_xz_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">XzFile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles12TextFileImplE" title="chemfiles::TextFileImpl"><span class="n"><span class="pre">TextFileImpl</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles6XzFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An implementation of <a class="reference internal" href="index.html#classchemfiles_1_1_text_file"><span class="std std-ref">TextFile</span></a> for lzma/xz files. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6XzFile6XzFileERKNSt6stringEN4File4ModeE">
+<span id="_CPPv3N9chemfiles6XzFile6XzFileERKNSt6stringEN4File4ModeE"></span><span id="_CPPv2N9chemfiles6XzFile6XzFileERKNSt6stringEN4File4ModeE"></span><span id="chemfiles::XzFile::XzFile__ssCR.File::Mode"></span><span class="target" id="classchemfiles_1_1_xz_file_1a8c4ff3a776e7d5cd045e0319e57e82bf"></span><span class="sig-name descname"><span class="n"><span class="pre">XzFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <a class="reference internal" href="index.html#_CPPv4N9chemfiles4FileE" title="chemfiles::File"><span class="n"><span class="pre">File</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles4File4ModeE" title="chemfiles::File::Mode"><span class="n"><span class="pre">Mode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles6XzFile6XzFileERKNSt6stringEN4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open a text file with name <code class="docutils literal notranslate"><span class="pre">filename</span></code> and mode <code class="docutils literal notranslate"><span class="pre">mode</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6XzFile4readEPc6size_t">
+<span id="_CPPv3N9chemfiles6XzFile4readEPc6size_t"></span><span id="_CPPv2N9chemfiles6XzFile4readEPc6size_t"></span><span id="chemfiles::XzFile::read__cP.s"></span><span class="target" id="classchemfiles_1_1_xz_file_1a646e1470b274fe648c7a34fb4c8c8842"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6XzFile4readEPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill up the <code class="docutils literal notranslate"><span class="pre">data</span></code> buffer reading at most <code class="docutils literal notranslate"><span class="pre">count</span></code> characters from the file.</p>
+<p>Returns the amount of characters read. A return value of 0 indicates that the end of file has been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6XzFile5writeEPKc6size_t">
+<span id="_CPPv3N9chemfiles6XzFile5writeEPKc6size_t"></span><span id="_CPPv2N9chemfiles6XzFile5writeEPKc6size_t"></span><span id="chemfiles::XzFile::write__cCP.s"></span><span class="target" id="classchemfiles_1_1_xz_file_1a10d8a8dec84055934f2e57ea7ac4d885"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6XzFile5writeEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write <code class="docutils literal notranslate"><span class="pre">count</span></code> characters starting at <code class="docutils literal notranslate"><span class="pre">data</span></code> to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if it could not write all of the data to the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6XzFile5clearEv">
+<span id="_CPPv3N9chemfiles6XzFile5clearEv"></span><span id="_CPPv2N9chemfiles6XzFile5clearEv"></span><span id="chemfiles::XzFile::clear"></span><span class="target" id="classchemfiles_1_1_xz_file_1a867881713d3c7d046681d47064b92f31"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6XzFile5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>clear error and eof flags on the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6XzFile4seekE8uint64_t">
+<span id="_CPPv3N9chemfiles6XzFile4seekE8uint64_t"></span><span id="_CPPv2N9chemfiles6XzFile4seekE8uint64_t"></span><span id="chemfiles::XzFile::seek__uint64_t"></span><span class="target" id="classchemfiles_1_1_xz_file_1ab489c1e756bb6305cb776ef5512cefa5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seek</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6XzFile4seekE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set file indicator to <code class="docutils literal notranslate"><span class="pre">position</span></code> characters after the start of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error while seeking </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7Bz2FileE">
+<span id="_CPPv3N9chemfiles7Bz2FileE"></span><span id="_CPPv2N9chemfiles7Bz2FileE"></span><span id="chemfiles::Bz2File"></span><span class="target" id="classchemfiles_1_1_bz2_file"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Bz2File</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles12TextFileImplE" title="chemfiles::TextFileImpl"><span class="n"><span class="pre">TextFileImpl</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles7Bz2FileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An implementation of <a class="reference internal" href="index.html#classchemfiles_1_1_text_file"><span class="std std-ref">TextFile</span></a> for bzip2 files. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7Bz2File7Bz2FileERKNSt6stringEN4File4ModeE">
+<span id="_CPPv3N9chemfiles7Bz2File7Bz2FileERKNSt6stringEN4File4ModeE"></span><span id="_CPPv2N9chemfiles7Bz2File7Bz2FileERKNSt6stringEN4File4ModeE"></span><span id="chemfiles::Bz2File::Bz2File__ssCR.File::Mode"></span><span class="target" id="classchemfiles_1_1_bz2_file_1a2a71b17fdeee183146197bc860b493ce"></span><span class="sig-name descname"><span class="n"><span class="pre">Bz2File</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <a class="reference internal" href="index.html#_CPPv4N9chemfiles4FileE" title="chemfiles::File"><span class="n"><span class="pre">File</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="index.html#_CPPv4N9chemfiles4File4ModeE" title="chemfiles::File::Mode"><span class="n"><span class="pre">Mode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7Bz2File7Bz2FileERKNSt6stringEN4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open a text file with name <code class="docutils literal notranslate"><span class="pre">filename</span></code> and mode <code class="docutils literal notranslate"><span class="pre">mode</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7Bz2File4readEPc6size_t">
+<span id="_CPPv3N9chemfiles7Bz2File4readEPc6size_t"></span><span id="_CPPv2N9chemfiles7Bz2File4readEPc6size_t"></span><span id="chemfiles::Bz2File::read__cP.s"></span><span class="target" id="classchemfiles_1_1_bz2_file_1ab7a56f6372cf1b9d2b34f37b61a3e483"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7Bz2File4readEPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill up the <code class="docutils literal notranslate"><span class="pre">data</span></code> buffer reading at most <code class="docutils literal notranslate"><span class="pre">count</span></code> characters from the file.</p>
+<p>Returns the amount of characters read. A return value of 0 indicates that the end of file has been reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7Bz2File5writeEPKc6size_t">
+<span id="_CPPv3N9chemfiles7Bz2File5writeEPKc6size_t"></span><span id="_CPPv2N9chemfiles7Bz2File5writeEPKc6size_t"></span><span id="chemfiles::Bz2File::write__cCP.s"></span><span class="target" id="classchemfiles_1_1_bz2_file_1a02c1a08822d42c94b9f3e06db059b76d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7Bz2File5writeEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write <code class="docutils literal notranslate"><span class="pre">count</span></code> characters starting at <code class="docutils literal notranslate"><span class="pre">data</span></code> to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if it could not write all of the data to the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7Bz2File5clearEv">
+<span id="_CPPv3N9chemfiles7Bz2File5clearEv"></span><span id="_CPPv2N9chemfiles7Bz2File5clearEv"></span><span id="chemfiles::Bz2File::clear"></span><span class="target" id="classchemfiles_1_1_bz2_file_1a1128c92ba9386881e656f16f8d130183"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7Bz2File5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>clear error and eof flags on the file </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles7Bz2File4seekE8uint64_t">
+<span id="_CPPv3N9chemfiles7Bz2File4seekE8uint64_t"></span><span id="_CPPv2N9chemfiles7Bz2File4seekE8uint64_t"></span><span id="chemfiles::Bz2File::seek__uint64_t"></span><span class="target" id="classchemfiles_1_1_bz2_file_1a544cf1f86c4771fdb1031385218dbcdf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seek</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">position</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles7Bz2File4seekE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set file indicator to <code class="docutils literal notranslate"><span class="pre">position</span></code> characters after the start of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – in case of I/O error while seeking </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

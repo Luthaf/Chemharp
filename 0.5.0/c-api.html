@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>C interface reference &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="index.html" />
+    <link rel="next" title="Contributing" href="devdoc/contributing.html" />
+    <link rel="prev" title="Errors and exceptions" href="classes/errors.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">C interface reference</a><ul>
+<li><a class="reference internal" href="#functions-for-errors-handling">Functions for errors handling</a></li>
+<li><a class="reference internal" href="#function-manipulating-chfl-trajectory">Function manipulating <code class="docutils literal"><span class="pre">CHFL_TRAJECTORY</span></code></a></li>
+<li><a class="reference internal" href="#function-manipulating-chfl-frame">Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code></a></li>
+<li><a class="reference internal" href="#function-manipulating-chfl-cell">Function manipulating <code class="docutils literal"><span class="pre">CHFL_CELL</span></code></a></li>
+<li><a class="reference internal" href="#function-manipulating-chfl-topology">Function manipulating <code class="docutils literal"><span class="pre">CHFL_TOPOLOGY</span></code></a></li>
+<li><a class="reference internal" href="#function-manipulating-chfl-atom">Function manipulating <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="classes/errors.html" title="Previous Chapter: Errors and exceptions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Errors and ex...</span>
+    </a>
+  </li>
+  <li>
+    <a href="devdoc/contributing.html" title="Next Chapter: Contributing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Contributing &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="c-interface-reference">
+<span id="c-api"></span><h1>C interface reference<a class="headerlink" href="#c-interface-reference" title="Permalink to this headline">¶</a></h1>
+<p>The C interface is define in the <code class="docutils literal"><span class="pre">chemfiles.h</span></code> header, which should be included in
+all the programs using chemfiles. All the functions and enums have a <code class="docutils literal"><span class="pre">chfl_</span></code>
+prefix indicating the provenance of the functions. The types are defined as
+opaque pointer types, in all caps. The following types are defined:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#capi-trajectory"><span class="std std-ref">CHFL_TRAJECTORY</span></a> maps to the <a class="reference internal" href="overview.html#overview-trajectory"><span class="std std-ref">Trajectory</span></a> class;</li>
+<li><a class="reference internal" href="#capi-frame"><span class="std std-ref">CHFL_FRAME</span></a> maps to the <a class="reference internal" href="overview.html#overview-frame"><span class="std std-ref">Frame</span></a> class;</li>
+<li><a class="reference internal" href="#capi-atom"><span class="std std-ref">CHFL_ATOM</span></a> maps to the <a class="reference internal" href="overview.html#overview-atom"><span class="std std-ref">Atom</span></a> class;</li>
+<li><a class="reference internal" href="#capi-cell"><span class="std std-ref">CHFL_CELL</span></a> maps to the <a class="reference internal" href="overview.html#overview-cell"><span class="std std-ref">UnitCell</span></a> class;</li>
+<li><a class="reference internal" href="#capi-topology"><span class="std std-ref">CHFL_TOPOLOGY</span></a> maps to the <a class="reference internal" href="overview.html#overview-topology"><span class="std std-ref">Topology</span></a> class.</li>
+</ul>
+<p>The user is reponsible for memory management when using these types. Constructors
+functions (functions returning pointers to types defined above) return freshly
+allocated memory, and calling the <code class="docutils literal"><span class="pre">chfl_*_free</span></code> functions return the corresponding
+memory to the operating system.</p>
+<p>In addition to the functions below, the <a class="reference internal" href="classes/index.html#exported-macro"><span class="std std-ref">same macro</span></a> as in the C++
+interface are defined, and the <code class="docutils literal"><span class="pre">chfl_version</span></code> function allow to access the version of
+the Chemfiles library.</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a999b9859e547a4a8f6d054cdaa86455e"></span>const char * <code class="descname">chfl_version</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span></dt>
+<dd><p>Get the version of the chemfiles library. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A null-terminated string containing the version of Chemfiles. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<div class="section" id="functions-for-errors-handling">
+<h2>Functions for errors handling<a class="headerlink" href="#functions-for-errors-handling" title="Permalink to this headline">¶</a></h2>
+<p>Apart from the <em>constructor</em> functions (the functions returning pointers to the
+types defined above); all the functions return a status code, which is 0 if
+nothing went wrong, and another value in case of error. The following function
+allow for error handling from the C side.</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a40d1813a33361758724f88ad89dfcbbf"></span>const char * <code class="descname">chfl_strerror</code><span class="sig-paren">(</span>int <em>status</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the error message corresponding to an error code. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A null-terminated string encoding the textual representation of the status. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">status</span></code> - <p>The error code </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1adb30e2c725401e0be06c7f9f480c7d0b"></span>const char * <code class="descname">chfl_last_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Get the last error message. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A null-terminated string encoding the textual representation of the last error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a8b9533a01abd47dfde7e2b5bdd5352ce"></span><strong>CHFL_LOG_LEVEL enum</strong></dt>
+<dd><p>Available logging level. </p>
+<p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">CHFL_LOG_ERROR</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">0</span></code> - <p>Only log on errors. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_LOG_WARNING</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">1</span></code> - <p>Log warnings and erors. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_LOG_INFO</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">2</span></code> - <p>Log infos, warnings and errors. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_LOG_DEBUG</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">3</span></code> - <p>Log everything. </p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a15f361cfb01dcf0b13bb28b46b6f2875"></span>int <code class="descname">chfl_loglevel</code><span class="sig-paren">(</span>chfl_log_level_t * <em>level</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the current maximal logging level. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">level</span></code> - <p>The logging level </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a9a41cca7d773499b522f9440038a402c"></span>int <code class="descname">chfl_set_loglevel</code><span class="sig-paren">(</span>chfl_log_level_t <em>level</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the current maximal logging level to <code class="docutils literal"><span class="pre">level</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">level</span></code> - <p>The new logging level </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a51c64f435e2376ada9c649b3fd6a70af"></span>int <code class="descname">chfl_logfile</code><span class="sig-paren">(</span>const char * <em>file</em><span class="sig-paren">)</span></dt>
+<dd><p>Redirect the logs to <code class="docutils literal"><span class="pre">file</span></code>, overwriting the file if it exists. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>The filename for the new log file. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a13ba546a7d105f25a74a8ed424bca68c"></span>int <code class="descname">chfl_log_stderr</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Redirect the logs to the standard error output. This is enabled by default. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+</dl>
+</p>
+</dd></dl>
+
+<p>The return values for this status code correspond to the following macros:</p>
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ae007f8e0583052524e6128525afddda2"></span><strong>CHFL_SUCCESS</strong></dt>
+<dd><p>Status code for success. </p>
+</dd></dl>
+
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aff4cdd858fb1d9a802691313e3562a4b"></span><strong>CHFL_MEMORY_ERROR</strong></dt>
+<dd><p>Memory error: out of memory, wrong size for arrays parameters, ... </p>
+</dd></dl>
+
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a6e51137ebe546c2d0bc5ca92b8d5306a"></span><strong>CHFL_FILE_ERROR</strong></dt>
+<dd><p>File error: file do not exist, you do not have rights to open it, ... </p>
+</dd></dl>
+
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aff04d4c48229fb8903a67714a989e307"></span><strong>CHFL_FORMAT_ERROR</strong></dt>
+<dd><p>Error in file formating. </p>
+</dd></dl>
+
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a49da5237c3f52980a860bf23d280ddfe"></span><strong>CHFL_GENERIC_ERROR</strong></dt>
+<dd><p>Any other error from Chemfiles. </p>
+</dd></dl>
+
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a26a601c253258e7632922f2f4ba33510"></span><strong>CHFL_CXX_ERROR</strong></dt>
+<dd><p>Error in the C++ standard library. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="function-manipulating-chfl-trajectory">
+<span id="capi-trajectory"></span><h2>Function manipulating <code class="docutils literal"><span class="pre">CHFL_TRAJECTORY</span></code><a class="headerlink" href="#function-manipulating-chfl-trajectory" title="Permalink to this headline">¶</a></h2>
+<p>The Trajectory type is the main entry point when using chemfiles. A trajectory
+behave a bit like a <code class="docutils literal"><span class="pre">FILE*</span></code> pointer, and the <code class="docutils literal"><span class="pre">chfl_close</span></code> free the memory
+associated with the file.</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a4a8a3e404d172a76b81a1d509058d145"></span>CHFL_TRAJECTORY * <code class="descname">chfl_trajectory_open</code><span class="sig-paren">(</span>const char * <em>filename</em>, const char * <em>mode</em><span class="sig-paren">)</span></dt>
+<dd><p>Open a trajectory file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the file </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The path to the trajectory file </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">mode</span></code> - <p>The opening mode: &#8220;r&#8221; for read, &#8220;w&#8221; for write and &#8220;a&#8221; for append. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aaa05cc25530b3a85897ea0905aa7d567"></span>CHFL_TRAJECTORY * <code class="descname">chfl_trajectory_with_format</code><span class="sig-paren">(</span>const char * <em>filename</em>, const char * <em>mode</em>, const char * <em>format</em><span class="sig-paren">)</span></dt>
+<dd><p>Open a trajectory file using a given format to read the file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the file </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The path to the trajectory file </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">mode</span></code> - <p>The opening mode: &#8220;r&#8221; for read, &#8220;w&#8221; for write and &#8220;a&#8221; for append. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">format</span></code> - <p>The format to use </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a74e197d92c457bd92f17ed007195d5a5"></span>int <code class="descname">chfl_trajectory_read</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em>, CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read the next step of the trajectory into a frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>A pointer to the trajectory </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>A frame to fill with the data </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1acb723d615826ff49bf6780c8c7b7a2e7"></span>int <code class="descname">chfl_trajectory_read_step</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em>, size_t <em>step</em>, CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a specific step of the trajectory in a frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>A pointer to the trajectory </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>The step to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>A frame to fill with the data </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a246b5e379f0d6631f8382ffcfb2c6ab7"></span>int <code class="descname">chfl_trajectory_write</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em>, const CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Write a frame to the trajectory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>The trajectory to write </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>the frame which will be writen to the file </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a8dd3602717ab9fbf2ad14d48fcf128da"></span>int <code class="descname">chfl_trajectory_set_topology</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em>, const CHFL_TOPOLOGY * <em>topology</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the topology associated with a trajectory. This topology will be used when reading and writing the files, replacing any topology in the frames or files. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>A pointer to the trajectory </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The new topology to use </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a7847a7967e2c2dabbb52e140f2c9c851"></span>int <code class="descname">chfl_trajectory_set_topology_file</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em>, const char * <em>filename</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the topology associated with a trajectory by reading the first frame of <code class="docutils literal"><span class="pre">filename</span></code>; and extracting the topology of this frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>A pointer to the trajectory </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The file to read in order to get the new topology </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a0d4cd3105f29db75e02ff084229b941f"></span>int <code class="descname">chfl_trajectory_nsteps</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em>, size_t * <em>nsteps</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the number of steps (the number of frames) in a trajectory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>A pointer to the trajectory </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">nsteps</span></code> - <p>This will contain the number of steps </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aee5cfaf110a165f2d5d13a49e92a4171"></span>int <code class="descname">chfl_trajectory_close</code><span class="sig-paren">(</span>CHFL_TRAJECTORY * <em>file</em><span class="sig-paren">)</span></dt>
+<dd><p>Close a trajectory file, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">file</span></code> - <p>A pointer to the file </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="function-manipulating-chfl-frame">
+<span id="capi-frame"></span><h2>Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code><a class="headerlink" href="#function-manipulating-chfl-frame" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a4028357754400956bee8d38c7221e1dc"></span>CHFL_FRAME * <code class="descname">chfl_frame</code><span class="sig-paren">(</span>size_t <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Create an empty frame with initial capacity of <code class="docutils literal"><span class="pre">natoms</span></code>. It will be resized by the library as needed. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the frame </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>the size of the wanted frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a2678cadacf393adf7628c16cf3913dbd"></span>int <code class="descname">chfl_frame_atoms_count</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, size_t * <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the current number of atoms in the frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to analyse </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>the number of atoms in the frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a2f3088df7987cc2593f9cd478e1c9cbf"></span>int <code class="descname">chfl_frame_resize</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, size_t <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Resize the positions and the velocities in frame, to make space for N atoms. This function may invalidate any pointer to the positions or the velocities if the new size is bigger than the old one. In all the cases, previous data is conserved. This function conserve the presence of abscence of velocities. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>The new number of atoms. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a089731afd36131f2eaa89ee71e1d404c"></span>int <code class="descname">chfl_frame_positions</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, float(**) <em>data</em>[3], size_t * <em>size</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a pointer to the positions array from a frame. The positions are stored as a N x 3 array, this function set a pointer to point to the first element of this array, and give the value of N. If the frame is resized (by writing to it, or calling <code class="docutils literal"><span class="pre">chfl_frame_resize</span></code>), the pointer is invalidated. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A pointer to a pointer to float[3] array, which will point to the data </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">size</span></code> - <p>A pointer to the an integer to be filled with the array size </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1afaca69e958dc91aa26a62d26138260fc"></span>int <code class="descname">chfl_frame_velocities</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, float(**) <em>data</em>[3], size_t * <em>size</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a pointer to the velocities array from a frame. The velocities are stored as a <code class="docutils literal"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">3</span></code> array, this function set a pointer to point to the first element of this array, and give the value of N. If the frame is resized (by writing to it, or calling <code class="docutils literal"><span class="pre">chfl_frame_resize</span></code>), the pointer is invalidated. </p>
+<p><div class="highlight-default"><div class="highlight"><pre><span></span>     If the frame do not have velocity, this will return an error. Use
+     `chfl_frame_add_velocities` to add velocities to a frame before calling this
+     function.
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A pointer to a pointer to float[3] array, which will point to the data </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">size</span></code> - <p>A pointer to the an integer to be filled with the array size </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a0f4a5b1d67321596cfc859d8b4b12b80"></span>int <code class="descname">chfl_frame_has_velocities</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, bool * <em>has_velocities</em><span class="sig-paren">)</span></dt>
+<dd><p>Ask wether this frame contains velocity data or not. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">has_velocities</span></code> - <p>A boolean, will be true if the frame have velocities, false otherwise. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1acbbb2c5332d638592ae38560ad539ca2"></span>int <code class="descname">chfl_frame_add_velocities</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Add velocity storage to this frame. The storage is initialized with the result of <code class="docutils literal"><span class="pre">chfl_frame_atoms_count</span></code> as number of atoms. If the frame already have velocities, this does nothing. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ac7f16b9f1cc239f978e36bcb537bd4f4"></span>int <code class="descname">chfl_frame_set_cell</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, const CHFL_CELL * <em>cell</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the UnitCell of a Frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>The new cell </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ad6ff2e118d42cdbc9ea69a512493932c"></span>int <code class="descname">chfl_frame_set_topology</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, const CHFL_TOPOLOGY * <em>topology</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the Topology of a Frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The new topology </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aded2e146ca96055f352c579b58d114b6"></span>int <code class="descname">chfl_frame_step</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, size_t * <em>step</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the Frame step, i.e. the frame number in the trajectory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>This will contains the step number </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a3f6b5880a977ce1d5e79b0aad48c95fd"></span>int <code class="descname">chfl_frame_set_step</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, size_t <em>step</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the Frame step. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">step</span></code> - <p>The new frame step </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a10b6998e1844e9956d1fe4e2492e4c22"></span>int <code class="descname">chfl_frame_guess_topology</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em>, bool <em>bonds</em><span class="sig-paren">)</span></dt>
+<dd><p>Try to guess the bonds, angles and dihedrals in the system. If <code class="docutils literal"><span class="pre">bonds</span></code> is true, guess everything; else only guess the angles and dihedrals from the topology bond list. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The Frame to analyse </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">bonds</span></code> - <p>Should we recompute the bonds from the positions or not ? </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ad4a245e658cecd108c1a1d353be82478"></span>int <code class="descname">chfl_frame_selection</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, const char * <em>selection</em>, bool <em>matched</em>[], size_t <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Select atoms in a frame, from a specific selection string. </p>
+<p>This function select atoms in a frame matching a selection string. For example, &#8220;name H and x &gt; 4&#8221; will select all the atoms with name &#8220;H&#8221; and $x$ coordinate less than 4. See the C++ documentation for the full selection language.</p>
+<p>Results of this function are used to fill a pre-allocated array containing <code class="docutils literal"><span class="pre">natoms</span></code> bool, where <code class="docutils literal"><span class="pre">natoms</span></code> is the number of atoms in the frame. The array will contain <code class="docutils literal"><span class="pre">true</span></code> at position <code class="docutils literal"><span class="pre">i</span></code> if the atom at position <code class="docutils literal"><span class="pre">i</span></code> matches the selection string, and false otherwise.</p>
+<p><dl class="docutils">
+<dt><strong>Pre</strong></dt>
+<dd>The range from <code class="docutils literal"><span class="pre">matched</span></code> to <code class="docutils literal"><span class="pre">(matched</span> <span class="pre">+</span> <span class="pre">natoms)</span></code> is a valid adress range.</dd>
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to analyse </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">selection</span></code> - <p>A null-terminated string containing the selection string </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">matched</span></code> - <p>a pre-allocated array, with space for <code class="docutils literal"><span class="pre">natoms</span></code> booleans </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>the size of the <code class="docutils literal"><span class="pre">matched</span></code> array. This MUST be the same number as the <code class="docutils literal"><span class="pre">frame</span></code> number of atoms. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a84b0143ae242e65712c24786a6398553"></span>int <code class="descname">chfl_frame_free</code><span class="sig-paren">(</span>CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroy a frame, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame to destroy </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="function-manipulating-chfl-cell">
+<span id="capi-cell"></span><h2>Function manipulating <code class="docutils literal"><span class="pre">CHFL_CELL</span></code><a class="headerlink" href="#function-manipulating-chfl-cell" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1acb756da11d6fe5881fc0bb341a885e7b"></span>CHFL_CELL * <code class="descname">chfl_cell</code><span class="sig-paren">(</span>double <em>a</em>, double <em>b</em>, double <em>c</em><span class="sig-paren">)</span></dt>
+<dd><p>Create an ORTHOROMBIC UnitCell from the three lenghts. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the UnitCell </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">a</span></code> - <p>first lenght of the cell (in Angstroms) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">b</span></code> - <p>second lenght of the cell (in Angstroms) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">c</span></code> - <p>third lenght of the cell (in Angstroms) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aaf85d3f60bb2fecaff2afd6647ee3d40"></span>CHFL_CELL * <code class="descname">chfl_cell_from_frame</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the UnitCell from a frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the UnitCell </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>the frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a6140139d7be3fe4a27bb91ea545cd50e"></span>int <code class="descname">chfl_cell_lengths</code><span class="sig-paren">(</span>const CHFL_CELL * <em>cell</em>, double * <em>a</em>, double * <em>b</em>, double * <em>c</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the cell lenghts. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the unit cell to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">a</span></code> - <p>first lenght of the cell (in Angstroms) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">b</span></code> - <p>second lenght of the cell (in Angstroms) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">c</span></code> - <p>third lenght of the cell (in Angstroms) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1afede7f091ad69104c61ad50ae3e05310"></span>int <code class="descname">chfl_cell_set_lengths</code><span class="sig-paren">(</span>CHFL_CELL * <em>cell</em>, double <em>a</em>, double <em>b</em>, double <em>c</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the unit cell lenghts. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the unit cell to modify </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">a</span></code> - <p>first lenght of the cell (in Angstroms) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">b</span></code> - <p>second lenght of the cell (in Angstroms) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">c</span></code> - <p>third lenght of the cell (in Angstroms) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a29a936cd2453f90690e5a3f3e7472f75"></span>int <code class="descname">chfl_cell_angles</code><span class="sig-paren">(</span>const CHFL_CELL * <em>cell</em>, double * <em>alpha</em>, double * <em>beta</em>, double * <em>gamma</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the cell angles, in degrees. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the cell to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">alpha</span></code> - <p>angle of the cell between the vectors <code class="docutils literal"><span class="pre">b</span></code> and <code class="docutils literal"><span class="pre">c</span></code> (in degree) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">beta</span></code> - <p>angle of the cell between the vectors <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">c</span></code> (in degree) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">gamma</span></code> - <p>angle of the cell between the vectors <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">b</span></code> (in degree) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a3f6e4de8ba140a9f6a9cde43d3490964"></span>int <code class="descname">chfl_cell_set_angles</code><span class="sig-paren">(</span>CHFL_CELL * <em>cell</em>, double <em>alpha</em>, double <em>beta</em>, double <em>gamma</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the cell angles, in degrees. This is only possible for TRICLINIC cells. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the unit cell to modify </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">alpha</span></code> - <p>angle of the cell between the vectors <code class="docutils literal"><span class="pre">b</span></code> and <code class="docutils literal"><span class="pre">c</span></code> (in degree) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">beta</span></code> - <p>angle of the cell between the vectors <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">c</span></code> (in degree) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">gamma</span></code> - <p>angle of the cell between the vectors <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">b</span></code> (in degree) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1af6da2ebc7be000b7b27fbbcd31f94a7f"></span>int <code class="descname">chfl_cell_matrix</code><span class="sig-paren">(</span>const CHFL_CELL * <em>cell</em>, double <em>matrix</em>[3][3]<span class="sig-paren">)</span></dt>
+<dd><p>Get the unit cell matricial representation. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the unit cell to use </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">matrix</span></code> - <p>the matrix to fill. It should be a 3x3 matrix. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a17b2e27e4e562ac90dd61879cbf628fb"></span><strong>CHFL_CELL_TYPES enum</strong></dt>
+<dd><p>Available cell types in chemfiles. </p>
+<p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">CHFL_CELL_ORTHOROMBIC</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">0</span></code> - <p>The three angles are 90° </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_CELL_TRICLINIC</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">1</span></code> - <p>The three angles may not be 90° </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_CELL_INFINITE</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">2</span></code> - <p>Cell type when there is no periodic boundary conditions. </p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ab86239173dd3c628ca8cc434342380e5"></span>int <code class="descname">chfl_cell_type</code><span class="sig-paren">(</span>const CHFL_CELL * <em>cell</em>, chfl_cell_type_t * <em>type</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the cell type. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the unit cell to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">type</span></code> - <p>the type of the cell </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a02797ad686a2e80c5955196ca1a8f434"></span>int <code class="descname">chfl_cell_set_type</code><span class="sig-paren">(</span>CHFL_CELL * <em>cell</em>, chfl_cell_type_t <em>type</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the cell type. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>the cell to modify </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">type</span></code> - <p>the new type of the cell </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a64cab3c5123d91589c6774c5acb49f2d"></span>int <code class="descname">chfl_cell_free</code><span class="sig-paren">(</span>CHFL_CELL * <em>cell</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroy an unit cell, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">cell</span></code> - <p>The cell to destroy </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="function-manipulating-chfl-topology">
+<span id="capi-topology"></span><h2>Function manipulating <code class="docutils literal"><span class="pre">CHFL_TOPOLOGY</span></code><a class="headerlink" href="#function-manipulating-chfl-topology" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a22ab40285e98be8f2d7bbb478c3d3a74"></span>CHFL_TOPOLOGY * <code class="descname">chfl_topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Create a new empty topology. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the new Topology </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a18d28825f8ecbb8bbf6ee0318e5fe834"></span>CHFL_TOPOLOGY * <code class="descname">chfl_topology_from_frame</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a copy of the topology of a frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the new Topology </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a8ba609cf7bbbac68bf541b3235698380"></span>int <code class="descname">chfl_topology_atoms_count</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t * <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the current number of atoms in the topology. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology to analyse </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">natoms</span></code> - <p>Will contain the number of atoms in the frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a71f0d81e147599bb286b916bcdec0947"></span>int <code class="descname">chfl_topology_append</code><span class="sig-paren">(</span>CHFL_TOPOLOGY * <em>topology</em>, const CHFL_ATOM * <em>atom</em><span class="sig-paren">)</span></dt>
+<dd><p>Add an atom at the end of a topology. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom to be added </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a90437bf9a9d0025277e3c1ee1a0ab5a9"></span>int <code class="descname">chfl_topology_remove</code><span class="sig-paren">(</span>CHFL_TOPOLOGY * <em>topology</em>, size_t <em>i</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove an atom from a topology by index. This modify all the other atoms indexes. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">i</span></code> - <p>The atomic index </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a5fe6d7b30b4f57d964ccf5bc3119f54a"></span>int <code class="descname">chfl_topology_isbond</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t <em>i</em>, size_t <em>j</em>, bool * <em>result</em><span class="sig-paren">)</span></dt>
+<dd><p>Tell if the atoms <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code> are bonded together. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">i</span></code> - <p>index of the first atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">j</span></code> - <p>index of the second atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">result</span></code> - <p>true if the atoms are bonded, false otherwise </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a2237d541706377ff55b98c8bc02ed3d1"></span>int <code class="descname">chfl_topology_isangle</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, bool * <em>result</em><span class="sig-paren">)</span></dt>
+<dd><p>Tell if the atoms <code class="docutils literal"><span class="pre">i</span></code>, <code class="docutils literal"><span class="pre">j</span></code> and <code class="docutils literal"><span class="pre">k</span></code> constitues an angle. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">i</span></code> - <p>index of the first atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">j</span></code> - <p>index of the second atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">k</span></code> - <p>index of the third atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">result</span></code> - <p>true if the atoms constitues an angle, false otherwise </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aa927e796f4e701fb9af3128e4fc481d3"></span>int <code class="descname">chfl_topology_isdihedral</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, size_t <em>m</em>, bool * <em>result</em><span class="sig-paren">)</span></dt>
+<dd><p>Tell if the atoms <code class="docutils literal"><span class="pre">i</span></code>, <code class="docutils literal"><span class="pre">j</span></code>, <code class="docutils literal"><span class="pre">k</span></code> and <code class="docutils literal"><span class="pre">m</span></code> constitues a dihedral angle. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">i</span></code> - <p>index of the first atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">j</span></code> - <p>index of the second atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">k</span></code> - <p>index of the third atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">m</span></code> - <p>index of the fourth atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">result</span></code> - <p>true if the atoms constitues a dihedral angle, false otherwise </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ab15c4704796a83d2d094f1d74bc5f769"></span>int <code class="descname">chfl_topology_bonds_count</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t * <em>nbonds</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the number of bonds in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">nbonds</span></code> - <p>After the call, contains the number of bond </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a2a790ee8c532b3b08c291ff6fe78105c"></span>int <code class="descname">chfl_topology_angles_count</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t * <em>nangles</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the number of angles in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">nangles</span></code> - <p>After the call, contains the number of angles </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ad5603d5893dbcf5cf9797b29f3cff37b"></span>int <code class="descname">chfl_topology_dihedrals_count</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t * <em>ndihedrals</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the number of dihedral angles in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">ndihedrals</span></code> - <p>After the call, contains the number of dihedral angles </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a04f01ce82609708418bfdaaabdabab81"></span>int <code class="descname">chfl_topology_bonds</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t(*) <em>data</em>[2], size_t <em>nbonds</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the list of bonds in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A nbonds x 2 array to be filled with the bonds in the system </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">nbonds</span></code> - <p>The size of the array. This should equal the value given by the chfl_topology_bonds_count function </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ad97afd57a7527f0c995bfa1fb4a23cf1"></span>int <code class="descname">chfl_topology_angles</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t(*) <em>data</em>[3], size_t <em>nangles</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the list of angles in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A nangles x 3 array to be filled with the angles in the system </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">nangles</span></code> - <p>The size of the array. This should equal the value given by the chfl_topology_angles_count function </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a85e324bd18d9b8cf4eb537a731116192"></span>int <code class="descname">chfl_topology_dihedrals</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t(*) <em>data</em>[4], size_t <em>ndihedrals</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the list of dihedral angles in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">data</span></code> - <p>A ndihedrals x 4 array to be filled with the dihedral angles in the system </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">ndihedrals</span></code> - <p>The size of the array. This should equal the value given by the chfl_topology_dihedrals_count function </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ac043794fffbc88ff3a2125fc260a8e96"></span>int <code class="descname">chfl_topology_add_bond</code><span class="sig-paren">(</span>CHFL_TOPOLOGY * <em>topology</em>, size_t <em>i</em>, size_t <em>j</em><span class="sig-paren">)</span></dt>
+<dd><p>Add a bond between the atoms <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code> in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">i</span></code> - <p>index of the first atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">j</span></code> - <p>index of the second atom in the topology </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aa14fba3e3ab65ca6c28e6b43f5cba87c"></span>int <code class="descname">chfl_topology_remove_bond</code><span class="sig-paren">(</span>CHFL_TOPOLOGY * <em>topology</em>, size_t <em>i</em>, size_t <em>j</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove any existing bond between the atoms <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code> in the system. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">i</span></code> - <p>index of the first atom in the topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">j</span></code> - <p>index of the second atom in the topology </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ac2f67a9de62096f5d19791bc22626848"></span>int <code class="descname">chfl_topology_free</code><span class="sig-paren">(</span>CHFL_TOPOLOGY * <em>topology</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroy a topology, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology to destroy </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="function-manipulating-chfl-atom">
+<span id="capi-atom"></span><h2>Function manipulating <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code><a class="headerlink" href="#function-manipulating-chfl-atom" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aa907c3b268f22ca196654e0398198277"></span>CHFL_ATOM * <code class="descname">chfl_atom</code><span class="sig-paren">(</span>const char * <em>name</em><span class="sig-paren">)</span></dt>
+<dd><p>Create an atom from an atomic name. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the corresponding atom </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">name</span></code> - <p>The new atom name </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a4243c379c05d39ca58d41d2c941d6435"></span>CHFL_ATOM * <code class="descname">chfl_atom_from_frame</code><span class="sig-paren">(</span>const CHFL_FRAME * <em>frame</em>, size_t <em>idx</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a specific atom from a frame. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the corresponding atom </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">idx</span></code> - <p>The atom index in the frame </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ac73a0bcdeeaa2c300abada96803e90c9"></span>CHFL_ATOM * <code class="descname">chfl_atom_from_topology</code><span class="sig-paren">(</span>const CHFL_TOPOLOGY * <em>topology</em>, size_t <em>idx</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a specific atom from a topology. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the corresponding atom </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">topology</span></code> - <p>The topology </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">idx</span></code> - <p>The atom index in the topology </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a08cf4162c3b9f61cceb6daeec94e5327"></span>int <code class="descname">chfl_atom_mass</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, float * <em>mass</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the mass of an atom, in atomic mass units. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">mass</span></code> - <p>The atom mass </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1abda10dd96c32243b1e82e3bda35b3a2c"></span>int <code class="descname">chfl_atom_set_mass</code><span class="sig-paren">(</span>CHFL_ATOM * <em>atom</em>, float <em>mass</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the mass of an atom, in atomic mass units. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">mass</span></code> - <p>The new atom mass </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a80e36978244724231be313acd9f6583f"></span>int <code class="descname">chfl_atom_charge</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, float * <em>charge</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the charge of an atom, in number of the electron charge e. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">charge</span></code> - <p>The atom charge </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a0953417b9aeda0c228d5fc4538a1b323"></span>int <code class="descname">chfl_atom_set_charge</code><span class="sig-paren">(</span>CHFL_ATOM * <em>atom</em>, float <em>charge</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the charge of an atom, in number of the electron charge e. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">charge</span></code> - <p>The new atom charge </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ae8ed429195ebae6b264d95ecd50bfaa7"></span>int <code class="descname">chfl_atom_name</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, char * <em>name</em>, size_t <em>buffsize</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the name of an atom. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">name</span></code> - <p>A string buffer to be filled with the name </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">buffsize</span></code> - <p>The size of the string buffer </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a4519e79b4424fdcafd20e7226c3b7cf3"></span>int <code class="descname">chfl_atom_set_name</code><span class="sig-paren">(</span>CHFL_ATOM * <em>atom</em>, const char * <em>name</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the name of an atom. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">name</span></code> - <p>A null terminated string containing the new name </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ae85bf2a8da019bf824c63af7c264d3d6"></span>int <code class="descname">chfl_atom_full_name</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, char * <em>name</em>, size_t <em>buffsize</em><span class="sig-paren">)</span></dt>
+<dd><p>Try to get the full name of an atom from the short name. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">name</span></code> - <p>A string buffer to be filled with the name </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">buffsize</span></code> - <p>The size of the string buffer </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aae74f38a164ec419050f5c2624273edd"></span>int <code class="descname">chfl_atom_vdw_radius</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, double * <em>radius</em><span class="sig-paren">)</span></dt>
+<dd><p>Try to get the Van der Waals radius of an atom from the short name. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">radius</span></code> - <p>The Van der Waals radius of the atom or -1 if no value could be found. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a0e024b3d7992fb641494b0f63af46697"></span>int <code class="descname">chfl_atom_covalent_radius</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, double * <em>radius</em><span class="sig-paren">)</span></dt>
+<dd><p>Try to get the covalent radius of an atom from the short name. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">radius</span></code> - <p>The covalent radius of the atom or -1 if no value could be found. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a14fae7e9f1435206b7189f542390d9d8"></span>int <code class="descname">chfl_atom_atomic_number</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, int * <em>number</em><span class="sig-paren">)</span></dt>
+<dd><p>Try to get the atomic number of an atom from the short name. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">number</span></code> - <p>The atomic number, or -1 if no value could be found. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="project0chemfiles_8h_1afd3a0fd79890b9c1e95c0107c44ba957"></span><strong>CHFL_ATOM_TYPES enum</strong></dt>
+<dd><p>Available types of atoms. </p>
+<p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">CHFL_ATOM_ELEMENT</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">0</span></code> - <p>Element from the periodic table of elements. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_ATOM_COARSE_GRAINED</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">1</span></code> - <p>Coarse-grained atom are composed of more than one element: CH3 groups, amino-acids are coarse-grained atoms. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_ATOM_DUMMY</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">2</span></code> - <p>Dummy site, with no physical reality. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CHFL_ATOM_UNDEFINED</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">3</span></code> - <p>Undefined atom type. </p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a10197fed25f47f732fe17067f9f25803"></span>int <code class="descname">chfl_atom_type</code><span class="sig-paren">(</span>const CHFL_ATOM * <em>atom</em>, chfl_atom_type_t * <em>type</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the atom type. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>the atom to read </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">type</span></code> - <p>the type of the atom </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a527bf2cf8d9dc14fe7432afe6cf0abb6"></span>int <code class="descname">chfl_atom_set_type</code><span class="sig-paren">(</span>CHFL_ATOM * <em>atom</em>, chfl_atom_type_t <em>type</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the atom type. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>the atom to modify </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">type</span></code> - <p>the new type of the atom </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a261defd2db94160083d8a1cd1c610865"></span>int <code class="descname">chfl_atom_free</code><span class="sig-paren">(</span>CHFL_ATOM * <em>atom</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroy an atom, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">atom</span></code> - <p>The atom to destroy </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function manipulating CHFL_TRAJECTORY &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="C interface reference" href="index.html" />
+    <link rel="next" title="Function manipulating CHFL_FRAME" href="chfl_frame.html" />
+    <link rel="prev" title="Functions for errors handling" href="errors.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_TRAJECTORY</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="errors.html" title="Previous Chapter: Functions for errors handling"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Functions for...</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_frame.html" title="Next Chapter: Function manipulating CHFL_FRAME"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Function mani... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-trajectory">
+<span id="capi-trajectory"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_TRAJECTORY</span></code><a class="headerlink" href="#function-manipulating-chfl-trajectory" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv215CHFL_TRAJECTORY">
+<span id="CHFL_TRAJECTORY"></span><span class="target" id="chemfilestypes_8h_1a86440947e04c90a5cfc14ce02e2eeb5a"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> <code class="descclassname"></code><code class="descname">CHFL_TRAJECTORY</code><a class="headerlink" href="#_CPPv215CHFL_TRAJECTORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>An opaque type handling trajectories files.</p>
+<p>The `CHFL_TRAJECTORY` type is the main entry point when using chemfiles. A `CHFL_TRAJECTORY*` behave a bit like a `FILE*` pointer, allowing to read and/or write `CHFL_FRAME*` to a file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_trajectory_openPKcc">
+<span id="chfl_trajectory_open__cCP.c"></span><span class="target" id="chemfilestrajectory_8h_1a7a1d136c61924adbec00594106ad1334"></span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<code class="descclassname"></code><code class="descname">chfl_trajectory_open</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>path</em>, char <em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_trajectory_openPKcc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the file at the given `path` using the given `mode`.</p>
+<p>Valid modes are `&#8217;r&#8217;` for read, `&#8217;w&#8217;` for write and `&#8217;a&#8217;` for append.</p>
+<p>The caller of this function should free the allocated memory using `chfl_trajectory_close`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">trajectory</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the trajectory, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv227chfl_trajectory_with_formatPKccPKc">
+<span id="chfl_trajectory_with_format__cCP.c.cCP"></span><span class="target" id="chemfilestrajectory_8h_1a7c692c5452104a97fbc03cf0cae26073"></span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<code class="descclassname"></code><code class="descname">chfl_trajectory_with_format</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>path</em>, char <em>mode</em>, <em class="property">const</em> char *<em>format</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv227chfl_trajectory_with_formatPKccPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the file at the given `path` using a specific file `format` and the given `mode`.</p>
+<p>This is be needed when the file format does not match the extension, or when there is not standard extension for this format. Valid modes are `&#8217;r&#8217;` for read, `&#8217;w&#8217;` for write and `&#8217;a&#8217;` for append. If `format` is an empty string, the format will be guessed from the extension.</p>
+<p>The caller of this function should free the allocated memory using `chfl_trajectory_close`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_with_format</span><span class="p">(</span><span class="s">&quot;water.zeo&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">,</span> <span class="s">&quot;XYZ&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">trajectory</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the trajectory, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_trajectory_readPC15CHFL_TRAJECTORYPC10CHFL_FRAME">
+<span id="chfl_trajectory_read__CHFL_TRAJECTORYPC.CHFL_FRAMEPC"></span><span class="target" id="chemfilestrajectory_8h_1a139825e8c63cf14928a779aec6b1cec2"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_read</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, <a class="reference internal" href="chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_trajectory_readPC15CHFL_TRAJECTORYPC10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next step of the `trajectory` into a `frame`.</p>
+<p>If the number of atoms in frame does not correspond to the number of atom in the next step, the frame is resized.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+<span class="cm">/* We can use the first frame here */</span>
+
+<span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+<span class="cm">/* We can use the second frame here */</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv225chfl_trajectory_read_stepPC15CHFL_TRAJECTORY8uint64_tPC10CHFL_FRAME">
+<span id="chfl_trajectory_read_step__CHFL_TRAJECTORYPC.uint64_t.CHFL_FRAMEPC"></span><span class="target" id="chemfilestrajectory_8h_1a7771e4b714041ee1708c55b7e7f0f8d6"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_read_step</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, uint64_t <em>step</em>, <a class="reference internal" href="chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv225chfl_trajectory_read_stepPC15CHFL_TRAJECTORY8uint64_tPC10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific `step` of the `trajectory` into a `frame`.</p>
+<p>If the number of atoms in frame does not correspond to the number of atom in the step, the frame is resized.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_trajectory_read_step</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+
+<span class="cm">/* We can use the 42nd frame here */</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv221chfl_trajectory_writePC15CHFL_TRAJECTORYPCK10CHFL_FRAME">
+<span id="chfl_trajectory_write__CHFL_TRAJECTORYPC.CHFL_FRAMECPC"></span><span class="target" id="chemfilestrajectory_8h_1a06a5c8d640b743fa880d758d6a7ab91f"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_write</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, <em class="property">const</em> <a class="reference internal" href="chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221chfl_trajectory_writePC15CHFL_TRAJECTORYPCK10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a single `frame` to the `trajectory`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="cm">/* Add atoms to the frame */</span>
+
+<span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">chfl_trajectory_write</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CHFL_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv224chfl_trajectory_set_cellPC15CHFL_TRAJECTORYPCK9CHFL_CELL">
+<span id="chfl_trajectory_set_cell__CHFL_TRAJECTORYPC.CHFL_CELLCPC"></span><span class="target" id="chemfilestrajectory_8h_1ab52498a5201f8c6bcf075f8b074efc62"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_set_cell</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, <em class="property">const</em> <a class="reference internal" href="chfl_cell.html#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv224chfl_trajectory_set_cellPC15CHFL_TRAJECTORYPCK9CHFL_CELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit `cell` associated with a `trajectory`. This cell will be used when reading and writing the files, replacing any pre-existing unit cell.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">22</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">34</span><span class="p">});</span>
+
+<span class="n">chfl_trajectory_set_cell</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">cell</span><span class="p">);</span>
+
+<span class="cm">/* Reading from the trajectory use the cell */</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv228chfl_trajectory_set_topologyPC15CHFL_TRAJECTORYPCK13CHFL_TOPOLOGY">
+<span id="chfl_trajectory_set_topology__CHFL_TRAJECTORYPC.CHFL_TOPOLOGYCPC"></span><span class="target" id="chemfilestrajectory_8h_1a7d3e1fb8d0d2498e18c1a4dfbb519cfb"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_set_topology</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, <em class="property">const</em> <a class="reference internal" href="chfl_topology.html#_CPPv213CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em class="property">const</em> <em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv228chfl_trajectory_set_topologyPC15CHFL_TRAJECTORYPCK13CHFL_TOPOLOGY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the `topology` associated with a `trajectory`. This topology will be used when reading and writing the files, replacing any topology in the frames or files.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+<span class="cm">/* Build the topology by hand or by reading a file */</span>
+
+<span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">chfl_trajectory_set_topology</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">topology</span><span class="p">);</span>
+
+<span class="cm">/* Reading from the trajectory use the topology we built */</span>
+
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv229chfl_trajectory_topology_filePC15CHFL_TRAJECTORYPKcPKc">
+<span id="chfl_trajectory_topology_file__CHFL_TRAJECTORYPC.cCP.cCP"></span><span class="target" id="chemfilestrajectory_8h_1ae629e99d76b80051f3c9a3d6d2eb100d"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_topology_file</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, <em class="property">const</em> char *<em>path</em>, <em class="property">const</em> char *<em>format</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv229chfl_trajectory_topology_filePC15CHFL_TRAJECTORYPKcPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the topology associated with a `trajectory` by reading the first frame of the file at the given `path` using the file format in `format`; and extracting the topology of this frame.</p>
+<p>If `format` is an empty string or `NULL`, the format will be guessed from the path extension.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="n">chfl_trajectory_topology_file</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="s">&quot;water.pdb&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="cm">/* Reading the trajectory will use topology from water.pdb */</span>
+
+<span class="n">chfl_trajectory_topology_file</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="s">&quot;water.topo&quot;</span><span class="p">,</span> <span class="s">&quot;PDB&quot;</span><span class="p">);</span>
+<span class="cm">/* Reading the trajectory will use topology from water.topo using the PDB format. */</span>
+
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_trajectory_nstepsPC15CHFL_TRAJECTORYP8uint64_t">
+<span id="chfl_trajectory_nsteps__CHFL_TRAJECTORYPC.uint64_tP"></span><span class="target" id="chemfilestrajectory_8h_1affd39034ada5faac518b9fbf76b22bf8"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_nsteps</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em class="property">const</em> <em>trajectory</em>, uint64_t *<em>nsteps</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_trajectory_nstepsPC15CHFL_TRAJECTORYP8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the number of steps (the number of frames) from the `trajectory` in `nsteps`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_trajectory_nsteps</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nsteps</span><span class="p">);</span>
+
+<span class="cm">/* Read all steps in the trajectory */</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nsteps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_trajectory_read</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+    <span class="cm">/* Do stuff with the frame */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv221chfl_trajectory_closeP15CHFL_TRAJECTORY">
+<span id="chfl_trajectory_close__CHFL_TRAJECTORYP"></span><span class="target" id="chemfilestrajectory_8h_1a6c9019c55450111cf3799364001e21da"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_trajectory_close</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv215CHFL_TRAJECTORY" title="CHFL_TRAJECTORY">CHFL_TRAJECTORY</a> *<em>trajectory</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221chfl_trajectory_closeP15CHFL_TRAJECTORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close a trajectory file, and free the associated memory.</p>
+<p>Closing a file will synchronize all changes made to the file with the storage (hard drive, network, ...) used for this file.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TRAJECTORY</span><span class="o">*</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">chfl_trajectory_open</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">trajectory</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_trajectory_close</span><span class="p">(</span><span class="n">trajectory</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>`CHFL_SUCCESS` </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

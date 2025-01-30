@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Residue &#8212; Chemfiles 0.10.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Atom" href="atom.html" />
+    <link rel="prev" title="Topology" href="topology.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="topology.html" title="Previous Chapter: Topology"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Topology</span>
+    </a>
+  </li>
+  <li>
+    <a href="atom.html" title="Next Chapter: Atom"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Atom &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trajectory.html">Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Residue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atom.html">Atom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unitcell.html">UnitCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html">Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">Miscelaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="residue">
+<span id="class-residue"></span><h1>Residue<a class="headerlink" href="#residue" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt id="_CPPv4N9chemfiles7ResidueE">
+<span id="_CPPv3N9chemfiles7ResidueE"></span><span id="_CPPv2N9chemfiles7ResidueE"></span><span id="chemfiles::Residue"></span><span class="target" id="classchemfiles_1_1_residue"></span><em class="property">class </em><code class="sig-prename descclassname">chemfiles<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Residue</code><a class="headerlink" href="#_CPPv4N9chemfiles7ResidueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_residue"><span class="std std-ref"><span class="pre">Residue</span></span></a></code> is a group of atoms belonging to the same logical unit. They can be molecules, amino-acids in a protein, monomers in polymers, <em>etc.</em></p>
+<p>Iterating over a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_residue"><span class="std std-ref"><span class="pre">Residue</span></span></a></code> gives the indexes of the atoms in the associated <code class="docutils literal notranslate"><a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref"><span class="pre">Topology</span></span></a></code>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;CLU&quot;</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">56</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">atoms</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">atom</span><span class="p">:</span> <span class="n">residue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">atoms</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">({</span><span class="mi">22</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">56</span><span class="p">}));</span>
+</pre></div>
+</div>
+</p>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N9chemfiles7Residue7ResidueENSt6stringE">
+<span id="_CPPv3N9chemfiles7Residue7ResidueENSt6stringE"></span><span id="_CPPv2N9chemfiles7Residue7ResidueENSt6stringE"></span><span id="chemfiles::Residue::Residue__ss"></span><span class="target" id="classchemfiles_1_1_residue_1a685ea5abf303d80fb01dc8da63dc4a02"></span><code class="sig-name descname">Residue</code><span class="sig-paren">(</span>std::string <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7Residue7ResidueENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new residue with a given <code class="docutils literal notranslate"><span class="pre">name</span></code> and no residue id.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;ALA&quot;</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;ALA&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">id</span><span class="p">()</span> <span class="o">==</span> <span class="n">nullopt</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9chemfiles7Residue7ResidueENSt6stringE7int64_t">
+<span id="_CPPv3N9chemfiles7Residue7ResidueENSt6stringE7int64_t"></span><span id="_CPPv2N9chemfiles7Residue7ResidueENSt6stringE7int64_t"></span><span id="chemfiles::Residue::Residue__ss.int64_t"></span><span class="target" id="classchemfiles_1_1_residue_1a08a2aea3dc0fbb3b538a2aed017a47e1"></span><code class="sig-name descname">Residue</code><span class="sig-paren">(</span>std::string <em>name</em>, int64_t <em>resid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7Residue7ResidueENSt6stringE7int64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new residue with a given <code class="docutils literal notranslate"><span class="pre">name</span></code> and residue id <code class="docutils literal notranslate"><span class="pre">resid</span></code>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;ALA&quot;</span><span class="p">,</span> <span class="mi">456</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;ALA&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">id</span><span class="p">().</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">456</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9chemfiles7Residue4nameEv">
+<span id="_CPPv3NK9chemfiles7Residue4nameEv"></span><span id="_CPPv2NK9chemfiles7Residue4nameEv"></span><span id="chemfiles::Residue::nameC"></span><span class="target" id="classchemfiles_1_1_residue_1ad1ff75c3449dc42c702a5e26f9ce66c2"></span><em class="property">const</em> std::string &amp;<code class="sig-name descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles7Residue4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the name of the residue.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;FOO&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9chemfiles7Residue2idEv">
+<span id="_CPPv3NK9chemfiles7Residue2idEv"></span><span id="_CPPv2NK9chemfiles7Residue2idEv"></span><span id="chemfiles::Residue::idC"></span><span class="target" id="classchemfiles_1_1_residue_1ab29ccf2dab8c2276ededc8210a8b6801"></span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional">optional</a>&lt;int64_t&gt; <code class="sig-name descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles7Residue2idEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the residue identifier, or <code class="docutils literal notranslate"><span class="pre">nullopt</span></code> if it does not exist.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">id</span><span class="p">());</span>
+
+<span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;BAR&quot;</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">id</span><span class="p">());</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">id</span><span class="p">().</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9chemfiles7Residue4sizeEv">
+<span id="_CPPv3NK9chemfiles7Residue4sizeEv"></span><span id="_CPPv2NK9chemfiles7Residue4sizeEv"></span><span id="chemfiles::Residue::sizeC"></span><span class="target" id="classchemfiles_1_1_residue_1a89202695c5e0ee50cfd721ac1a60f2c6"></span>size_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles7Residue4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the size of the residue, i.e. the number of atoms in this residue.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9chemfiles7Residue8add_atomE6size_t">
+<span id="_CPPv3N9chemfiles7Residue8add_atomE6size_t"></span><span id="_CPPv2N9chemfiles7Residue8add_atomE6size_t"></span><span id="chemfiles::Residue::add_atom__s"></span><span class="target" id="classchemfiles_1_1_residue_1afdfdf035de796bf403e6456fc9b4475f"></span>void <code class="sig-name descname">add_atom</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7Residue8add_atomE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add an atom with index <code class="docutils literal notranslate"><span class="pre">i</span></code> to this residue</p>
+<p>If the atom is already in the residue, this does nothing.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9chemfiles7Residue8containsE6size_t">
+<span id="_CPPv3NK9chemfiles7Residue8containsE6size_t"></span><span id="_CPPv2NK9chemfiles7Residue8containsE6size_t"></span><span id="chemfiles::Residue::contains__sC"></span><span class="target" id="classchemfiles_1_1_residue_1a7c6398a2877ca17b686660c08dfbc372"></span>bool <code class="sig-name descname">contains</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles7Residue8containsE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the residue contains a given atom with index <code class="docutils literal notranslate"><span class="pre">i</span></code></p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9chemfiles7Residue10propertiesEv">
+<span id="_CPPv3NK9chemfiles7Residue10propertiesEv"></span><span id="_CPPv2NK9chemfiles7Residue10propertiesEv"></span><span id="chemfiles::Residue::propertiesC"></span><span class="target" id="classchemfiles_1_1_residue_1aa47c964534697a5a2da55b02bbf3b52d"></span><em class="property">const</em> property_map &amp;<code class="sig-name descname">properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles7Residue10propertiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the map of properties asociated with this residue. This map might be iterated over to list the properties of the residue, or directly accessed.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;a string&quot;</span><span class="p">,</span> <span class="s">&quot;the lazy fox&quot;</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;a number&quot;</span><span class="p">,</span> <span class="mi">122</span><span class="p">);</span>
+
+<span class="c1">// Iterator over properties in the frame</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">it</span><span class="p">:</span> <span class="n">frame</span><span class="p">.</span><span class="n">properties</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">first</span> <span class="o">==</span> <span class="s">&quot;a string&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">as_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;the lazy fox&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">first</span> <span class="o">==</span> <span class="s">&quot;a number&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">assert</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mi">122</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9chemfiles7Residue3setENSt6stringE8Property">
+<span id="_CPPv3N9chemfiles7Residue3setENSt6stringE8Property"></span><span id="_CPPv2N9chemfiles7Residue3setENSt6stringE8Property"></span><span id="chemfiles::Residue::set__ss.Property"></span><span class="target" id="classchemfiles_1_1_residue_1a1762625825ec4b6b1e19c9655728b031"></span>void <code class="sig-name descname">set</code><span class="sig-paren">(</span>std::string <em>name</em>, <a class="reference internal" href="property.html#_CPPv4N9chemfiles8PropertyE" title="chemfiles::Property">Property</a> <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles7Residue3setENSt6stringE8Property" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set an arbitrary <code class="docutils literal notranslate"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> for this residue with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>. If a property with this name already exist, it is replaced with the new value.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;ALA&quot;</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+
+<span class="c1">// Typed access to properties</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">).</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">::</span><span class="n">BOOL</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;non-existant property&quot;</span><span class="p">));</span>
+
+<span class="c1">// Override the &quot;first&quot; property</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_bool</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9chemfiles7Residue3getERKNSt6stringE">
+<span id="_CPPv3NK9chemfiles7Residue3getERKNSt6stringE"></span><span id="_CPPv2NK9chemfiles7Residue3getERKNSt6stringE"></span><span id="chemfiles::Residue::get__ssCRC"></span><span class="target" id="classchemfiles_1_1_residue_1adc924d2fa785cfb8705bf13e36c564f2"></span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional">optional</a>&lt;<em class="property">const</em> <a class="reference internal" href="property.html#_CPPv4N9chemfiles8PropertyE" title="chemfiles::Property">Property</a>&amp;&gt; <code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles7Residue3getERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <code class="docutils literal notranslate"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> for this residue if it exists.</p>
+<p>If no property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, this function returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;ALA&quot;</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+
+<span class="c1">// Typed access to properties</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">).</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">::</span><span class="n">BOOL</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;non-existant property&quot;</span><span class="p">));</span>
+
+<span class="c1">// Override the &quot;first&quot; property</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_bool</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I_N8Property4KindEENK9chemfiles7Residue3getE8optionalIN17property_metadataI4kindE4typeEERKNSt6stringE">
+<span id="_CPPv3I_N8Property4KindEENK9chemfiles7Residue3getERKNSt6stringE"></span><span id="_CPPv2I_N8Property4KindEENK9chemfiles7Residue3getERKNSt6stringE"></span>template&lt;<a class="reference internal" href="property.html#_CPPv4N9chemfiles8PropertyE" title="chemfiles::Property">Property</a>::<a class="reference internal" href="property.html#_CPPv4N9chemfiles8Property4KindE" title="chemfiles::Property::Kind">Kind</a> <code class="sig-name descname">kind</code>&gt;<br /><span class="target" id="classchemfiles_1_1_residue_1ae0f1dae9d23b7f37a639b64b2094f84a"></span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional">optional</a>&lt;<em class="property">typename</em> property_metadata&lt;<a class="reference internal" href="#_CPPv4I_N8Property4KindEENK9chemfiles7Residue3getE8optionalIN17property_metadataI4kindE4typeEERKNSt6stringE" title="chemfiles::Residue::get::kind">kind</a>&gt;::type&gt; <code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I_N8Property4KindEENK9chemfiles7Residue3getE8optionalIN17property_metadataI4kindE4typeEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <code class="docutils literal notranslate"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> for this residue if it exists, and check that it has the required <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
+<p>If no property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, this function returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p>If a property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, but has a different kind, this function emits a warning and returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p><p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;ALA&quot;</span><span class="p">);</span>
+
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+
+<span class="c1">// Typed access to properties</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">).</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;alanine group&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">::</span><span class="n">BOOL</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;non-existant property&quot;</span><span class="p">));</span>
+
+<span class="c1">// Override the &quot;first&quot; property</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residue</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_bool</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Function manipulating CHFL_PROPERTY &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Miscelaneous functions" href="misc.html" />
+    <link rel="prev" title="Function manipulating CHFL_SELECTION" href="chfl_selection.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_PROPERTY</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_selection.html" title="Previous Chapter: Function manipulating CHFL_SELECTION"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="misc.html" title="Next Chapter: Miscelaneous functions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Miscelaneous ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-property">
+<span id="capi-property"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_PROPERTY</span></code><a class="headerlink" href="#function-manipulating-chfl-property" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv213CHFL_PROPERTY">
+<span id="CHFL_PROPERTY"></span><span class="target" id="types_8h_1a9a3998addda7d29cf658d04520e6f345"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> <code class="descclassname"></code><code class="descname">CHFL_PROPERTY</code><a class="headerlink" href="#_CPPv213CHFL_PROPERTY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This class holds the data used in properties in <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code> and <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code>. A property can have various types: bool, double, string or <code class="docutils literal"><span class="pre">chfl_vector3d</span></code>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218chfl_property_boolb">
+<span id="chfl_property_bool__b"></span><span class="target" id="property_8h_1a6776bf0cdf8ff348db67ea16d02c1565"></span><a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<code class="descclassname"></code><code class="descname">chfl_property_bool</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218chfl_property_boolb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new property holding a boolean <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal"><span class="pre">chfl_property_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_bool</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">chfl_property_get_bool</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_property_doubled">
+<span id="chfl_property_double__double"></span><span class="target" id="property_8h_1abbc3e02af64a157e2850e2bf7b4f4feb"></span><a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<code class="descclassname"></code><code class="descname">chfl_property_double</code><span class="sig-paren">(</span>double <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_property_doubled" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new property holding a double <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal"><span class="pre">chfl_property_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_property_get_double</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">256</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_property_stringPKc">
+<span id="chfl_property_string__cCP"></span><span class="target" id="property_8h_1a2170b0da1ec91df2fe785079231cb26a"></span><a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<code class="descclassname"></code><code class="descname">chfl_property_string</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_property_stringPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new property holding a string <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal"><span class="pre">chfl_property_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_string</span><span class="p">(</span><span class="s">&quot;a great property&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">value</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<span class="n">chfl_property_get_string</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;a great property&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_property_vector3dK13chfl_vector3d">
+<span id="chfl_property_vector3d__chfl_vector3dC"></span><span class="target" id="property_8h_1ad344f0b728f77e1d10aa6a84b59e7f20"></span><a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<code class="descclassname"></code><code class="descname">chfl_property_vector3d</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector3d" title="chfl_vector3d">chfl_vector3d</a> <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_property_vector3dK13chfl_vector3d" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new property holding a 3D vector <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal"><span class="pre">chfl_property_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_vector3d</span><span class="p">((</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">});</span>
+
+<span class="n">chfl_vector3d</span> <span class="n">value</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_property_get_vector3d</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">3.2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_property_get_kindPK13CHFL_PROPERTYP18chfl_property_kind">
+<span id="chfl_property_get_kind__CHFL_PROPERTYCP.chfl_property_kindP"></span><span class="target" id="property_8h_1a938bbcfee133a3552a765700bae913ad"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_property_get_kind</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em>, chfl_property_kind *<em>kind</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_property_get_kindPK13CHFL_PROPERTYP18chfl_property_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the type of value holded by this <code class="docutils literal"><span class="pre">property</span></code> in <code class="docutils literal"><span class="pre">kind</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+
+<span class="n">chfl_property_kind</span> <span class="n">kind</span><span class="p">;</span>
+<span class="n">chfl_property_get_kind</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">kind</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">kind</span> <span class="o">==</span> <span class="n">CHFL_PROPERTY_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_property_get_boolPK13CHFL_PROPERTYPb">
+<span id="chfl_property_get_bool__CHFL_PROPERTYCP.bP"></span><span class="target" id="property_8h_1a349fdfeaa9d9fe9bf2e0f1b22e6a48be"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_property_get_bool</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em>, bool *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_property_get_boolPK13CHFL_PROPERTYPb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the boolean value holded by this <code class="docutils literal"><span class="pre">property</span></code> in the location pointed to by <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>This function returns CHFL_PROPERTY_ERROR if the property is not a boolean property.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_bool</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">chfl_property_get_bool</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv224chfl_property_get_doublePK13CHFL_PROPERTYPd">
+<span id="chfl_property_get_double__CHFL_PROPERTYCP.doubleP"></span><span class="target" id="property_8h_1a46e0a1a8135c1b58dee2ed314e889ba9"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_property_get_double</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em>, double *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv224chfl_property_get_doublePK13CHFL_PROPERTYPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the double value holded by this <code class="docutils literal"><span class="pre">property</span></code> in the location pointed to by <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>This function returns CHFL_PROPERTY_ERROR if the property is not a double property.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_property_get_double</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">256</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv224chfl_property_get_stringPK13CHFL_PROPERTYPc8uint64_t">
+<span id="chfl_property_get_string__CHFL_PROPERTYCP.cP.uint64_t"></span><span class="target" id="property_8h_1ae1747e774715c1e30214c252f1837fd9"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_property_get_string</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em>, char *<em>buffer</em>, uint64_t <em>buffsize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv224chfl_property_get_stringPK13CHFL_PROPERTYPc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the string value holded by this <code class="docutils literal"><span class="pre">property</span></code> in the given <code class="docutils literal"><span class="pre">buffer</span></code>.</p>
+<p>This function returns CHFL_PROPERTY_ERROR if the property is not a sring property.</p>
+<p>The buffer size must be passed in <code class="docutils literal"><span class="pre">buffsize</span></code>. This function will truncate the property to fit in the buffer.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_string</span><span class="p">(</span><span class="s">&quot;a great property&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">value</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<span class="n">chfl_property_get_string</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;a great property&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv226chfl_property_get_vector3dPK13CHFL_PROPERTY13chfl_vector3d">
+<span id="chfl_property_get_vector3d__CHFL_PROPERTYCP.chfl_vector3d"></span><span class="target" id="property_8h_1af303615c44e8f8d4d70755f738522d20"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_property_get_vector3d</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em>, <a class="reference internal" href="index.html#_CPPv213chfl_vector3d" title="chfl_vector3d">chfl_vector3d</a> <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv226chfl_property_get_vector3dPK13CHFL_PROPERTY13chfl_vector3d" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the 3D vector value holded by this <code class="docutils literal"><span class="pre">property</span></code> in the location pointed to by <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>This function returns CHFL_PROPERTY_ERROR if the property is not a 3D vector property.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_vector3d</span><span class="p">((</span><span class="n">chfl_vector3d</span><span class="p">){</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">});</span>
+
+<span class="n">chfl_vector3d</span> <span class="n">value</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_property_get_vector3d</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">3.2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218chfl_property_freeP13CHFL_PROPERTY">
+<span id="chfl_property_free__CHFL_PROPERTYP"></span><span class="target" id="property_8h_1a87d34ed3008b4759c0adecd31c471ff3"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_property_free</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218chfl_property_freeP13CHFL_PROPERTY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the memory associated with a <code class="docutils literal"><span class="pre">property</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_bool</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">chfl_property_get_bool</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code> </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

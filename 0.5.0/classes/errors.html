@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Errors and exceptions &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="C interface reference" href="../c-api.html" />
+    <link rel="prev" title="Logging capacities" href="logger.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Errors and exceptions</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="logger.html" title="Previous Chapter: Logging capacities"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Logging capac...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../c-api.html" title="Next Chapter: C interface reference"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">C interface r... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="errors-and-exceptions">
+<h1>Errors and exceptions<a class="headerlink" href="#errors-and-exceptions" title="Permalink to this headline">¶</a></h1>
+<p>In chemfiles, the errors are handled by using exceptions. So any program using
+chemfiles should wrap the call between a <code class="docutils literal"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">catch</span></code> statment, and handle the
+errors in any pertinent way.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;chemfiles.cpp&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">file</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">);</span>
+        <span class="n">chemfiles</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span><span class="p">;</span>
+        <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+        <span class="k">auto</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
+        <span class="c1">// Do something here</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">chemfiles</span><span class="o">::</span><span class="n">Error</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Basic error handling by just logging error to stdout</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Error in chemfiles:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All the exceptions derives from <code class="docutils literal"><span class="pre">chemfiles::Error</span></code>, so catching only
+<code class="docutils literal"><span class="pre">chemfiles::Error</span></code> is OK. You also can catch any other error if you need finer
+grain control. <code class="docutils literal"><span class="pre">chemfiles::Error</span></code> derives from <code class="docutils literal"><span class="pre">std::runtime_error</span></code>, and thus
+should play nicely with any exisiting C++ error handling.</p>
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_error"></span><em>struct</em> <code class="descname">chemfiles::Error</code></dt>
+<dd><p>Base exception class for chemfiles library. </p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_file_error"></span><em>struct</em> <code class="descname">chemfiles::FileError</code></dt>
+<dd><p>Exception for files related failures. </p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_memory_error"></span><em>struct</em> <code class="descname">chemfiles::MemoryError</code></dt>
+<dd><p>Exception for memory related failures. </p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_format_error"></span><em>struct</em> <code class="descname">chemfiles::FormatError</code></dt>
+<dd><p>Exception for formats related failures. </p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_plugin_error"></span><em>struct</em> <code class="descname">chemfiles::PluginError</code></dt>
+<dd><p>Exception for dynamic library loading errors. </p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_parser_error"></span><em>struct</em> <code class="descname">chemfiles::ParserError</code></dt>
+<dd><p>Exception for semantic and parsing errors in selections. </p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchemfiles_1_1_lexer_error"></span><em>struct</em> <code class="descname">chemfiles::LexerError</code></dt>
+<dd><p>Exception for syntaxic errors in selections. </p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

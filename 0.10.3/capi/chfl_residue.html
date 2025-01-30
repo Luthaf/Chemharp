@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>CHFL_RESIDUE &#8212; Chemfiles 0.10.3
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CHFL_ATOM" href="chfl_atom.html" />
+    <link rel="prev" title="CHFL_TOPOLOGY" href="chfl_topology.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_topology.html" title="Previous Chapter: CHFL_TOPOLOGY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; CHFL_TOPOLOGY</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_atom.html" title="Next Chapter: CHFL_ATOM"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">CHFL_ATOM &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chfl_trajectory.html"><code class="docutils literal notranslate"><span class="pre">CHFL_TRAJECTORY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_frame.html"><code class="docutils literal notranslate"><span class="pre">CHFL_FRAME</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_topology.html"><code class="docutils literal notranslate"><span class="pre">CHFL_TOPOLOGY</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">CHFL_RESIDUE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_atom.html"><code class="docutils literal notranslate"><span class="pre">CHFL_ATOM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_cell.html"><code class="docutils literal notranslate"><span class="pre">CHFL_CELL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_selection.html"><code class="docutils literal notranslate"><span class="pre">CHFL_SELECTION</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_property.html"><code class="docutils literal notranslate"><span class="pre">CHFL_PROPERTY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">Miscelaneous functions</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="chfl-residue">
+<span id="capi-residue"></span><h1><code class="docutils literal notranslate"><span class="pre">CHFL_RESIDUE</span></code><a class="headerlink" href="#chfl-residue" title="Permalink to this heading">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv412CHFL_RESIDUE">
+<span id="_CPPv312CHFL_RESIDUE"></span><span id="_CPPv212CHFL_RESIDUE"></span><span id="CHFL_RESIDUE"></span><span class="target" id="types_8h_1ae55e99c97ad4b4a2af16ddecb3fd6c23"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></span><a class="headerlink" href="#_CPPv412CHFL_RESIDUE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An opaque type handling a residue.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">CHFL_RESIDUE</span></code> is a group of atoms belonging to the same logical unit. They can be small molecules, amino-acids in a protein, monomers in polymers, <em>etc.</em> </p>
+</dd></dl>
+
+<p>Here is the full list of functions acting on <a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">CHFL_RESIDUE</span></code></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#_CPPv412chfl_residuePKc" title="chfl_residue"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv420chfl_residue_with_idPKc7int64_t" title="chfl_residue_with_id"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_with_id()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv421chfl_residue_for_atomPK13CHFL_TOPOLOGY8uint64_t" title="chfl_residue_for_atom"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_for_atom()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv426chfl_residue_from_topologyPK13CHFL_TOPOLOGY8uint64_t" title="chfl_residue_from_topology"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_from_topology()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv417chfl_residue_copyPK12CHFL_RESIDUE" title="chfl_residue_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_copy()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv417chfl_residue_namePK12CHFL_RESIDUEPc8uint64_t" title="chfl_residue_name"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_name()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv415chfl_residue_idPK12CHFL_RESIDUEP7int64_t" title="chfl_residue_id"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_id()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv421chfl_residue_add_atomP12CHFL_RESIDUE8uint64_t" title="chfl_residue_add_atom"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_add_atom()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv424chfl_residue_atoms_countPK12CHFL_RESIDUEP8uint64_t" title="chfl_residue_atoms_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_atoms_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv418chfl_residue_atomsPK12CHFL_RESIDUEA_8uint64_t8uint64_t" title="chfl_residue_atoms"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_atoms()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv421chfl_residue_containsPK12CHFL_RESIDUE8uint64_tPb" title="chfl_residue_contains"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_contains()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_residue_set_propertyP12CHFL_RESIDUEPKcPK13CHFL_PROPERTY" title="chfl_residue_set_property"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_set_property()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_residue_get_propertyPK12CHFL_RESIDUEPKc" title="chfl_residue_get_property"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_get_property()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv429chfl_residue_properties_countPK12CHFL_RESIDUEP8uint64_t" title="chfl_residue_properties_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_properties_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv428chfl_residue_list_propertiesPK12CHFL_RESIDUEA_PKc8uint64_t" title="chfl_residue_list_properties"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_residue_list_properties()</span></code></a></p></li>
+</ul>
+<hr class="docutils" />
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412chfl_residuePKc">
+<span id="_CPPv312chfl_residuePKc"></span><span id="_CPPv212chfl_residuePKc"></span><span id="chfl_residue__cCP"></span><span class="target" id="residue_8h_1a2937a35f28199e6fa697749c9a347e74"></span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412chfl_residuePKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new residue with the given <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pointer to the residue, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420chfl_residue_with_idPKc7int64_t">
+<span id="_CPPv320chfl_residue_with_idPKc7int64_t"></span><span id="_CPPv220chfl_residue_with_idPKc7int64_t"></span><span id="chfl_residue_with_id__cCP.int64_t"></span><span class="target" id="residue_8h_1a4026e926f01c8dccfcb1b38715d2b135"></span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_with_id</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420chfl_residue_with_idPKc7int64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new residue with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> and residue identifier <code class="docutils literal notranslate"><span class="pre">resid</span></code>.</p>
+<p>The caller of this function should free the allocated memory using <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pointer to the residue, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421chfl_residue_for_atomPK13CHFL_TOPOLOGY8uint64_t">
+<span id="_CPPv321chfl_residue_for_atomPK13CHFL_TOPOLOGY8uint64_t"></span><span id="_CPPv221chfl_residue_for_atomPK13CHFL_TOPOLOGY8uint64_t"></span><span id="chfl_residue_for_atom__CHFL_TOPOLOGYCP.uint64_t"></span><span class="target" id="residue_8h_1ad02b5f716f0bde65f2fc090fe66e5ac8"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_for_atom</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="chfl_topology.html#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY"><span class="n"><span class="pre">CHFL_TOPOLOGY</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">topology</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421chfl_residue_for_atomPK13CHFL_TOPOLOGY8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get access to the residue containing the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in the <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>This function will return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the atom is not in a residue, or if the index <code class="docutils literal notranslate"><span class="pre">i</span></code> is bigger than <code class="docutils literal notranslate"><span class="pre">chfl_topology_atoms_count</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">topology</span></code> will be kept alive, even if <code class="docutils literal notranslate"><span class="pre">chfl_free(topology)</span></code> is called, until <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code> is also called on the pointer returned by this function.</p>
+<p>The pointer returned by this function points directly inside the topology, and will be invalidated if any of the following function is called on the topology or the frame containing the topology:</p>
+<p><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chfl_frame_add_residue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chfl_topology_add_residue</span></code></p></li>
+</ul>
+</p>
+<p>Calling any function on an invalidated pointer is undefined behavior. Even if the pointer if invalidated, it stills needs to be released with <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pointer to the residue, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv426chfl_residue_from_topologyPK13CHFL_TOPOLOGY8uint64_t">
+<span id="_CPPv326chfl_residue_from_topologyPK13CHFL_TOPOLOGY8uint64_t"></span><span id="_CPPv226chfl_residue_from_topologyPK13CHFL_TOPOLOGY8uint64_t"></span><span id="chfl_residue_from_topology__CHFL_TOPOLOGYCP.uint64_t"></span><span class="target" id="residue_8h_1a960857aaa1f1c591a0c6478b5e6472ac"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_from_topology</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="chfl_topology.html#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY"><span class="n"><span class="pre">CHFL_TOPOLOGY</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">topology</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426chfl_residue_from_topologyPK13CHFL_TOPOLOGY8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get access to the residue at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in a <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">i</span></code> is bigger than the result of <code class="docutils literal notranslate"><span class="pre">chfl_topology_residues_count</span></code>, this function will return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<p>The residue index in the topology is not always the same as the residue <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">topology</span></code> will be kept alive, even if <code class="docutils literal notranslate"><span class="pre">chfl_free(topology)</span></code> is called, until <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code> is also called on the pointer returned by this function, unless the pointer returned by this function is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<p>The pointer returned by this function points directly inside the topology, and will be invalidated if any of the following function is called on the topology or the frame containing the topology:</p>
+<p><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chfl_frame_add_residue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chfl_topology_add_residue</span></code></p></li>
+</ul>
+</p>
+<p>Calling any function on an invalidated pointer is undefined behavior. Even if the pointer if invalidated, it stills needs to be released with <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pointer to the residue, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417chfl_residue_copyPK12CHFL_RESIDUE">
+<span id="_CPPv317chfl_residue_copyPK12CHFL_RESIDUE"></span><span id="_CPPv217chfl_residue_copyPK12CHFL_RESIDUE"></span><span id="chfl_residue_copy__CHFL_RESIDUECP"></span><span class="target" id="residue_8h_1af2bcae687c0fc1c46b8d0e01494110ec"></span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_copy</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417chfl_residue_copyPK12CHFL_RESIDUE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a copy of a <code class="docutils literal notranslate"><span class="pre">residue</span></code>.</p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pointer to the new residue, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417chfl_residue_namePK12CHFL_RESIDUEPc8uint64_t">
+<span id="_CPPv317chfl_residue_namePK12CHFL_RESIDUEPc8uint64_t"></span><span id="_CPPv217chfl_residue_namePK12CHFL_RESIDUEPc8uint64_t"></span><span id="chfl_residue_name__CHFL_RESIDUECP.cP.uint64_t"></span><span class="target" id="residue_8h_1aabd3b2b0a05ae268a9aaa5c70d14e971"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_name</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">buffsize</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417chfl_residue_namePK12CHFL_RESIDUEPc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the name of a <code class="docutils literal notranslate"><span class="pre">residue</span></code> in the string buffer <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>The buffer size must be passed in <code class="docutils literal notranslate"><span class="pre">buffsize</span></code>. This function will truncate the residue name to fit in the buffer.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415chfl_residue_idPK12CHFL_RESIDUEP7int64_t">
+<span id="_CPPv315chfl_residue_idPK12CHFL_RESIDUEP7int64_t"></span><span id="_CPPv215chfl_residue_idPK12CHFL_RESIDUEP7int64_t"></span><span id="chfl_residue_id__CHFL_RESIDUECP.int64_tP"></span><span class="target" id="residue_8h_1a8e475cc0bc92ffcebc0363ac190d5bdf"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_id</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415chfl_residue_idPK12CHFL_RESIDUEP7int64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the identifier of a <code class="docutils literal notranslate"><span class="pre">residue</span></code> in the initial topology file in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<p>This function will return <code class="docutils literal notranslate"><span class="pre">CHFL_GENERIC_ERROR</span></code> if this residue does not have an associated identifier.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421chfl_residue_add_atomP12CHFL_RESIDUE8uint64_t">
+<span id="_CPPv321chfl_residue_add_atomP12CHFL_RESIDUE8uint64_t"></span><span id="_CPPv221chfl_residue_add_atomP12CHFL_RESIDUE8uint64_t"></span><span id="chfl_residue_add_atom__CHFL_RESIDUEP.uint64_t"></span><span class="target" id="residue_8h_1a3ed46356e1c136e1f45f267946299f39"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_add_atom</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421chfl_residue_add_atomP12CHFL_RESIDUE8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in the <code class="docutils literal notranslate"><span class="pre">residue</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424chfl_residue_atoms_countPK12CHFL_RESIDUEP8uint64_t">
+<span id="_CPPv324chfl_residue_atoms_countPK12CHFL_RESIDUEP8uint64_t"></span><span id="_CPPv224chfl_residue_atoms_countPK12CHFL_RESIDUEP8uint64_t"></span><span id="chfl_residue_atoms_count__CHFL_RESIDUECP.uint64_tP"></span><span class="target" id="residue_8h_1aa01e507b94fc5c6f2c49aa8d682df197"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_atoms_count</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424chfl_residue_atoms_countPK12CHFL_RESIDUEP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of atoms in a <code class="docutils literal notranslate"><span class="pre">residue</span></code> in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418chfl_residue_atomsPK12CHFL_RESIDUEA_8uint64_t8uint64_t">
+<span id="_CPPv318chfl_residue_atomsPK12CHFL_RESIDUEA_8uint64_t8uint64_t"></span><span id="_CPPv218chfl_residue_atomsPK12CHFL_RESIDUEA_8uint64_t8uint64_t"></span><span id="chfl_residue_atoms__CHFL_RESIDUECP.uint64_tA.uint64_t"></span><span class="target" id="residue_8h_1a086a1fb05cb0b4e08e8145e4b5a9bb35"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_atoms</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">atoms</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418chfl_residue_atomsPK12CHFL_RESIDUEA_8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of atoms in the <code class="docutils literal notranslate"><span class="pre">residue</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">atoms</span></code> of size <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">atoms</span></code> array size must be passed in the <code class="docutils literal notranslate"><span class="pre">count</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_residue_atoms_count</span></code>. The <code class="docutils literal notranslate"><span class="pre">atoms</span></code> array is sorted.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421chfl_residue_containsPK12CHFL_RESIDUE8uint64_tPb">
+<span id="_CPPv321chfl_residue_containsPK12CHFL_RESIDUE8uint64_tPb"></span><span id="_CPPv221chfl_residue_containsPK12CHFL_RESIDUE8uint64_tPb"></span><span id="chfl_residue_contains__CHFL_RESIDUECP.uint64_t.bP"></span><span class="target" id="residue_8h_1a239519f57e8167c2294eb6b253ddf2f1"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_contains</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">result</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421chfl_residue_containsPK12CHFL_RESIDUE8uint64_tPb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> is in the <code class="docutils literal notranslate"><span class="pre">residue</span></code>, and store the result in <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425chfl_residue_set_propertyP12CHFL_RESIDUEPKcPK13CHFL_PROPERTY">
+<span id="_CPPv325chfl_residue_set_propertyP12CHFL_RESIDUEPKcPK13CHFL_PROPERTY"></span><span id="_CPPv225chfl_residue_set_propertyP12CHFL_RESIDUEPKcPK13CHFL_PROPERTY"></span><span id="chfl_residue_set_property__CHFL_RESIDUEP.cCP.CHFL_PROPERTYCP"></span><span class="target" id="residue_8h_1ac0f469ca781899f2f98414d76991281d"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_set_property</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="chfl_property.html#_CPPv413CHFL_PROPERTY" title="CHFL_PROPERTY"><span class="n"><span class="pre">CHFL_PROPERTY</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">property</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_residue_set_propertyP12CHFL_RESIDUEPKcPK13CHFL_PROPERTY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a new <code class="docutils literal notranslate"><span class="pre">property</span></code> with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> to this <code class="docutils literal notranslate"><span class="pre">residue</span></code>.</p>
+<p>If a property with the same name already exists, this function override the existing property with the new one.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425chfl_residue_get_propertyPK12CHFL_RESIDUEPKc">
+<span id="_CPPv325chfl_residue_get_propertyPK12CHFL_RESIDUEPKc"></span><span id="_CPPv225chfl_residue_get_propertyPK12CHFL_RESIDUEPKc"></span><span id="chfl_residue_get_property__CHFL_RESIDUECP.cCP"></span><span class="target" id="residue_8h_1a27da9c0db2698ee55bda02180c0f7f3b"></span><a class="reference internal" href="chfl_property.html#_CPPv413CHFL_PROPERTY" title="CHFL_PROPERTY"><span class="n"><span class="pre">CHFL_PROPERTY</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_get_property</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_residue_get_propertyPK12CHFL_RESIDUEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> in this <code class="docutils literal notranslate"><span class="pre">residue</span></code>.</p>
+<p>This function returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no property exists with the given name.</p>
+<p>The user of this function is responsible to deallocate memory using the <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code> function.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv429chfl_residue_properties_countPK12CHFL_RESIDUEP8uint64_t">
+<span id="_CPPv329chfl_residue_properties_countPK12CHFL_RESIDUEP8uint64_t"></span><span id="_CPPv229chfl_residue_properties_countPK12CHFL_RESIDUEP8uint64_t"></span><span id="chfl_residue_properties_count__CHFL_RESIDUECP.uint64_tP"></span><span class="target" id="residue_8h_1afc0229ac978a7d4ad48c212cd98070b2"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_properties_count</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429chfl_residue_properties_countPK12CHFL_RESIDUEP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of properties associated with this <code class="docutils literal notranslate"><span class="pre">residue</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv428chfl_residue_list_propertiesPK12CHFL_RESIDUEA_PKc8uint64_t">
+<span id="_CPPv328chfl_residue_list_propertiesPK12CHFL_RESIDUEA_PKc8uint64_t"></span><span id="_CPPv228chfl_residue_list_propertiesPK12CHFL_RESIDUEA_PKc8uint64_t"></span><span id="chfl_residue_list_properties__CHFL_RESIDUECP.cCPA.uint64_t"></span><span class="target" id="residue_8h_1af19aa9c978d6803b61ce4974db140aa5"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_residue_list_properties</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE"><span class="n"><span class="pre">CHFL_RESIDUE</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">residue</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">names</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428chfl_residue_list_propertiesPK12CHFL_RESIDUEA_PKc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the names of all properties of this <code class="docutils literal notranslate"><span class="pre">residue</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">names</span></code> of size <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">names</span></code> size must be passed in the <code class="docutils literal notranslate"><span class="pre">count</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_residue_properties_count</span></code>.</p>
+<p>The pointers in <code class="docutils literal notranslate"><span class="pre">names</span></code> are only valid until a new property is added to the residue with <code class="docutils literal notranslate"><span class="pre">chfl_residue_set_property</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

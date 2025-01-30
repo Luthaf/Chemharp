@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function manipulating CHFL_SELECTION &mdash; Chemfiles 0.6.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.6.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C interface reference" href="index.html" />
+    <link rel="next" title="Functions for errors handling" href="errors.html" />
+    <link rel="prev" title="Function manipulating CHFL_TOPOLOGY" href="chfl_topology.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_SELECTION</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_topology.html" title="Previous Chapter: Function manipulating CHFL_TOPOLOGY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="errors.html" title="Next Chapter: Functions for errors handling"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Functions for... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-selection">
+<span id="capi-selection"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_SELECTION</span></code><a class="headerlink" href="#function-manipulating-chfl-selection" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a43747d4b78e463c98a77dfd264313481"></span>CHFL_SELECTION * <code class="descname">chfl_selection</code><span class="sig-paren">(</span>const char * <em>selection</em><span class="sig-paren">)</span></dt>
+<dd><p>Create a new selection from the given selection string. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the corresponding selection, or NULL in case of error </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a1b369e5a057c397cacb5413f89010aca"></span>int <code class="descname">chfl_selection_size</code><span class="sig-paren">(</span>const CHFL_SELECTION * <em>selection</em>, size_t * <em>size</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the size of the selection, i.e. the number of atoms we are selecting together. </p>
+<p>This value is 1 for the &#8216;atom&#8217; context, 2 for the &#8216;pair&#8217; and &#8216;bond&#8217; context, 3 for the &#8216;three&#8217; and &#8216;angles&#8217; contextes and 4 for the &#8216;four&#8217; and &#8216;dihedral&#8217; contextes.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">selection</span></code> - <p>The selection </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">size</span></code> - <p>The size of the selection </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1a284c46b85260a8316d048436cb1910c4"></span>int <code class="descname">chfl_selection_evalutate</code><span class="sig-paren">(</span>CHFL_SELECTION * <em>selection</em>, const CHFL_FRAME * <em>frame</em>, size_t * <em>n_matches</em><span class="sig-paren">)</span></dt>
+<dd><p>Evaluate a selection for a given frame. </p>
+<p>Use the <code class="docutils literal"><span class="pre">chfl_selection_get</span></code> function to get the matches for this selection.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">selection</span></code> - <p>The selection </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">frame</span></code> - <p>The frame </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">n_matches</span></code> - <p>The number of matches for the selection </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1afb855b3130fb86837b8c97fb6fd95058"></span>int <code class="descname">chfl_selection_matches</code><span class="sig-paren">(</span>const CHFL_SELECTION * <em>selection</em>, <a class="reference internal" href="#project0structchfl__match__t"><span class="std std-ref">chfl_match_t</span></a> <em>matches</em>[], size_t <em>n_matches</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the matches for a selection after a call to <code class="docutils literal"><span class="pre">chfl_selection_evalutate</span></code> </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">selection</span></code> - <p>the selection </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">matches</span></code> - <p>a pre-allocated array of size (number of matches) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">n_matches</span></code> - <p>the number of matches, as indicated by <code class="docutils literal"><span class="pre">chfl_selection_evaluate</span></code> </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0chemfiles_8h_1aeeaf2ffa61a4ba65bca6edd4c43bc87e"></span>int <code class="descname">chfl_selection_free</code><span class="sig-paren">(</span>CHFL_SELECTION * <em>selection</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroy a selection, and free the associated memory. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">selection</span></code> - <p>The selection to destroy </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="project0structchfl__match__t"></span><em>struct</em> <code class="descname">chfl_match_t</code></dt>
+<dd><p>A match from a selection evaluation. </p>
+<p>A match is a set of atomic indexes matching a given selection. The size of a match depends on the associated selection, and can vary from 1 to 4. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt>
+<span class="target" id="project0structchfl__match__t_1abf6157a7b89c8dd5926870c34a7d81a1"></span>unsigned char <code class="descname">size</code></dt>
+<dd><p>The actual size of the match. Elements in <code class="docutils literal"><span class="pre">matches</span></code> are significant up to this value, and filled with <code class="docutils literal"><span class="pre">(size_t)-1</span></code> for all the other values. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt>
+<span class="target" id="project0structchfl__match__t_1aef9ae76fac55686c67b0824a49b6f9e6"></span>size_t <code class="descname">atoms</code>[CHFL_MAX_SELECTION_SIZE]</dt>
+<dd><p>Indexes matching the associated selection. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="define">
+<dt>
+<span class="target" id="project0chemfiles_8h_1ac553b6bd9a6db78d5a827156a2cfba09"></span><strong>CHFL_MAX_SELECTION_SIZE</strong></dt>
+<dd><p>Maximal size for a selection match. </p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

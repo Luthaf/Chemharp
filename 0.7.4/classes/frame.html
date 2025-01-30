@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Frames &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Topology" href="topology.html" />
+    <link rel="prev" title="Trajectory" href="trajectory.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Frames</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="trajectory.html" title="Previous Chapter: Trajectory"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Trajectory</span>
+    </a>
+  </li>
+  <li>
+    <a href="topology.html" title="Next Chapter: Topology"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Topology &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="frames">
+<span id="class-frame"></span><h1>Frames<a class="headerlink" href="#frames" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles5FrameE">
+<span id="chemfiles::Frame"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">Frame</code><a class="headerlink" href="#_CPPv2N9chemfiles5FrameE" title="Permalink to this definition">¶</a></dt>
+<dd><p>A frame contains data from one simulation step The <a class="reference internal" href="#chemfilesclasschemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> class holds data from one step of a simulation: the current topology, the positions, and the velocities of the particles in the system. If some information is missing (topology or velocity or unit cell), the corresponding data is filled with a default value. Specifically:</p>
+<p><ul class="simple">
+<li>`velocities` is the `nullopt` version of `optional&lt;Array3D&gt;`. Here, `optional&lt;T&gt;` refers to the optional template as defined in [std::experimental::optional][optional]</li>
+<li>`cell` is an infinite unit cell;</li>
+<li>`topology` is empty, and contains no data.</li>
+</ul>
+</p>
+<p>[optional]: <a class="reference external" href="http://en.cppreference.com/w/cpp/experimental/optional">http://en.cppreference.com/w/cpp/experimental/optional</a> </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N5Frame5FrameEv">
+<span id="Frame::Frame"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1ad2e5946cf41d4817e750500acf05d02b"></span><code class="descname">Frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame5FrameEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame5FrameE6size_t">
+<span id="Frame::Frame__s"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1accdd48b8def629da4f7b082ed4ddd4ee"></span><code class="descname">Frame</code><span class="sig-paren">(</span>size_t <em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame5FrameE6size_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor reserving some space for `natoms`. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame5FrameE8Topology8UnitCell">
+<span id="Frame::Frame__Topology.UnitCell"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a132698434c52f9b3cf3ce9363e4ac59d"></span><code class="descname">Frame</code><span class="sig-paren">(</span>Topology <em>topology</em>, UnitCell <em>cell</em> = UnitCell ()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame5FrameE8Topology8UnitCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor reserving space for `topology.<a class="reference internal" href="#chemfilesclasschemfiles_1_1_frame_1a3873d16cc1d1b3e7bf1d0d4b4485361c"><span class="std std-ref">natoms()</span></a>`, and using `cell` as unit cell. `cell` default to an `INFINITE` unit cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles5Frame5cloneEv">
+<span id="chemfiles::Frame::cloneC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a03908bd309d7629472ff452fa9d637aa"></span><a class="reference internal" href="#_CPPv2N9chemfiles5FrameE" title="chemfiles::Frame">Frame</a> <code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles5Frame5cloneEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a clone (exact copy) of this frame.</p>
+<p>This replace the implicit copy constructor (which is disabled) to make an explicit copy of the frame. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles5Frame9positionsEv">
+<span id="chemfiles::Frame::positions"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a1a819436954663aca53818809239b3f2"></span>Span3D <code class="descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles5Frame9positionsEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a modifiable reference to the positions. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles5Frame9positionsEv">
+<span id="chemfiles::Frame::positionsC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a9268a9f711ad0ab76b511c9012f0a164"></span><em class="property">const</em> Array3D &amp;<code class="descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles5Frame9positionsEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a const (non modifiable) reference to the positions. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles5Frame10velocitiesEv">
+<span id="chemfiles::Frame::velocities"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a1bcfddad74b49e5eeda5e23d43fb524f"></span>optional&lt;Span3D&gt; <code class="descname">velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles5Frame10velocitiesEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an optional modifiable reference to the velocities. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles5Frame10velocitiesEv">
+<span id="chemfiles::Frame::velocitiesC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a7a52cf0fa296930ac8d6546a422a6060"></span><em class="property">const</em> optional&lt;Array3D&gt; &amp;<code class="descname">velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles5Frame10velocitiesEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an optional const (non modifiable) reference to the velocities. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame14add_velocitiesEv">
+<span id="Frame::add_velocities"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1acee262e99f26e6db358be73a3abded80"></span>void <code class="descname">add_velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame14add_velocitiesEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add velocities to this frame. If velocities are already defined, this functions does nothing. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles5Frame8topologyEv">
+<span id="chemfiles::Frame::topology"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a70fd59c42b0e9177b969c6fe2bb26382"></span><a class="reference internal" href="topology.html#_CPPv2N9chemfiles8TopologyE" title="chemfiles::Topology">Topology</a> &amp;<code class="descname">topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles5Frame8topologyEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a modifiable reference to the internal topology. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles5Frame8topologyEv">
+<span id="chemfiles::Frame::topologyC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a89f12344752b7f66c0eb0708bb808f3c"></span><em class="property">const</em> <a class="reference internal" href="topology.html#_CPPv2N9chemfiles8TopologyE" title="chemfiles::Topology">Topology</a> &amp;<code class="descname">topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles5Frame8topologyEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a const (non-modifiable) reference to the internal topology. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame12set_topologyERK8Topology">
+<span id="Frame::set_topology__TopologyCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a04fa8b1069d82f802ace83a83dcb4a0e"></span>void <code class="descname">set_topology</code><span class="sig-paren">(</span><em class="property">const</em> Topology &amp;<em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame12set_topologyERK8Topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the system topology. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles5Frame4cellEv">
+<span id="chemfiles::Frame::cellC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1ac1481f2056c933662650c495094c7402"></span><em class="property">const</em> <a class="reference internal" href="unitcell.html#_CPPv2N9chemfiles8UnitCellE" title="chemfiles::UnitCell">UnitCell</a> &amp;<code class="descname">cell</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles5Frame4cellEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a const (non-modifiable) reference to the unit cell of the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles5Frame8set_cellERK8UnitCell">
+<span id="chemfiles::Frame::set_cell__UnitCellCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a9f48348d46a63c050c6002125f27393c"></span>void <code class="descname">set_cell</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="unitcell.html#_CPPv2N9chemfiles8UnitCellE" title="chemfiles::UnitCell">UnitCell</a> &amp;<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles5Frame8set_cellERK8UnitCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit cell fo the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame6resizeE6size_t">
+<span id="Frame::resize__s"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a9c565a11ba5c0d83263c6227db7e5012"></span>void <code class="descname">resize</code><span class="sig-paren">(</span>size_t <em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame6resizeE6size_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the frame to store data for `natoms` atoms. If the new size is bigger than the old one, missing data is initializd to 0. Pre-existing values are conserved. This function only resize the velocities if the data is present. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame7reserveE6size_t">
+<span id="Frame::reserve__s"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a534ae61cdf105fc808788434bd6a825b"></span>void <code class="descname">reserve</code><span class="sig-paren">(</span>size_t <em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame7reserveE6size_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserve size in the frame to store data for `natoms` atoms. This function only reserve storage for the the velocities if the data is present. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame8add_atomE4Atom8Vector3D8Vector3D">
+<span id="Frame::add_atom__Atom.Vector3D.Vector3D"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a0bd4ab2359d27103123161321c06b194"></span>void <code class="descname">add_atom</code><span class="sig-paren">(</span>Atom <em>atom</em>, Vector3D <em>position</em>, Vector3D <em>velocity</em> = Vector3D()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame8add_atomE4Atom8Vector3D8Vector3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an `atom` at the given `position` and optionally with the given `velocity`. The `velocity` value will only be used if this frame contains velocity data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK5Frame6natomsEv">
+<span id="Frame::natomsC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a3873d16cc1d1b3e7bf1d0d4b4485361c"></span>size_t <code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK5Frame6natomsEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of atoms in the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame6removeE6size_t">
+<span id="Frame::remove__s"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a098ce3757568127c2f329cb4aa8eb7c9"></span>void <code class="descname">remove</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame6removeE6size_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the atom at index `i` in the system. `i` must be lower than `natoms()`. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles5Frame4stepEv">
+<span id="chemfiles::Frame::stepC"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a53076d72f2526fbfb572412fdaa72529"></span>size_t <code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles5Frame4stepEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current simulation step. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles5Frame8set_stepE6size_t">
+<span id="chemfiles::Frame::set_step__s"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1ab126ce6a78e19234fc4032dfe5dc08b6"></span>void <code class="descname">set_step</code><span class="sig-paren">(</span>size_t <em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles5Frame8set_stepE6size_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current simulation step. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N5Frame14guess_topologyEv">
+<span id="Frame::guess_topology"></span><span class="target" id="chemfilesclasschemfiles_1_1_frame_1a3619d19517c48a8d7bed13f3d43c1000"></span>void <code class="descname">guess_topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N5Frame14guess_topologyEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess the bonds, angles and dihedrals in the system. The bonds are guessed using a distance-based algorithm, and then angles and dihedrals are guessed from the bonds. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

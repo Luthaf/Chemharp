@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Atom class &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit Cell class" href="unitcell.html" />
+    <link rel="prev" title="Residue class" href="residue.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Atom class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="residue.html" title="Previous Chapter: Residue class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Residue class</span>
+    </a>
+  </li>
+  <li>
+    <a href="unitcell.html" title="Next Chapter: Unit Cell class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Unit Cell class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="atom-class">
+<span id="class-atom"></span><h1>Atom class<a class="headerlink" href="#atom-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles4AtomE">
+<span id="chemfiles::Atom"></span><span class="target" id="classchemfiles_1_1_atom"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">Atom</code><a class="headerlink" href="#_CPPv2N9chemfiles4AtomE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <code class="docutils literal"><a class="reference internal" href="#classchemfiles_1_1_atom"><span class="std std-ref"><span class="pre">Atom</span></span></a></code> is a particle in the current <code class="docutils literal"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code>.</p>
+<p>An atom stores atomic properties such as the atom name and type, the mass and the charge. It also stores arbitrary property unsing the <a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref">Property</span></a> class. Position and velocity are not stored in the <code class="docutils literal"><a class="reference internal" href="#classchemfiles_1_1_atom"><span class="std std-ref"><span class="pre">Atom</span></span></a></code> class, but in separated arrays in the <code class="docutils literal"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> class.</p>
+<p>The atom name is usually an unique identifier (“H1”, “C_a”) while the atom type will be shared between all particles of the same type: “H”, “Ow”, “CH3”. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N4Atom4AtomENSt6stringE">
+<span id="Atom::Atom__ss"></span><span class="target" id="classchemfiles_1_1_atom_1a02e0edd43db1af34758f2d729a985bd0"></span><code class="descname">Atom</code><span class="sig-paren">(</span>std::string <em>name</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N4Atom4AtomENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an atom with the given <code class="docutils literal"><span class="pre">name</span></code> and set the atom type to be the same as <code class="docutils literal"><span class="pre">name</span></code>.</p>
+<p>If the atom type exists in the periodic table, the atom mass is set to the matching value. This check is executed with case-insensitive atom type: <code class="docutils literal"><span class="pre">Na</span></code>, <code class="docutils literal"><span class="pre">NA</span></code>, <code class="docutils literal"><span class="pre">nA</span></code> and <code class="docutils literal"><span class="pre">na</span></code> all get the <code class="docutils literal"><span class="pre">Na</span></code> mass.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+<span class="c1">// The atom mass is automatically set</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">65.38</span><span class="p">);</span>
+
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O23&quot;</span><span class="p">,</span> <span class="s">&quot;Ow&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;O23&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Ow&quot;</span><span class="p">);</span>
+<span class="c1">// The atom mass is not automatically set, &quot;Ow&quot; is not in the periodic table</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: atomic name for the new atom </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N4Atom4AtomENSt6stringENSt6stringE">
+<span id="Atom::Atom__ss.ss"></span><span class="target" id="classchemfiles_1_1_atom_1a9a142be9224cff57030d707af2d2db04"></span><code class="descname">Atom</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N4Atom4AtomENSt6stringENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an atom from the given <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">type</span></code></p>
+<p>If the atom type exists in the periodic table, the atom mass is set to the matching value. This check is executed with case-insensitive atom type: <code class="docutils literal"><span class="pre">Na</span></code>, <code class="docutils literal"><span class="pre">NA</span></code>, <code class="docutils literal"><span class="pre">nA</span></code> and <code class="docutils literal"><span class="pre">na</span></code> all get the <code class="docutils literal"><span class="pre">Na</span></code> mass.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+<span class="c1">// The atom mass is automatically set</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">65.38</span><span class="p">);</span>
+
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O23&quot;</span><span class="p">,</span> <span class="s">&quot;Ow&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;O23&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Ow&quot;</span><span class="p">);</span>
+<span class="c1">// The atom mass is not automatically set, &quot;Ow&quot; is not in the periodic table</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: atomic name for the new atom </li>
+<li><code class="docutils literal"><span class="pre">type</span></code>: atomic type for the new atom </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom4nameEv">
+<span id="chemfiles::Atom::nameC"></span><span class="target" id="classchemfiles_1_1_atom_1a3690397ed027e94b338258ba6007b18e"></span><em class="property">const</em> std::string &amp;<code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom4nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the atom name.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_name</span><span class="p">(</span><span class="s">&quot;C1&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C1&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom4typeEv">
+<span id="chemfiles::Atom::typeC"></span><span class="target" id="classchemfiles_1_1_atom_1acf4388a7f4a64631fcd598e1a4410fce"></span><em class="property">const</em> std::string &amp;<code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom4typeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the atom type.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C1&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C1&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_type</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O1&quot;</span><span class="p">,</span> <span class="s">&quot;O&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;O&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom4massEv">
+<span id="chemfiles::Atom::massC"></span><span class="target" id="classchemfiles_1_1_atom_1a11b67bff1bf8ddd8f923d71dcd2e6ad9"></span>double <code class="descname">mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom4massEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the atom mass.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">12.011</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_mass</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom6chargeEv">
+<span id="chemfiles::Atom::chargeC"></span><span class="target" id="classchemfiles_1_1_atom_1a0dfa16598c61cc74e031712faa50e448"></span>double <code class="descname">charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom6chargeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the atom charge.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">charge</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_charge</span><span class="p">(</span><span class="mf">0.2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">charge</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.2</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom8set_nameENSt6stringE">
+<span id="chemfiles::Atom::set_name__ss"></span><span class="target" id="classchemfiles_1_1_atom_1ab4d9a9c63f49cf9c0b6f1e508beb382c"></span>void <code class="descname">set_name</code><span class="sig-paren">(</span>std::string <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom8set_nameENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the atom name to <code class="docutils literal"><span class="pre">name</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_name</span><span class="p">(</span><span class="s">&quot;C1&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C1&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom8set_typeENSt6stringE">
+<span id="chemfiles::Atom::set_type__ss"></span><span class="target" id="classchemfiles_1_1_atom_1a13a19b3a2928989863c50c79344d422d"></span>void <code class="descname">set_type</code><span class="sig-paren">(</span>std::string <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom8set_typeENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the atom type to <code class="docutils literal"><span class="pre">type</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C1&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C1&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_type</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O1&quot;</span><span class="p">,</span> <span class="s">&quot;O&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">type</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;O&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom8set_massEd">
+<span id="chemfiles::Atom::set_mass__double"></span><span class="target" id="classchemfiles_1_1_atom_1ad71ebfc6103b1167a10d5537c9b9675b"></span>void <code class="descname">set_mass</code><span class="sig-paren">(</span>double <em>mass</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom8set_massEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the atom mass to <code class="docutils literal"><span class="pre">mass</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">12.011</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_mass</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom10set_chargeEd">
+<span id="chemfiles::Atom::set_charge__double"></span><span class="target" id="classchemfiles_1_1_atom_1aa5a8d615a18f807b2cc7891eb40dba26"></span>void <code class="descname">set_charge</code><span class="sig-paren">(</span>double <em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom10set_chargeEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the atom charge to <code class="docutils literal"><span class="pre">charge</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">12.011</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set_mass</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom9full_nameEv">
+<span id="Atom::full_nameC"></span><span class="target" id="classchemfiles_1_1_atom_1a26717a69beb1aca92abc05c8345a7b4e"></span>optional&lt;std::string&gt; <code class="descname">full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom9full_nameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Try to get the full atomic name from the atom type.</p>
+<p>This function tries to get the full name corresponding to the current atom type: for example, the full name for <code class="docutils literal"><span class="pre">He</span></code> is <code class="docutils literal"><span class="pre">&quot;Helium&quot;</span></code>. If no name can be found, this function returns <code class="docutils literal"><span class="pre">nullopt</span></code>. This check is executed with case-insensitive atom type: <code class="docutils literal"><span class="pre">Na</span></code>, <code class="docutils literal"><span class="pre">NA</span></code>, <code class="docutils literal"><span class="pre">nA</span></code> and <code class="docutils literal"><span class="pre">na</span></code> all get the <code class="docutils literal"><span class="pre">Na</span></code> full name.</p>
+<p>This function returna an <a class="reference internal" href="helpers.html#_CPPv2I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal"><span class="pre">std::optional</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">name</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">full_name</span><span class="p">();</span>
+<span class="c1">// dereferencing an optional&lt;T&gt; to access the value</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">name</span> <span class="o">==</span> <span class="s">&quot;Carbon&quot;</span><span class="p">);</span>
+<span class="c1">// or use the `value` member functions</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Carbon&quot;</span><span class="p">);</span>
+
+<span class="c1">// matching is performed with case-insensitive search</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">full_name</span><span class="p">().</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Carbon&quot;</span><span class="p">);</span>
+
+<span class="c1">// the radius is guessed from the atom type, the atom name is ignored</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;Baz&quot;</span><span class="p">);</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">full_name</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom10vdw_radiusEv">
+<span id="Atom::vdw_radiusC"></span><span class="target" id="classchemfiles_1_1_atom_1a2b280982ccb79e58e4a05d752ab89642"></span>optional&lt;double&gt; <code class="descname">vdw_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom10vdw_radiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Try to get the Van der Waals radius from the atom type.</p>
+<p>This function tries to get the Van der Waals radius corresponding to the current atom type: for example, the radius for <code class="docutils literal"><span class="pre">He</span></code> is 1.4 A. If no radius can be found, this function returns <code class="docutils literal"><span class="pre">nullopt</span></code>. This check is executed with case-insensitive atom type: <code class="docutils literal"><span class="pre">Na</span></code>, <code class="docutils literal"><span class="pre">NA</span></code>, <code class="docutils literal"><span class="pre">nA</span></code> and <code class="docutils literal"><span class="pre">na</span></code> all get the <code class="docutils literal"><span class="pre">Na</span></code> radius.</p>
+<p>This function returna an <a class="reference internal" href="helpers.html#_CPPv2I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal"><span class="pre">std::optional</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">radius</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">vdw_radius</span><span class="p">();</span>
+<span class="c1">// dereferencing an optional&lt;T&gt; to access the value</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">radius</span> <span class="o">==</span> <span class="mf">1.7</span><span class="p">);</span>
+<span class="c1">// or use the `value` member functions</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">radius</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mf">1.7</span><span class="p">);</span>
+
+<span class="c1">// matching is performed with case-insensitive search</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">vdw_radius</span><span class="p">().</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mf">1.7</span><span class="p">);</span>
+
+<span class="c1">// the radius is guessed from the atom type, the atom name is ignored</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;Baz&quot;</span><span class="p">);</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">vdw_radius</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">radius</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom15covalent_radiusEv">
+<span id="Atom::covalent_radiusC"></span><span class="target" id="classchemfiles_1_1_atom_1ad4391a0f16ee17805023052dcd8eb9db"></span>optional&lt;double&gt; <code class="descname">covalent_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom15covalent_radiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Try to get the covalent radius from the atom type.</p>
+<p>This function tries to get the covalent radius corresponding to the current atom type: for example, the radius for <code class="docutils literal"><span class="pre">He</span></code> is 0.32 A. If no radius can be found, this function returns <code class="docutils literal"><span class="pre">nullopt</span></code>. This check is executed with case-insensitive atom type: <code class="docutils literal"><span class="pre">Na</span></code>, <code class="docutils literal"><span class="pre">NA</span></code>, <code class="docutils literal"><span class="pre">nA</span></code> and <code class="docutils literal"><span class="pre">na</span></code> all get the <code class="docutils literal"><span class="pre">Na</span></code> radius.</p>
+<p>This function returna an <a class="reference internal" href="helpers.html#_CPPv2I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal"><span class="pre">std::optional</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">radius</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">covalent_radius</span><span class="p">();</span>
+<span class="c1">// dereferencing an optional&lt;T&gt; to access the value</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">radius</span> <span class="o">==</span> <span class="mf">0.77</span><span class="p">);</span>
+<span class="c1">// or use the `value` member functions</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">radius</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.77</span><span class="p">);</span>
+
+<span class="c1">// matching is performed with case-insensitive search</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">covalent_radius</span><span class="p">().</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.77</span><span class="p">);</span>
+
+<span class="c1">// the radius is guessed from the atom type, the atom name is ignored</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;Baz&quot;</span><span class="p">);</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">covalent_radius</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">radius</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom13atomic_numberEv">
+<span id="Atom::atomic_numberC"></span><span class="target" id="classchemfiles_1_1_atom_1ab327951487e07b4109cb808f014b55b8"></span>optional&lt;uint64_t&gt; <code class="descname">atomic_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom13atomic_numberEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Try to get the atomic number from the atom type.</p>
+<p>This function tries to get the atomic number corresponding to the current atom type: for example, the atomic number for <code class="docutils literal"><span class="pre">He</span></code> is 2. If no atomic number can be found, this function returns <code class="docutils literal"><span class="pre">nullopt</span></code>. This check is executed with case-insensitive atom type: <code class="docutils literal"><span class="pre">Na</span></code>, <code class="docutils literal"><span class="pre">NA</span></code>, <code class="docutils literal"><span class="pre">nA</span></code> and <code class="docutils literal"><span class="pre">na</span></code> all get the <code class="docutils literal"><span class="pre">Na</span></code> atomic number.</p>
+<p>This function returna an <a class="reference internal" href="helpers.html#_CPPv2I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal"><span class="pre">std::optional</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">number</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">atomic_number</span><span class="p">();</span>
+<span class="c1">// dereferencing an optional&lt;T&gt; to access the value</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">number</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+<span class="c1">// or use the `value` member functions</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+
+<span class="c1">// matching is performed with case-insensitive search</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C23a&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">atomic_number</span><span class="p">().</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+
+<span class="c1">// the radius is guessed from the atom type, the atom name is ignored</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;Baz&quot;</span><span class="p">);</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">atom</span><span class="p">.</span><span class="n">atomic_number</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">number</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N4Atom3setENSt6stringE8Property">
+<span id="Atom::set__ss.Property"></span><span class="target" id="classchemfiles_1_1_atom_1a54ef53d1a717df1617764880d5b12c7f"></span>void <code class="descname">set</code><span class="sig-paren">(</span>std::string <em>name</em>, Property <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N4Atom3setENSt6stringE8Property" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set an arbitrary <code class="docutils literal"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> for this atom with the given <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">value</span></code>. If a property with this name already exist, it is replaced with the new value.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="s">&quot;this is a carbon&quot;</span><span class="p">);</span>
+<span class="n">atom</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;this is a carbon&quot;</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;non-existant property&quot;</span><span class="p">));</span>
+
+<span class="c1">// Override the &quot;first&quot; property</span>
+<span class="n">atom</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_bool</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom3getERKNSt6stringE">
+<span id="Atom::get__ssCRC"></span><span class="target" id="classchemfiles_1_1_atom_1adb92b08c8c721ff9969a0c9372a914d5"></span>optional&lt;<em class="property">const</em> Property&amp;&gt; <code class="descname">get</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom3getERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <code class="docutils literal"><a class="reference internal" href="property.html#classchemfiles_1_1_property"><span class="std std-ref"><span class="pre">Property</span></span></a></code> with the given <code class="docutils literal"><span class="pre">name</span></code> for this atom if it exists.</p>
+<p>If no property with the given <code class="docutils literal"><span class="pre">name</span></code> is found, this function returns <code class="docutils literal"><span class="pre">nullopt</span></code>.</p>
+<p>This function returna an <a class="reference internal" href="helpers.html#_CPPv2I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal"><span class="pre">std::optional</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">atom</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="s">&quot;this is a carbon&quot;</span><span class="p">);</span>
+<span class="n">atom</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mf">42.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_string</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;this is a carbon&quot;</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;non-existant property&quot;</span><span class="p">));</span>
+
+<span class="c1">// Override the &quot;first&quot; property</span>
+<span class="n">atom</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_bool</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

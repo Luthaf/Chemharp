@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supported formats &#8212; Chemfiles 0.10.0
+ documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/chemfiles.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Selection language" href="selections.html" />
+    <link rel="prev" title="C Tutorials" href="c-tutorials.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="c-tutorials.html" title="Previous Chapter: C Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C Tutorials</span>
+    </a>
+  </li>
+  <li>
+    <a href="selections.html" title="Next Chapter: Selection language"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Selection language &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supported formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-supported-formats">List of supported formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asking-for-a-new-format">Asking for a new format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="supported-formats">
+<h1>Supported formats<a class="headerlink" href="#supported-formats" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="list-of-supported-formats">
+<h2>List of supported formats<a class="headerlink" href="#list-of-supported-formats" title="Permalink to this headline">¶</a></h2>
+<p>This page list the supported formats in chemfiles, with a link to the format
+specification. For each format, it is also indicated which kind of data can be
+read or written with <cite>✓</cite> for ‘yes’ and <span class="red">✗</span> for ‘no’. Even if chemfiles can
+read some type of data from a file, this does not mean that all files of this
+format will contain this type of data.</p>
+<p>The <em>Extension</em> column gives the extension used when trying to detect the
+format. If your file does not have this extension, you can also use the string
+in the <em>Format</em> column as a parameter to the <a class="reference internal" href="classes/trajectory.html#_CPPv4N9chemfiles10TrajectoryE" title="chemfiles::Trajectory"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::Trajectory</span></code></a>
+constructor to manually specify which format to use.</p>
+<table class="colwidths-given formats-table docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 11%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Extension</p></th>
+<th class="head"><p>Read</p></th>
+<th class="head"><p>Write</p></th>
+<th class="head"><p>Memory</p></th>
+<th class="head"><p>Positions</p></th>
+<th class="head"><p>Velocities</p></th>
+<th class="head"><p>UnitCell</p></th>
+<th class="head"><p>Atoms</p></th>
+<th class="head"><p>Bonds</p></th>
+<th class="head"><p>Residues</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://ambermd.org/netcdf/nctraj.xhtml">Amber NetCDF</a></p></td>
+<td><p>.nc</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.iucr.org/resources/cif">CIF</a></p></td>
+<td><p>.cif</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.xml-cml.org">CML</a></p></td>
+<td><p>.cml</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://www.chem.cmu.edu/courses/09-560/docs/msi/modenv/D_Files.html#944777">CSSR</a></p></td>
+<td><p>.cssr</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/dcdplugin.html">DCD</a></p></td>
+<td><p>.dcd</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://manual.gromacs.org/current/reference-manual/file-formats.html#gro">GRO</a></p></td>
+<td><p>.gro</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://lammps.sandia.gov/doc/dump.html">LAMMPS</a></p></td>
+<td><p>.lammpstrj</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://lammps.sandia.gov/doc/read_data.html">LAMMPS Data</a></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://mmcif.wwpdb.org/">mmCIF</a></p></td>
+<td><p>.mmcif</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://mmtf.rcsb.org/">MMTF</a></p></td>
+<td><p>.mmtf</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://chemyang.ccnu.edu.cn/ccb/server/AIMMS/mol2.pdf">MOL2</a></p></td>
+<td><p>.mol2</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://web.archive.org/web/20200531080022/http://cheminf.cmbi.ru.nl/molden/molden_format.html">Molden</a></p></td>
+<td><p>.molden</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.wwpdb.org/documentation/file-format">PDB</a></p></td>
+<td><p>.pdb</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://discover.3ds.com/ctfile-documentation-request-form">SDF</a></p></td>
+<td><p>.sdf</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://opensmiles.org/">SMI</a></p></td>
+<td><p>.smi</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://chembytes.wikidot.com/tnk-tut00#toc2">Tinker</a></p></td>
+<td><p>.arc</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://doi.wiley.com/10.1002/jcc.23495">TNG</a></p></td>
+<td><p>.tng</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://manual.gromacs.org/archive/5.0.7/online/trj.html">TRJ</a></p></td>
+<td><p>.trj</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://manual.gromacs.org/current/reference-manual/file-formats.html#trr">TRR</a></p></td>
+<td><p>.trr</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://manual.gromacs.org/current/reference-manual/file-formats.html#xtc">XTC</a></p></td>
+<td><p>.xtc</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://openbabel.org/wiki/XYZ">XYZ</a></p></td>
+<td><p>.xyz</p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><cite>✓</cite></p></td>
+<td><p><span class="red">✗</span></p></td>
+<td><p><span class="red">✗</span></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>LAMMPS</strong> format corresponds to trajectory files written by the LAMMPS <a class="reference external" href="https://lammps.sandia.gov/doc/dump.html">dump</a> command.</p></li>
+<li><p><strong>LAMMPS Data</strong> format corresponds to LAMMPS data files, as read by the LAMMPS
+<a class="reference external" href="https://lammps.sandia.gov/doc/read_data.html">read_data</a> command.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in-memory IO</p>
+<p>Additionally, some formats support reading and writing directly to memory,
+without going through a file. At this time, all text based files (excluding
+those backed by the Molfiles plugin) support both reading and writing directly
+to memory. The MMTF format supports reading from a memory buffer, but does not
+support writing. It is also possible to read a compressed GZ or XZ file directly
+to memory buffer, but writing compressed files is not supported.</p>
+</div>
+</div>
+<div class="section" id="asking-for-a-new-format">
+<h2>Asking for a new format<a class="headerlink" href="#asking-for-a-new-format" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use chemfiles with a format which is not yet implemented, you may
+easily add it by yourself if you know some C++. See the <code class="docutils literal notranslate"><span class="pre">src/formats/XYZ.cpp</span></code>
+file for example. The list of planned formats can be found <a class="reference external" href="https://github.com/chemfiles/chemfiles/labels/A-formats">here</a>. If you can not find your favorite format in this list, you
+can <a class="reference external" href="https://github.com/chemfiles/chemfiles/issues/new">open an issue</a> with a description of the format, or even
+better a link to the format specification.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

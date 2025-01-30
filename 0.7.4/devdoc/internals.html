@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chemfiles internals &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="next" title="File classes" href="file.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Chemfiles internals</a><ul>
+<li><a class="reference internal" href="#sources-organisation">Sources organisation</a></li>
+<li><a class="reference internal" href="#classes-organisation">Classes organisation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="contributing.html" title="Previous Chapter: Contributing"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Contributing</span>
+    </a>
+  </li>
+  <li>
+    <a href="file.html" title="Next Chapter: File classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">File classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="chemfiles-internals">
+<h1>Chemfiles internals<a class="headerlink" href="#chemfiles-internals" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sources-organisation">
+<h2>Sources organisation<a class="headerlink" href="#sources-organisation" title="Permalink to this headline">¶</a></h2>
+<p>You will find the following directory in chemfiles source code:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">cmake</span></code>: CMake modules used for build configuration;</li>
+<li><code class="docutils literal"><span class="pre">doc</span></code>: the source for this documentation;</li>
+<li><code class="docutils literal"><span class="pre">examples</span></code>: usage examples for C and C++ interfaces;</li>
+<li><code class="docutils literal"><span class="pre">external</span></code>: external libraries used by chemfiles;</li>
+<li><code class="docutils literal"><span class="pre">include</span></code>: the headers of chemfiles;</li>
+<li><code class="docutils literal"><span class="pre">scripts</span></code>: some python and bash scripts used in developpement.</li>
+<li><code class="docutils literal"><span class="pre">src</span></code>: the sources of the library;</li>
+<li><code class="docutils literal"><span class="pre">tests</span></code>: the sources of the unit tests;</li>
+</ul>
+</div>
+<div class="section" id="classes-organisation">
+<h2>Classes organisation<a class="headerlink" href="#classes-organisation" title="Permalink to this headline">¶</a></h2>
+<p>Chemfiles is written in C++11, in an object-oriented fashion. A <code class="docutils literal"><span class="pre">Trajectory</span></code>
+is built on the top of two other private classes: a <a class="reference internal" href="file.html#class-file"><span class="std std-ref">File</span></a> and
+a <a class="reference internal" href="format.html#class-format"><span class="std std-ref">Format</span></a>. These are pure abstract class defining the
+interface for reading and writing data.</p>
+<p>Adding new formats and tweaking behaviour of existing formats should be done
+either in the <code class="docutils literal"><span class="pre">File</span></code> implementation for everything related to interactions
+with the actual file, or in the <code class="docutils literal"><span class="pre">Format</span></code> implementation for everything related
+with parsing data from the file.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="file.html#interface-for-files">Interface for files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file.html#implemented-classes">Implemented classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format.html#interface-for-formats">Interface for formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#implemented-formats">Implemented formats</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Every <code class="docutils literal"><span class="pre">Format</span></code> class can be associated to an extension and a format name, the
+associations are managed by the <code class="docutils literal"><span class="pre">FormatFactory</span></code> class. New file and formats
+should be registered with this class.</p>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles13FormatFactoryE">
+<span id="chemfiles::FormatFactory"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_factory"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">FormatFactory</code><a class="headerlink" href="#_CPPv2N9chemfiles13FormatFactoryE" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class allow to register <a class="reference internal" href="format.html#chemfilesclasschemfiles_1_1_format"><span class="std std-ref">Format</span></a> with names and file extensions. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N13FormatFactory6formatERKNSt6stringE">
+<span id="FormatFactory::format__ssCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_factory_1af1553312b4ad0b7bbb80659f2ee365a4"></span>format_creator_t <code class="descname">format</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13FormatFactory6formatERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a `format_creator_t` from a format type name. </p>
+<p>
+Throws an error if the format can not be found <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A `format_creator_t` corresponding to the format, if the format name is found in the list of registered formats.</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: the format name </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13FormatFactory12by_extensionERKNSt6stringE">
+<span id="FormatFactory::by_extension__ssCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_factory_1ad8f03c4f4cdd3c2d585c46d3bc20bf34"></span>format_creator_t <code class="descname">by_extension</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>ext</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13FormatFactory12by_extensionERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a `format_creator_t` from a format extention. </p>
+<p>
+Throws an error if the format can not be found <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A `format_creator_t` corresponding to the format, if the format extension is found in the list of registered extensions.</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: the format extention </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13FormatFactory15register_formatERKNSt6stringE16format_creator_t">
+<span id="FormatFactory::register_format__ssCR.format_creator_t"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_factory_1aa3940cd375650b124f11bad17caa7941"></span>void <code class="descname">register_format</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em>, format_creator_t <em>creator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13FormatFactory15register_formatERKNSt6stringE16format_creator_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a `format_creator_t` in the internal format names list. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13FormatFactory18register_extensionERKNSt6stringE16format_creator_t">
+<span id="FormatFactory::register_extension__ssCR.format_creator_t"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_factory_1a6119e7a996d03c681757362f69dafffc"></span>void <code class="descname">register_extension</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>ext</em>, format_creator_t <em>creator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13FormatFactory18register_extensionERKNSt6stringE16format_creator_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a `format_creator_t` in the internal extensions list. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N13FormatFactory3getEv">
+<span id="FormatFactory::get"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_factory_1a08d53244ee93038e41d4ea37e31c9ea9"></span>FormatFactory &amp;<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13FormatFactory3getEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the instance of the TrajectoryFactory. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

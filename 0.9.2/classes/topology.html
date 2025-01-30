@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Topology &#8212; Chemfiles 0.9.2
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Residue" href="residue.html" />
+    <link rel="prev" title="Frame" href="frame.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.9</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="frame.html" title="Previous Chapter: Frame"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Frame</span>
+    </a>
+  </li>
+  <li>
+    <a href="residue.html" title="Next Chapter: Residue"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Residue &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trajectory.html">Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">Frame</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residue.html">Residue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atom.html">Atom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unitcell.html">UnitCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html">Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">Miscelaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="topology">
+<span id="class-topology"></span><h1>Topology<a class="headerlink" href="#topology" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv4N9chemfiles8TopologyE">
+<span id="_CPPv3N9chemfiles8TopologyE"></span><span id="_CPPv2N9chemfiles8TopologyE"></span><span id="chemfiles::Topology"></span><span class="target" id="classchemfiles_1_1_topology"></span><em class="property">class </em><code class="sig-name descname">Topology</code><a class="headerlink" href="#_CPPv4N9chemfiles8TopologyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A topology contains the definition of all the atoms in the system, as well as the liaisons between the particles (bonds, angles, dihedrals, …) and the residues.</p>
+<p>Only the atoms and the bonds are stored, the angles, dihedrals and impropers are automaticaly deduced from the bonds.</p>
+<p>It is also possible to iterate over a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology"><span class="std std-ref"><span class="pre">Topology</span></span></a></code>, yielding all the atoms in the system.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">Atom</span><span class="o">&amp;</span> <span class="nl">atom</span><span class="p">:</span> <span class="n">topology</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Fe&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology8TopologyEv">
+<span id="_CPPv3N9chemfiles8Topology8TopologyEv"></span><span id="_CPPv2N9chemfiles8Topology8TopologyEv"></span><span id="chemfiles::Topology::Topology"></span><span class="target" id="classchemfiles_1_1_topology_1a4d583712726fddeb639747def67df4e9"></span><code class="sig-name descname">Topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology8TopologyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct a new empty topology</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8TopologyixE6size_t">
+<span id="_CPPv3N9chemfiles8TopologyixE6size_t"></span><span id="_CPPv2N9chemfiles8TopologyixE6size_t"></span><span id="chemfiles::Topology::subscript-operator__s"></span><span class="target" id="classchemfiles_1_1_topology_1aaa61a3cc5719ece27b9f526bc9cdc46a"></span><a class="reference internal" href="atom.html#_CPPv4N9chemfiles4AtomE" title="chemfiles::Atom">Atom</a> &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8TopologyixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a reference to the atom at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Co&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Co&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;V&quot;</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">set_mass</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mi">45</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the atomic index </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">index</span></code> is greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8TopologyixE6size_t">
+<span id="_CPPv3NK9chemfiles8TopologyixE6size_t"></span><span id="_CPPv2NK9chemfiles8TopologyixE6size_t"></span><span id="chemfiles::Topology::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_topology_1a0153c48ae530f1c682c59e49d1bb314e"></span><em class="property">const</em> <a class="reference internal" href="atom.html#_CPPv4N9chemfiles4AtomE" title="chemfiles::Atom">Atom</a> &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8TopologyixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the atom at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Co&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Co&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;V&quot;</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">set_mass</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mi">45</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the atomic index </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">index</span></code> is greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology8add_atomE4Atom">
+<span id="_CPPv3N9chemfiles8Topology8add_atomE4Atom"></span><span id="_CPPv2N9chemfiles8Topology8add_atomE4Atom"></span><span id="chemfiles::Topology::add_atom__Atom"></span><span class="target" id="classchemfiles_1_1_topology_1ab1cf8b8a81f2a3f2f8bd74f704fe6594"></span>void <code class="sig-name descname">add_atom</code><span class="sig-paren">(</span><a class="reference internal" href="atom.html#_CPPv4N9chemfiles4AtomE" title="chemfiles::Atom">Atom</a> <em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology8add_atomE4Atom" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add an <code class="docutils literal notranslate"><span class="pre">atom</span></code> at the end of this topology.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Zn&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">atom</span></code>: the new atom to add </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology6removeE6size_t">
+<span id="_CPPv3N9chemfiles8Topology6removeE6size_t"></span><span id="_CPPv2N9chemfiles8Topology6removeE6size_t"></span><span id="chemfiles::Topology::remove__s"></span><span class="target" id="classchemfiles_1_1_topology_1a2d54da1180beda71331cc91982f1f48b"></span>void <code class="sig-name descname">remove</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology6removeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in this topology, as well as all the bonds involving this atom.</p>
+<p>This function modify the index of all the atoms after <code class="docutils literal notranslate"><span class="pre">i</span></code>, and modify the bond list accordingly.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Rd&quot;</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Fe&quot;</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// atomic indexes are shifted by remove</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Rd&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: the index of the atom to remove </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> is greater than <a class="reference internal" href="#classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"><span class="std std-ref">size()</span></a> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology8add_bondE6size_t6size_tN4Bond9BondOrderE">
+<span id="_CPPv3N9chemfiles8Topology8add_bondE6size_t6size_tN4Bond9BondOrderE"></span><span id="_CPPv2N9chemfiles8Topology8add_bondE6size_t6size_tN4Bond9BondOrderE"></span><span id="chemfiles::Topology::add_bond__s.s.Bond::BondOrder"></span><span class="target" id="classchemfiles_1_1_topology_1adca1ca722fd43f3d41f9c99f81a6e987"></span>void <code class="sig-name descname">add_bond</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em>, <a class="reference internal" href="#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond">Bond</a>::<a class="reference internal" href="#_CPPv4N9chemfiles4Bond9BondOrderE" title="chemfiles::Bond::BondOrder">BondOrder</a> <em>bond_order</em> = <a class="reference internal" href="#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond">Bond</a>::<a class="reference internal" href="#_CPPv4N9chemfiles4Bond7UNKNOWNE" title="chemfiles::Bond::UNKNOWN">UNKNOWN</a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology8add_bondE6size_t6size_tN4Bond9BondOrderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bond in the system, between the atoms at index <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+<span class="c1">// angles are automaticaly computed too</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">angles</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Angle</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_i</span></code>: the index of the first atom in the bond </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_j</span></code>: the index of the second atom in the bond </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bond_order</span></code>: the bond order for the bond added </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </p></li>
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span> <span class="pre">==</span> <span class="pre">atom_j</span></code>, as this is an invalid bond </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology11remove_bondE6size_t6size_t">
+<span id="_CPPv3N9chemfiles8Topology11remove_bondE6size_t6size_t"></span><span id="_CPPv2N9chemfiles8Topology11remove_bondE6size_t6size_t"></span><span id="chemfiles::Topology::remove_bond__s.s"></span><span class="target" id="classchemfiles_1_1_topology_1aa8de3bad0a02d2c81e7110b315a5d68f"></span>void <code class="sig-name descname">remove_bond</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology11remove_bondE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove a bond in the system, between the atoms at index <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code>.</p>
+<p>If the bond does not exist, this does nothing.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">remove_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+
+<span class="c1">// This does nothing</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">remove_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_i</span></code>: the index of the first atom in the bond </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_j</span></code>: the index of the second atom in the bond </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology10bond_orderE6size_t6size_t">
+<span id="_CPPv3NK9chemfiles8Topology10bond_orderE6size_t6size_t"></span><span id="_CPPv2NK9chemfiles8Topology10bond_orderE6size_t6size_t"></span><span id="chemfiles::Topology::bond_order__s.sC"></span><span class="target" id="classchemfiles_1_1_topology_1a447b722d04044e918240c58be787aa0c"></span><a class="reference internal" href="#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond">Bond</a>::<a class="reference internal" href="#_CPPv4N9chemfiles4Bond9BondOrderE" title="chemfiles::Bond::BondOrder">BondOrder</a> <code class="sig-name descname">bond_order</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology10bond_orderE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the bond order for the given bond</p>
+<p>If the bond does not exist, this will thrown an <a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref">Error</span></a>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Bond</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+
+<span class="c1">// Lookup by the bond index</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_orders</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_orders</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_orders</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+
+<span class="c1">// Lookup by the atom indexes</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_order</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_order</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_i</span></code>: the index of the first atom in the bond </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atom_j</span></code>: the index of the second atom in the bond </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </p></li>
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if no bond between <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> exists. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology4sizeEv">
+<span id="_CPPv3NK9chemfiles8Topology4sizeEv"></span><span id="_CPPv2NK9chemfiles8Topology4sizeEv"></span><span id="chemfiles::Topology::sizeC"></span><span class="target" id="classchemfiles_1_1_topology_1a9c95a60b1873e1fb730d33ad87bebcae"></span>size_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of atoms in the topology</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology6resizeE6size_t">
+<span id="_CPPv3N9chemfiles8Topology6resizeE6size_t"></span><span id="_CPPv2N9chemfiles8Topology6resizeE6size_t"></span><span id="chemfiles::Topology::resize__s"></span><span class="target" id="classchemfiles_1_1_topology_1a85f6821b595fb27dcf0503e6a59f1104"></span>void <code class="sig-name descname">resize</code><span class="sig-paren">(</span>size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology6resizeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resize the topology to hold <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms, adding new atoms as needed.</p>
+<p>If the new number of atoms is bigger than the old one, pre-existing atoms are conserved.</p>
+<p>If the new size if smaller than the old one, all atoms and connectivity elements after the new size are removed.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: the new size of the topology </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology7reserveE6size_t">
+<span id="_CPPv3N9chemfiles8Topology7reserveE6size_t"></span><span id="_CPPv2N9chemfiles8Topology7reserveE6size_t"></span><span id="chemfiles::Topology::reserve__s"></span><span class="target" id="classchemfiles_1_1_topology_1a1824a7dff9ff28dcf6bc201d41e89661"></span>void <code class="sig-name descname">reserve</code><span class="sig-paren">(</span>size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology7reserveE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocate memory in the frame to be able to store data for <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms.</p>
+<p>This function does not change the actual number of atoms in the topology, and should be used as an optimisation.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// reserve allocate memory, but does not change the size</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: the number of elements to reserve memory for </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology5bondsEv">
+<span id="_CPPv3NK9chemfiles8Topology5bondsEv"></span><span id="_CPPv2NK9chemfiles8Topology5bondsEv"></span><span id="chemfiles::Topology::bondsC"></span><span class="target" id="classchemfiles_1_1_topology_1afb85244eca38fdcd4627b17ae1f1f51f"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond">Bond</a>&gt; &amp;<code class="sig-name descname">bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology5bondsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the bonds in the system</p>
+<p>The bonds are sorted according to <code class="docutils literal notranslate"><span class="pre">operator&lt;(const</span> <a class="reference internal" href="#classchemfiles_1_1_bond"><span class="std std-ref"><span class="pre">Bond</span></span></a><span class="pre">&amp;,</span> <span class="pre">const</span> <a class="reference internal" href="#classchemfiles_1_1_bond"><span class="std std-ref"><span class="pre">Bond</span></span></a><span class="pre">&amp;)</span></code>, which mean it is possible to look for a bond in the list using a binary search (<code class="docutils literal notranslate"><span class="pre">std::lower_bound</span></code>).</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+
+<span class="k">auto</span> <span class="n">bonds</span> <span class="o">=</span> <span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">();</span>
+<span class="c1">// perform a binary search in the bonds</span>
+<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">bonds</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">bonds</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">bonds</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology11bond_ordersEv">
+<span id="_CPPv3NK9chemfiles8Topology11bond_ordersEv"></span><span id="_CPPv2NK9chemfiles8Topology11bond_ordersEv"></span><span id="chemfiles::Topology::bond_ordersC"></span><span class="target" id="classchemfiles_1_1_topology_1a7972aa6430eed451e28a9004ce562f13"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N9chemfiles4BondE" title="chemfiles::Bond">Bond</a>::<a class="reference internal" href="#_CPPv4N9chemfiles4Bond9BondOrderE" title="chemfiles::Bond::BondOrder">BondOrder</a>&gt; &amp;<code class="sig-name descname">bond_orders</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology11bond_ordersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the bond orders in the system.</p>
+<p>The bond orders are sorted so that the index of each bond is the same as its index in the array returned by <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1afb85244eca38fdcd4627b17ae1f1f51f"><span class="std std-ref"><span class="pre">Topology::bonds</span></span></a></code>. This means that the bond order for <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1afb85244eca38fdcd4627b17ae1f1f51f"><span class="std std-ref"><span class="pre">Topology::bonds()</span></span></a><span class="pre">[index]</span></code> would be given by <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_topology_1a7972aa6430eed451e28a9004ce562f13"><span class="std std-ref"><span class="pre">bond_orders()</span></span></a><span class="pre">[index]</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Bond</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+
+<span class="c1">// Lookup by the bond index</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_orders</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_orders</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_orders</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+
+<span class="c1">// Lookup by the atom indexes</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_order</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">SINGLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bond_order</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="n">Bond</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology6anglesEv">
+<span id="_CPPv3NK9chemfiles8Topology6anglesEv"></span><span id="_CPPv2NK9chemfiles8Topology6anglesEv"></span><span id="chemfiles::Topology::anglesC"></span><span class="target" id="classchemfiles_1_1_topology_1a9623c4dbe9405ee9e84aa94929f496c7"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N9chemfiles5AngleE" title="chemfiles::Angle">Angle</a>&gt; &amp;<code class="sig-name descname">angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology6anglesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angles in the system</p>
+<p>The angles are sorted according to <code class="docutils literal notranslate"><span class="pre">operator&lt;(const</span> <a class="reference internal" href="#classchemfiles_1_1_angle"><span class="std std-ref"><span class="pre">Angle</span></span></a><span class="pre">&amp;,</span> <span class="pre">const</span> <a class="reference internal" href="#classchemfiles_1_1_angle"><span class="std std-ref"><span class="pre">Angle</span></span></a><span class="pre">&amp;)</span></code>, which mean it is possible to look for an angle in the list using a binary search (<code class="docutils literal notranslate"><span class="pre">std::lower_bound</span></code>).</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">angles</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Angle</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}}));</span>
+
+<span class="k">auto</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">topology</span><span class="p">.</span><span class="n">angles</span><span class="p">();</span>
+<span class="c1">// perform a binary search in the angles</span>
+<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">angles</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">angles</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">angles</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology9dihedralsEv">
+<span id="_CPPv3NK9chemfiles8Topology9dihedralsEv"></span><span id="_CPPv2NK9chemfiles8Topology9dihedralsEv"></span><span id="chemfiles::Topology::dihedralsC"></span><span class="target" id="classchemfiles_1_1_topology_1aaa4827c2ad221a55f8065772f8f1a124"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N9chemfiles8DihedralE" title="chemfiles::Dihedral">Dihedral</a>&gt; &amp;<code class="sig-name descname">dihedrals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology9dihedralsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the dihedral angles in the system</p>
+<p>The dihedrals are sorted according to <code class="docutils literal notranslate"><span class="pre">operator&lt;(const</span> <a class="reference internal" href="#classchemfiles_1_1_dihedral"><span class="std std-ref"><span class="pre">Dihedral</span></span></a><span class="pre">&amp;,</span> <span class="pre">const</span> <a class="reference internal" href="#classchemfiles_1_1_dihedral"><span class="std std-ref"><span class="pre">Dihedral</span></span></a><span class="pre">&amp;)</span></code>, which mean it is possible to look for a dihedral in the list using a binary search (<code class="docutils literal notranslate"><span class="pre">std::lower_bound</span></code>).</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">dihedrals</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Dihedral</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}}));</span>
+
+<span class="k">auto</span> <span class="n">dihedrals</span> <span class="o">=</span> <span class="n">topology</span><span class="p">.</span><span class="n">dihedrals</span><span class="p">();</span>
+<span class="c1">// perform a binary search in the dihedrals</span>
+<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span>
+    <span class="n">dihedrals</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dihedrals</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">dihedrals</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology9impropersEv">
+<span id="_CPPv3NK9chemfiles8Topology9impropersEv"></span><span id="_CPPv2NK9chemfiles8Topology9impropersEv"></span><span id="chemfiles::Topology::impropersC"></span><span class="target" id="classchemfiles_1_1_topology_1a292d45cb74e9f05a4c47af8d2d2f10ca"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N9chemfiles8ImproperE" title="chemfiles::Improper">Improper</a>&gt; &amp;<code class="sig-name descname">impropers</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology9impropersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the improper dihedral angles in the system</p>
+<p>The impropers are sorted according to <code class="docutils literal notranslate"><span class="pre">operator&lt;(const</span> <a class="reference internal" href="#classchemfiles_1_1_improper"><span class="std std-ref"><span class="pre">Improper</span></span></a><span class="pre">&amp;,</span> <span class="pre">const</span> <a class="reference internal" href="#classchemfiles_1_1_improper"><span class="std std-ref"><span class="pre">Improper</span></span></a><span class="pre">&amp;)</span></code>, which mean it is possible to look for an improper in the list using a binary search (<code class="docutils literal notranslate"><span class="pre">std::lower_bound</span></code>).</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">impropers</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Improper</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}}));</span>
+
+<span class="k">auto</span> <span class="n">impropers</span> <span class="o">=</span> <span class="n">topology</span><span class="p">.</span><span class="n">impropers</span><span class="p">();</span>
+<span class="c1">// perform a binary search in the impropers</span>
+<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span>
+    <span class="n">impropers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">impropers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">impropers</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology11clear_bondsEv">
+<span id="_CPPv3N9chemfiles8Topology11clear_bondsEv"></span><span id="_CPPv2N9chemfiles8Topology11clear_bondsEv"></span><span id="chemfiles::Topology::clear_bonds"></span><span class="target" id="classchemfiles_1_1_topology_1adfecec28c7cc1ad9b38171ae33107e8e"></span>void <code class="sig-name descname">clear_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology11clear_bondsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove all bonding information in the topology (bonds, angles and dihedrals)</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">angles</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">clear_bonds</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">angles</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Topology11add_residueE7Residue">
+<span id="_CPPv3N9chemfiles8Topology11add_residueE7Residue"></span><span id="_CPPv2N9chemfiles8Topology11add_residueE7Residue"></span><span id="chemfiles::Topology::add_residue__Residue"></span><span class="target" id="classchemfiles_1_1_topology_1aede44621399c1a11e9b93647eac65944"></span>void <code class="sig-name descname">add_residue</code><span class="sig-paren">(</span><a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a> <em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Topology11add_residueE7Residue" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this topology.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">residues</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">residue</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">residues</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">residue</span></code>: the residue to add to this topology </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">chemfiles::Error</span></span></a></code>: if any atom in the <code class="docutils literal notranslate"><span class="pre">residue</span></code> is already in another residue in this topology. In that case, the topology is not modified. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology10are_linkedERK7ResidueRK7Residue">
+<span id="_CPPv3NK9chemfiles8Topology10are_linkedERK7ResidueRK7Residue"></span><span id="_CPPv2NK9chemfiles8Topology10are_linkedERK7ResidueRK7Residue"></span><span id="chemfiles::Topology::are_linked__ResidueCR.ResidueCRC"></span><span class="target" id="classchemfiles_1_1_topology_1a05f8c88b448767c037df355498a2c73c"></span>bool <code class="sig-name descname">are_linked</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a> &amp;<em>first</em>, <em class="property">const</em> <a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a> &amp;<em>second</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology10are_linkedERK7ResidueRK7Residue" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if two residues are linked together, i.e. if there is a bond between one atom in the <code class="docutils literal notranslate"><span class="pre">first</span></code> residue and one atom in the <code class="docutils literal notranslate"><span class="pre">second</span></code> one. Both residues should be in this topology.</p>
+<p>The two residues are the same (<code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">==</span> <span class="pre">second</span></code>), this function returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">);</span>
+<span class="n">first</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">second</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">);</span>
+<span class="n">second</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">second</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">topology</span><span class="p">.</span><span class="n">are_linked</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">));</span>
+
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">are_linked</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology16residue_for_atomE6size_t">
+<span id="_CPPv3NK9chemfiles8Topology16residue_for_atomE6size_t"></span><span id="_CPPv2NK9chemfiles8Topology16residue_for_atomE6size_t"></span><span id="chemfiles::Topology::residue_for_atom__sC"></span><span class="target" id="classchemfiles_1_1_topology_1a8001201bb8563130b44646ef3d03ff7c"></span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional">optional</a>&lt;<em class="property">const</em> <a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a>&amp;&gt; <code class="sig-name descname">residue_for_atom</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology16residue_for_atomE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the residue containing the atom at the given <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p>If no residue contains this atom, this function returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">);</span>
+<span class="n">first</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">residue_for_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">residue_for_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;first&quot;</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">topology</span><span class="p">.</span><span class="n">residue_for_atom</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">residue_for_atom</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">nullopt</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology7residueE6size_t">
+<span id="_CPPv3NK9chemfiles8Topology7residueE6size_t"></span><span id="_CPPv2NK9chemfiles8Topology7residueE6size_t"></span><span id="chemfiles::Topology::residue__sC"></span><span class="target" id="classchemfiles_1_1_topology_1a5adc7b71b80b6c82e39e89590c941683"></span><em class="property">const</em> <a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a> &amp;<code class="sig-name descname">residue</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology7residueE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the residue at the given <code class="docutils literal notranslate"><span class="pre">index</span></code> in this topology</p>
+<p>There is no guarantee that this index matches the residue id.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">);</span>
+<span class="n">first</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">.</span><span class="n">residue</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;first&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Topology8residuesEv">
+<span id="_CPPv3NK9chemfiles8Topology8residuesEv"></span><span id="_CPPv2NK9chemfiles8Topology8residuesEv"></span><span id="chemfiles::Topology::residuesC"></span><span class="target" id="classchemfiles_1_1_topology_1a44461d3c6b1912335f07f0d1ba747413"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="residue.html#_CPPv4N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a>&gt; &amp;<code class="sig-name descname">residues</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Topology8residuesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get all the residues in the topology as a vector</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">Residue</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">Residue</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">residues</span> <span class="o">=</span> <span class="n">topology</span><span class="p">.</span><span class="n">residues</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residues</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residues</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;first&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residues</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;second&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="connectivity-elements">
+<h1>Connectivity elements<a class="headerlink" href="#connectivity-elements" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv4N9chemfiles4BondE">
+<span id="_CPPv3N9chemfiles4BondE"></span><span id="_CPPv2N9chemfiles4BondE"></span><span id="chemfiles::Bond"></span><span class="target" id="classchemfiles_1_1_bond"></span><em class="property">class </em><code class="sig-name descname">Bond</code><a class="headerlink" href="#_CPPv4N9chemfiles4BondE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_bond"><span class="std std-ref"><span class="pre">Bond</span></span></a></code> class ensure a canonical representation of a bond two atoms.</p>
+<p>This class implements all the comparison operators, as well as indexing.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">bond</span> <span class="o">=</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>
+
+<span class="c1">// indexing</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">55</span><span class="p">);</span>
+
+<span class="c1">// equality</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond</span> <span class="o">==</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond</span> <span class="o">!=</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">));</span>
+
+<span class="c1">// lexicographic comparison</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond</span> <span class="o">&lt;</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond</span> <span class="o">&gt;=</span> <span class="n">Bond</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">33</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N9chemfiles4Bond9BondOrderE">
+<span id="_CPPv3N9chemfiles4Bond9BondOrderE"></span><span id="_CPPv2N9chemfiles4Bond9BondOrderE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214"></span><em class="property">enum </em><code class="sig-name descname">BondOrder</code><a class="headerlink" href="#_CPPv4N9chemfiles4Bond9BondOrderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the type of bond. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond7UNKNOWNE">
+<span id="_CPPv3N9chemfiles4Bond7UNKNOWNE"></span><span id="_CPPv2N9chemfiles4Bond7UNKNOWNE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a1ef5ad6014359c09823c6266bad0ac29"></span><code class="sig-name descname">UNKNOWN</code> = 0<a class="headerlink" href="#_CPPv4N9chemfiles4Bond7UNKNOWNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classchemfiles_1_1_bond"><span class="std std-ref">Bond</span></a> order is unknown or unspecified. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond6SINGLEE">
+<span id="_CPPv3N9chemfiles4Bond6SINGLEE"></span><span id="_CPPv2N9chemfiles4Bond6SINGLEE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a04354607ae695b64dd5cd986f97d1d21"></span><code class="sig-name descname">SINGLE</code> = 1<a class="headerlink" href="#_CPPv4N9chemfiles4Bond6SINGLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Single bond. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond6DOUBLEE">
+<span id="_CPPv3N9chemfiles4Bond6DOUBLEE"></span><span id="_CPPv2N9chemfiles4Bond6DOUBLEE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a4d57c2200f7c5fa174c11f0a1a5f14b8"></span><code class="sig-name descname">DOUBLE</code> = 2<a class="headerlink" href="#_CPPv4N9chemfiles4Bond6DOUBLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Double bond. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond6TRIPLEE">
+<span id="_CPPv3N9chemfiles4Bond6TRIPLEE"></span><span id="_CPPv2N9chemfiles4Bond6TRIPLEE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214aa09355a4bb07935bc98ed9248a14253b"></span><code class="sig-name descname">TRIPLE</code> = 3<a class="headerlink" href="#_CPPv4N9chemfiles4Bond6TRIPLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Triple bond. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond9QUADRUPLEE">
+<span id="_CPPv3N9chemfiles4Bond9QUADRUPLEE"></span><span id="_CPPv2N9chemfiles4Bond9QUADRUPLEE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a7e512f72907e6f8322dd3d7fbabcbe99"></span><code class="sig-name descname">QUADRUPLE</code> = 4<a class="headerlink" href="#_CPPv4N9chemfiles4Bond9QUADRUPLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Qudadruple bond. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond9QINTUPLETE">
+<span id="_CPPv3N9chemfiles4Bond9QINTUPLETE"></span><span id="_CPPv2N9chemfiles4Bond9QINTUPLETE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214aaa7feadf98e2dca65cfd7735266c7a86"></span><code class="sig-name descname">QINTUPLET</code> = 5<a class="headerlink" href="#_CPPv4N9chemfiles4Bond9QINTUPLETE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Quintuplet bond. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond4DOWNE">
+<span id="_CPPv3N9chemfiles4Bond4DOWNE"></span><span id="_CPPv2N9chemfiles4Bond4DOWNE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214af2639e188c3859534d02f0393dd3162d"></span><code class="sig-name descname">DOWN</code> = 250<a class="headerlink" href="#_CPPv4N9chemfiles4Bond4DOWNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Single bond direction from frist atom to second is ‘down’. Used for cis-trans isomers. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond2UPE">
+<span id="_CPPv3N9chemfiles4Bond2UPE"></span><span id="_CPPv2N9chemfiles4Bond2UPE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a389f5bcf06e369c013533d5b0efe98c5"></span><code class="sig-name descname">UP</code> = 251<a class="headerlink" href="#_CPPv4N9chemfiles4Bond2UPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Single bond direction from first atom to second is ‘up’. Used for cis-trans isomers. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond8DATIVE_RE">
+<span id="_CPPv3N9chemfiles4Bond8DATIVE_RE"></span><span id="_CPPv2N9chemfiles4Bond8DATIVE_RE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a54f3c26f6703a37305e7b510a94e1551"></span><code class="sig-name descname">DATIVE_R</code> = 252<a class="headerlink" href="#_CPPv4N9chemfiles4Bond8DATIVE_RE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Dative bond where the electrons are localized to the first atom. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond8DATIVE_LE">
+<span id="_CPPv3N9chemfiles4Bond8DATIVE_LE"></span><span id="_CPPv2N9chemfiles4Bond8DATIVE_LE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214af546b556a599e9a0bae4869f3d9a10c9"></span><code class="sig-name descname">DATIVE_L</code> = 253<a class="headerlink" href="#_CPPv4N9chemfiles4Bond8DATIVE_LE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Dative bond where the electrons are localized to the second atom. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond5AMIDEE">
+<span id="_CPPv3N9chemfiles4Bond5AMIDEE"></span><span id="_CPPv2N9chemfiles4Bond5AMIDEE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214aba76b771eb9d5bd8b0c3f3585d34dc80"></span><code class="sig-name descname">AMIDE</code> = 254<a class="headerlink" href="#_CPPv4N9chemfiles4Bond5AMIDEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Amide bond (C(=O)-NH) </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N9chemfiles4Bond8AROMATICE">
+<span id="_CPPv3N9chemfiles4Bond8AROMATICE"></span><span id="_CPPv2N9chemfiles4Bond8AROMATICE"></span><span class="target" id="classchemfiles_1_1_bond_1a3887fa93253f983d062314a636788214a4d3b5e034020bf0252ee465757316816"></span><code class="sig-name descname">AROMATIC</code> = 255<a class="headerlink" href="#_CPPv4N9chemfiles4Bond8AROMATICE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Aromatic bond (for example the ring bonds in benzene) </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles4Bond4BondE6size_t6size_t">
+<span id="_CPPv3N9chemfiles4Bond4BondE6size_t6size_t"></span><span id="_CPPv2N9chemfiles4Bond4BondE6size_t6size_t"></span><span id="chemfiles::Bond::Bond__s.s"></span><span class="target" id="classchemfiles_1_1_bond_1a85d5ffb0af29cfbb8a638cb0a474f4eb"></span><code class="sig-name descname">Bond</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles4Bond4BondE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_bond"><span class="std std-ref"><span class="pre">Bond</span></span></a></code> containing the atoms <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">j</span></code> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles4BondixE6size_t">
+<span id="_CPPv3NK9chemfiles4BondixE6size_t"></span><span id="_CPPv2NK9chemfiles4BondixE6size_t"></span><span id="chemfiles::Bond::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_bond_1a4021d6cc09c44c6f24ce3b8e4bbcc68e"></span>size_t <code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles4BondixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index of the <code class="docutils literal notranslate"><span class="pre">i</span></code>th atom (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">1</span></code>) in the bond.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> is not 0 or 1 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles5AngleE">
+<span id="_CPPv3N9chemfiles5AngleE"></span><span id="_CPPv2N9chemfiles5AngleE"></span><span id="chemfiles::Angle"></span><span class="target" id="classchemfiles_1_1_angle"></span><em class="property">class </em><code class="sig-name descname">Angle</code><a class="headerlink" href="#_CPPv4N9chemfiles5AngleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_angle"><span class="std std-ref"><span class="pre">Angle</span></span></a></code> class ensure a canonical representation of an angle between three atoms.</p>
+<p>An angle is formed by two consecutive bonds: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="n">i</span>       <span class="n">k</span>  <span class="o">|</span>
+<span class="o">|</span>    \   <span class="o">/</span>    <span class="o">|</span>
+<span class="o">|</span>      <span class="n">j</span>      <span class="o">|</span>
+</pre></div>
+</div>
+</p>
+<p>This class implements all the comparison operators, as well as indexing.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="c1">// indexing</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">55</span><span class="p">);</span>
+
+<span class="c1">// equality</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span> <span class="o">==</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span> <span class="o">!=</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">));</span>
+
+<span class="c1">// lexicographic comparison</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span> <span class="o">&lt;</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">44</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angle</span> <span class="o">&gt;=</span> <span class="n">Angle</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">14</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles5Angle5AngleE6size_t6size_t6size_t">
+<span id="_CPPv3N9chemfiles5Angle5AngleE6size_t6size_t6size_t"></span><span id="_CPPv2N9chemfiles5Angle5AngleE6size_t6size_t6size_t"></span><span id="chemfiles::Angle::Angle__s.s.s"></span><span class="target" id="classchemfiles_1_1_angle_1a3937b9eddcdc43bafee55333477af6d5"></span><code class="sig-name descname">Angle</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5Angle5AngleE6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_angle"><span class="std std-ref"><span class="pre">Angle</span></span></a></code> containing the atoms <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">==</span> <span class="pre">k</span></code> or <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">k</span></code> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles5AngleixE6size_t">
+<span id="_CPPv3NK9chemfiles5AngleixE6size_t"></span><span id="_CPPv2NK9chemfiles5AngleixE6size_t"></span><span id="chemfiles::Angle::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_angle_1a71ee71487e4d1a9e3e36fd525741123b"></span>size_t <code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles5AngleixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index of the <code class="docutils literal notranslate"><span class="pre">i</span></code>th atom (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">2</span></code>) in the angle.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> is not 0, 1 or 2 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles8DihedralE">
+<span id="_CPPv3N9chemfiles8DihedralE"></span><span id="_CPPv2N9chemfiles8DihedralE"></span><span id="chemfiles::Dihedral"></span><span class="target" id="classchemfiles_1_1_dihedral"></span><em class="property">class </em><code class="sig-name descname">Dihedral</code><a class="headerlink" href="#_CPPv4N9chemfiles8DihedralE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_dihedral"><span class="std std-ref"><span class="pre">Dihedral</span></span></a></code> class ensure a canonical representation of a dihedral angle between four atoms.</p>
+<p>A dihedral angle is formed by three consecutive bonds: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="n">i</span>       <span class="n">k</span>     <span class="o">|</span>
+<span class="o">|</span>    \   <span class="o">/</span>   \   <span class="o">|</span>
+<span class="o">|</span>      <span class="n">j</span>      <span class="n">m</span>  <span class="o">|</span>
+</pre></div>
+</div>
+</p>
+<p>This class implements all the comparison operators, as well as indexing.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">dihedral</span> <span class="o">=</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="c1">// indexing</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">55</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="c1">// equality</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span> <span class="o">==</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span> <span class="o">!=</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+
+<span class="c1">// lexicographic comparison</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span> <span class="o">&lt;</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">44</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedral</span> <span class="o">&gt;=</span> <span class="n">Dihedral</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Dihedral8DihedralE6size_t6size_t6size_t6size_t">
+<span id="_CPPv3N9chemfiles8Dihedral8DihedralE6size_t6size_t6size_t6size_t"></span><span id="_CPPv2N9chemfiles8Dihedral8DihedralE6size_t6size_t6size_t6size_t"></span><span id="chemfiles::Dihedral::Dihedral__s.s.s.s"></span><span class="target" id="classchemfiles_1_1_dihedral_1a35a74df1a4692d189ca88fc9a56d48aa"></span><code class="sig-name descname">Dihedral</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, size_t <em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Dihedral8DihedralE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_dihedral"><span class="std std-ref"><span class="pre">Dihedral</span></span></a></code> containing the atoms <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if any of <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code> has the same value as another </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8DihedralixE6size_t">
+<span id="_CPPv3NK9chemfiles8DihedralixE6size_t"></span><span id="_CPPv2NK9chemfiles8DihedralixE6size_t"></span><span id="chemfiles::Dihedral::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_dihedral_1a59b860803f9610448b2c9f6f62d45ca2"></span>size_t <code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8DihedralixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index of the <code class="docutils literal notranslate"><span class="pre">i</span></code>th atom (<code class="docutils literal notranslate"><span class="pre">i</span></code> can be 0, 1, 2 or 3) in the dihedral.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> is not 0, 1, 2 or 3. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles8ImproperE">
+<span id="_CPPv3N9chemfiles8ImproperE"></span><span id="_CPPv2N9chemfiles8ImproperE"></span><span id="chemfiles::Improper"></span><span class="target" id="classchemfiles_1_1_improper"></span><em class="property">class </em><code class="sig-name descname">Improper</code><a class="headerlink" href="#_CPPv4N9chemfiles8ImproperE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_improper"><span class="std std-ref"><span class="pre">Improper</span></span></a></code> class ensure a canonical representation of an improper dihedral angle between four atoms.</p>
+<p>An improper dihedral angle is formed by three bonds around a central atom: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span>  <span class="n">i</span>       <span class="n">k</span>  <span class="o">|</span>
+<span class="o">|</span>    \   <span class="o">/</span>    <span class="o">|</span>
+<span class="o">|</span>      <span class="n">j</span>      <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">|</span>      <span class="n">m</span>      <span class="o">|</span>
+</pre></div>
+</div>
+</p>
+<p>This class implements all the comparison operators, as well as indexing.</p>
+<p>The second atom of the improper is always the central atom.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">improper</span> <span class="o">=</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="c1">// indexing</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">55</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+
+<span class="c1">// equality</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span> <span class="o">==</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">23</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span> <span class="o">!=</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">));</span>
+
+<span class="c1">// lexicographic comparison</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span> <span class="o">&lt;</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">44</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">improper</span> <span class="o">&gt;=</span> <span class="n">Improper</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Improper8ImproperE6size_t6size_t6size_t6size_t">
+<span id="_CPPv3N9chemfiles8Improper8ImproperE6size_t6size_t6size_t6size_t"></span><span id="_CPPv2N9chemfiles8Improper8ImproperE6size_t6size_t6size_t6size_t"></span><span id="chemfiles::Improper::Improper__s.s.s.s"></span><span class="target" id="classchemfiles_1_1_improper_1a9aaf1df5240569a6896241ce9da39b6b"></span><code class="sig-name descname">Improper</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, size_t <em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Improper8ImproperE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_improper"><span class="std std-ref"><span class="pre">Improper</span></span></a></code> containing the atoms <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code>. <code class="docutils literal notranslate"><span class="pre">j</span></code> must be the central atom of the improper.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if any of <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code> has the same value as another </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8ImproperixE6size_t">
+<span id="_CPPv3NK9chemfiles8ImproperixE6size_t"></span><span id="_CPPv2NK9chemfiles8ImproperixE6size_t"></span><span id="chemfiles::Improper::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_improper_1a1b261d74f0455c71f25eb230adeb046c"></span>size_t <code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8ImproperixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index of the <code class="docutils literal notranslate"><span class="pre">i</span></code>th atom (<code class="docutils literal notranslate"><span class="pre">i</span></code> can be 0, 1, 2 or 3) in the improper.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> is not 0, 1, 2 or 3. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

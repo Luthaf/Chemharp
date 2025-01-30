@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Selections &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Logging capacities" href="logger.html" />
+    <link rel="prev" title="Unit Cell" href="unitcell.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Selections</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="unitcell.html" title="Previous Chapter: Unit Cell"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Unit Cell</span>
+    </a>
+  </li>
+  <li>
+    <a href="logger.html" title="Next Chapter: Logging capacities"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Logging capac... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="selections">
+<h1>Selections<a class="headerlink" href="#selections" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_selection"></span><em>class</em> <code class="descname">chemfiles::Selection</code></dt>
+<dd><p>This class allow to select some atoms in a <code class="docutils literal"><a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code>, using a specific selection language. </p>
+<p>The selection language is built by combining basic operations. Each basic operation follows the <code class="docutils literal"><span class="pre">&lt;selector&gt;</span> <span class="pre">&lt;operator&gt;</span> <span class="pre">&lt;value&gt;</span></code> structure, where <code class="docutils literal"><span class="pre">&lt;operator&gt;</span></code> can be a comparison operator in <code class="docutils literal"><span class="pre">==</span> <span class="pre">!=</span> <span class="pre">&lt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span></code>.</p>
+<p>Implemented <code class="docutils literal"><span class="pre">&lt;selector&gt;</span></code> and associated <code class="docutils literal"><span class="pre">&lt;value&gt;</span></code> types are given below:</p>
+<p><ul class="simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: select atoms on their name. <code class="docutils literal"><span class="pre">&lt;value&gt;</span></code> must be a string, and only the <code class="docutils literal"><span class="pre">==</span></code> and <code class="docutils literal"><span class="pre">!=</span></code> operators are allowed. Examples: <code class="docutils literal"><span class="pre">name</span> <span class="pre">==</span> <span class="pre">C</span></code>; <code class="docutils literal"><span class="pre">name</span> <span class="pre">!=</span> <span class="pre">Hw</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">index</span></code>: select atoms on their index in the frame. <code class="docutils literal"><span class="pre">&lt;value&gt;</span></code> must be an integer. Examples: <code class="docutils literal"><span class="pre">index</span> <span class="pre">==</span> <span class="pre">4</span></code>; <code class="docutils literal"><span class="pre">index</span> <span class="pre">&gt;</span> <span class="pre">304</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">mass</span></code>: select atoms on their mass. <code class="docutils literal"><span class="pre">&lt;value&gt;</span></code> must be a number. Examples: <code class="docutils literal"><span class="pre">mass</span> <span class="pre">4</span></code>; <code class="docutils literal"><span class="pre">mass</span> <span class="pre">&lt;</span> <span class="pre">2.0</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">x|y|z</span></code>: select atoms on their position. </li>
+</ul>
+</p>
+<p><code class="docutils literal"><span class="pre">must</span> <span class="pre">be</span> <span class="pre">a</span> <span class="pre">number.</span> <span class="pre">Examples:</span></code>x &lt;= 7.3<code class="docutils literal"><span class="pre">;</span></code>z != 4.2<code class="docutils literal"><span class="pre">;</span></code>y &gt; 2<code class="docutils literal"><span class="pre">.</span> <span class="pre">-</span></code>vx|vy|vz<code class="docutils literal"><span class="pre">:</span> <span class="pre">select</span> <span class="pre">atoms</span> <span class="pre">on</span> <span class="pre">their</span> <span class="pre">velocity.</span> <span class="pre">&lt;value&gt;</span></code> must be a number. Examples: <code class="docutils literal"><span class="pre">vx</span> <span class="pre">&lt;=</span> <span class="pre">7.3</span></code>; <code class="docutils literal"><span class="pre">vz</span> <span class="pre">!=</span> <span class="pre">4.2</span></code>; <code class="docutils literal"><span class="pre">vy</span> <span class="pre">&gt;</span> <span class="pre">2</span></code>.</p>
+<p>These basic operations can be combined by three logical operators: <code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code> and <code class="docutils literal"><span class="pre">not</span></code>. Parentheses can be used to remove ambiguity when using multiple operators. <div class="highlight-default"><div class="highlight"><pre><span></span>`name == H and (x &lt; 45.9 or vz &gt;= 67) and (not index == 67)`
+</pre></div>
+</div>
+</p>
+<p>Some selections also accept a short form, where the comparison operator is elided and implicitly <code class="docutils literal"><span class="pre">==</span></code>. These selections are <code class="docutils literal"><span class="pre">name</span></code>, <code class="docutils literal"><span class="pre">index</span></code> and <code class="docutils literal"><span class="pre">mass</span></code>. So <code class="docutils literal"><span class="pre">name</span> <span class="pre">O</span> <span class="pre">or</span> <span class="pre">index</span> <span class="pre">234</span></code> is equivalent to <code class="docutils literal"><span class="pre">name</span> <span class="pre">==</span> <span class="pre">O</span> <span class="pre">or</span> <span class="pre">index</span> <span class="pre">==</span> <span class="pre">234</span></code>.</p>
+<p>Two other special operation are the <code class="docutils literal"><span class="pre">all</span></code> and <code class="docutils literal"><span class="pre">none</span></code> selection, matching respectively all and none of the atoms in the frame. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_selection_1a2eba203c17280187b18b30616b0d45ce"></span><code class="descname">Selection</code><span class="sig-paren">(</span>const std::string &amp; <em>selection</em><span class="sig-paren">)</span></dt>
+<dd><p>Create a selection using the given string.</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><a class="reference internal" href="errors.html#project0structchemfiles_1_1_parser_error"><span class="std std-ref"><span class="pre">ParserError</span></span></a></code> - <p>if there is a semantic error in the selection </p>
+</li>
+<li><code class="first docutils literal"><a class="reference internal" href="errors.html#project0structchemfiles_1_1_lexer_error"><span class="std std-ref"><span class="pre">LexerError</span></span></a></code> - <p>if there is a syntaxic error in the selection </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_selection_1a74c61586951d04becbdc96ff838dd0fc"></span>std::vector&lt; <a class="reference internal" href="#project0classchemfiles_1_1_bool"><span class="std std-ref">Bool</span></a> &gt; <code class="descname">evaluate</code><span class="sig-paren">(</span>const <a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> &amp; <em>frame</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Evaluate the selection on a given <code class="docutils literal"><span class="pre">frame</span></code>. This function returns a vector of size <code class="docutils literal"><a class="reference internal" href="frame.html#project0classchemfiles_1_1_frame_1ab0ba2cdb8d3d3023398a357bc28c4116"><span class="std std-ref"><span class="pre">Frame::natoms()</span></span></a></code>, containing <code class="docutils literal"><span class="pre">true</span></code> at the index <code class="docutils literal"><span class="pre">i</span></code> if the atom at index <code class="docutils literal"><span class="pre">i</span></code> matches the selection, and <code class="docutils literal"><span class="pre">false</span></code> otherwise. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_bool"></span><em>class</em> <code class="descname">chemfiles::Bool</code></dt>
+<dd><p>Because the standard spacialization <code class="docutils literal"><span class="pre">std::vector&lt;bool&gt;</span></code> is optimized for space requirements and hard to work with, chemfiles uses a small wrapper around the <code class="docutils literal"><span class="pre">bool</span></code> type, the <code class="docutils literal"><a class="reference internal" href="#project0classchemfiles_1_1_bool"><span class="std std-ref"><span class="pre">Bool</span></span></a></code> class. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_bool_1a4a1ccf427f66f0bf528b7ef9e5bee435"></span><code class="descname">Bool</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct a <code class="docutils literal"><a class="reference internal" href="#project0classchemfiles_1_1_bool"><span class="std std-ref"><span class="pre">Bool</span></span></a></code> from a given <code class="docutils literal"><span class="pre">bool</span></code> value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_bool_1a4c7f0759bc9c41bb645840777b618cd6"></span>bool <code class="descname">operator!</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Negate this boolean. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_bool_1afe3d6bf3973ed9b40b9b2bed619a4591"></span><code class="descname">operator bool</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Convert this boolean to the <code class="docutils literal"><span class="pre">bool</span></code> standard type. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Miscelaneous functions &#8212; Chemfiles 0.10.4
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../devdoc/contributing.html" />
+    <link rel="prev" title="CHFL_PROPERTY" href="chfl_property.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_property.html" title="Previous Chapter: CHFL_PROPERTY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; CHFL_PROPERTY</span>
+    </a>
+  </li>
+  <li>
+    <a href="../devdoc/contributing.html" title="Next Chapter: Contributing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Contributing &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chfl_trajectory.html"><code class="docutils literal notranslate"><span class="pre">CHFL_TRAJECTORY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_frame.html"><code class="docutils literal notranslate"><span class="pre">CHFL_FRAME</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_topology.html"><code class="docutils literal notranslate"><span class="pre">CHFL_TOPOLOGY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_residue.html"><code class="docutils literal notranslate"><span class="pre">CHFL_RESIDUE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_atom.html"><code class="docutils literal notranslate"><span class="pre">CHFL_ATOM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_cell.html"><code class="docutils literal notranslate"><span class="pre">CHFL_CELL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_selection.html"><code class="docutils literal notranslate"><span class="pre">CHFL_SELECTION</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_property.html"><code class="docutils literal notranslate"><span class="pre">CHFL_PROPERTY</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Miscelaneous functions</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="miscelaneous-functions">
+<h1>Miscelaneous functions<a class="headerlink" href="#miscelaneous-functions" title="Permalink to this heading">¶</a></h1>
+<section id="error-handling">
+<h2>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">¶</a></h2>
+<p>Apart from the <em>constructor</em> functions (the functions returning pointers to the
+chemfiles types); all the functions return a status code from the
+<code class="docutils literal notranslate"><span class="pre">chfl_status</span></code> enum:</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv411chfl_status">
+<span id="_CPPv311chfl_status"></span><span id="_CPPv211chfl_status"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_status</span></span></span><a class="headerlink" href="#_CPPv411chfl_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">chfl_status</span></code> list the possible values for the return status code of chemfiles functions. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status12CHFL_SUCCESSE">
+<span id="_CPPv3N11chfl_status12CHFL_SUCCESSE"></span><span id="_CPPv2N11chfl_status12CHFL_SUCCESSE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a0faa8eb88fb8bcdbb8fea3699bc8bab2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_SUCCESS</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status12CHFL_SUCCESSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for successful operations. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status17CHFL_MEMORY_ERRORE">
+<span id="_CPPv3N11chfl_status17CHFL_MEMORY_ERRORE"></span><span id="_CPPv2N11chfl_status17CHFL_MEMORY_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59aaafa9c392ee2954d1b400b0951ba9ce6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_MEMORY_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status17CHFL_MEMORY_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error concerning memory: out of memory, wrong size for pre-allocated buffers, <em>etc.</em></p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status15CHFL_FILE_ERRORE">
+<span id="_CPPv3N11chfl_status15CHFL_FILE_ERRORE"></span><span id="_CPPv2N11chfl_status15CHFL_FILE_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59ab54a0ee991866736a32efb6e9bec2554"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_FILE_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status15CHFL_FILE_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error concerning files: the file do not exist, the user does not have rights to open it, <em>etc.</em></p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status17CHFL_FORMAT_ERRORE">
+<span id="_CPPv3N11chfl_status17CHFL_FORMAT_ERRORE"></span><span id="_CPPv2N11chfl_status17CHFL_FORMAT_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a91a73606f53ba8a2229d4fd3d33b1af1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_FORMAT_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status17CHFL_FORMAT_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error in file formating, i.e. for invalid files. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status20CHFL_SELECTION_ERRORE">
+<span id="_CPPv3N11chfl_status20CHFL_SELECTION_ERRORE"></span><span id="_CPPv2N11chfl_status20CHFL_SELECTION_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59afe372a55872986a08dcca8a3969983dc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_SELECTION_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status20CHFL_SELECTION_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for invalid selection strings. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status24CHFL_CONFIGURATION_ERRORE">
+<span id="_CPPv3N11chfl_status24CHFL_CONFIGURATION_ERRORE"></span><span id="_CPPv2N11chfl_status24CHFL_CONFIGURATION_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a507152334502f3e9c56b0195f6aa7a1b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_CONFIGURATION_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status24CHFL_CONFIGURATION_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for configuration files errors. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status18CHFL_OUT_OF_BOUNDSE">
+<span id="_CPPv3N11chfl_status18CHFL_OUT_OF_BOUNDSE"></span><span id="_CPPv2N11chfl_status18CHFL_OUT_OF_BOUNDSE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a13b8a32b662d61d1494b4b598778a815"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_OUT_OF_BOUNDS</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status18CHFL_OUT_OF_BOUNDSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for out of bounds errors. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status19CHFL_PROPERTY_ERRORE">
+<span id="_CPPv3N11chfl_status19CHFL_PROPERTY_ERRORE"></span><span id="_CPPv2N11chfl_status19CHFL_PROPERTY_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59abbbf96f5f6fe30c421ab8ec4e291179d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_PROPERTY_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status19CHFL_PROPERTY_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for errors related to properties. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status18CHFL_GENERIC_ERRORE">
+<span id="_CPPv3N11chfl_status18CHFL_GENERIC_ERRORE"></span><span id="_CPPv2N11chfl_status18CHFL_GENERIC_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a8cbb75bdfcccefb65419de3d3a1d305e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_GENERIC_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status18CHFL_GENERIC_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for any other error from Chemfiles. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N11chfl_status14CHFL_CXX_ERRORE">
+<span id="_CPPv3N11chfl_status14CHFL_CXX_ERRORE"></span><span id="_CPPv2N11chfl_status14CHFL_CXX_ERRORE"></span><span class="target" id="types_8h_1a2f73eb04ff5dac054ef993c530c51b59a8b48d2211408e1bc5815229335232aad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CHFL_CXX_ERROR</span></span></span><a class="headerlink" href="#_CPPv4N11chfl_status14CHFL_CXX_ERRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status code for error in the C++ standard library. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415chfl_last_errorv">
+<span id="_CPPv315chfl_last_errorv"></span><span id="_CPPv215chfl_last_errorv"></span><span id="chfl_last_error__void"></span><span class="target" id="misc_8h_1a42463a8d7f7b39e35608c54b45cc5a3b"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_last_error</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415chfl_last_errorv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the last error message.</p>
+<p>The last error message is a thread local variable, so you need to call this function in the thread from where the error happened.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A null-terminated string containing the last error message </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417chfl_clear_errorsv">
+<span id="_CPPv317chfl_clear_errorsv"></span><span id="_CPPv217chfl_clear_errorsv"></span><span id="chfl_clear_errors__void"></span><span class="target" id="misc_8h_1a8422670732257efed91262d3281fcd2b"></span><a class="reference internal" href="#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_clear_errors</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417chfl_clear_errorsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear the thread local last error message.</p>
+<p>The last error message is a thread local variable, so this function will only clear it in the thread where it is called.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="format-list-and-metadata">
+<h2>Format list and Metadata<a class="headerlink" href="#format-list-and-metadata" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417chfl_guess_formatPKcPc8uint64_t">
+<span id="_CPPv317chfl_guess_formatPKcPc8uint64_t"></span><span id="_CPPv217chfl_guess_formatPKcPc8uint64_t"></span><span id="chfl_guess_format__cCP.cP.uint64_t"></span><span class="target" id="misc_8h_1aac8efba5dd4707c6fdca9e14cd5d82a6"></span><a class="reference internal" href="#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_guess_format</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">format</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">buffsize</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417chfl_guess_formatPKcPc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the format that chemfiles would use to read a file at the given <code class="docutils literal notranslate"><span class="pre">path</span></code> in the string buffer <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
+<p>The buffer size must be passed in <code class="docutils literal notranslate"><span class="pre">buffsize</span></code>. This function will return <code class="docutils literal notranslate"><span class="pre">CHFL_MEMORY_ERROR</span></code> if the format does not fit in the buffer.</p>
+<p>Most of the time, the format is only guessed from the filename extension, without reading the file to guess the format. When two or more format can share the same extension (for example CIF and mmCIF), chemfiles tries to read the file to distinguish between them. If reading fails, the default format for this extension is returned.</p>
+<p>Opening the file using the returned format string might still fail. For example, it will fail if the file is not actually formatted according to the guessed format; or the format/compression combination is not supported (e.g. <code class="docutils literal notranslate"><span class="pre">XTC</span> <span class="pre">/</span> <span class="pre">GZ</span></code> will not work since the XTC reader does not support compressed files).</p>
+<p>The format is represented in a way compatible with the various <code class="docutils literal notranslate"><span class="pre">Trajectory</span></code> constructors, i.e. <code class="docutils literal notranslate"><span class="pre">&quot;&lt;format</span> <span class="pre">name&gt;</span> <span class="pre">[/</span> <span class="pre">&lt;compression&gt;]&quot;</span></code>, where compression is optional.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417chfl_formats_listPP20chfl_format_metadataP8uint64_t">
+<span id="_CPPv317chfl_formats_listPP20chfl_format_metadataP8uint64_t"></span><span id="_CPPv217chfl_formats_listPP20chfl_format_metadataP8uint64_t"></span><span id="chfl_formats_list__chfl_format_metadataPP.uint64_tP"></span><span class="target" id="misc_8h_1adf31dd994b3f9577f440ebc8fc0d0099"></span><a class="reference internal" href="#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_formats_list</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv420chfl_format_metadata" title="chfl_format_metadata"><span class="n"><span class="pre">chfl_format_metadata</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">metadata</span></span>, <span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417chfl_formats_listPP20chfl_format_metadataP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of formats known by chemfiles, as well as all associated metadata.</p>
+<p>This function allocate memory for all known formats, and set <code class="docutils literal notranslate"><span class="pre">metadata</span></code> to this new array. Users of this function are responsible with cleaning up this memory using <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>. The number of known formats (and thus the size of the metadata array) is set in <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv420chfl_format_metadata">
+<span id="_CPPv320chfl_format_metadata"></span><span id="_CPPv220chfl_format_metadata"></span><span id="chfl_format_metadata"></span><span class="target" id="structchfl__format__metadata"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_format_metadata</span></span></span><a class="headerlink" href="#_CPPv420chfl_format_metadata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <code class="docutils literal notranslate"><a class="reference internal" href="#structchfl__format__metadata"><span class="std std-ref"><span class="pre">chfl_format_metadata</span></span></a></code> contains metadata associated with one format. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata4nameE">
+<span id="_CPPv3N20chfl_format_metadata4nameE"></span><span id="_CPPv2N20chfl_format_metadata4nameE"></span><span id="chfl_format_metadata::name__cCP"></span><span class="target" id="structchfl__format__metadata_1a6f7b291ad1f1df48daa499015c3d6c67"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">name</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata4nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Name of the format. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata9extensionE">
+<span id="_CPPv3N20chfl_format_metadata9extensionE"></span><span id="_CPPv2N20chfl_format_metadata9extensionE"></span><span id="chfl_format_metadata::extension__cCP"></span><span class="target" id="structchfl__format__metadata_1a764c71dcf3117666611d1413b8405264"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">extension</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata9extensionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extension associated with the format, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is no extension associated. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata11descriptionE">
+<span id="_CPPv3N20chfl_format_metadata11descriptionE"></span><span id="_CPPv2N20chfl_format_metadata11descriptionE"></span><span id="chfl_format_metadata::description__cCP"></span><span class="target" id="structchfl__format__metadata_1ad90145512b67315ed93d3b56b0984fdf"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">description</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata11descriptionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extended, user-facing description of the format. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata9referenceE">
+<span id="_CPPv3N20chfl_format_metadata9referenceE"></span><span id="_CPPv2N20chfl_format_metadata9referenceE"></span><span id="chfl_format_metadata::reference__cCP"></span><span class="target" id="structchfl__format__metadata_1a6aca8200f4478d44672aeab6d216025e"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">reference</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata9referenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>URL pointing to the format definition/reference. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata4readE">
+<span id="_CPPv3N20chfl_format_metadata4readE"></span><span id="_CPPv2N20chfl_format_metadata4readE"></span><span id="chfl_format_metadata::read__b"></span><span class="target" id="structchfl__format__metadata_1a4f9fef42dc1a1da53cf4a910f55cd334"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata4readE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is reading files in this format implemented? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata5writeE">
+<span id="_CPPv3N20chfl_format_metadata5writeE"></span><span id="_CPPv2N20chfl_format_metadata5writeE"></span><span id="chfl_format_metadata::write__b"></span><span class="target" id="structchfl__format__metadata_1a613792e3b6e58dde86680e1202989454"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata5writeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is writing files in this format implemented? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata6memoryE">
+<span id="_CPPv3N20chfl_format_metadata6memoryE"></span><span id="_CPPv2N20chfl_format_metadata6memoryE"></span><span id="chfl_format_metadata::memory__b"></span><span class="target" id="structchfl__format__metadata_1aa13271dbde31126758f1f93ace000cec"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">memory</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata6memoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support in-memory IO? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata9positionsE">
+<span id="_CPPv3N20chfl_format_metadata9positionsE"></span><span id="_CPPv2N20chfl_format_metadata9positionsE"></span><span id="chfl_format_metadata::positions__b"></span><span class="target" id="structchfl__format__metadata_1a6038c6fcfdbe2c01e6ecd9fd8f0e181c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">positions</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata9positionsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing atomic positions? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata10velocitiesE">
+<span id="_CPPv3N20chfl_format_metadata10velocitiesE"></span><span id="_CPPv2N20chfl_format_metadata10velocitiesE"></span><span id="chfl_format_metadata::velocities__b"></span><span class="target" id="structchfl__format__metadata_1a9232c6c55e9a36b6980c40b13d9a1e02"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">velocities</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata10velocitiesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing atomic velocities? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata9unit_cellE">
+<span id="_CPPv3N20chfl_format_metadata9unit_cellE"></span><span id="_CPPv2N20chfl_format_metadata9unit_cellE"></span><span id="chfl_format_metadata::unit_cell__b"></span><span class="target" id="structchfl__format__metadata_1aeb12903c5fbc6c7a5ce2d5e4d59f19b9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unit_cell</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata9unit_cellE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing unit cell information? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata5atomsE">
+<span id="_CPPv3N20chfl_format_metadata5atomsE"></span><span id="_CPPv2N20chfl_format_metadata5atomsE"></span><span id="chfl_format_metadata::atoms__b"></span><span class="target" id="structchfl__format__metadata_1a16452674aed7f89215bbbf9c6eeb46b6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atoms</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata5atomsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing atom names or types? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata5bondsE">
+<span id="_CPPv3N20chfl_format_metadata5bondsE"></span><span id="_CPPv2N20chfl_format_metadata5bondsE"></span><span id="chfl_format_metadata::bonds__b"></span><span class="target" id="structchfl__format__metadata_1ab757125b0acec645a5e1cb650488eb9f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bonds</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata5bondsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing bonds between atoms? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20chfl_format_metadata8residuesE">
+<span id="_CPPv3N20chfl_format_metadata8residuesE"></span><span id="_CPPv2N20chfl_format_metadata8residuesE"></span><span id="chfl_format_metadata::residues__b"></span><span class="target" id="structchfl__format__metadata_1a247ca9f8696169e52f9a440fc587d2dd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residues</span></span></span><a class="headerlink" href="#_CPPv4N20chfl_format_metadata8residuesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing residues? </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this heading">¶</a></h2>
+<p>The chemfiles library send warnings when it encounters malformed files, or any
+other condition that the user might want to know about. By default, these
+warnings are printed to the standard error stream.
+<a class="reference internal" href="#_CPPv425chfl_set_warning_callback21chfl_warning_callback" title="chfl_set_warning_callback"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_set_warning_callback()</span></code></a> allow to redirect these warning by giving
+it a callback function to be called on each warning event.</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv421chfl_warning_callback">
+<span id="_CPPv321chfl_warning_callback"></span><span id="_CPPv221chfl_warning_callback"></span><span id="chfl_warning_callback"></span><span class="target" id="misc_8h_1aedecf8acfe372243658987ee1fa66999"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chfl_warning_callback</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv421chfl_warning_callback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback type that can be used to process warning events. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425chfl_set_warning_callback21chfl_warning_callback">
+<span id="_CPPv325chfl_set_warning_callback21chfl_warning_callback"></span><span id="_CPPv225chfl_set_warning_callback21chfl_warning_callback"></span><span id="chfl_set_warning_callback__chfl_warning_callback"></span><span class="target" id="misc_8h_1a7962fc0c102c5105193edae28f922458"></span><a class="reference internal" href="#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_set_warning_callback</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv421chfl_warning_callback" title="chfl_warning_callback"><span class="n"><span class="pre">chfl_warning_callback</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_set_warning_callback21chfl_warning_callback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the global warning <code class="docutils literal notranslate"><span class="pre">callback</span></code> to be used for each warning event.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="configuration-files">
+<h2>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this heading">¶</a></h2>
+<p>You can add more <a class="reference internal" href="../configuration.html#configuration"><span class="std std-ref">configuration</span></a> file to chemfiles with
+<a class="reference internal" href="#_CPPv422chfl_add_configurationPKc" title="chfl_add_configuration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_add_configuration()</span></code></a>.</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422chfl_add_configurationPKc">
+<span id="_CPPv322chfl_add_configurationPKc"></span><span id="_CPPv222chfl_add_configurationPKc"></span><span id="chfl_add_configuration__cCP"></span><span class="target" id="misc_8h_1af2779ee356090b53037a80b98b22fbaf"></span><a class="reference internal" href="#_CPPv411chfl_status" title="chfl_status"><span class="n"><span class="pre">chfl_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chfl_add_configuration</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422chfl_add_configurationPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read configuration data from the file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<p>By default, chemfiles reads configuration from any file named <code class="docutils literal notranslate"><span class="pre">.chemfiles.toml</span></code> or <code class="docutils literal notranslate"><span class="pre">chemfiles.toml</span></code> in the current directory or any parent directory. This function can be used to add data from another configuration file.</p>
+<p>This function will fail if there is no file at <code class="docutils literal notranslate"><span class="pre">path</span></code>, or if the file is incorrectly formatted. Data from the new configuration file will overwrite any existing data.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

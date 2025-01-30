@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Miscelaneous &#8212; Chemfiles 0.9.3
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Helper classes" href="helpers.html" />
+    <link rel="prev" title="Property" href="property.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.9</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="property.html" title="Previous Chapter: Property"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Property</span>
+    </a>
+  </li>
+  <li>
+    <a href="helpers.html" title="Next Chapter: Helper classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Helper classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trajectory.html">Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residue.html">Residue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atom.html">Atom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unitcell.html">UnitCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html">Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="property.html">Property</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Miscelaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="miscelaneous">
+<h1>Miscelaneous<a class="headerlink" href="#miscelaneous" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-types">
+<h2>Basic types<a class="headerlink" href="#basic-types" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N9chemfiles8Vector3DE">
+<span id="_CPPv3N9chemfiles8Vector3DE"></span><span id="_CPPv2N9chemfiles8Vector3DE"></span><span id="chemfiles::Vector3D"></span><span class="target" id="classchemfiles_1_1_vector3_d"></span><em class="property">class </em><code class="sig-name descname">Vector3D</code> : <em class="property">private</em> std::array&lt;double, 3&gt;<a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>3D vector for basic data storage in chemfiles.</p>
+<p>This type defines the following operators, with the usual meaning:</p>
+<p><ul class="simple">
+<li><p>Comparison operators: <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> performs strict float equality comparison;</p></li>
+<li><p>Mathematical operators: <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> for addition and substraction of vectors, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> for multiplication and division by double values. Multiplication with <code class="docutils literal notranslate"><span class="pre">*</span></code> is also defined for multiplication by a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code>.</p></li>
+</ul>
+</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// equality and inequality</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">()</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">!=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+
+<span class="c1">// Indexing</span>
+<span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">);</span>
+
+<span class="c1">// sum and difference</span>
+<span class="k">auto</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">diff</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+
+<span class="c1">// product and division by a scalar</span>
+<span class="k">auto</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">rhs</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">lhs</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">div</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">div</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Vector3D8Vector3DEv">
+<span id="_CPPv3N9chemfiles8Vector3D8Vector3DEv"></span><span id="_CPPv2N9chemfiles8Vector3D8Vector3DEv"></span><span id="chemfiles::Vector3D::Vector3D"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a401e65eca28b6318fd8ab1fe546a9c2b"></span><code class="sig-name descname">Vector3D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3D8Vector3DEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <a class="reference internal" href="#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a> with all components equal to 0.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Vector3D8Vector3DEddd">
+<span id="_CPPv3N9chemfiles8Vector3D8Vector3DEddd"></span><span id="_CPPv2N9chemfiles8Vector3D8Vector3DEddd"></span><span id="chemfiles::Vector3D::Vector3D__double.double.double"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a1d6ac94c54ff083a094c2be2867e92e7"></span><code class="sig-name descname">Vector3D</code><span class="sig-paren">(</span>double <em>x</em>, double <em>y</em>, double <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3D8Vector3DEddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <a class="reference internal" href="#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a> from the three components <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Vector3D4normEv">
+<span id="_CPPv3NK9chemfiles8Vector3D4normEv"></span><span id="_CPPv2NK9chemfiles8Vector3D4normEv"></span><span id="chemfiles::Vector3D::normC"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a36edb5e0c6754e749cbb630b5f7f7667"></span>double <code class="sig-name descname">norm</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Vector3D4normEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the euclidean norm of this <a class="reference internal" href="#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">==</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Vector3DpLERK8Vector3D">
+<span id="_CPPv3N9chemfiles8Vector3DpLERK8Vector3D"></span><span id="_CPPv2N9chemfiles8Vector3DpLERK8Vector3D"></span><span id="chemfiles::Vector3D::add-assign-operator__Vector3DCR"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a275f1b49413d80f77299e35ffe1c925e"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DpLERK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound addition of two vectors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Vector3DmIERK8Vector3D">
+<span id="_CPPv3N9chemfiles8Vector3DmIERK8Vector3D"></span><span id="_CPPv2N9chemfiles8Vector3DmIERK8Vector3D"></span><span id="chemfiles::Vector3D::sub-assign-operator__Vector3DCR"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a668ed4e139d2c4a249086d0b19853124"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<code class="sig-name descname">operator-=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DmIERK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound subtraction of two vectors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Vector3DmLEd">
+<span id="_CPPv3N9chemfiles8Vector3DmLEd"></span><span id="_CPPv2N9chemfiles8Vector3DmLEd"></span><span id="chemfiles::Vector3D::mul-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a3768ba499bedfb7b000b2e17bea2185f"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<code class="sig-name descname">operator*=</code><span class="sig-paren">(</span>double <em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DmLEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound multiplication of a vector and a scalar. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Vector3DdVEd">
+<span id="_CPPv3N9chemfiles8Vector3DdVEd"></span><span id="_CPPv2N9chemfiles8Vector3DdVEd"></span><span id="chemfiles::Vector3D::div-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_vector3_d_1ae7fd6e250ed723da6cf11e27d70f235b"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<code class="sig-name descname">operator/=</code><span class="sig-paren">(</span>double <em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DdVEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound division of a vector by a scalar. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles3dotERK8Vector3DRK8Vector3D">
+<span id="_CPPv3N9chemfiles3dotERK8Vector3DRK8Vector3D"></span><span id="_CPPv2N9chemfiles3dotERK8Vector3DRK8Vector3D"></span><span id="chemfiles::dot__Vector3DCR.Vector3DCR"></span><span class="target" id="namespacechemfiles_1af9f3145e48a86b72efecc567fef93604"></span>double <code class="sig-prename descclassname">chemfiles<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">dot</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<em>lhs</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles3dotERK8Vector3DRK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the dot product of the vectors <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles5crossERK8Vector3DRK8Vector3D">
+<span id="_CPPv3N9chemfiles5crossERK8Vector3DRK8Vector3D"></span><span id="_CPPv2N9chemfiles5crossERK8Vector3DRK8Vector3D"></span><span id="chemfiles::cross__Vector3DCR.Vector3DCR"></span><span class="target" id="namespacechemfiles_1aad2ca560f7852245eae2fa40ca336f31"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> <code class="sig-prename descclassname">chemfiles<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">cross</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<em>lhs</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a> &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5crossERK8Vector3DRK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the cross product of the vectors <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles8Matrix3DE">
+<span id="_CPPv3N9chemfiles8Matrix3DE"></span><span id="_CPPv2N9chemfiles8Matrix3DE"></span><span id="chemfiles::Matrix3D"></span><span class="target" id="classchemfiles_1_1_matrix3_d"></span><em class="property">class </em><code class="sig-name descname">Matrix3D</code> : <em class="property">private</em> std::array&lt;std::array&lt;double, 3&gt;, 3&gt;<a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A 3x3 matrix class.</p>
+<p>This type defines the following operators, with the usual meaning:</p>
+<p><ul class="simple">
+<li><p>Comparison operators: <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> performs strict float equality comparison;</p></li>
+<li><p>Mathematical operators: only mulitplication between matrixes and between matrix and vector are defined, using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator.</p></li>
+</ul>
+</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// equality and inequality</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Matrix3D</span><span class="o">::</span><span class="n">zero</span><span class="p">()</span> <span class="o">==</span> <span class="n">Matrix3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Matrix3D</span><span class="o">::</span><span class="n">unit</span><span class="p">()</span> <span class="o">!=</span> <span class="n">Matrix3D</span><span class="o">::</span><span class="n">zero</span><span class="p">());</span>
+
+<span class="c1">// Indexing</span>
+<span class="k">auto</span> <span class="n">M</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span>
+<span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">13</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">21</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">31</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">32</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="c1">// Matrix-vector multiplication</span>
+<span class="k">auto</span> <span class="n">mat_vec</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="o">::</span><span class="n">unit</span><span class="p">()</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">mat_vec</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+
+<span class="c1">// Matrix-Matrix multiplication</span>
+<span class="k">auto</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="k">auto</span> <span class="n">mat_mat</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="o">::</span><span class="n">unit</span><span class="p">()</span> <span class="o">*</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">mat_mat</span> <span class="o">==</span> <span class="n">Matrix3D</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+
+<span class="c1">// Scalar-Matrix multiplication</span>
+<span class="n">assert</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">A</span> <span class="o">==</span> <span class="n">Matrix3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">Matrix3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3D8Matrix3DEddddddddd">
+<span id="_CPPv3N9chemfiles8Matrix3D8Matrix3DEddddddddd"></span><span id="_CPPv2N9chemfiles8Matrix3D8Matrix3DEddddddddd"></span><span id="chemfiles::Matrix3D::Matrix3D__double.double.double.double.double.double.double.double.double"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a25c84ad4a122a41e90e2e8694e392053"></span><code class="sig-name descname">Matrix3D</code><span class="sig-paren">(</span>double <em>m11</em>, double <em>m12</em>, double <em>m13</em>, double <em>m21</em>, double <em>m22</em>, double <em>m23</em>, double <em>m31</em>, double <em>m32</em>, double <em>m33</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3D8Matrix3DEddddddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code> by explicitly specifying all the <code class="docutils literal notranslate"><span class="pre">m_ij</span></code> components of the matrix.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span>
+<span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">13</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">21</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">31</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">32</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Matrix3D11determinantEv">
+<span id="_CPPv3NK9chemfiles8Matrix3D11determinantEv"></span><span id="_CPPv2NK9chemfiles8Matrix3D11determinantEv"></span><span id="chemfiles::Matrix3D::determinantC"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a74121c6a4edaf0e166a266de86f2132e"></span>double <code class="sig-name descname">determinant</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Matrix3D11determinantEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the determinant of this matrix.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">determinant</span><span class="p">()</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Matrix3D6invertEv">
+<span id="_CPPv3NK9chemfiles8Matrix3D6invertEv"></span><span id="_CPPv2NK9chemfiles8Matrix3D6invertEv"></span><span id="chemfiles::Matrix3D::invertC"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a365284d7092de0345d5430d316a67b7e"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> <code class="sig-name descname">invert</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Matrix3D6invertEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the inverse of this matrix.</p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the matrix is not inversible (i.e. if the determinant is zero) <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="k">auto</span> <span class="n">inverse</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mf">1.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>     <span class="mf">1.0</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>     <span class="mf">1.0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">invert</span><span class="p">()</span> <span class="o">==</span> <span class="n">inverse</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK9chemfiles8Matrix3D9transposeEv">
+<span id="_CPPv3NK9chemfiles8Matrix3D9transposeEv"></span><span id="_CPPv2NK9chemfiles8Matrix3D9transposeEv"></span><span id="chemfiles::Matrix3D::transposeC"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a47a563055ce44a34ce3edca0fe1a8570"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> <code class="sig-name descname">transpose</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9chemfiles8Matrix3D9transposeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transpose the matrix.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="k">auto</span> <span class="n">transposed</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">==</span> <span class="n">transposed</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3DpLERK8Matrix3D">
+<span id="_CPPv3N9chemfiles8Matrix3DpLERK8Matrix3D"></span><span id="_CPPv2N9chemfiles8Matrix3DpLERK8Matrix3D"></span><span id="chemfiles::Matrix3D::add-assign-operator__Matrix3DCR"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a677f894d26e7099d33c089e7325c9777"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DpLERK8Matrix3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound addition of two matrices. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3DmIERK8Matrix3D">
+<span id="_CPPv3N9chemfiles8Matrix3DmIERK8Matrix3D"></span><span id="_CPPv2N9chemfiles8Matrix3DmIERK8Matrix3D"></span><span id="chemfiles::Matrix3D::sub-assign-operator__Matrix3DCR"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a3a05f7e82419b7e094027bfb89a538a1"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> &amp;<code class="sig-name descname">operator-=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DmIERK8Matrix3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound subtraction of two matrices. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3DmLEd">
+<span id="_CPPv3N9chemfiles8Matrix3DmLEd"></span><span id="_CPPv2N9chemfiles8Matrix3DmLEd"></span><span id="chemfiles::Matrix3D::mul-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a0515b4af4d2a807e56c42ac7e2680f1a"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> &amp;<code class="sig-name descname">operator*=</code><span class="sig-paren">(</span>double <em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DmLEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound multiplication of a matrix and a scalar. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3DdVEd">
+<span id="_CPPv3N9chemfiles8Matrix3DdVEd"></span><span id="_CPPv2N9chemfiles8Matrix3DdVEd"></span><span id="chemfiles::Matrix3D::div-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a562b1072116df1e1ceae3997f5686c55"></span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> &amp;<code class="sig-name descname">operator/=</code><span class="sig-paren">(</span>double <em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DdVEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound division of a matrix by a scalar. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3D4zeroEv">
+<span id="_CPPv3N9chemfiles8Matrix3D4zeroEv"></span><span id="_CPPv2N9chemfiles8Matrix3D4zeroEv"></span><span id="chemfiles::Matrix3D::zero"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1adc63e2aa243d3138f502eb9acde4767e"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> <code class="sig-name descname">zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3D4zeroEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code> with all components set to zero.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="o">::</span><span class="n">zero</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N9chemfiles8Matrix3D4unitEv">
+<span id="_CPPv3N9chemfiles8Matrix3D4unitEv"></span><span id="_CPPv2N9chemfiles8Matrix3D4unitEv"></span><span id="chemfiles::Matrix3D::unit"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a433767b4499b7fd9bb4691ae271fa8a6"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> <code class="sig-name descname">unit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3D4unitEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an unit <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code> (a diagonal matrix with all diagonal values set to 1).</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Matrix3D</span><span class="o">::</span><span class="n">unit</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="errors-handling">
+<h2>Errors handling<a class="headerlink" href="#errors-handling" title="Permalink to this headline">¶</a></h2>
+<p>In chemfiles, any error will throw an exception. Any program using chemfiles
+should thus wrap any call in a <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">catch</span></code> block, and handle the errors in
+any pertinent way.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;chemfiles.hpp&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span> <span class="n">file</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">);</span>
+        <span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+        <span class="k">auto</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
+        <span class="c1">// Do something here</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">chemfiles</span><span class="o">::</span><span class="n">Error</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Basic error handling logging error to stdout</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Error in chemfiles:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Any exceptions thrown by chemfiles will derive from <code class="docutils literal notranslate"><span class="pre">chemfiles::Error</span></code>.
+Catching  <code class="docutils literal notranslate"><span class="pre">chemfiles::Error</span></code> will then catch any exception thrown by
+chemfiles. You also can catch any other error if you need finer grain control.
+<code class="docutils literal notranslate"><span class="pre">chemfiles::Error</span></code> derives from <code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code>, so it should play
+nicely with any existing C++ error handling.</p>
+<dl class="class">
+<dt id="_CPPv4N9chemfiles5ErrorE">
+<span id="_CPPv3N9chemfiles5ErrorE"></span><span id="_CPPv2N9chemfiles5ErrorE"></span><span id="chemfiles::Error"></span><span class="target" id="structchemfiles_1_1_error"></span><em class="property">struct </em><code class="sig-name descname">Error</code> : <em class="property">public</em> std::runtime_error<a class="headerlink" href="#_CPPv4N9chemfiles5ErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Base exception class for chemfiles library. </p>
+<p>Subclassed by <a class="reference internal" href="#structchemfiles_1_1_configuration_error"><span class="std std-ref">chemfiles::ConfigurationError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_file_error"><span class="std std-ref">chemfiles::FileError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_format_error"><span class="std std-ref">chemfiles::FormatError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_memory_error"><span class="std std-ref">chemfiles::MemoryError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_out_of_bounds"><span class="std std-ref">chemfiles::OutOfBounds</span></a>, <a class="reference internal" href="#structchemfiles_1_1_property_error"><span class="std std-ref">chemfiles::PropertyError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_selection_error"><span class="std std-ref">chemfiles::SelectionError</span></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles9FileErrorE">
+<span id="_CPPv3N9chemfiles9FileErrorE"></span><span id="_CPPv2N9chemfiles9FileErrorE"></span><span id="chemfiles::FileError"></span><span class="target" id="structchemfiles_1_1_file_error"></span><em class="property">struct </em><code class="sig-name descname">FileError</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles9FileErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for files related failures. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles11MemoryErrorE">
+<span id="_CPPv3N9chemfiles11MemoryErrorE"></span><span id="_CPPv2N9chemfiles11MemoryErrorE"></span><span id="chemfiles::MemoryError"></span><span class="target" id="structchemfiles_1_1_memory_error"></span><em class="property">struct </em><code class="sig-name descname">MemoryError</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles11MemoryErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for memory related failures. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles11FormatErrorE">
+<span id="_CPPv3N9chemfiles11FormatErrorE"></span><span id="_CPPv2N9chemfiles11FormatErrorE"></span><span id="chemfiles::FormatError"></span><span class="target" id="structchemfiles_1_1_format_error"></span><em class="property">struct </em><code class="sig-name descname">FormatError</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles11FormatErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for formats related failures. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles14SelectionErrorE">
+<span id="_CPPv3N9chemfiles14SelectionErrorE"></span><span id="_CPPv2N9chemfiles14SelectionErrorE"></span><span id="chemfiles::SelectionError"></span><span class="target" id="structchemfiles_1_1_selection_error"></span><em class="property">struct </em><code class="sig-name descname">SelectionError</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles14SelectionErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for errors in selections. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles18ConfigurationErrorE">
+<span id="_CPPv3N9chemfiles18ConfigurationErrorE"></span><span id="_CPPv2N9chemfiles18ConfigurationErrorE"></span><span id="chemfiles::ConfigurationError"></span><span class="target" id="structchemfiles_1_1_configuration_error"></span><em class="property">struct </em><code class="sig-name descname">ConfigurationError</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles18ConfigurationErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for errors in configuration files. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles11OutOfBoundsE">
+<span id="_CPPv3N9chemfiles11OutOfBoundsE"></span><span id="_CPPv2N9chemfiles11OutOfBoundsE"></span><span id="chemfiles::OutOfBounds"></span><span class="target" id="structchemfiles_1_1_out_of_bounds"></span><em class="property">struct </em><code class="sig-name descname">OutOfBounds</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles11OutOfBoundsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for out of bounds error when accessing atoms or residues. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N9chemfiles13PropertyErrorE">
+<span id="_CPPv3N9chemfiles13PropertyErrorE"></span><span id="_CPPv2N9chemfiles13PropertyErrorE"></span><span id="chemfiles::PropertyError"></span><span class="target" id="structchemfiles_1_1_property_error"></span><em class="property">struct </em><code class="sig-name descname">PropertyError</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error">Error</a><a class="headerlink" href="#_CPPv4N9chemfiles13PropertyErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for errors related to frame and atomic properties. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
+<p>Chemfiles send warnings when it encounters malformed files, or any other
+condition that the user might want to know about. By default, these warnings are
+printed to the standard error stream. <a class="reference internal" href="#_CPPv4N9chemfiles20set_warning_callbackE18warning_callback_t" title="chemfiles::set_warning_callback"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chemfiles::set_warning_callback()</span></code></a>
+allow to redirect these warning by giving it a callback function to be called on
+each warning event.</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles20set_warning_callbackE18warning_callback_t">
+<span id="_CPPv3N9chemfiles20set_warning_callbackE18warning_callback_t"></span><span id="_CPPv2N9chemfiles20set_warning_callbackE18warning_callback_t"></span><span id="chemfiles::set_warning_callback__warning_callback_t"></span><span class="target" id="namespacechemfiles_1ab81ee0eb9b15f2c79e51eade4e55324b"></span>void <code class="sig-prename descclassname">chemfiles<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">set_warning_callback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9chemfiles18warning_callback_tE" title="chemfiles::warning_callback_t">warning_callback_t</a> <em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles20set_warning_callbackE18warning_callback_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the global callback for warning events. The default is to print them on the standard error stream.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// a function to do some work with the warnings</span>
+<span class="kt">void</span> <span class="nf">work_with_warning</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="p">);</span>
+
+<span class="c1">/// Use a function as warning callback</span>
+<span class="n">chemfiles</span><span class="o">::</span><span class="n">set_warning_callback</span><span class="p">(</span><span class="n">work_with_warning</span><span class="p">);</span>
+
+<span class="c1">/// Use a lambda as warning callback</span>
+<span class="n">chemfiles</span><span class="o">::</span><span class="n">set_warning_callback</span><span class="p">([](</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">message</span><span class="p">){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;got a warning from chemfiles: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code>: callback function that will be called on each warning </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N9chemfiles18warning_callback_tE">
+<span id="_CPPv3N9chemfiles18warning_callback_tE"></span><span id="_CPPv2N9chemfiles18warning_callback_tE"></span><span id="chemfiles::warning_callback_t"></span><span class="target" id="namespacechemfiles_1aecc7d16c111293c05425fc7d4cbe1c36"></span><em class="property">typedef </em>std::function&lt;void<span class="sig-paren">(</span><em class="property">const</em> std::string &amp;message<span class="sig-paren">)</span>&gt; <code class="sig-prename descclassname">chemfiles<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">warning_callback_t</code><a class="headerlink" href="#_CPPv4N9chemfiles18warning_callback_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback type used to process a warning event. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="configuration-files">
+<h2>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h2>
+<p>You can add more <a class="reference internal" href="../configuration.html#configuration"><span class="std std-ref">configuration</span></a> file to chemfiles with
+<a class="reference internal" href="#_CPPv4N9chemfiles17add_configurationERKNSt6stringE" title="chemfiles::add_configuration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chemfiles::add_configuration()</span></code></a>.</p>
+<dl class="function">
+<dt id="_CPPv4N9chemfiles17add_configurationERKNSt6stringE">
+<span id="_CPPv3N9chemfiles17add_configurationERKNSt6stringE"></span><span id="_CPPv2N9chemfiles17add_configurationERKNSt6stringE"></span><span id="chemfiles::add_configuration__ssCR"></span><span class="target" id="namespacechemfiles_1a488edb731b6fa9a383d9674635dafa6e"></span>void <code class="sig-prename descclassname">chemfiles<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">add_configuration</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles17add_configurationERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read configuration data from the file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<p>By default, chemfiles reads configuration from any file named <code class="docutils literal notranslate"><span class="pre">.chemfiles.toml</span></code> or <code class="docutils literal notranslate"><span class="pre">chemfiles.toml</span></code> in the current directory or any parent directory. This function can be used to add data from another configuration file.</p>
+<p>This function will throw a <code class="docutils literal notranslate"><a class="reference internal" href="#structchemfiles_1_1_configuration_error"><span class="std std-ref"><span class="pre">ConfigurationError</span></span></a></code> if there is no file at <code class="docutils literal notranslate"><span class="pre">path</span></code>, or if the file is incorectly formatted. Data from the new configuration file will overwrite any existing data.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">chemfiles</span><span class="o">::</span><span class="n">add_configuration</span><span class="p">(</span><span class="s">&quot;local-file.toml&quot;</span><span class="p">);</span>
+
+<span class="c1">// Reading a trajectory will now use data from local-file.toml</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code>: path to the configuration file to add</p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="#structchemfiles_1_1_configuration_error"><span class="std std-ref"><span class="pre">ConfigurationError</span></span></a></code>: if the file at <code class="docutils literal notranslate"><span class="pre">path</span></code> can not be read, or if it is invalid. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

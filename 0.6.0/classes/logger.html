@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Logging capacities &mdash; Chemfiles 0.6.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.6.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Errors and exceptions" href="errors.html" />
+    <link rel="prev" title="Selections" href="selection.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Logging capacities</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="selection.html" title="Previous Chapter: Selections"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selections</span>
+    </a>
+  </li>
+  <li>
+    <a href="errors.html" title="Next Chapter: Errors and exceptions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Errors and ex... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="logging-capacities">
+<h1>Logging capacities<a class="headerlink" href="#logging-capacities" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger"></span><em>class</em> <code class="descname">chemfiles::Logger</code></dt>
+<dd><p>The <a class="reference internal" href="#project0classchemfiles_1_1_logger"><span class="std std-ref">Logger</span></a> class is a singleton class providing logging facilities. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Type</p>
+<dl class="enum">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a25d07aa134ae36b02c7c52022b91cfea"></span><strong>LogBackend enum</strong></dt>
+<dd><p>Where the log message should go. </p>
+<p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">SILENT</span></code> - <p>Do not log anything. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">STDOUT</span></code> - <p>Log to stdout. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">STDERR</span></code> - <p>Log to stderr. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">FILE</span></code> - <p>Log to a file. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">CALLBACK</span></code> - <p>Log to the C callback. </p>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1aa9f6a347e276fb42716c44b8e985dfec"></span>template &lt;typename... <em>Args</em>&gt; </dt>
+<dt>
+void <code class="descname">log</code><span class="sig-paren">(</span>LogLevel <em>level</em>, Args const &amp;... <em>args</em><span class="sig-paren">)</span></dt>
+<dd><p>Log a <code class="docutils literal"><span class="pre">message</span></code> if the <code class="docutils literal"><span class="pre">level</span></code> is lower than the maximal curent logging level. The message can be built using a variadic function call, like: ```cxx <a class="reference internal" href="#project0classchemfiles_1_1_logger_1aa9f6a347e276fb42716c44b8e985dfec"><span class="std std-ref">Logger::log</span></a>(LogLevel::ERROR, &#8220;Here &#8221;, &#8221; and &#8221;, 4, &#8221; times &#8221;, there-&gt;call()); ``` </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1affc71b696c3abb491622f22a57303bdf"></span>template &lt;typename... <em>Args</em>&gt; </dt>
+<dt>
+void <code class="descname">error</code><span class="sig-paren">(</span>Args const &amp;... <em>args</em><span class="sig-paren">)</span></dt>
+<dd><p>Equivalent to <code class="docutils literal"><a class="reference internal" href="#project0classchemfiles_1_1_logger_1aa9f6a347e276fb42716c44b8e985dfec"><span class="std std-ref"><span class="pre">Logger::log</span></span></a><span class="pre">(LogLevel::ERROR,</span> <span class="pre">args...)</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a4791912ca57e69b623de473e5612d283"></span>template &lt;typename... <em>Args</em>&gt; </dt>
+<dt>
+void <code class="descname">warn</code><span class="sig-paren">(</span>Args const &amp;... <em>args</em><span class="sig-paren">)</span></dt>
+<dd><p>Equivalent to <code class="docutils literal"><a class="reference internal" href="#project0classchemfiles_1_1_logger_1aa9f6a347e276fb42716c44b8e985dfec"><span class="std std-ref"><span class="pre">Logger::log</span></span></a><span class="pre">(LogLevel::ERROR,</span> <span class="pre">args...)</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a63c076b5b645bf0febc03d3ef72800f8"></span>template &lt;typename... <em>Args</em>&gt; </dt>
+<dt>
+void <code class="descname">info</code><span class="sig-paren">(</span>Args const &amp;... <em>args</em><span class="sig-paren">)</span></dt>
+<dd><p>Equivalent to <code class="docutils literal"><a class="reference internal" href="#project0classchemfiles_1_1_logger_1aa9f6a347e276fb42716c44b8e985dfec"><span class="std std-ref"><span class="pre">Logger::log</span></span></a><span class="pre">(LogLevel::ERROR,</span> <span class="pre">args...)</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a4c26409574b63a11c3f656b0d165c406"></span>template &lt;typename... <em>Args</em>&gt; </dt>
+<dt>
+void <code class="descname">debug</code><span class="sig-paren">(</span>Args const &amp;... <em>args</em><span class="sig-paren">)</span></dt>
+<dd><p>Equivalent to <code class="docutils literal"><a class="reference internal" href="#project0classchemfiles_1_1_logger_1aa9f6a347e276fb42716c44b8e985dfec"><span class="std std-ref"><span class="pre">Logger::log</span></span></a><span class="pre">(LogLevel::ERROR,</span> <span class="pre">args...)</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a5f5c4c0d3e02aefed9fb968decbee296"></span>void <code class="descname">set_level</code><span class="sig-paren">(</span>LogLevel <em>level</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the logging level. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1acf9a63eb952cdf5dce69f98510692214"></span>LogLevel <code class="descname">level</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Get the current logging level. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a868c6b116a09320301a820de13b0e3d4"></span>void <code class="descname">to_stdout</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Make the logger output to stdout. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a0f7faae6c3ea91f230dd56b266c28567"></span>void <code class="descname">to_stderr</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Make the logger output to stderr. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a14a20097297c3772afce5d897160fea1"></span>void <code class="descname">silent</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Silent the logger. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a5d9b7f33e87dc038f1c976d411f7d6c5"></span>void <code class="descname">to_file</code><span class="sig-paren">(</span>const std::string &amp; <em>path</em><span class="sig-paren">)</span></dt>
+<dd><p>Make the logger output to the file at <code class="docutils literal"><span class="pre">path</span></code>. The file will be created and overwrited if it already exists. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1aabf720b92f642eacbcded93bb37cb4cc"></span>void <code class="descname">callback</code><span class="sig-paren">(</span>logging_cb_t <em>function</em><span class="sig-paren">)</span></dt>
+<dd><p>Set a callback that will be called to perform logging. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_logger_1a71116344d1788489be3faeca203b57fb"></span><a class="reference internal" href="#project0classchemfiles_1_1_logger_1a25d07aa134ae36b02c7c52022b91cfea"><span class="std std-ref">LogBackend</span></a> <code class="descname">backend</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Get the current logging backend. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

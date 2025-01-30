@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Unit Cell &mdash; Chemfiles 0.6.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.6.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Selections" href="selection.html" />
+    <link rel="prev" title="Atoms and atomic informations" href="atom.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Unit Cell</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="atom.html" title="Previous Chapter: Atoms and atomic informations"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Atoms and ato...</span>
+    </a>
+  </li>
+  <li>
+    <a href="selection.html" title="Next Chapter: Selections"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Selections &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="unit-cell">
+<h1>Unit Cell<a class="headerlink" href="#unit-cell" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell"></span><em>class</em> <code class="descname">chemfiles::UnitCell</code></dt>
+<dd><p>An <a class="reference internal" href="#project0classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> represent the box containing the atoms, and its periodicity. </p>
+<p>A unit cell is fully represented by three lenghts (a, b, c); and three angles (alpha, beta, gamma). The angles are stored in degrees, and the lenghts in Angstroms.</p>
+<p>A cell also has a matricial representation, by projecting the three base vector into an orthonormal base. We choose to represent such matrix as an upper triangular matrix: <div class="highlight-default"><div class="highlight"><pre><span></span>            <span class="o">|</span> <span class="n">a_x</span>   <span class="n">b_x</span>   <span class="n">c_x</span> <span class="o">|</span>
+            <span class="o">|</span>  <span class="mi">0</span>    <span class="n">b_y</span>   <span class="n">c_y</span> <span class="o">|</span>
+            <span class="o">|</span>  <span class="mi">0</span>     <span class="mi">0</span>    <span class="n">c_z</span> <span class="o">|</span>
+</pre></div>
+</div>
+</p>
+<p>An unit cell also have a cell type, represented by the <code class="docutils literal"><span class="pre">CellType</span></code> enum. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a0046c8618a824fc077fcd561aa792a3f"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>const <a class="reference internal" href="#project0classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> &amp; <em>other</em><span class="sig-paren">)</span></dt>
+<dd><p>Copy constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a72e79e0b1f2fc3cea65822fe9535b0b9"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> &amp;&amp; <em>other</em><span class="sig-paren">)</span></dt>
+<dd><p>Move constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a7217ff77357c0a8529c3066efc97d23b"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Construct an INFINITE unit cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1ab84c14c358173a2abcc572e0c82fbe3b"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>double <em>a</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct a cubic unit cell of side size <code class="docutils literal"><span class="pre">a</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a93d90cb3461642f7d8c424b4349c93c8"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>double <em>a</em>, double <em>b</em>, double <em>c</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct an ORTHOROMBIC unit cell of side size <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, <code class="docutils literal"><span class="pre">c</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a65c051fa7c5f393fbebf9f5b16493d56"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>double <em>a</em>, double <em>b</em>, double <em>c</em>, double <em>alpha</em>, double <em>beta</em>, double <em>gamma</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct a TRICLINIC unit cell of side size <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, <code class="docutils literal"><span class="pre">c</span></code>, and cell angles <code class="docutils literal"><span class="pre">alpha</span></code>, <code class="docutils literal"><span class="pre">beta</span></code>, <code class="docutils literal"><span class="pre">gamma</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a17623a0f7b0bb723432f9569cfc31821"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_unit_cell_1aab7d15fe453cda82b88ef0ae2a06b7a6"><span class="std std-ref">CellType</span></a> <em>type</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct a cell of type <code class="docutils literal"><span class="pre">type</span></code>, with all lenghts set to 0 and all angles set to 90° </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1af4c3ef2035454e2e0470c920926b44f7"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_unit_cell_1aab7d15fe453cda82b88ef0ae2a06b7a6"><span class="std std-ref">CellType</span></a> <em>type</em>, double <em>a</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct a cell of type <code class="docutils literal"><span class="pre">type</span></code>, with all lenghts set to <code class="docutils literal"><span class="pre">a</span></code> and all angles set to 90° </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a38a4960352d3e0355048264516297f9c"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_unit_cell_1aab7d15fe453cda82b88ef0ae2a06b7a6"><span class="std std-ref">CellType</span></a> <em>type</em>, double <em>a</em>, double <em>b</em>, double <em>c</em><span class="sig-paren">)</span></dt>
+<dd><p>Construct a cell of type <code class="docutils literal"><span class="pre">type</span></code>, with lenghts set to <code class="docutils literal"><span class="pre">a</span></code> ,<code class="docutils literal"><span class="pre">b</span></code>, <code class="docutils literal"><span class="pre">d</span></code>, and all angles set to 90° </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a3f7aec72b4b5808c2ad92afee514b38e"></span>Matrix3D <code class="descname">matricial</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get a matricial representation of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a53a88b361cf5d1ae31d27e253322ec47"></span>void <code class="descname">raw_matricial</code><span class="sig-paren">(</span>double <em>matrix</em>[3][3]<span class="sig-paren">)</span> const</dt>
+<dd><p>Populate C-style matricial representation of the cell. The array should have a 3 x 3 size. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a957c24d67ecdaea7d9da12bcba8947c3"></span><a class="reference internal" href="#project0classchemfiles_1_1_unit_cell_1aab7d15fe453cda82b88ef0ae2a06b7a6"><span class="std std-ref">CellType</span></a> <code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the cell type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a1c78d2aa6672ef78b0e5e65346a202f6"></span>void <code class="descname">type</code><span class="sig-paren">(</span><a class="reference internal" href="#project0classchemfiles_1_1_unit_cell_1aab7d15fe453cda82b88ef0ae2a06b7a6"><span class="std std-ref">CellType</span></a> <em>t</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the cell type to t. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a6a49953a1d489db20fb5573f3afb88e1"></span>double <code class="descname">a</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the first lenght (a) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1ad5ff39afd0989b1871308471f675c153"></span>void <code class="descname">set_a</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the first lenght (a) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a674dce3076f2f650c2f4e8ab36a2c157"></span>double <code class="descname">b</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the second lenght (b) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1acff3f4d6cc9cb382a28cca14026b7783"></span>void <code class="descname">set_b</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the second lenght (b) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a1ff9fb3420340a433733ae88ec13fc0f"></span>double <code class="descname">c</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the third lenght (c) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1af5cef828be2dd17872fddedbcf21e720"></span>void <code class="descname">set_c</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the third lenght (c) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a7ab30e500f6ff1e11f6c4f7b1ca1f518"></span>double <code class="descname">alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the first angle (alpha) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a4154999284d92d4cb256cce3b3b08521"></span>void <code class="descname">set_alpha</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the first angle (alpha) of the cell if possible. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a6af19a0e751e0f617ee1776ecdc223d2"></span>double <code class="descname">beta</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the second angle (beta) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1adbe37df9f6249640055c192532e95d0b"></span>void <code class="descname">set_beta</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the second angle (beta) of the cell if possible. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a7c687c2affc3e922cceb510c77e3aa44"></span>double <code class="descname">gamma</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the third angle (gamma) of the cell. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a6f89858e81b39ede6443109184fafb14"></span>void <code class="descname">set_gamma</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Set the third angle (gamma) of the cell if possible. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a2d5f7907d8762dc1d24227d5825e2219"></span>double <code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the unit cell volume. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1a1610355c27740a2ca7c4df1684814f47"></span>Vector3D <code class="descname">wrap</code><span class="sig-paren">(</span>const Vector3D &amp; <em>vect</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Wrap the vector <code class="docutils literal"><span class="pre">vect</span></code> in the unit cell, using periodic boundary conditions. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_unit_cell_1aab7d15fe453cda82b88ef0ae2a06b7a6"></span><strong>CellType enum</strong></dt>
+<dd><p><em>Values:</em></p>
+<ul class="breatheenumvalues">
+<li><code class="first docutils literal"><span class="pre">ORTHORHOMBIC</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">0</span></code> - <p>Orthorhombic cell, with the three angles equals to 90° </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">TRICLINIC</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">1</span></code> - <p>Triclinic cell, with any values for the angles. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">INFINITE</span></code><code class="docutils literal"> <span class="pre">=</span> <span class="pre">=</span> <span class="pre">2</span></code> - <p>Infinite cell, to use when there is no cell. </p>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>CHFL_TOPOLOGY &#8212; Chemfiles 0.9.2
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CHFL_RESIDUE" href="chfl_residue.html" />
+    <link rel="prev" title="CHFL_FRAME" href="chfl_frame.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.9</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_frame.html" title="Previous Chapter: CHFL_FRAME"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; CHFL_FRAME</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_residue.html" title="Next Chapter: CHFL_RESIDUE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">CHFL_RESIDUE &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chfl_trajectory.html"><code class="docutils literal notranslate"><span class="pre">CHFL_TRAJECTORY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_frame.html"><code class="docutils literal notranslate"><span class="pre">CHFL_FRAME</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">CHFL_TOPOLOGY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_residue.html"><code class="docutils literal notranslate"><span class="pre">CHFL_RESIDUE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_atom.html"><code class="docutils literal notranslate"><span class="pre">CHFL_ATOM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_cell.html"><code class="docutils literal notranslate"><span class="pre">CHFL_CELL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_selection.html"><code class="docutils literal notranslate"><span class="pre">CHFL_SELECTION</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chfl_property.html"><code class="docutils literal notranslate"><span class="pre">CHFL_PROPERTY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">Miscelaneous functions</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="chfl-topology">
+<span id="capi-topology"></span><h1><code class="docutils literal notranslate"><span class="pre">CHFL_TOPOLOGY</span></code><a class="headerlink" href="#chfl-topology" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv413CHFL_TOPOLOGY">
+<span id="_CPPv313CHFL_TOPOLOGY"></span><span id="_CPPv213CHFL_TOPOLOGY"></span><span id="CHFL_TOPOLOGY"></span><span class="target" id="types_8h_1a76298a301b263e56aad71a91d87e7cb4"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> <code class="sig-name descname">CHFL_TOPOLOGY</code><a class="headerlink" href="#_CPPv413CHFL_TOPOLOGY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An opaque type handling a topology.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">CHFL_TOPOLOGY</span></code> contains the definition of all the atoms in the system, and the liaisons between the atoms (bonds, angles, dihedrals, …). It will also contain all the residues information if it is available. </p>
+</dd></dl>
+
+<p>Here is the full list of functions acting on <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">CHFL_TOPOLOGY</span></code></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#_CPPv413chfl_topologyv" title="chfl_topology"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv424chfl_topology_from_framePK10CHFL_FRAME" title="chfl_topology_from_frame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_from_frame()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv418chfl_topology_copyPK13CHFL_TOPOLOGY" title="chfl_topology_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_copy()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_topology_atoms_countPK13CHFL_TOPOLOGYP8uint64_t" title="chfl_topology_atoms_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_atoms_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv420chfl_topology_resizeP13CHFL_TOPOLOGY8uint64_t" title="chfl_topology_resize"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_resize()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv422chfl_topology_add_atomP13CHFL_TOPOLOGYPK9CHFL_ATOM" title="chfl_topology_add_atom"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_add_atom()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv420chfl_topology_removeP13CHFL_TOPOLOGY8uint64_t" title="chfl_topology_remove"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_remove()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv422chfl_topology_add_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t" title="chfl_topology_add_bond"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_add_bond()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_topology_remove_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t" title="chfl_topology_remove_bond"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_remove_bond()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_topology_bonds_countPK13CHFL_TOPOLOGYP8uint64_t" title="chfl_topology_bonds_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_bonds_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv426chfl_topology_angles_countPK13CHFL_TOPOLOGYP8uint64_t" title="chfl_topology_angles_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_angles_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv429chfl_topology_dihedrals_countPK13CHFL_TOPOLOGYP8uint64_t" title="chfl_topology_dihedrals_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_dihedrals_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv429chfl_topology_impropers_countPK13CHFL_TOPOLOGYP8uint64_t" title="chfl_topology_impropers_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_impropers_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv419chfl_topology_bondsPK13CHFL_TOPOLOGYPAL2E_8uint64_t8uint64_t" title="chfl_topology_bonds"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_bonds()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv420chfl_topology_anglesPK13CHFL_TOPOLOGYPAL3E_8uint64_t8uint64_t" title="chfl_topology_angles"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_angles()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv423chfl_topology_dihedralsPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t" title="chfl_topology_dihedrals"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_dihedrals()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv423chfl_topology_impropersPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t" title="chfl_topology_impropers"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_impropers()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_topology_add_residueP13CHFL_TOPOLOGYPK12CHFL_RESIDUE" title="chfl_topology_add_residue"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_add_residue()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv428chfl_topology_residues_countPK13CHFL_TOPOLOGYP8uint64_t" title="chfl_topology_residues_count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_residues_count()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv429chfl_topology_residues_linkedPK13CHFL_TOPOLOGYPK12CHFL_RESIDUEPK12CHFL_RESIDUEPb" title="chfl_topology_residues_linked"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_residues_linked()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv429chfl_topology_bond_with_orderP13CHFL_TOPOLOGY8uint64_t8uint64_t15chfl_bond_order" title="chfl_topology_bond_with_order"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_bond_with_order()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv425chfl_topology_bond_ordersPK13CHFL_TOPOLOGYA_15chfl_bond_order8uint64_t" title="chfl_topology_bond_orders"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_bond_orders()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv424chfl_topology_bond_orderPK13CHFL_TOPOLOGY8uint64_t8uint64_tP15chfl_bond_order" title="chfl_topology_bond_order"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chfl_topology_bond_order()</span></code></a></p></li>
+</ul>
+<hr class="docutils" />
+<dl class="function">
+<dt id="_CPPv413chfl_topologyv">
+<span id="_CPPv313chfl_topologyv"></span><span id="_CPPv213chfl_topologyv"></span><span id="chfl_topology__void"></span><span class="target" id="topology_8h_1a586a44d41a0ba1b88d9c846be498e556"></span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<code class="sig-name descname">chfl_topology</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413chfl_topologyv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new empty topology.</p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">topology</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>A pointer to the topology, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv424chfl_topology_from_framePK10CHFL_FRAME">
+<span id="_CPPv324chfl_topology_from_framePK10CHFL_FRAME"></span><span id="_CPPv224chfl_topology_from_framePK10CHFL_FRAME"></span><span id="chfl_topology_from_frame__CHFL_FRAMECP"></span><span class="target" id="topology_8h_1ab3b597528032e83e18899cc17b48399a"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<code class="sig-name descname">chfl_topology_from_frame</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="chfl_frame.html#_CPPv410CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424chfl_topology_from_framePK10CHFL_FRAME" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get access to the topology of a <code class="docutils literal notranslate"><span class="pre">frame</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">frame</span></code> will be kept alive, even if <code class="docutils literal notranslate"><span class="pre">chfl_free(frame)</span></code> is called, until <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code> is also called on the pointer returned by this function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">chfl_frame_set_topology</span></code> is called, this pointer will point to the new topology.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">topology</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>A pointer to the topology, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv418chfl_topology_copyPK13CHFL_TOPOLOGY">
+<span id="_CPPv318chfl_topology_copyPK13CHFL_TOPOLOGY"></span><span id="_CPPv218chfl_topology_copyPK13CHFL_TOPOLOGY"></span><span id="chfl_topology_copy__CHFL_TOPOLOGYCP"></span><span class="target" id="topology_8h_1aeb8c594f150de45011ca0920b7ea821e"></span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<code class="sig-name descname">chfl_topology_copy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418chfl_topology_copyPK13CHFL_TOPOLOGY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a copy of a <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal notranslate"><span class="pre">chfl_free</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">chfl_topology_copy</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">copy</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>A pointer to the new topology, or NULL in case of error. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv425chfl_topology_atoms_countPK13CHFL_TOPOLOGYP8uint64_t">
+<span id="_CPPv325chfl_topology_atoms_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="_CPPv225chfl_topology_atoms_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="chfl_topology_atoms_count__CHFL_TOPOLOGYCP.uint64_tP"></span><span class="target" id="topology_8h_1a496ccfe60abe85b18bcc854d8f140c49"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_atoms_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t *<em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_topology_atoms_countPK13CHFL_TOPOLOGYP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of atoms in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_atoms_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv420chfl_topology_resizeP13CHFL_TOPOLOGY8uint64_t">
+<span id="_CPPv320chfl_topology_resizeP13CHFL_TOPOLOGY8uint64_t"></span><span id="_CPPv220chfl_topology_resizeP13CHFL_TOPOLOGY8uint64_t"></span><span id="chfl_topology_resize__CHFL_TOPOLOGYP.uint64_t"></span><span class="target" id="topology_8h_1ae011d9481db5f96555cbb7f6c8d81bfd"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_resize</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420chfl_topology_resizeP13CHFL_TOPOLOGY8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resize the <code class="docutils literal notranslate"><span class="pre">topology</span></code> to hold <code class="docutils literal notranslate"><span class="pre">natoms</span></code> atoms. If the new number of atoms is bigger than the current number, new atoms will be created with an empty name and type. If it is lower than the current number of atoms, the last atoms will be removed, together with the associated bonds, angles and dihedrals.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">chfl_topology_resize</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">67</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_atoms_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">67</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422chfl_topology_add_atomP13CHFL_TOPOLOGYPK9CHFL_ATOM">
+<span id="_CPPv322chfl_topology_add_atomP13CHFL_TOPOLOGYPK9CHFL_ATOM"></span><span id="_CPPv222chfl_topology_add_atomP13CHFL_TOPOLOGYPK9CHFL_ATOM"></span><span id="chfl_topology_add_atom__CHFL_TOPOLOGYP.CHFL_ATOMCP"></span><span class="target" id="topology_8h_1aa732699702b51c09b28e78df978cb8e3"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_add_atom</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, <em class="property">const</em> <a class="reference internal" href="chfl_atom.html#_CPPv49CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422chfl_topology_add_atomP13CHFL_TOPOLOGYPK9CHFL_ATOM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a copy of an <code class="docutils literal notranslate"><span class="pre">atom</span></code> at the end of a <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv420chfl_topology_removeP13CHFL_TOPOLOGY8uint64_t">
+<span id="_CPPv320chfl_topology_removeP13CHFL_TOPOLOGY8uint64_t"></span><span id="_CPPv220chfl_topology_removeP13CHFL_TOPOLOGY8uint64_t"></span><span id="chfl_topology_remove__CHFL_TOPOLOGYP.uint64_t"></span><span class="target" id="topology_8h_1a7f167f4b75e704664a083aca863a3c75"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_remove</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420chfl_topology_removeP13CHFL_TOPOLOGY8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> from a <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>This shifts all the atoms indexes after <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1 (n becomes n-1).</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="c1">// Add a fex atoms to the topology</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_atoms_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+
+<span class="n">chfl_topology_remove</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">chfl_topology_atoms_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422chfl_topology_add_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t">
+<span id="_CPPv322chfl_topology_add_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t"></span><span id="_CPPv222chfl_topology_add_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t"></span><span id="chfl_topology_add_bond__CHFL_TOPOLOGYP.uint64_t.uint64_t"></span><span class="target" id="topology_8h_1ac1365fc6c2a849ee2bde26e14d0f4955"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_add_bond</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>i</em>, uint64_t <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422chfl_topology_add_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in the <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">bonds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv425chfl_topology_remove_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t">
+<span id="_CPPv325chfl_topology_remove_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t"></span><span id="_CPPv225chfl_topology_remove_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t"></span><span id="chfl_topology_remove_bond__CHFL_TOPOLOGYP.uint64_t.uint64_t"></span><span class="target" id="topology_8h_1a70fc9970cc6fd49ce0a4b0ca1ab72bba"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_remove_bond</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>i</em>, uint64_t <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_topology_remove_bondP13CHFL_TOPOLOGY8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in the <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>This function does nothing if there is no bond between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">bonds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_topology_remove_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv425chfl_topology_bonds_countPK13CHFL_TOPOLOGYP8uint64_t">
+<span id="_CPPv325chfl_topology_bonds_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="_CPPv225chfl_topology_bonds_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="chfl_topology_bonds_count__CHFL_TOPOLOGYCP.uint64_tP"></span><span class="target" id="topology_8h_1af1f32d2ed9cee0bbb29208310db12b94"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_bonds_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t *<em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_topology_bonds_countPK13CHFL_TOPOLOGYP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of bonds in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">bonds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv426chfl_topology_angles_countPK13CHFL_TOPOLOGYP8uint64_t">
+<span id="_CPPv326chfl_topology_angles_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="_CPPv226chfl_topology_angles_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="chfl_topology_angles_count__CHFL_TOPOLOGYCP.uint64_tP"></span><span class="target" id="topology_8h_1a3fe166676074451caf7c87d1f1f73bdc"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_angles_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t *<em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426chfl_topology_angles_countPK13CHFL_TOPOLOGYP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of angles in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="c1">// We have two angles: 0-1-2 and 1-2-3</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">angles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_angles_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">angles</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv429chfl_topology_dihedrals_countPK13CHFL_TOPOLOGYP8uint64_t">
+<span id="_CPPv329chfl_topology_dihedrals_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="_CPPv229chfl_topology_dihedrals_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="chfl_topology_dihedrals_count__CHFL_TOPOLOGYCP.uint64_tP"></span><span class="target" id="topology_8h_1a7338c31cbb1e54d192e0d169643ba65f"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_dihedrals_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t *<em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429chfl_topology_dihedrals_countPK13CHFL_TOPOLOGYP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of dihedral angles in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="c1">// We have one dihedral angle: 0-1-2-3</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">dihedrals</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_dihedrals_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dihedrals</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedrals</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv429chfl_topology_impropers_countPK13CHFL_TOPOLOGYP8uint64_t">
+<span id="_CPPv329chfl_topology_impropers_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="_CPPv229chfl_topology_impropers_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="chfl_topology_impropers_count__CHFL_TOPOLOGYCP.uint64_tP"></span><span class="target" id="topology_8h_1a0002b586123c4229221c4f42f13af50e"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_impropers_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t *<em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429chfl_topology_impropers_countPK13CHFL_TOPOLOGYP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of improper dihedral angles in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">impropers</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_impropers_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">impropers</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">impropers</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv419chfl_topology_bondsPK13CHFL_TOPOLOGYPAL2E_8uint64_t8uint64_t">
+<span id="_CPPv319chfl_topology_bondsPK13CHFL_TOPOLOGYPAL2E_8uint64_t8uint64_t"></span><span id="_CPPv219chfl_topology_bondsPK13CHFL_TOPOLOGYPA2_8uint64_t8uint64_t"></span><span class="target" id="topology_8h_1a31f97c948bd18db1dbebcffe32176f96"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_bonds</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t (*<em>data</em>)[2], uint64_t <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419chfl_topology_bondsPK13CHFL_TOPOLOGYPAL2E_8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of bonds in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">data</span></code> of size <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data</span></code> size must be passed in the <code class="docutils literal notranslate"><span class="pre">count</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_topology_bonds_count</span></code>. The bonds are sorted in the array.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">bonds</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">}};</span>
+<span class="n">chfl_topology_bonds</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">bonds</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv420chfl_topology_anglesPK13CHFL_TOPOLOGYPAL3E_8uint64_t8uint64_t">
+<span id="_CPPv320chfl_topology_anglesPK13CHFL_TOPOLOGYPAL3E_8uint64_t8uint64_t"></span><span id="_CPPv220chfl_topology_anglesPK13CHFL_TOPOLOGYPA3_8uint64_t8uint64_t"></span><span class="target" id="topology_8h_1a614a62d61d60d35b0ab83e92a9af09a9"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_angles</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t (*<em>data</em>)[3], uint64_t <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420chfl_topology_anglesPK13CHFL_TOPOLOGYPAL3E_8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of angles in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">data</span></code> of size <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data</span></code> size must be passed in the <code class="docutils literal notranslate"><span class="pre">count</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_topology_angles_count</span></code>. The angles are sorted in the array.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">angles</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">}};</span>
+<span class="n">chfl_topology_angles</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423chfl_topology_dihedralsPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t">
+<span id="_CPPv323chfl_topology_dihedralsPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t"></span><span id="_CPPv223chfl_topology_dihedralsPK13CHFL_TOPOLOGYPA4_8uint64_t8uint64_t"></span><span class="target" id="topology_8h_1a2585150eb4c74560b93b2b2444323045"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_dihedrals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t (*<em>data</em>)[4], uint64_t <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423chfl_topology_dihedralsPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of dihedral angles in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">data</span></code> of size <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data</span></code> size must be passed in the <code class="docutils literal notranslate"><span class="pre">count</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_topology_dihedrals_count</span></code>. The dihedrals are sorted in the array.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">dihedrals</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">}};</span>
+<span class="n">chfl_topology_dihedrals</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">dihedrals</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">dihedrals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv423chfl_topology_impropersPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t">
+<span id="_CPPv323chfl_topology_impropersPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t"></span><span id="_CPPv223chfl_topology_impropersPK13CHFL_TOPOLOGYPA4_8uint64_t8uint64_t"></span><span class="target" id="topology_8h_1a2ca681a35fc8b83a5185fa3d12ef2dc9"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_impropers</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t (*<em>data</em>)[4], uint64_t <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423chfl_topology_impropersPK13CHFL_TOPOLOGYPAL4E_8uint64_t8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of improper dihedral angles in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">data</span></code> of size <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data</span></code> size must be passed in the <code class="docutils literal notranslate"><span class="pre">count</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_topology_impropers_count</span></code>. The impropers are sorted in the array.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">chfl_topology_add_bond</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">impropers</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">}};</span>
+<span class="n">chfl_topology_impropers</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">impropers</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">impropers</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">impropers</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">impropers</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">impropers</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv425chfl_topology_add_residueP13CHFL_TOPOLOGYPK12CHFL_RESIDUE">
+<span id="_CPPv325chfl_topology_add_residueP13CHFL_TOPOLOGYPK12CHFL_RESIDUE"></span><span id="_CPPv225chfl_topology_add_residueP13CHFL_TOPOLOGYPK12CHFL_RESIDUE"></span><span id="chfl_topology_add_residue__CHFL_TOPOLOGYP.CHFL_RESIDUECP"></span><span class="target" id="topology_8h_1a532d8728d28d956f53ad3b0ecd803027"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_add_residue</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, <em class="property">const</em> <a class="reference internal" href="chfl_residue.html#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE">CHFL_RESIDUE</a> *<em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_topology_add_residueP13CHFL_TOPOLOGYPK12CHFL_RESIDUE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a copy of <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p>The residue id must not already be in the topology, and the residue must contain only atoms that are not already in another residue.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+<span class="n">CHFL_RESIDUE</span><span class="o">*</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">chfl_residue</span><span class="p">(</span><span class="s">&quot;res&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_topology_add_residue</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">residue</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">residue</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv428chfl_topology_residues_countPK13CHFL_TOPOLOGYP8uint64_t">
+<span id="_CPPv328chfl_topology_residues_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="_CPPv228chfl_topology_residues_countPK13CHFL_TOPOLOGYP8uint64_t"></span><span id="chfl_topology_residues_count__CHFL_TOPOLOGYCP.uint64_tP"></span><span class="target" id="topology_8h_1a08bae98ac5302d728d7261b1538394f6"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_residues_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t *<em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428chfl_topology_residues_countPK13CHFL_TOPOLOGYP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of residues in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the integer pointed to by <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_RESIDUE</span><span class="o">*</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">chfl_residue</span><span class="p">(</span><span class="s">&quot;res&quot;</span><span class="p">);</span>
+<span class="n">chfl_topology_add_residue</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">residue</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">residue</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">residues</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_residues_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">residues</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">residues</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv429chfl_topology_residues_linkedPK13CHFL_TOPOLOGYPK12CHFL_RESIDUEPK12CHFL_RESIDUEPb">
+<span id="_CPPv329chfl_topology_residues_linkedPK13CHFL_TOPOLOGYPK12CHFL_RESIDUEPK12CHFL_RESIDUEPb"></span><span id="_CPPv229chfl_topology_residues_linkedPK13CHFL_TOPOLOGYPK12CHFL_RESIDUEPK12CHFL_RESIDUEPb"></span><span id="chfl_topology_residues_linked__CHFL_TOPOLOGYCP.CHFL_RESIDUECP.CHFL_RESIDUECP.bP"></span><span class="target" id="topology_8h_1a9a140834c75c81cb340ba2ab09135137"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_residues_linked</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, <em class="property">const</em> <a class="reference internal" href="chfl_residue.html#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE">CHFL_RESIDUE</a> *<em>first</em>, <em class="property">const</em> <a class="reference internal" href="chfl_residue.html#_CPPv412CHFL_RESIDUE" title="CHFL_RESIDUE">CHFL_RESIDUE</a> *<em>second</em>, bool *<em>result</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429chfl_topology_residues_linkedPK13CHFL_TOPOLOGYPK12CHFL_RESIDUEPK12CHFL_RESIDUEPb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the two residues <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">second</span></code> from the <code class="docutils literal notranslate"><span class="pre">topology</span></code> are linked together, <em>i.e.</em> if there is a bond between one atom in the first residue and one atom in the second one, and store the result in <code class="docutils literal notranslate"><span class="pre">result.</span></code></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="c1">// Build the topology ...</span>
+
+<span class="k">const</span> <span class="n">CHFL_RESIDUE</span><span class="o">*</span> <span class="n">first</span> <span class="o">=</span> <span class="n">chfl_residue_from_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">CHFL_RESIDUE</span><span class="o">*</span> <span class="n">second</span> <span class="o">=</span> <span class="n">chfl_residue_from_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="n">linked</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">chfl_topology_residues_linked</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">linked</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">second</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv429chfl_topology_bond_with_orderP13CHFL_TOPOLOGY8uint64_t8uint64_t15chfl_bond_order">
+<span id="_CPPv329chfl_topology_bond_with_orderP13CHFL_TOPOLOGY8uint64_t8uint64_t15chfl_bond_order"></span><span id="_CPPv229chfl_topology_bond_with_orderP13CHFL_TOPOLOGY8uint64_t8uint64_t15chfl_bond_order"></span><span id="chfl_topology_bond_with_order__CHFL_TOPOLOGYP.uint64_t.uint64_t.chfl_bond_order"></span><span class="target" id="topology_8h_1ad907422c9aecb3cf4e22c839bb838092"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_bond_with_order</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>i</em>, uint64_t <em>j</em>, chfl_bond_order <em>bond_order</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429chfl_topology_bond_with_orderP13CHFL_TOPOLOGY8uint64_t8uint64_t15chfl_bond_order" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> with bond order <code class="docutils literal notranslate"><span class="pre">bond_order</span></code> in the <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_bond_with_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">CHFL_BOND_SINGLE</span><span class="p">);</span>
+<span class="n">chfl_topology_bond_with_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">CHFL_BOND_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_bond_order</span> <span class="n">bond_orders</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_topology_bond_orders</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">bond_orders</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond_orders</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">CHFL_BOND_SINGLE</span><span class="p">);</span>
+
+<span class="n">chfl_bond_order</span> <span class="n">order</span><span class="p">;</span>
+<span class="n">chfl_topology_bond_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">order</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">order</span> <span class="o">==</span> <span class="n">CHFL_BOND_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv425chfl_topology_bond_ordersPK13CHFL_TOPOLOGYA_15chfl_bond_order8uint64_t">
+<span id="_CPPv325chfl_topology_bond_ordersPK13CHFL_TOPOLOGYA_15chfl_bond_order8uint64_t"></span><span id="_CPPv225chfl_topology_bond_ordersPK13CHFL_TOPOLOGYA_15chfl_bond_order8uint64_t"></span><span id="chfl_topology_bond_orders__CHFL_TOPOLOGYCP.chfl_bond_orderA.uint64_t"></span><span class="target" id="topology_8h_1aa0de2fa3eaa4e5a13ea6068014a29eb6"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_bond_orders</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, chfl_bond_order <em>orders</em>[], uint64_t <em>nbonds</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425chfl_topology_bond_ordersPK13CHFL_TOPOLOGYA_15chfl_bond_order8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of bond orders in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the pre-allocated array <code class="docutils literal notranslate"><span class="pre">orders</span></code> of size <code class="docutils literal notranslate"><span class="pre">nbonds</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">orders</span></code> size must be passed in the <code class="docutils literal notranslate"><span class="pre">nbonds</span></code> parameter, and be equal to the result of <code class="docutils literal notranslate"><span class="pre">chfl_topology_bond_count</span></code>. The bond orders are sorted so the bond order of <code class="docutils literal notranslate"><span class="pre">bond[i]</span></code> is <code class="docutils literal notranslate"><span class="pre">orders[i]</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_bond_with_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">CHFL_BOND_SINGLE</span><span class="p">);</span>
+<span class="n">chfl_topology_bond_with_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">CHFL_BOND_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_bond_order</span> <span class="n">bond_orders</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_topology_bond_orders</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">bond_orders</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond_orders</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">CHFL_BOND_SINGLE</span><span class="p">);</span>
+
+<span class="n">chfl_bond_order</span> <span class="n">order</span><span class="p">;</span>
+<span class="n">chfl_topology_bond_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">order</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">order</span> <span class="o">==</span> <span class="n">CHFL_BOND_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv424chfl_topology_bond_orderPK13CHFL_TOPOLOGY8uint64_t8uint64_tP15chfl_bond_order">
+<span id="_CPPv324chfl_topology_bond_orderPK13CHFL_TOPOLOGY8uint64_t8uint64_tP15chfl_bond_order"></span><span id="_CPPv224chfl_topology_bond_orderPK13CHFL_TOPOLOGY8uint64_t8uint64_tP15chfl_bond_order"></span><span id="chfl_topology_bond_order__CHFL_TOPOLOGYCP.uint64_t.uint64_t.chfl_bond_orderP"></span><span class="target" id="topology_8h_1aae3a19371f412d3d011dbb3d86eaebb5"></span><a class="reference internal" href="misc.html#_CPPv411chfl_status" title="chfl_status">chfl_status</a> <code class="sig-name descname">chfl_topology_bond_order</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv413CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>i</em>, uint64_t <em>j</em>, chfl_bond_order *<em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424chfl_topology_bond_orderPK13CHFL_TOPOLOGY8uint64_t8uint64_tP15chfl_bond_order" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a specific bond order in the <code class="docutils literal notranslate"><span class="pre">topology</span></code> in the chfl_bond_order pointed to by order</p>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> must be valid atom indexes in the topology and a bond must exist between these two atoms.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">atom</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="n">chfl_topology_bond_with_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">CHFL_BOND_SINGLE</span><span class="p">);</span>
+<span class="n">chfl_topology_bond_with_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">CHFL_BOND_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_bond_order</span> <span class="n">bond_orders</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_topology_bond_orders</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">bond_orders</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bond_orders</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">CHFL_BOND_SINGLE</span><span class="p">);</span>
+
+<span class="n">chfl_bond_order</span> <span class="n">order</span><span class="p">;</span>
+<span class="n">chfl_topology_bond_order</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">order</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">order</span> <span class="o">==</span> <span class="n">CHFL_BOND_DOUBLE</span><span class="p">);</span>
+
+<span class="n">chfl_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The operation status code. You can use <code class="docutils literal notranslate"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal notranslate"><span class="pre">CHFL_SUCCESS</span></code>. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

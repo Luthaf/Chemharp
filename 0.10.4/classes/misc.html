@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Miscelaneous &#8212; Chemfiles 0.10.4
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Helper classes" href="helpers.html" />
+    <link rel="prev" title="Property" href="property.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="property.html" title="Previous Chapter: Property"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Property</span>
+    </a>
+  </li>
+  <li>
+    <a href="helpers.html" title="Next Chapter: Helper classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Helper classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trajectory.html">Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residue.html">Residue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atom.html">Atom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unitcell.html">UnitCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html">Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="property.html">Property</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Miscelaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="miscelaneous">
+<h1>Miscelaneous<a class="headerlink" href="#miscelaneous" title="Permalink to this heading">¶</a></h1>
+<section id="basic-types">
+<h2>Basic types<a class="headerlink" href="#basic-types" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3DE">
+<span id="_CPPv3N9chemfiles8Vector3DE"></span><span id="_CPPv2N9chemfiles8Vector3DE"></span><span id="chemfiles::Vector3D"></span><span class="target" id="classchemfiles_1_1_vector3_d"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vector3D</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">private</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>3D vector for basic data storage in chemfiles.</p>
+<p>This type defines the following operators, with the usual meaning:</p>
+<p><ul class="simple">
+<li><p>Comparison operators: <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> performs strict float equality comparison;</p></li>
+<li><p>Mathematical operators: <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> for addition and substraction of vectors, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> for multiplication and division by double values. Multiplication with <code class="docutils literal notranslate"><span class="pre">*</span></code> is also defined for multiplication by a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code>.</p></li>
+</ul>
+</p>
+<p></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3D8Vector3DEv">
+<span id="_CPPv3N9chemfiles8Vector3D8Vector3DEv"></span><span id="_CPPv2N9chemfiles8Vector3D8Vector3DEv"></span><span id="chemfiles::Vector3D::Vector3D"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a401e65eca28b6318fd8ab1fe546a9c2b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vector3D</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3D8Vector3DEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <a class="reference internal" href="#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a> with all components equal to 0.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3D8Vector3DEddd">
+<span id="_CPPv3N9chemfiles8Vector3D8Vector3DEddd"></span><span id="_CPPv2N9chemfiles8Vector3D8Vector3DEddd"></span><span id="chemfiles::Vector3D::Vector3D__double.double.double"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a1d6ac94c54ff083a094c2be2867e92e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vector3D</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3D8Vector3DEddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <a class="reference internal" href="#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a> from the three components <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Vector3D4normEv">
+<span id="_CPPv3NK9chemfiles8Vector3D4normEv"></span><span id="_CPPv2NK9chemfiles8Vector3D4normEv"></span><span id="chemfiles::Vector3D::normC"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a36edb5e0c6754e749cbb630b5f7f7667"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">norm</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Vector3D4normEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the euclidean norm of this <a class="reference internal" href="#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a>.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3DpLERK8Vector3D">
+<span id="_CPPv3N9chemfiles8Vector3DpLERK8Vector3D"></span><span id="_CPPv2N9chemfiles8Vector3DpLERK8Vector3D"></span><span id="chemfiles::Vector3D::add-assign-operator__Vector3DCR"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a275f1b49413d80f77299e35ffe1c925e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DpLERK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound addition of two vectors. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3DmIERK8Vector3D">
+<span id="_CPPv3N9chemfiles8Vector3DmIERK8Vector3D"></span><span id="_CPPv2N9chemfiles8Vector3DmIERK8Vector3D"></span><span id="chemfiles::Vector3D::sub-assign-operator__Vector3DCR"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a668ed4e139d2c4a249086d0b19853124"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DmIERK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound subtraction of two vectors. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3DmLEd">
+<span id="_CPPv3N9chemfiles8Vector3DmLEd"></span><span id="_CPPv2N9chemfiles8Vector3DmLEd"></span><span id="chemfiles::Vector3D::mul-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_vector3_d_1a3768ba499bedfb7b000b2e17bea2185f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DmLEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound multiplication of a vector and a scalar. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Vector3DdVEd">
+<span id="_CPPv3N9chemfiles8Vector3DdVEd"></span><span id="_CPPv2N9chemfiles8Vector3DdVEd"></span><span id="chemfiles::Vector3D::div-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_vector3_d_1ae7fd6e250ed723da6cf11e27d70f235b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Vector3DdVEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound division of a vector by a scalar. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles3dotERK8Vector3DRK8Vector3D">
+<span id="_CPPv3N9chemfiles3dotERK8Vector3DRK8Vector3D"></span><span id="_CPPv2N9chemfiles3dotERK8Vector3DRK8Vector3D"></span><span id="chemfiles::dot__Vector3DCR.Vector3DCR"></span><span class="target" id="namespacechemfiles_1af9f3145e48a86b72efecc567fef93604"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">dot</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lhs</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles3dotERK8Vector3DRK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the dot product of the vectors <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code>.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5crossERK8Vector3DRK8Vector3D">
+<span id="_CPPv3N9chemfiles5crossERK8Vector3DRK8Vector3D"></span><span id="_CPPv2N9chemfiles5crossERK8Vector3DRK8Vector3D"></span><span id="chemfiles::cross__Vector3DCR.Vector3DCR"></span><span class="target" id="namespacechemfiles_1aad2ca560f7852245eae2fa40ca336f31"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">cross</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lhs</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles5crossERK8Vector3DRK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the cross product of the vectors <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code>.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3DE">
+<span id="_CPPv3N9chemfiles8Matrix3DE"></span><span id="_CPPv2N9chemfiles8Matrix3DE"></span><span id="chemfiles::Matrix3D"></span><span class="target" id="classchemfiles_1_1_matrix3_d"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Matrix3D</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">private</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A 3x3 matrix class.</p>
+<p>This type defines the following operators, with the usual meaning:</p>
+<p><ul class="simple">
+<li><p>Comparison operators: <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> performs strict float equality comparison;</p></li>
+<li><p>Mathematical operators: only multiplication between matrixes and between matrix and vector are defined, using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator.</p></li>
+</ul>
+</p>
+<p></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3D8Matrix3DEddddddddd">
+<span id="_CPPv3N9chemfiles8Matrix3D8Matrix3DEddddddddd"></span><span id="_CPPv2N9chemfiles8Matrix3D8Matrix3DEddddddddd"></span><span id="chemfiles::Matrix3D::Matrix3D__double.double.double.double.double.double.double.double.double"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a25c84ad4a122a41e90e2e8694e392053"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Matrix3D</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m11</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m12</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m13</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m21</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m22</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m23</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m31</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m32</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m33</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3D8Matrix3DEddddddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code> by explicitly specifying all the <code class="docutils literal notranslate"><span class="pre">m_ij</span></code> components of the matrix.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Matrix3D11determinantEv">
+<span id="_CPPv3NK9chemfiles8Matrix3D11determinantEv"></span><span id="_CPPv2NK9chemfiles8Matrix3D11determinantEv"></span><span id="chemfiles::Matrix3D::determinantC"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a74121c6a4edaf0e166a266de86f2132e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">determinant</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Matrix3D11determinantEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the determinant of this matrix.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Matrix3D6invertEv">
+<span id="_CPPv3NK9chemfiles8Matrix3D6invertEv"></span><span id="_CPPv2NK9chemfiles8Matrix3D6invertEv"></span><span id="chemfiles::Matrix3D::invertC"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a365284d7092de0345d5430d316a67b7e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">invert</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Matrix3D6invertEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the inverse of this matrix.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n">Error</span></a></span></span> – if the matrix is not invertible (i.e. if the determinant is zero)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Matrix3D9transposeEv">
+<span id="_CPPv3NK9chemfiles8Matrix3D9transposeEv"></span><span id="_CPPv2NK9chemfiles8Matrix3D9transposeEv"></span><span id="chemfiles::Matrix3D::transposeC"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a47a563055ce44a34ce3edca0fe1a8570"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transpose</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Matrix3D9transposeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transpose the matrix.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3DpLERK8Matrix3D">
+<span id="_CPPv3N9chemfiles8Matrix3DpLERK8Matrix3D"></span><span id="_CPPv2N9chemfiles8Matrix3DpLERK8Matrix3D"></span><span id="chemfiles::Matrix3D::add-assign-operator__Matrix3DCR"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a677f894d26e7099d33c089e7325c9777"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DpLERK8Matrix3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound addition of two matrices. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3DmIERK8Matrix3D">
+<span id="_CPPv3N9chemfiles8Matrix3DmIERK8Matrix3D"></span><span id="_CPPv2N9chemfiles8Matrix3DmIERK8Matrix3D"></span><span id="chemfiles::Matrix3D::sub-assign-operator__Matrix3DCR"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a3a05f7e82419b7e094027bfb89a538a1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DmIERK8Matrix3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound subtraction of two matrices. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3DmLEd">
+<span id="_CPPv3N9chemfiles8Matrix3DmLEd"></span><span id="_CPPv2N9chemfiles8Matrix3DmLEd"></span><span id="chemfiles::Matrix3D::mul-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a0515b4af4d2a807e56c42ac7e2680f1a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DmLEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound multiplication of a matrix and a scalar. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3DdVEd">
+<span id="_CPPv3N9chemfiles8Matrix3DdVEd"></span><span id="_CPPv2N9chemfiles8Matrix3DdVEd"></span><span id="chemfiles::Matrix3D::div-assign-operator__double"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a562b1072116df1e1ceae3997f5686c55"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3DdVEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compound division of a matrix by a scalar. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3D4zeroEv">
+<span id="_CPPv3N9chemfiles8Matrix3D4zeroEv"></span><span id="_CPPv2N9chemfiles8Matrix3D4zeroEv"></span><span id="chemfiles::Matrix3D::zero"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1adc63e2aa243d3138f502eb9acde4767e"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">zero</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3D4zeroEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code> with all components set to zero.</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Matrix3D4unitEv">
+<span id="_CPPv3N9chemfiles8Matrix3D4unitEv"></span><span id="_CPPv2N9chemfiles8Matrix3D4unitEv"></span><span id="chemfiles::Matrix3D::unit"></span><span class="target" id="classchemfiles_1_1_matrix3_d_1a433767b4499b7fd9bb4691ae271fa8a6"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D"><span class="n"><span class="pre">Matrix3D</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unit</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Matrix3D4unitEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an unit <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_matrix3_d"><span class="std std-ref"><span class="pre">Matrix3D</span></span></a></code> (a diagonal matrix with all diagonal values set to 1).</p>
+<p></p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="format-list-and-metadata">
+<h2>Format list and Metadata<a class="headerlink" href="#format-list-and-metadata" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12guess_formatENSt6stringEc">
+<span id="_CPPv3N9chemfiles12guess_formatENSt6stringEc"></span><span id="_CPPv2N9chemfiles12guess_formatENSt6stringEc"></span><span id="chemfiles::guess_format__ss.c"></span><span class="target" id="namespacechemfiles_1aea80aff248ab311fe6c4b2ff066251af"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">guess_format</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'r'</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles12guess_formatENSt6stringEc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the format that chemfiles would use to read a file at the given path.</p>
+<p>Most of the time, the format is only guessed from the filename extension, without reading the file to guess the format. When two or more format can share the same extension (for example CIF and mmCIF), chemfiles tries to read the file to distinguish between them. If reading fails, the default format for this extension is returned.</p>
+<p>Opening the file using the returned format string might still fail. For example, it will fail if the file is not actually formatted according to the guessed format; or the format/compression combination is not supported (e.g. <code class="docutils literal notranslate"><span class="pre">XTC</span> <span class="pre">/</span> <span class="pre">GZ</span></code> will not work since the XTC reader does not support compressed files).</p>
+<p>The format is represented in a way compatible with the various <code class="docutils literal notranslate"><a class="reference internal" href="trajectory.html#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">Trajectory</span></span></a></code> constructors, i.e. <code class="docutils literal notranslate"><span class="pre">&quot;&lt;format</span> <span class="pre">name&gt;</span> <span class="pre">[/</span> <span class="pre">&lt;compression&gt;]&quot;</span></code>, where compression is optional.</p>
+<p><p></p>
+ </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path of the file we are trying to read </p></li>
+<li><p><strong>mode</strong> – the opening mode of the file, can be ‘r’, ‘a’ or ‘w’ </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if no format matching this filename is found.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>guessed format of the file </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12formats_listEv">
+<span id="_CPPv3N9chemfiles12formats_listEv"></span><span id="_CPPv2N9chemfiles12formats_listEv"></span><span id="chemfiles::formats_list"></span><span class="target" id="namespacechemfiles_1a0b3fc53e38b86a8c9d347be014a45611"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">reference_wrapper</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles14FormatMetadataE" title="chemfiles::FormatMetadata"><span class="n"><span class="pre">FormatMetadata</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">formats_list</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles12formats_listEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the list of formats chemfiles knows about, and all associated metadata</p>
+<p></p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadataE">
+<span id="_CPPv3N9chemfiles14FormatMetadataE"></span><span id="_CPPv2N9chemfiles14FormatMetadataE"></span><span id="chemfiles::FormatMetadata"></span><span class="target" id="classchemfiles_1_1_format_metadata"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FormatMetadata</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Metadata associated with a format. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata4nameE">
+<span id="_CPPv3N9chemfiles14FormatMetadata4nameE"></span><span id="_CPPv2N9chemfiles14FormatMetadata4nameE"></span><span id="chemfiles::FormatMetadata::name__cCP"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a846387f061d3279bf5311a2fd31ca758"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">name</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;&quot;</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata4nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Name of the format. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata9extensionE">
+<span id="_CPPv3N9chemfiles14FormatMetadata9extensionE"></span><span id="_CPPv2N9chemfiles14FormatMetadata9extensionE"></span><span id="chemfiles::FormatMetadata::extension__optional:cCP:"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a2deb00a1e9ab5f54a13b9e8fcedec41e"></span><a class="reference internal" href="helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">extension</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">nullopt</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata9extensionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Potential extension associated with the format. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata11descriptionE">
+<span id="_CPPv3N9chemfiles14FormatMetadata11descriptionE"></span><span id="_CPPv2N9chemfiles14FormatMetadata11descriptionE"></span><span id="chemfiles::FormatMetadata::description__cCP"></span><span class="target" id="classchemfiles_1_1_format_metadata_1af33432990546bd4bbde63ce14c8e203f"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">description</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;&quot;</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata11descriptionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>User facing format description. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata9referenceE">
+<span id="_CPPv3N9chemfiles14FormatMetadata9referenceE"></span><span id="_CPPv2N9chemfiles14FormatMetadata9referenceE"></span><span id="chemfiles::FormatMetadata::reference__cCP"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a516592b8bfa9552ddb85a94a7cfd29d1"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">reference</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;&quot;</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata9referenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>URL pointing to the format definition/reference. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata4readE">
+<span id="_CPPv3N9chemfiles14FormatMetadata4readE"></span><span id="_CPPv2N9chemfiles14FormatMetadata4readE"></span><span id="chemfiles::FormatMetadata::read__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1af9b38486a7fc3cb6e3f20602be4f3a00"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata4readE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is reading files in this format implemented? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata5writeE">
+<span id="_CPPv3N9chemfiles14FormatMetadata5writeE"></span><span id="_CPPv2N9chemfiles14FormatMetadata5writeE"></span><span id="chemfiles::FormatMetadata::write__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a0ab597934797223408f0dc306776dd7e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata5writeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is writing files in this format implemented? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata6memoryE">
+<span id="_CPPv3N9chemfiles14FormatMetadata6memoryE"></span><span id="_CPPv2N9chemfiles14FormatMetadata6memoryE"></span><span id="chemfiles::FormatMetadata::memory__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1acb37be3a5fec8ec8cfc21a815986e6d2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">memory</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata6memoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support in-memory IO? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata9positionsE">
+<span id="_CPPv3N9chemfiles14FormatMetadata9positionsE"></span><span id="_CPPv2N9chemfiles14FormatMetadata9positionsE"></span><span id="chemfiles::FormatMetadata::positions__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a5144d43d3b53bf872d14ab6b25a77060"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">positions</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata9positionsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing atomic positions? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata10velocitiesE">
+<span id="_CPPv3N9chemfiles14FormatMetadata10velocitiesE"></span><span id="_CPPv2N9chemfiles14FormatMetadata10velocitiesE"></span><span id="chemfiles::FormatMetadata::velocities__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1aea81ca98723633bd54cdcc1ae32859c4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">velocities</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata10velocitiesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing atomic velocities? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata9unit_cellE">
+<span id="_CPPv3N9chemfiles14FormatMetadata9unit_cellE"></span><span id="_CPPv2N9chemfiles14FormatMetadata9unit_cellE"></span><span id="chemfiles::FormatMetadata::unit_cell__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a108580c10214acc9887aff6d7d32c83e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unit_cell</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata9unit_cellE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing unit cell information? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata5atomsE">
+<span id="_CPPv3N9chemfiles14FormatMetadata5atomsE"></span><span id="_CPPv2N9chemfiles14FormatMetadata5atomsE"></span><span id="chemfiles::FormatMetadata::atoms__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1a943db1dcd1cb6f0aa4ce18d3304705f6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atoms</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata5atomsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing atom names or types? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata5bondsE">
+<span id="_CPPv3N9chemfiles14FormatMetadata5bondsE"></span><span id="_CPPv2N9chemfiles14FormatMetadata5bondsE"></span><span id="chemfiles::FormatMetadata::bonds__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1af301b7e8904cd77948ed3c5b3025d99e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bonds</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata5bondsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing bonds between atoms? </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14FormatMetadata8residuesE">
+<span id="_CPPv3N9chemfiles14FormatMetadata8residuesE"></span><span id="_CPPv2N9chemfiles14FormatMetadata8residuesE"></span><span id="chemfiles::FormatMetadata::residues__b"></span><span class="target" id="classchemfiles_1_1_format_metadata_1afe453e2ba3a8d90eeae11874f815fa26"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residues</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N9chemfiles14FormatMetadata8residuesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does this format support storing residues? </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="errors-handling">
+<h2>Errors handling<a class="headerlink" href="#errors-handling" title="Permalink to this heading">¶</a></h2>
+<p>In chemfiles, any error will throw an exception. Any program using chemfiles
+should thus wrap any call in a <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">catch</span></code> block, and handle the errors in
+any pertinent way.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chemfiles.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">chemfiles</span><span class="o">::</span><span class="n">Trajectory</span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">&quot;filename.xyz&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">positions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Do something here</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">chemfiles</span><span class="o">::</span><span class="n">Error</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Basic error handling logging error to stdout</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error in chemfiles:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Any exceptions thrown by chemfiles will derive from <code class="docutils literal notranslate"><span class="pre">chemfiles::Error</span></code>.
+Catching  <code class="docutils literal notranslate"><span class="pre">chemfiles::Error</span></code> will then catch any exception thrown by
+chemfiles. You also can catch any other error if you need finer grain control.
+<code class="docutils literal notranslate"><span class="pre">chemfiles::Error</span></code> derives from <code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code>, so it should play
+nicely with any existing C++ error handling.</p>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles5ErrorE">
+<span id="_CPPv3N9chemfiles5ErrorE"></span><span id="_CPPv2N9chemfiles5ErrorE"></span><span id="chemfiles::Error"></span><span class="target" id="structchemfiles_1_1_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Error</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">runtime_error</span></span><a class="headerlink" href="#_CPPv4N9chemfiles5ErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Base exception class for chemfiles library. </p>
+<p>Subclassed by <a class="reference internal" href="#structchemfiles_1_1_configuration_error"><span class="std std-ref">chemfiles::ConfigurationError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_file_error"><span class="std std-ref">chemfiles::FileError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_format_error"><span class="std std-ref">chemfiles::FormatError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_memory_error"><span class="std std-ref">chemfiles::MemoryError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_out_of_bounds"><span class="std std-ref">chemfiles::OutOfBounds</span></a>, <a class="reference internal" href="#structchemfiles_1_1_property_error"><span class="std std-ref">chemfiles::PropertyError</span></a>, <a class="reference internal" href="#structchemfiles_1_1_selection_error"><span class="std std-ref">chemfiles::SelectionError</span></a></p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9FileErrorE">
+<span id="_CPPv3N9chemfiles9FileErrorE"></span><span id="_CPPv2N9chemfiles9FileErrorE"></span><span id="chemfiles::FileError"></span><span class="target" id="structchemfiles_1_1_file_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FileError</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9FileErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for files related failures. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles11MemoryErrorE">
+<span id="_CPPv3N9chemfiles11MemoryErrorE"></span><span id="_CPPv2N9chemfiles11MemoryErrorE"></span><span id="chemfiles::MemoryError"></span><span class="target" id="structchemfiles_1_1_memory_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MemoryError</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles11MemoryErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for memory related failures. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles11FormatErrorE">
+<span id="_CPPv3N9chemfiles11FormatErrorE"></span><span id="_CPPv2N9chemfiles11FormatErrorE"></span><span id="chemfiles::FormatError"></span><span class="target" id="structchemfiles_1_1_format_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FormatError</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles11FormatErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for formats related failures. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles14SelectionErrorE">
+<span id="_CPPv3N9chemfiles14SelectionErrorE"></span><span id="_CPPv2N9chemfiles14SelectionErrorE"></span><span id="chemfiles::SelectionError"></span><span class="target" id="structchemfiles_1_1_selection_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SelectionError</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles14SelectionErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for errors in selections. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles18ConfigurationErrorE">
+<span id="_CPPv3N9chemfiles18ConfigurationErrorE"></span><span id="_CPPv2N9chemfiles18ConfigurationErrorE"></span><span id="chemfiles::ConfigurationError"></span><span class="target" id="structchemfiles_1_1_configuration_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConfigurationError</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles18ConfigurationErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for errors in configuration files. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles11OutOfBoundsE">
+<span id="_CPPv3N9chemfiles11OutOfBoundsE"></span><span id="_CPPv2N9chemfiles11OutOfBoundsE"></span><span id="chemfiles::OutOfBounds"></span><span class="target" id="structchemfiles_1_1_out_of_bounds"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OutOfBounds</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles11OutOfBoundsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for out of bounds error when accessing atoms or residues. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13PropertyErrorE">
+<span id="_CPPv3N9chemfiles13PropertyErrorE"></span><span id="_CPPv2N9chemfiles13PropertyErrorE"></span><span id="chemfiles::PropertyError"></span><span class="target" id="structchemfiles_1_1_property_error"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PropertyError</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles5ErrorE" title="chemfiles::Error"><span class="n"><span class="pre">Error</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles13PropertyErrorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exception for errors related to frame and atomic properties. </p>
+</dd></dl>
+
+</section>
+<section id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this heading">¶</a></h2>
+<p>Chemfiles send warnings when it encounters malformed files, or any other
+condition that the user might want to know about. By default, these warnings are
+printed to the standard error stream. <a class="reference internal" href="#_CPPv4N9chemfiles20set_warning_callbackE18warning_callback_t" title="chemfiles::set_warning_callback"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chemfiles::set_warning_callback()</span></code></a>
+allow to redirect these warning by giving it a callback function to be called on
+each warning event.</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles20set_warning_callbackE18warning_callback_t">
+<span id="_CPPv3N9chemfiles20set_warning_callbackE18warning_callback_t"></span><span id="_CPPv2N9chemfiles20set_warning_callbackE18warning_callback_t"></span><span id="chemfiles::set_warning_callback__warning_callback_t"></span><span class="target" id="namespacechemfiles_1ab81ee0eb9b15f2c79e51eade4e55324b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">set_warning_callback</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9chemfiles18warning_callback_tE" title="chemfiles::warning_callback_t"><span class="n"><span class="pre">warning_callback_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles20set_warning_callbackE18warning_callback_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the global callback for warning events. The default is to print them on the standard error stream.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function that will be called on each warning </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles18warning_callback_tE">
+<span id="_CPPv3N9chemfiles18warning_callback_tE"></span><span id="_CPPv2N9chemfiles18warning_callback_tE"></span><span id="chemfiles::warning_callback_t"></span><span class="target" id="namespacechemfiles_1aecc7d16c111293c05425fc7d4cbe1c36"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">warning_callback_t</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles18warning_callback_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback type used to process a warning event. </p>
+</dd></dl>
+
+</section>
+<section id="configuration-files">
+<h2>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this heading">¶</a></h2>
+<p>You can add more <a class="reference internal" href="../configuration.html#configuration"><span class="std std-ref">configuration</span></a> file to chemfiles with
+<a class="reference internal" href="#_CPPv4N9chemfiles17add_configurationERKNSt6stringE" title="chemfiles::add_configuration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chemfiles::add_configuration()</span></code></a>.</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles17add_configurationERKNSt6stringE">
+<span id="_CPPv3N9chemfiles17add_configurationERKNSt6stringE"></span><span id="_CPPv2N9chemfiles17add_configurationERKNSt6stringE"></span><span id="chemfiles::add_configuration__ssCR"></span><span class="target" id="namespacechemfiles_1a488edb731b6fa9a383d9674635dafa6e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">add_configuration</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles17add_configurationERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read configuration data from the file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<p>By default, chemfiles reads configuration from any file named <code class="docutils literal notranslate"><span class="pre">.chemfiles.toml</span></code> or <code class="docutils literal notranslate"><span class="pre">chemfiles.toml</span></code> in the current directory or any parent directory. This function can be used to add data from another configuration file.</p>
+<p>This function will throw a <code class="docutils literal notranslate"><a class="reference internal" href="#structchemfiles_1_1_configuration_error"><span class="std std-ref"><span class="pre">ConfigurationError</span></span></a></code> if there is no file at <code class="docutils literal notranslate"><span class="pre">path</span></code>, or if the file is incorrectly formatted. Data from the new configuration file will overwrite any existing data.</p>
+<p></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – path to the configuration file to add</p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="#_CPPv4N9chemfiles18ConfigurationErrorE" title="chemfiles::ConfigurationError"><span class="n">ConfigurationError</span></a></span></span> – if the file at <code class="docutils literal notranslate"><span class="pre">path</span></code> can not be read, or if it is invalid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

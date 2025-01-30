@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function manipulating CHFL_CELL &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="C interface reference" href="index.html" />
+    <link rel="next" title="Function manipulating CHFL_TOPOLOGY" href="chfl_topology.html" />
+    <link rel="prev" title="Function manipulating CHFL_ATOM" href="chfl_atom.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_CELL</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_atom.html" title="Previous Chapter: Function manipulating CHFL_ATOM"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_topology.html" title="Next Chapter: Function manipulating CHFL_TOPOLOGY"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Function mani... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-cell">
+<span id="capi-cell"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_CELL</span></code><a class="headerlink" href="#function-manipulating-chfl-cell" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv29CHFL_CELL">
+<span id="CHFL_CELL"></span><span class="target" id="chemfilestypes_8h_1a6000b295e6df30f39e754d41ff1cf562"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> <code class="descclassname"></code><code class="descname">CHFL_CELL</code><a class="headerlink" href="#_CPPv29CHFL_CELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>An opaque type handling an unit cell.</p>
+<p>A `CHFL_CELL` represent the box containing the atoms, and its periodicity.</p>
+<p>An unit cell is fully represented by three lenghts (a, b, c); and three angles (alpha, beta, gamma). The angles are stored in degrees, and the lenghts in Angstroms.</p>
+<p>A cell also has a matricial representation, by projecting the three base vector into an orthonormal base. We choose to represent such matrix as an upper triangular matrix:</p>
+<p>``` | a_x b_x c_x | | 0 b_y c_y | | 0 0 c_z | ``` </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv29chfl_cellK13chfl_vector_t">
+<span id="chfl_cell__chfl_vector_tC"></span><span class="target" id="chemfilescell_8h_1a076dee32df57fccd87f1b46aeb3befc2"></span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<code class="descclassname"></code><code class="descname">chfl_cell</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>lenghts</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv29chfl_cellK13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an unit cell from three `lenghts`. The unit cell shape is `CHFL_CELL_ORTHORHOMBIC`.</p>
+<p>The cell lenghts should be in Angstroms.</p>
+<p>The caller of this function should free the associated memory using `chfl_cell_free`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">cell</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the unit cell, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219chfl_cell_triclinicK13chfl_vector_tK13chfl_vector_t">
+<span id="chfl_cell_triclinic__chfl_vector_tC.chfl_vector_tC"></span><span class="target" id="chemfilescell_8h_1a123e2cdaeb792f12ff7aa3851ec2df97"></span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<code class="descclassname"></code><code class="descname">chfl_cell_triclinic</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>lenghts</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>angles</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219chfl_cell_triclinicK13chfl_vector_tK13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an unit cell from three `lenghts` and three `angles`. The unit cell shape is `CHFL_CELL_TRICLINIC`.</p>
+<p>The cell lenghts should be in Angstroms, and the angles in degree.</p>
+<p>The cell angles are defined as follow: alpha is the angles between the cell vector `b` and `c`; beta as the angle between `a` and `c`; and gamma as the angle between `a` and `b`.</p>
+<p>The caller of this function should free the associated memory using `chfl_cell_free`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell_triclinic</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">122</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">97</span><span class="p">});</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">cell</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the unit cell, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_cell_from_framePCK10CHFL_FRAME">
+<span id="chfl_cell_from_frame__CHFL_FRAMECPC"></span><span class="target" id="chemfilescell_8h_1a8ebd9d48235ed33b498d7276a6a98613"></span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<code class="descclassname"></code><code class="descname">chfl_cell_from_frame</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_cell_from_framePCK10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of the unit cell of a `frame`.</p>
+<p>The caller of this function should free the associated memory using `chfl_cell_free`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">cell</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the unit cell, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_cell_copyPCK9CHFL_CELL">
+<span id="chfl_cell_copy__CHFL_CELLCPC"></span><span class="target" id="chemfilescell_8h_1ab9f4b6590972101e317f71deb1b533b4"></span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<code class="descclassname"></code><code class="descname">chfl_cell_copy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_cell_copyPCK9CHFL_CELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of a `cell`.</p>
+<p>The caller of this function should free the associated memory using `chfl_cell_free`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+<span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">chfl_cell_copy</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">copy</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the new cell, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216chfl_cell_volumePCK9CHFL_CELLPd">
+<span id="chfl_cell_volume__CHFL_CELLCPC.doubleP"></span><span class="target" id="chemfilescell_8h_1a569cc7982202d208cf8247cbeabf1dfa"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_volume</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, double *<em>volume</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216chfl_cell_volumePCK9CHFL_CELLPd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the unit cell volume of `cell` in the double pointed to by `volume`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_cell_volume</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">volume</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">volume</span> <span class="o">==</span> <span class="mi">1000</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217chfl_cell_lengthsPCK9CHFL_CELL13chfl_vector_t">
+<span id="chfl_cell_lengths__CHFL_CELLCPC.chfl_vector_t"></span><span class="target" id="chemfilescell_8h_1a9f8f1e9f92eac5bc2abf00158039775b"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_lengths</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>lengths</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217chfl_cell_lengthsPCK9CHFL_CELL13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the unit cell lenghts in `lengths`. The cell lengths are in Angstroms.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">});</span>
+
+<span class="n">chfl_vector_t</span> <span class="n">lengths</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_cell_lengths</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">lengths</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv221chfl_cell_set_lengthsPC9CHFL_CELLK13chfl_vector_t">
+<span id="chfl_cell_set_lengths__CHFL_CELLPC.chfl_vector_tC"></span><span class="target" id="chemfilescell_8h_1a69f6fd2923002fc08f9840c57cb8beba"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_set_lengths</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>lenghts</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221chfl_cell_set_lengthsPC9CHFL_CELLK13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit cell lenghts to `lenghts`.</p>
+<p>The cell lenghts should be in Angstroms.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="n">chfl_cell_set_lengths</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">42</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">});</span>
+
+<span class="n">chfl_vector_t</span> <span class="n">lengths</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_cell_lengths</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">lengths</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216chfl_cell_anglesPCK9CHFL_CELL13chfl_vector_t">
+<span id="chfl_cell_angles__CHFL_CELLCPC.chfl_vector_t"></span><span class="target" id="chemfilescell_8h_1a08fab7892a574a78404eda740376c860"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_angles</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>angles</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216chfl_cell_anglesPCK9CHFL_CELL13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the cell angles in `angles`. The cell angles are in degrees.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="n">chfl_vector_t</span> <span class="n">angles</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_cell_angles</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">angles</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_cell_set_anglesPC9CHFL_CELLK13chfl_vector_t">
+<span id="chfl_cell_set_angles__CHFL_CELLPC.chfl_vector_tC"></span><span class="target" id="chemfilescell_8h_1a81e5fb8aba5f4e97e157c4ac9528f5db"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_set_angles</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>angles</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_cell_set_anglesPC9CHFL_CELLK13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the cell angles to `angles`.</p>
+<p>The cell lenghts should be in degree. Trying to set cell angles on a cell which is not triclinic (does not have the `CHFL_CELL_TRICLINIC` shape) is an error.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell_triclinic</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">});</span>
+
+<span class="n">chfl_cell_set_angles</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">120</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">});</span>
+
+<span class="n">chfl_vector_t</span> <span class="n">angles</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_cell_angles</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">angles</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">120</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">110</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216chfl_cell_matrixPCK9CHFL_CELLA3_13chfl_vector_t">
+<span id="chfl_cell_matrix__CHFL_CELLCPC.chfl_vector_tA"></span><span class="target" id="chemfilescell_8h_1adafbe69de1de2daf99e2d19270832838"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_matrix</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>matrix</em>[3]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216chfl_cell_matrixPCK9CHFL_CELLA3_13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the unit `cell` matricial representation in `matrix`.</p>
+<p>The unit cell representation is obtained by aligning the a vector along the x* axis and putting the b vector in the *xy* plane. This make the matrix an upper triangular matrix: ``` | a_x b_x c_x | | 0 b_y c_y | | 0 0 c_z | ```</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">});</span>
+
+<span class="n">chfl_vector_t</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="n">chfl_cell_matrix</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">matrix</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+
+<span class="c1">// Out of diagonal terms are zero</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv217chfl_cell_shape_t">
+<span id="chfl_cell_shape_t"></span><span class="target" id="chemfilescell_8h_1ac3fdd358ebedb8c610af21828ad805c5"></span><em class="property">enum </em><code class="descclassname"></code><code class="descname">chfl_cell_shape_t</code><a class="headerlink" href="#_CPPv217chfl_cell_shape_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available cell shapes in chemfiles. </p>
+<p><em>Values:</em></p>
+<dl class="member">
+<dt id="_CPPv222CHFL_CELL_ORTHORHOMBIC">
+<span id="CHFL_CELL_ORTHORHOMBIC"></span><span class="target" id="chemfilescell_8h_1ac3fdd358ebedb8c610af21828ad805c5a5a6843f48b2f0b692de9420bbefb02b2"></span><code class="descname">CHFL_CELL_ORTHORHOMBIC</code> =  0<a class="headerlink" href="#_CPPv222CHFL_CELL_ORTHORHOMBIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>The three angles are 90° </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv219CHFL_CELL_TRICLINIC">
+<span id="CHFL_CELL_TRICLINIC"></span><span class="target" id="chemfilescell_8h_1ac3fdd358ebedb8c610af21828ad805c5af1f0a05c66d840f83e03afad1e4d5ba5"></span><code class="descname">CHFL_CELL_TRICLINIC</code> =  1<a class="headerlink" href="#_CPPv219CHFL_CELL_TRICLINIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>The three angles may not be 90° </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv218CHFL_CELL_INFINITE">
+<span id="CHFL_CELL_INFINITE"></span><span class="target" id="chemfilescell_8h_1ac3fdd358ebedb8c610af21828ad805c5a962215e3ab35eec6336915b3f04618ea"></span><code class="descname">CHFL_CELL_INFINITE</code> =  2<a class="headerlink" href="#_CPPv218CHFL_CELL_INFINITE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cell shape when there is no periodic boundary conditions. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215chfl_cell_shapePCK9CHFL_CELLPC17chfl_cell_shape_t">
+<span id="chfl_cell_shape__CHFL_CELLCPC.chfl_cell_shape_tPC"></span><span class="target" id="chemfilescell_8h_1a280fb5b42e2468ca44893b2dbc5d3fa7"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_shape</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <a class="reference internal" href="#_CPPv217chfl_cell_shape_t" title="chfl_cell_shape_t">chfl_cell_shape_t</a> *<em class="property">const</em> <em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215chfl_cell_shapePCK9CHFL_CELLPC17chfl_cell_shape_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the unit `cell` shape in `shape`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="n">chfl_cell_shape_t</span> <span class="n">shape</span><span class="p">;</span>
+<span class="n">chfl_cell_shape</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">shape</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">shape</span> <span class="o">==</span> <span class="n">CHFL_CELL_ORTHORHOMBIC</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219chfl_cell_set_shapePC9CHFL_CELL17chfl_cell_shape_t">
+<span id="chfl_cell_set_shape__CHFL_CELLPC.chfl_cell_shape_t"></span><span class="target" id="chemfilescell_8h_1aa7f1a308ed8909b56e97503c60fd05e7"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_set_shape</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em>, <a class="reference internal" href="#_CPPv217chfl_cell_shape_t" title="chfl_cell_shape_t">chfl_cell_shape_t</a> <em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219chfl_cell_set_shapePC9CHFL_CELL17chfl_cell_shape_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit `cell` shape to `shape`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="n">chfl_cell_set_shape</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">CHFL_CELL_TRICLINIC</span><span class="p">);</span>
+
+<span class="n">chfl_cell_shape_t</span> <span class="n">shape</span><span class="p">;</span>
+<span class="n">chfl_cell_shape</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">shape</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">shape</span> <span class="o">==</span> <span class="n">CHFL_CELL_TRICLINIC</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_cell_freePC9CHFL_CELL">
+<span id="chfl_cell_free__CHFL_CELLPC"></span><span class="target" id="chemfilescell_8h_1ae9d917cb97887b2f96e4c98c33c369f4"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_cell_free</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_cell_freePC9CHFL_CELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Free the memory associated with a `cell`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">});</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">cell</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>`CHFL_SUCCESS` </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

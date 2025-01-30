@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contributing &mdash; Chemfiles 0.4.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.4.0
+ documentation" href="../index.html" />
+    <link rel="next" title="Chemfiles internals" href="internals.html" />
+    <link rel="prev" title="C interface reference" href="../c-api.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.4</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-api.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#i-would-like-to-help-what-can-i-do">I would like to help, what can I do ?</a><ul>
+<li><a class="reference internal" href="#improving-the-code">Improving the code</a></li>
+<li><a class="reference internal" href="#improve-documentation">Improve documentation</a></li>
+<li><a class="reference internal" href="#share-and-spread-the-word">Share and spread the word</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#external-project-used">External project used</a></li>
+<li><a class="reference internal" href="#coding-style-and-other-formating-issues">Coding style, and other formating issues</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../c-api.html" title="Previous Chapter: C interface reference"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C interface r...</span>
+    </a>
+  </li>
+  <li>
+    <a href="internals.html" title="Next Chapter: Chemfiles internals"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Chemfiles int... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/devdoc/contributing.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>Chemfiles is an open-source project, that I make on my free time. Any contribution,
+from documentation improvement to new features including bug fixes are very welcome!</p>
+<div class="section" id="i-would-like-to-help-what-can-i-do">
+<h2>I would like to help, what can I do ?<a class="headerlink" href="#i-would-like-to-help-what-can-i-do" title="Permalink to this headline">¶</a></h2>
+<p>Lot of things! Just pick one considering the time you can spend, and your technical
+skills.</p>
+<div class="section" id="improving-the-code">
+<h3>Improving the code<a class="headerlink" href="#improving-the-code" title="Permalink to this headline">¶</a></h3>
+<p>There are multiple way to improve the code. You can either <a class="reference external" href="https://github.com/chemfiles/chemfiles/search?utf8=%E2%9C%93&amp;q=todo">pick up a TODO</a> in the
+code, or any <a class="reference external" href="https://github.com/chemfiles/chemfiles/issues">issue</a> in the list. If you plan to add a new feature which is not in
+the issue list, please open a new one so that every one knows you are working on it,
+and so that the implementation can be discussed!</p>
+</div>
+<div class="section" id="improve-documentation">
+<h3>Improve documentation<a class="headerlink" href="#improve-documentation" title="Permalink to this headline">¶</a></h3>
+<p>This documentation try to be easy to use, but there is always room for improvements.
+You can easily edit any <code class="file docutils literal"><span class="pre">.rst</span></code> file on <a class="reference external" href="https://github.com/chemfiles/chemfiles/tree/master/doc">the github repository</a>, and propose your changes
+even with no git knowledge. All you need is a Github account.</p>
+</div>
+<div class="section" id="share-and-spread-the-word">
+<h3>Share and spread the word<a class="headerlink" href="#share-and-spread-the-word" title="Permalink to this headline">¶</a></h3>
+<p>If you think that chemfiles is awesome, share it! The more users it will have, the
+more features we can add to it, together!</p>
+</div>
+</div>
+<div class="section" id="external-project-used">
+<h2>External project used<a class="headerlink" href="#external-project-used" title="Permalink to this headline">¶</a></h2>
+<p>A few external projects are used in chemfiles developement, and you will need a bit
+of knowledge of them to contribute. Depending on what you want to do, not all these
+projects are needed.</p>
+<ul class="simple">
+<li>Source code versionning: <a class="reference external" href="http://git-scm.com/">git</a>, together with <a class="reference external" href="https://github.com/about/">github</a> web interface for issues
+and pull requests.</li>
+<li>documentation: <a class="reference external" href="http://sphinx-doc.org/">sphinx</a> for generating HTML and PDF documentation, <a class="reference external" href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> for
+documenting the source code, and <a class="reference external" href="http://breathe.readthedocs.org/">breathe</a> to use Doxygen content in sphinx.</li>
+<li>Build system: <a class="reference external" href="http://cmake.org/">cmake</a> is used as a cross-plateform, cross-build system generator.</li>
+<li>Automatic testing: <a class="reference external" href="https://github.com/philsquared/Catch/">CATCH</a> provide an nice unit test framework, and <a class="reference external" href="https://travis-ci.org/chemfiles/chemfiles/">travis</a> run
+these tests each time the code is pushed to the repository.</li>
+</ul>
+</div>
+<div class="section" id="coding-style-and-other-formating-issues">
+<h2>Coding style, and other formating issues<a class="headerlink" href="#coding-style-and-other-formating-issues" title="Permalink to this headline">¶</a></h2>
+<p>When writing code for chemfiles, please respect the overall coding style. This is not
+only a question of style, but make it easier to enter in the project if all the files
+are formatted consistently. Do not use non standard features of any programming
+language unless there is no other way to do it. In that case, please wrap the code in
+<code class="docutils literal"><span class="pre">#ifdef</span></code> macros, and add cases for at least Linux, OS X and Windows. You should add
+unit tests for each new piece of code, they will be run on <a class="reference external" href="https://travis-ci.org/chemfiles/chemfiles/">travis</a> before your
+changes are merged.</p>
+<p>Git messages should be informatives, and describe the <em>what</em>, not the <em>how</em>. If your
+commit concern the documentation, please add the <code class="docutils literal"><span class="pre">[doc]</span></code> at the beggining of the
+message.</p>
+<p>Happy coding!</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

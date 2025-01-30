@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Other libraries for reading trajectories &mdash; Chemfiles 0.5.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.5.0
+ documentation" href="index.html" />
+    <link rel="next" title="C++ interface reference" href="classes/index.html" />
+    <link rel="prev" title="Supported formats" href="formats.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Chemfiles selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported formats</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-api.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Other libraries for reading trajectories</a><ul>
+<li><a class="reference internal" href="#vmd-molfile-plugins">VMD Molfile plugins</a><ul>
+<li><a class="reference internal" href="#majors-differencies">Majors differencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#openbabel">OpenBabel</a><ul>
+<li><a class="reference internal" href="#id2">Majors differencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mdtraj">MDTraj</a><ul>
+<li><a class="reference internal" href="#id4">Majors differencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mdanalysis">MDAnalysis</a><ul>
+<li><a class="reference internal" href="#id6">Majors differencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="formats.html" title="Previous Chapter: Supported formats"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Supported for...</span>
+    </a>
+  </li>
+  <li>
+    <a href="classes/index.html" title="Next Chapter: C++ interface reference"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">C++ interface... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="other-libraries-for-reading-trajectories">
+<h1>Other libraries for reading trajectories<a class="headerlink" href="#other-libraries-for-reading-trajectories" title="Permalink to this headline">¶</a></h1>
+<p>If chemfiles does not provide what you are looking for, here are some other libraries
+for reading and/or writing trajectories, and the main differencies with chemfiles.</p>
+<div class="section" id="vmd-molfile-plugins">
+<h2>VMD Molfile plugins<a class="headerlink" href="#vmd-molfile-plugins" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a> is a molecular visualisation program. A
+set of <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/">plugins</a> distributed
+separatly provide read and write ability for around 60 differents formats.</p>
+<p>VMD molfiles plugins are written in C, and do not provide other documentation than
+the source code (which is very readable, I must say). It is pretty difficult to use
+it from other languages than C or C++.</p>
+<div class="section" id="majors-differencies">
+<h3>Majors differencies<a class="headerlink" href="#majors-differencies" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>More formats than chemfiles;</li>
+<li>No automatic format regognition;</li>
+<li>Does not support a variable number of atoms;</li>
+<li>Not multi-language;</li>
+<li>Poor documentation for first start. You need to read other software to understand
+what&#8217;s going on.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="openbabel">
+<h2>OpenBabel<a class="headerlink" href="#openbabel" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://openbabel.org/wiki/Main_Page">OpenBabel</a> is the swiss army knife for
+converting trajectories from one format to another. It support over 110 file format.</p>
+<p>The library is written in C++, and provide Perl, Python, Java and Ruby bindings. It
+also provide stand-alone tools for conversions and analysis of trajectories.</p>
+<div class="section" id="id2">
+<h3>Majors differencies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>More formats than chemfiles;</li>
+<li>Provide analysis tools, SMILES matching and database searching;</li>
+<li>OpenBabel is distributed under the GNU Public Licence, which might make it harder
+to use by other softwares: the other software <em>must</em> be GPL softwares;</li>
+<li>OpenBabel is a complex tool, and provide many public classes. I could not find what
+I was looking for easily.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mdtraj">
+<h2>MDTraj<a class="headerlink" href="#mdtraj" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mdtraj.org/latest/">MDTraj</a> is a Python library for Molecular Dynamics
+trajectories reading and analysis.</p>
+<div class="section" id="id4">
+<h3>Majors differencies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Provide analysis tools;</li>
+<li>Only usable from Python;</li>
+<li>Distributed under the Library GNU Public Licence, which mean that you can use the
+code in non-GPL software, but must redistribute the library under GPL.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mdanalysis">
+<h2>MDAnalysis<a class="headerlink" href="#mdanalysis" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.mdanalysis.org/">MDAnalysis</a> is a Python library for Molecular Dynamics
+trajectories reading and analysis.</p>
+<div class="section" id="id6">
+<h3>Majors differencies<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Provide analysis tools;</li>
+<li>Only usable from Python;</li>
+<li>MDAnalysis is distributed under the GNU Public Licence, which might make it harder
+to use by other softwares: the other software <em>must</em> be GPL softwares;</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

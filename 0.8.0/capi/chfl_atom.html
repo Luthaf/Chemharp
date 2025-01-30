@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Function manipulating CHFL_ATOM &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function manipulating CHFL_CELL" href="chfl_cell.html" />
+    <link rel="prev" title="Function manipulating CHFL_RESIDUE" href="chfl_residue.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_residue.html" title="Previous Chapter: Function manipulating CHFL_RESIDUE"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_cell.html" title="Next Chapter: Function manipulating CHFL_CELL"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Function mani... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-atom">
+<span id="capi-atom"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code><a class="headerlink" href="#function-manipulating-chfl-atom" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv29CHFL_ATOM">
+<span id="CHFL_ATOM"></span><span class="target" id="types_8h_1ada6b7fe24e53332d3e9f5d4bcd7977a6"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> <code class="descclassname"></code><code class="descname">CHFL_ATOM</code><a class="headerlink" href="#_CPPv29CHFL_ATOM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An opaque type handling an atom.</p>
+<p>A <code class="docutils literal"><span class="pre">CHFL_ATOM</span></code> is a particle in the current <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code>. It stores the following atomic properties:</p>
+<p><ul class="simple">
+<li>atom name;</li>
+<li>atom type;</li>
+<li>atom mass;</li>
+<li>atom charge.</li>
+</ul>
+</p>
+<p>The atom name is usually an unique identifier (<code class="docutils literal"><span class="pre">&quot;H1&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;C_a&quot;</span></code>) while the atom type will be shared between all particles of the same type: <code class="docutils literal"><span class="pre">&quot;H&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;Ow&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;CH3&quot;</span></code>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv29chfl_atomPKc">
+<span id="chfl_atom__cCP"></span><span class="target" id="atom_8h_1aa907c3b268f22ca196654e0398198277"></span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<code class="descclassname"></code><code class="descname">chfl_atom</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv29chfl_atomPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an atom with the given <code class="docutils literal"><span class="pre">name</span></code>, and set the atom type to <code class="docutils literal"><span class="pre">name</span></code>.</p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal"><span class="pre">chfl_atom_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the atom, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_atom_from_framePK10CHFL_FRAME8uint64_t">
+<span id="chfl_atom_from_frame__CHFL_FRAMECP.uint64_t"></span><span class="target" id="atom_8h_1a85cb4c2a5df9890b2017636e857a2d88"></span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<code class="descclassname"></code><code class="descname">chfl_atom_from_frame</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="chfl_frame.html#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em>frame</em>, uint64_t <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_atom_from_framePK10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a copy of the atom at the given <code class="docutils literal"><span class="pre">index</span></code> from a <code class="docutils literal"><span class="pre">frame</span></code></p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal"><span class="pre">chfl_atom_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="cm">/* Update the frame, or read it from a file */</span>
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the atom, or NULL in case of error or if <code class="docutils literal"><span class="pre">index</span></code> is out of bounds. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv223chfl_atom_from_topologyPK13CHFL_TOPOLOGY8uint64_t">
+<span id="chfl_atom_from_topology__CHFL_TOPOLOGYCP.uint64_t"></span><span class="target" id="atom_8h_1a143b613f82a785029c7176a9ed79e5e0"></span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<code class="descclassname"></code><code class="descname">chfl_atom_from_topology</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="chfl_topology.html#_CPPv213CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em>topology</em>, uint64_t <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223chfl_atom_from_topologyPK13CHFL_TOPOLOGY8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a copy of the atom at the given <code class="docutils literal"><span class="pre">index</span></code> from a <code class="docutils literal"><span class="pre">topology</span></code></p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal"><span class="pre">chfl_atom_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+<span class="cm">/* Update the topology by hand, or using a file */</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom_from_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the atom, or NULL in case of error or if <code class="docutils literal"><span class="pre">index</span></code> is out of bounds. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_atom_copyPK9CHFL_ATOM">
+<span id="chfl_atom_copy__CHFL_ATOMCP"></span><span class="target" id="atom_8h_1ab96c8fb1d53f5c67c5a9a4c3d90dbc60"></span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<code class="descclassname"></code><code class="descname">chfl_atom_copy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_atom_copyPK9CHFL_ATOM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a copy of an <code class="docutils literal"><span class="pre">atom</span></code>.</p>
+<p>The caller of this function should free the associated memory using <code class="docutils literal"><span class="pre">chfl_atom_free</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">chfl_atom_copy</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">copy</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the new atom, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_atom_massPK9CHFL_ATOMPd">
+<span id="chfl_atom_mass__CHFL_ATOMCP.doubleP"></span><span class="target" id="atom_8h_1a138df9aefc0ed27f20797819f037d647"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_mass</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, double *<em>mass</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_atom_massPK9CHFL_ATOMPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the mass of an <code class="docutils literal"><span class="pre">atom</span></code>, in the double pointed to by <code class="docutils literal"><span class="pre">mass</span></code>.</p>
+<p>The mass is given in atomic mass units.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">mass</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_mass</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mass</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">mass</span> <span class="o">-</span> <span class="mf">22.98976928</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218chfl_atom_set_massP9CHFL_ATOMd">
+<span id="chfl_atom_set_mass__CHFL_ATOMP.double"></span><span class="target" id="atom_8h_1a7f046fcb57f2cd7edbba591b672cd588"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_set_mass</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, double <em>mass</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218chfl_atom_set_massP9CHFL_ATOMd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the mass of an <code class="docutils literal"><span class="pre">atom</span></code> to <code class="docutils literal"><span class="pre">mass</span></code>.</p>
+<p>The mass must be in atomic mass units.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_atom_set_mass</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="mf">1.45</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">mass</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_mass</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mass</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">mass</span> <span class="o">-</span> <span class="mf">1.45</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216chfl_atom_chargePK9CHFL_ATOMPd">
+<span id="chfl_atom_charge__CHFL_ATOMCP.doubleP"></span><span class="target" id="atom_8h_1a5616244fdc729048c9428746b04a322d"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_charge</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, double *<em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216chfl_atom_chargePK9CHFL_ATOMPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the charge of an <code class="docutils literal"><span class="pre">atom</span></code>, in the double pointed to by <code class="docutils literal"><span class="pre">charge</span></code>.</p>
+<p>The charge is in number of the electron charge <em>e</em>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">charge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_charge</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">charge</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">charge</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_atom_set_chargeP9CHFL_ATOMd">
+<span id="chfl_atom_set_charge__CHFL_ATOMP.double"></span><span class="target" id="atom_8h_1a0eb3cab1790a7b11927cb7a662523a3d"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_set_charge</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, double <em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_atom_set_chargeP9CHFL_ATOMd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the charge of an <code class="docutils literal"><span class="pre">atom</span></code> to <code class="docutils literal"><span class="pre">charge</span></code>.</p>
+<p>The charge must be in number of the electron charge <em>e</em>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_atom_set_charge</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">charge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_charge</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">charge</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">charge</span> <span class="o">-</span> <span class="mf">0.82</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_atom_namePK9CHFL_ATOMPc8uint64_t">
+<span id="chfl_atom_name__CHFL_ATOMCP.cP.uint64_t"></span><span class="target" id="atom_8h_1a4b9729c3cb836a2406b5e5b1989ed1d5"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_name</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, char *<em>name</em>, uint64_t <em>buffsize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_atom_namePK9CHFL_ATOMPc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the name of an <code class="docutils literal"><span class="pre">atom</span></code> in the string buffer <code class="docutils literal"><span class="pre">name</span></code>.</p>
+<p>The buffer size must be passed in <code class="docutils literal"><span class="pre">buffsize</span></code>. This function will truncate the name to fit in the buffer.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_atom_name</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Na&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218chfl_atom_set_nameP9CHFL_ATOMPKc">
+<span id="chfl_atom_set_name__CHFL_ATOMP.cCP"></span><span class="target" id="atom_8h_1a60a4ac2719fa319d3504a0ddf6325944"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_set_name</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, <em class="property">const</em> char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218chfl_atom_set_nameP9CHFL_ATOMPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the name of an <code class="docutils literal"><span class="pre">atom</span></code> to <code class="docutils literal"><span class="pre">name</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">name</span></code> must be a null terminated string.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_atom_set_name</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s">&quot;Cs&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_atom_name</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Cs&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_atom_typePK9CHFL_ATOMPc8uint64_t">
+<span id="chfl_atom_type__CHFL_ATOMCP.cP.uint64_t"></span><span class="target" id="atom_8h_1a8704bfbe28e74d64e60bf4d5d44ad06b"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_type</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, char *<em>type</em>, uint64_t <em>buffsize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_atom_typePK9CHFL_ATOMPc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the type of an <code class="docutils literal"><span class="pre">atom</span></code> in the string buffer <code class="docutils literal"><span class="pre">type</span></code>.</p>
+<p>The buffer size must be passed in <code class="docutils literal"><span class="pre">buffsize</span></code>. This function will truncate the atomic type to fit in the buffer.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">type</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_atom_type</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">type</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="s">&quot;Na&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218chfl_atom_set_typeP9CHFL_ATOMPKc">
+<span id="chfl_atom_set_type__CHFL_ATOMP.cCP"></span><span class="target" id="atom_8h_1a6133bf384427762445a5460f285af396"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_set_type</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, <em class="property">const</em> char *<em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218chfl_atom_set_typeP9CHFL_ATOMPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the type of an <code class="docutils literal"><span class="pre">atom</span></code> to <code class="docutils literal"><span class="pre">type</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">type</span></code> must be a null terminated string.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_atom_set_type</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s">&quot;Cs&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">type</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_atom_type</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">type</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="s">&quot;Cs&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219chfl_atom_full_namePK9CHFL_ATOMPc8uint64_t">
+<span id="chfl_atom_full_name__CHFL_ATOMCP.cP.uint64_t"></span><span class="target" id="atom_8h_1a868c24380fa72f9580c148a726447f93"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_full_name</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, char *<em>name</em>, uint64_t <em>buffsize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219chfl_atom_full_namePK9CHFL_ATOMPc8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the full name of an <code class="docutils literal"><span class="pre">atom</span></code> from its type in the string buffer <code class="docutils literal"><span class="pre">name</span></code></p>
+<p>The buffer size must be passed in <code class="docutils literal"><span class="pre">buffsize</span></code>. This function will truncate the name to fit in the buffer.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">chfl_atom_full_name</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Sodium&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_atom_vdw_radiusPK9CHFL_ATOMPd">
+<span id="chfl_atom_vdw_radius__CHFL_ATOMCP.doubleP"></span><span class="target" id="atom_8h_1afbae35b47be156aa99d86119f41bd373"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_vdw_radius</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, double *<em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_atom_vdw_radiusPK9CHFL_ATOMPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the Van der Waals radius of an <code class="docutils literal"><span class="pre">atom</span></code> from the atom type, in the double pointed to by <code class="docutils literal"><span class="pre">radius</span></code>.</p>
+<p>If the radius in unknown, this function set <code class="docutils literal"><span class="pre">radius</span></code> to 0.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_vdw_radius</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">radius</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">radius</span> <span class="o">-</span> <span class="mf">2.4</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv225chfl_atom_covalent_radiusPK9CHFL_ATOMPd">
+<span id="chfl_atom_covalent_radius__CHFL_ATOMCP.doubleP"></span><span class="target" id="atom_8h_1a2ef73551746c81cdc2a4aa0577515ba2"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_covalent_radius</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, double *<em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv225chfl_atom_covalent_radiusPK9CHFL_ATOMPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the covalent radius of an <code class="docutils literal"><span class="pre">atom</span></code> from the atom type, in the double pointed to by <code class="docutils literal"><span class="pre">radius</span></code>.</p>
+<p>If the radius in unknown, this function set <code class="docutils literal"><span class="pre">radius</span></code> to 0.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_covalent_radius</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">radius</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">radius</span> <span class="o">-</span> <span class="mf">1.54</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv223chfl_atom_atomic_numberPK9CHFL_ATOMP8uint64_t">
+<span id="chfl_atom_atomic_number__CHFL_ATOMCP.uint64_tP"></span><span class="target" id="atom_8h_1a0f829f5a2a47b12ab164d91ce359e348"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_atomic_number</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, uint64_t *<em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223chfl_atom_atomic_numberPK9CHFL_ATOMP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the atomic number of an <code class="docutils literal"><span class="pre">atom</span></code> from the atom type, in the integer pointed to by <code class="docutils literal"><span class="pre">number</span></code>.</p>
+<p>If the atomic number in unknown, this function set <code class="docutils literal"><span class="pre">number</span></code> to 0.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_atom_atomic_number</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">number</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">number</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_atom_set_propertyP9CHFL_ATOMPKcPK13CHFL_PROPERTY">
+<span id="chfl_atom_set_property__CHFL_ATOMP.cCP.CHFL_PROPERTYCP"></span><span class="target" id="atom_8h_1afce572690b2fc7ca9c5ca1329a0c174a"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_set_property</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, <em class="property">const</em> char *<em>name</em>, <em class="property">const</em> <a class="reference internal" href="chfl_property.html#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<em>property</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_atom_set_propertyP9CHFL_ATOMPKcPK13CHFL_PROPERTY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a new <code class="docutils literal"><span class="pre">property</span></code> with the given <code class="docutils literal"><span class="pre">name</span></code> to this <code class="docutils literal"><span class="pre">atom</span></code>.</p>
+<p>If a property with the same name already exists, this function override the existing property with the new one.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+<span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_atom_set_property</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">,</span> <span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+
+<span class="n">property</span> <span class="o">=</span> <span class="n">chfl_atom_get_property</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_property_get_double</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error if the status code is not <code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_atom_get_propertyPK9CHFL_ATOMPKc">
+<span id="chfl_atom_get_property__CHFL_ATOMCP.cCP"></span><span class="target" id="atom_8h_1a9da18255b409f0384ef247e158dc3a78"></span><a class="reference internal" href="chfl_property.html#_CPPv213CHFL_PROPERTY" title="CHFL_PROPERTY">CHFL_PROPERTY</a> *<code class="descclassname"></code><code class="descname">chfl_atom_get_property</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em>, <em class="property">const</em> char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_atom_get_propertyPK9CHFL_ATOMPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a property with the given <code class="docutils literal"><span class="pre">name</span></code> in this <code class="docutils literal"><span class="pre">atom</span></code>.</p>
+<p>This function returns <code class="docutils literal"><span class="pre">NULL</span></code> is no property exist with the given name.</p>
+<p>The user of this function is responsible to deallocate memory using the <code class="docutils literal"><span class="pre">chfl_property_free</span></code> function.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+<span class="n">CHFL_PROPERTY</span><span class="o">*</span> <span class="n">property</span> <span class="o">=</span> <span class="n">chfl_property_double</span><span class="p">(</span><span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_atom_set_property</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">,</span> <span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+
+<span class="n">property</span> <span class="o">=</span> <span class="n">chfl_atom_get_property</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s">&quot;this&quot;</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_property_get_double</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="n">chfl_property_free</span><span class="p">(</span><span class="n">property</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the property, or NULL in case of error. You can use <code class="docutils literal"><span class="pre">chfl_last_error</span></code> to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214chfl_atom_freeP9CHFL_ATOM">
+<span id="chfl_atom_free__CHFL_ATOMP"></span><span class="target" id="atom_8h_1aad8ca1e9e4f3c5dc192ad463abd23380"></span><a class="reference internal" href="misc.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_atom_free</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214chfl_atom_freeP9CHFL_ATOM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the memory associated with an <code class="docutils literal"><span class="pre">atom</span></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Na&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">atom</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">CHFL_SUCCESS</span></code> </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

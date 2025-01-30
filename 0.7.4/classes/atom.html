@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Atoms &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Unit Cell" href="unitcell.html" />
+    <link rel="prev" title="Topology" href="topology.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Atoms</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="topology.html" title="Previous Chapter: Topology"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Topology</span>
+    </a>
+  </li>
+  <li>
+    <a href="unitcell.html" title="Next Chapter: Unit Cell"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Unit Cell &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="atoms">
+<span id="class-atom"></span><h1>Atoms<a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles4AtomE">
+<span id="chemfiles::Atom"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">Atom</code><a class="headerlink" href="#_CPPv2N9chemfiles4AtomE" title="Permalink to this definition">¶</a></dt>
+<dd><p>An `Atom` is a particle in the current `Frame`.</p>
+<p>An atom stores the following atomic properties:</p>
+<p><ul class="simple">
+<li>atom name;</li>
+<li>atom type;</li>
+<li>atom mass;</li>
+<li>atom charge.</li>
+</ul>
+</p>
+<p>The atom name is usually an unique identifier (&#8220;H1&#8221;, &#8220;C_a&#8221;) while the atom type will be shared between all particles of the same type: &#8220;H&#8221;, &#8220;Ow&#8221;, &#8220;CH3&#8221;. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N4Atom4AtomENSt6stringE">
+<span id="Atom::Atom__ss"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a02e0edd43db1af34758f2d729a985bd0"></span><code class="descname">Atom</code><span class="sig-paren">(</span>std::string <em>name</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N4Atom4AtomENSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an atom with the given `name` and set the atom `type` to be the same as `name`. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N4Atom4AtomENSt6stringENSt6stringE">
+<span id="Atom::Atom__ss.ss"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a9a142be9224cff57030d707af2d2db04"></span><code class="descname">Atom</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N4Atom4AtomENSt6stringENSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an atom from the given `name` and `type`. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom4nameEv">
+<span id="chemfiles::Atom::nameC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1aeddb1e41e262f85de21de13aed21dd82"></span><em class="property">const</em> std::string &amp;<code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom4nameEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a const (non-modifiable) reference to the atom name. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom4typeEv">
+<span id="chemfiles::Atom::typeC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a1a0814ff3ac837a407764999ccd0d789"></span><em class="property">const</em> std::string &amp;<code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom4typeEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a const (non-modifiable) reference to the atom type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom4massEv">
+<span id="chemfiles::Atom::massC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a6b0d52b301c6598b1afc08695a9781e1"></span>double <code class="descname">mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom4massEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the atom mass. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles4Atom6chargeEv">
+<span id="chemfiles::Atom::chargeC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a89583666d67bbe7385075393db13f9df"></span>double <code class="descname">charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles4Atom6chargeEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the atom charge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom8set_typeENSt6stringE">
+<span id="chemfiles::Atom::set_type__ss"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a13a19b3a2928989863c50c79344d422d"></span>void <code class="descname">set_type</code><span class="sig-paren">(</span>std::string <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom8set_typeENSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the atom type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom8set_nameENSt6stringE">
+<span id="chemfiles::Atom::set_name__ss"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1ab4d9a9c63f49cf9c0b6f1e508beb382c"></span>void <code class="descname">set_name</code><span class="sig-paren">(</span>std::string <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom8set_nameENSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the atom name. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom8set_massEd">
+<span id="chemfiles::Atom::set_mass__double"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1ad71ebfc6103b1167a10d5537c9b9675b"></span>void <code class="descname">set_mass</code><span class="sig-paren">(</span>double <em>mass</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom8set_massEd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the atom mass. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles4Atom10set_chargeEd">
+<span id="chemfiles::Atom::set_charge__double"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1aa5a8d615a18f807b2cc7891eb40dba26"></span>void <code class="descname">set_charge</code><span class="sig-paren">(</span>double <em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N9chemfiles4Atom10set_chargeEd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the atom charge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom9full_nameEv">
+<span id="Atom::full_nameC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a55de41eb303282ccc212f1a036b13780"></span>std::string <code class="descname">full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom9full_nameEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the full atomic name, return and empty string if this is impossible </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom10vdw_radiusEv">
+<span id="Atom::vdw_radiusC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1ac8a8a9101b40a9beb5bec815607298c5"></span>double <code class="descname">vdw_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom10vdw_radiusEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the Van der Waals of the atom. Returns -1 if it can not be found. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom15covalent_radiusEv">
+<span id="Atom::covalent_radiusC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a853752c9e13ee2eab1bc78eef775cae7"></span>double <code class="descname">covalent_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom15covalent_radiusEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the covalent radius of the atom. Returns -1 if it can not be found. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK4Atom13atomic_numberEv">
+<span id="Atom::atomic_numberC"></span><span class="target" id="chemfilesclasschemfiles_1_1_atom_1a4f47098edd919c6b2566e048c14381a4"></span>int <code class="descname">atomic_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4Atom13atomic_numberEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the atomic number, if defined. Returns -1 if it can not be found. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

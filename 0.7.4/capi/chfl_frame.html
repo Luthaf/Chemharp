@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function manipulating CHFL_FRAME &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="C interface reference" href="index.html" />
+    <link rel="next" title="Function manipulating CHFL_ATOM" href="chfl_atom.html" />
+    <link rel="prev" title="Function manipulating CHFL_TRAJECTORY" href="chfl_trajectory.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code></a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="chfl_trajectory.html" title="Previous Chapter: Function manipulating CHFL_TRAJECTORY"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Function mani...</span>
+    </a>
+  </li>
+  <li>
+    <a href="chfl_atom.html" title="Next Chapter: Function manipulating CHFL_ATOM"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Function mani... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="function-manipulating-chfl-frame">
+<span id="capi-frame"></span><h1>Function manipulating <code class="docutils literal"><span class="pre">CHFL_FRAME</span></code><a class="headerlink" href="#function-manipulating-chfl-frame" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv210CHFL_FRAME">
+<span id="CHFL_FRAME"></span><span class="target" id="chemfilestypes_8h_1a2ee77be9758e461009fbb146db5742d9"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> <code class="descclassname"></code><code class="descname">CHFL_FRAME</code><a class="headerlink" href="#_CPPv210CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>An opaque type handling frames.</p>
+<p>A `CHFL_FRAME` contains data from one simulation step: the current unit cell, the topology, the positions, and the velocities of the particles in the system. If some information is missing (topology or velocity or unit cell), the corresponding data is filled with a default value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv210chfl_framev">
+<span id="chfl_frame__void"></span><span class="target" id="chemfilesframe_8h_1a5ecb6d7bd460334efc1199db0915e3cd"></span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<code class="descclassname"></code><code class="descname">chfl_frame</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv210chfl_framev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new empty frame.</p>
+<p>The caller of this function should free the allocated memory using `chfl_frame_free`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the frame, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215chfl_frame_copyPCK10CHFL_FRAME">
+<span id="chfl_frame_copy__CHFL_FRAMECPC"></span><span class="target" id="chemfilesframe_8h_1a90aba7bfecd1ca5dda4fc3db600e7d0f"></span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<code class="descclassname"></code><code class="descname">chfl_frame_copy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215chfl_frame_copyPCK10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of a `frame`.</p>
+<p>The caller of this function should free the associated memory using `chfl_frame_free`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">chfl_frame_copy</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">copy</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">copy</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A pointer to the new frame, or NULL in case of error. You can use `chfl_last_error` to learn about the error. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222chfl_frame_atoms_countPCK10CHFL_FRAMEP8uint64_t">
+<span id="chfl_frame_atoms_count__CHFL_FRAMECPC.uint64_tP"></span><span class="target" id="chemfilesframe_8h_1aa9b468611e38f63013fc6116dd6f156c"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_atoms_count</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, uint64_t *<em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222chfl_frame_atoms_countPCK10CHFL_FRAMEP8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of atoms in a `frame` in the integer pointed to by `natoms`</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217chfl_frame_resizePC10CHFL_FRAME8uint64_t">
+<span id="chfl_frame_resize__CHFL_FRAMEPC.uint64_t"></span><span class="target" id="chemfilesframe_8h_1a4d2a08d6f9141c53393e2aa72947a48c"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_resize</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, uint64_t <em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217chfl_frame_resizePC10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the positions, velocities and topology in the `frame`, to have space for `natoms` atoms.</p>
+<p>This function may invalidate any pointer to the positions or the velocities if the new size is bigger than the old one. In all the cases, previous data is conserved. This function conserve the presence or absence of velocities.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">55</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">55</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219chfl_frame_add_atomPC10CHFL_FRAMEPCK9CHFL_ATOMK13chfl_vector_tK13chfl_vector_t">
+<span id="chfl_frame_add_atom__CHFL_FRAMEPC.CHFL_ATOMCPC.chfl_vector_tC.chfl_vector_tC"></span><span class="target" id="chemfilesframe_8h_1a2e50817a898d44e2f78f513d1e442603"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_add_atom</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_atom.html#_CPPv29CHFL_ATOM" title="CHFL_ATOM">CHFL_ATOM</a> *<em class="property">const</em> <em>atom</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>position</em>, <em class="property">const</em> <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> <em>velocity</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219chfl_frame_add_atomPC10CHFL_FRAMEPCK9CHFL_ATOMK13chfl_vector_tK13chfl_vector_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an `atom` and the corresponding `position` and `velocity` data to a `frame`.</p>
+<p>`velocity` can be `NULL` if no velocity is associated with the atom.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">atom</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">atom</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">atom</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217chfl_frame_removePC10CHFL_FRAME8uint64_t">
+<span id="chfl_frame_remove__CHFL_FRAMEPC.uint64_t"></span><span class="target" id="chemfilesframe_8h_1af54c27a07f87b6d165c8b0b48bbf7d7f"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_remove</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, uint64_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217chfl_frame_removePC10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the atom at index `i` in the frame.</p>
+<p>This modify all the atoms indexes after `i`, and invalidate any pointer obtained using `chfl_frame_positions` or `chfl_frame_velocities`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">atoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">37</span><span class="p">);</span>
+<span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="n">chfl_frame_remove</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+
+<span class="n">chfl_frame_atoms_count</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">atoms</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">atoms</span> <span class="o">==</span> <span class="mi">39</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220chfl_frame_positionsPC10CHFL_FRAMEPP13chfl_vector_tP8uint64_t">
+<span id="chfl_frame_positions__CHFL_FRAMEPC.chfl_vector_tPP.uint64_tP"></span><span class="target" id="chemfilesframe_8h_1a7d246697f1034d99737137bd7bcf08b0"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_positions</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> **<em>positions</em>, uint64_t *<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220chfl_frame_positionsPC10CHFL_FRAMEPP13chfl_vector_tP8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a pointer to the positions array from a `frame`.</p>
+<p>Positions are stored as a `natoms x 3` array, this function set the pointer pointed to by `positions` to point to the first element of this array, and give the number of atoms in the integer pointed to by `size`.</p>
+<p>If the frame is resized (by writing to it, or calling `chfl_frame_resize`), the pointer is invalidated. If the frame is freed using `chfl_frame_free`, the pointer is freed too. There is then no need to free the `*positions` pointer for the caller of this function.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_vector_t</span><span class="o">*</span> <span class="n">positions</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">positions</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// use positions[i] here</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv221chfl_frame_velocitiesPC10CHFL_FRAMEPP13chfl_vector_tP8uint64_t">
+<span id="chfl_frame_velocities__CHFL_FRAMEPC.chfl_vector_tPP.uint64_tP"></span><span class="target" id="chemfilesframe_8h_1a9b26edf3e7a884c4b0ee492fadddb06d"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_velocities</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, <a class="reference internal" href="index.html#_CPPv213chfl_vector_t" title="chfl_vector_t">chfl_vector_t</a> **<em>velocities</em>, uint64_t *<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221chfl_frame_velocitiesPC10CHFL_FRAMEPP13chfl_vector_tP8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a pointer to the velocities array from a `frame`.</p>
+<p>Velocities are stored as a `natoms x 3` array, this function set the pointer pointed to by `positions` to point to the first element of this array, and give the number of atoms in the integer pointed to by `size`.</p>
+<p>If the frame is resized (by writing to it, or calling `chfl_frame_resize`), the pointer is invalidated. If the frame is freed using `chfl_frame_free`, the pointer is freed too. There is then no need to free the `*velocity` pointer for the caller of this function.</p>
+<p>If the frame do not have velocity, this will return an error. Use `chfl_frame_add_velocities` to add velocities to a frame before calling this function.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">chfl_frame_add_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="n">chfl_vector_t</span><span class="o">*</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">uint64_t</span> <span class="n">natoms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_positions</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">natoms</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">natoms</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// use velocities[i] here</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv225chfl_frame_has_velocitiesPCK10CHFL_FRAMEPb">
+<span id="chfl_frame_has_velocities__CHFL_FRAMECPC.bP"></span><span class="target" id="chemfilesframe_8h_1a380f937c5bb83f1e2e25b80de5907262"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_has_velocities</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, bool *<em>has_velocities</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv225chfl_frame_has_velocitiesPCK10CHFL_FRAMEPb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if this `frame` contains velocity data, and store the result in `has_velocities`</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="kt">bool</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">chfl_frame_has_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv225chfl_frame_add_velocitiesPC10CHFL_FRAME">
+<span id="chfl_frame_add_velocities__CHFL_FRAMEPC"></span><span class="target" id="chemfilesframe_8h_1a888158f0ecae9003e30f578ab32e36a9"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_add_velocities</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv225chfl_frame_add_velocitiesPC10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add velocity data to this `frame`.</p>
+<p>The velocities ar initialized to `(chfl_vector_t){0, 0, 0}`. If the frame already has velocities, this does nothing.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_frame_add_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="n">velocities</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">chfl_frame_has_velocities</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">velocities</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219chfl_frame_set_cellPC10CHFL_FRAMEPCK9CHFL_CELL">
+<span id="chfl_frame_set_cell__CHFL_FRAMEPC.CHFL_CELLCPC"></span><span class="target" id="chemfilesframe_8h_1a6e93d1ea0f942a036c62ee66a4ba72ac"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_set_cell</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_cell.html#_CPPv29CHFL_CELL" title="CHFL_CELL">CHFL_CELL</a> *<em class="property">const</em> <em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219chfl_frame_set_cellPC10CHFL_FRAMEPCK9CHFL_CELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit cell of a `frame` to `cell`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+<span class="n">CHFL_CELL</span><span class="o">*</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">chfl_cell</span><span class="p">((</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">});</span>
+
+<span class="n">chfl_frame_set_cell</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cell</span><span class="p">);</span>
+
+<span class="n">chfl_cell_free</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv223chfl_frame_set_topologyPC10CHFL_FRAMEPCK13CHFL_TOPOLOGY">
+<span id="chfl_frame_set_topology__CHFL_FRAMEPC.CHFL_TOPOLOGYCPC"></span><span class="target" id="chemfilesframe_8h_1a8e0b77a661934fed4964a6afce515ae6"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_set_topology</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, <em class="property">const</em> <a class="reference internal" href="chfl_topology.html#_CPPv213CHFL_TOPOLOGY" title="CHFL_TOPOLOGY">CHFL_TOPOLOGY</a> *<em class="property">const</em> <em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223chfl_frame_set_topologyPC10CHFL_FRAMEPCK13CHFL_TOPOLOGY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the topology of a `frame` to `topology`.</p>
+<p>Calling this function with a topology that does not contain the right number of atom will return an error.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology</span><span class="p">();</span>
+
+<span class="p">{</span>
+    <span class="c1">// Build the topology</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">O</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">);</span>
+    <span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">H</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+    <span class="n">chfl_topology_add_atom</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">O</span><span class="p">);</span>
+    <span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_set_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">topology</span><span class="p">);</span>
+
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215chfl_frame_stepPCK10CHFL_FRAMEP8uint64_t">
+<span id="chfl_frame_step__CHFL_FRAMECPC.uint64_tP"></span><span class="target" id="chemfilesframe_8h_1ad53ee138f63730f6fd4e905824616b38"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_step</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, uint64_t *<em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215chfl_frame_stepPCK10CHFL_FRAMEP8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a `frame` step, *i.e.* the frame number in the trajectory in the integer pointed to by `step`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="kt">uint64_t</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">chfl_frame_step</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219chfl_frame_set_stepPC10CHFL_FRAME8uint64_t">
+<span id="chfl_frame_set_step__CHFL_FRAMEPC.uint64_t"></span><span class="target" id="chemfilesframe_8h_1a2d6f95932c5b0e47fa4d04f5af5af94d"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_set_step</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em>, uint64_t <em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219chfl_frame_set_stepPC10CHFL_FRAME8uint64_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a `frame` step, *i.e.* the frame number in the trajectory to `step`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">chfl_frame_set_step</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">678</span><span class="p">);</span>
+
+<span class="kt">uint64_t</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_frame_step</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">step</span> <span class="o">==</span> <span class="mi">678</span><span class="p">);</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv225chfl_frame_guess_topologyPC10CHFL_FRAME">
+<span id="chfl_frame_guess_topology__CHFL_FRAMEPC"></span><span class="target" id="chemfilesframe_8h_1aec7cb822ad34462c1e4fcfe3f373535a"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_guess_topology</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv225chfl_frame_guess_topologyPC10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess the bonds, angles and dihedrals in a `frame`.</p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles and dihedrals are guessed from the bonds.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Building a frame containing a Cl2 molecule</span>
+<span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="n">CHFL_ATOM</span><span class="o">*</span> <span class="n">Cl</span> <span class="o">=</span> <span class="n">chfl_atom</span><span class="p">(</span><span class="s">&quot;Cl&quot;</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">Cl</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_frame_add_atom</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">Cl</span><span class="p">,</span> <span class="p">(</span><span class="n">chfl_vector_t</span><span class="p">){</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">chfl_atom_free</span><span class="p">(</span><span class="n">Cl</span><span class="p">);</span>
+
+<span class="c1">// Check that the topology does not contain any bond</span>
+<span class="n">CHFL_TOPOLOGY</span><span class="o">*</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="kt">uint64_t</span> <span class="n">bonds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+
+<span class="n">chfl_frame_guess_topology</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+<span class="c1">// Get a copie of the new topology</span>
+<span class="n">topology</span> <span class="o">=</span> <span class="n">chfl_topology_from_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">chfl_topology_bonds_count</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bonds</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">bonds</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chfl_topology_free</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The operation status code. You can use `chfl_last_error` to learn about the error if the status code is not `CHFL_SUCCESS`. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215chfl_frame_freePC10CHFL_FRAME">
+<span id="chfl_frame_free__CHFL_FRAMEPC"></span><span class="target" id="chemfilesframe_8h_1a2e95dd655f66565ff02ca4989bb6cf5e"></span><a class="reference internal" href="errors.html#_CPPv211chfl_status" title="chfl_status">chfl_status</a> <code class="descclassname"></code><code class="descname">chfl_frame_free</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv210CHFL_FRAME" title="CHFL_FRAME">CHFL_FRAME</a> *<em class="property">const</em> <em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215chfl_frame_freePC10CHFL_FRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Free the memory associated with a `frame`.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CHFL_FRAME</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">chfl_frame</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* handle error */</span>
+<span class="p">}</span>
+
+<span class="n">chfl_frame_free</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>`CHFL_SUCCESS` </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

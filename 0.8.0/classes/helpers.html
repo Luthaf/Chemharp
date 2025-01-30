@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Helper classes &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C interface reference" href="../capi/index.html" />
+    <link rel="prev" title="Miscelaneous classes and functions" href="misc.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Helper classes</a><ul>
+<li><a class="reference internal" href="#optional-t"><code class="docutils literal"><span class="pre">optional&lt;T&gt;</span></code></a></li>
+<li><a class="reference internal" href="#span-t"><code class="docutils literal"><span class="pre">span&lt;T&gt;</span></code></a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="misc.html" title="Previous Chapter: Miscelaneous classes and functions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Miscelaneous ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../capi/index.html" title="Next Chapter: C interface reference"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">C interface reference &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="helper-classes">
+<h1>Helper classes<a class="headerlink" href="#helper-classes" title="Permalink to this headline">¶</a></h1>
+<p>Chemfiles contains C++11 implentations of various goodies from more recent
+versions of the language, or support libraries. Here is a small documentation on
+how to use these types.</p>
+<div class="section" id="optional-t">
+<h2><code class="docutils literal"><span class="pre">optional&lt;T&gt;</span></code><a class="headerlink" href="#optional-t" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2I0EN9chemfiles8optionalE">
+template&lt;class <code class="descname">T</code>&gt;<br /><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">optional</code><a class="headerlink" href="#_CPPv2I0EN9chemfiles8optionalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A class representing optional values. Basic usage example is given here, you
+can also refer to the documentation for <code class="docutils literal"><span class="pre">std::optional</span></code> on
+<a class="reference external" href="http://en.cppreference.com/w/cpp/utility/optional">cppreference</a>.</p>
+<p>For most purposes, one can use an <code class="docutils literal"><span class="pre">optional&lt;T&gt;</span></code> value as if it was a
+pointer <code class="docutils literal"><span class="pre">T*</span></code>, with <code class="docutils literal"><span class="pre">nullptr</span></code> indicating the abscence of a value.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// nullopt is used to indicate the optional data is missing</span>
+<span class="n">chemfiles</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">nullopt</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">optional</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// chemfiles::optional is convertible to bool</span>
+<span class="p">}</span>
+
+<span class="c1">// Setting a value</span>
+<span class="n">optional</span> <span class="o">=</span> <span class="mf">78.0</span><span class="p">;</span>
+
+<span class="c1">// Getting back the value</span>
+<span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">optional</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>
+
+<span class="c1">// Specifying a default value when data is missing</span>
+<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="n">value_or</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="span-t">
+<h2><code class="docutils literal"><span class="pre">span&lt;T&gt;</span></code><a class="headerlink" href="#span-t" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2I0EN9chemfiles4spanE">
+template&lt;class <code class="descname">T</code>&gt;<br /><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">span</code><a class="headerlink" href="#_CPPv2I0EN9chemfiles4spanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">span&lt;T&gt;</span></code> is a view inside a <code class="docutils literal"><span class="pre">std::vector&lt;T&gt;</span></code> providing all the
+operations of a vector expect for memory allocation. The idea and
+implementation comes from the <a class="reference external" href="http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#gsl-guideline-support-library">GSL</a> library.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// you should never need to create a span yourself</span>
+<span class="n">chemfiles</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">span</span> <span class="o">=</span> <span class="cm">/* ... */</span><span class="p">;</span>
+
+<span class="c1">// span supports range-based iteration</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">double</span> <span class="nl">a</span><span class="p">:</span> <span class="n">span</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// but also classical iteration</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">span</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// and direct indexing</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="n">span</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mf">78.3</span><span class="p">;</span>
+
+<span class="c1">// You can also use a span with standard algorithms</span>
+<span class="k">auto</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">span</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">span</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

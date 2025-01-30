@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Trajectory class &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frame class" href="frame.html" />
+    <link rel="prev" title="C++ interface reference" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Trajectory class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: C++ interface reference"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C++ interface...</span>
+    </a>
+  </li>
+  <li>
+    <a href="frame.html" title="Next Chapter: Frame class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Frame class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="trajectory-class">
+<span id="class-trajectory"></span><h1>Trajectory class<a class="headerlink" href="#trajectory-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles10TrajectoryE">
+<span id="chemfiles::Trajectory"></span><span class="target" id="classchemfiles_1_1_trajectory"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">Trajectory</code><a class="headerlink" href="#_CPPv2N9chemfiles10TrajectoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <code class="docutils literal"><a class="reference internal" href="#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">Trajectory</span></span></a></code> is a chemistry file on the hard drive. It is the entry point of the chemfiles library. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N10Trajectory10TrajectoryENSt6stringEcRKNSt6stringE">
+<span id="Trajectory::Trajectory__ss.c.ssCR"></span><span class="target" id="classchemfiles_1_1_trajectory_1a67621dfae9891effa24a2f9966d29b26"></span><code class="descname">Trajectory</code><span class="sig-paren">(</span>std::string <em>path</em>, char <em>mode</em> = 'r', <em class="property">const</em> std::string &amp;<em>format</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory10TrajectoryENSt6stringEcRKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open a file, automatically gessing the file format from the extension.</p>
+<p>The format can either be guessed from the extention (“.xyz” is XYZ, “.gro” is GROMACS, <em>etc.</em>), or specified as the third parameter. The format names are given in the corresponding <a class="reference external" href="http://chemfiles.org/chemfiles/latest/formats.html#list-of-supported-formats">documentation section</a></p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Simplest case: open a file for reading it, the format is guessed from</span>
+<span class="c1">// the extension.</span>
+<span class="k">auto</span> <span class="n">water</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+
+<span class="c1">// Open a file in a specific mode</span>
+<span class="k">auto</span> <span class="n">copper</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;copper.xyz&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+
+<span class="c1">// Specify the file format to use</span>
+<span class="k">auto</span> <span class="n">nanotube</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;nanotube.lmp&quot;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">,</span> <span class="s">&quot;LAMMPS Data&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">path</span></code>: The file path. In <code class="docutils literal"><span class="pre">w</span></code> or <code class="docutils literal"><span class="pre">a</span></code> modes, the file is created if it does not exist yet. In <code class="docutils literal"><span class="pre">r</span></code> mode, an exception is thrown is the file does not exist yet. </li>
+<li><code class="docutils literal"><span class="pre">mode</span></code>: Opening mode for the file. Default mode is <code class="docutils literal"><span class="pre">r</span></code> for read. Other supported modes depends on the underlying format and are <code class="docutils literal"><span class="pre">w</span></code> for write, and <code class="docutils literal"><span class="pre">a</span></code> for append. <code class="docutils literal"><span class="pre">w</span></code> mode discard any previously existing file. </li>
+<li><code class="docutils literal"><span class="pre">format</span></code>: Specific format to use. Needed when there is no way to guess the format from the extension of the file, or when this guess would be wrong.</li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: for all errors concerning the physical file: can not open it, can not read/write it, <em>etc.</em> </li>
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file is not valid for the used format. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory4readEv">
+<span id="Trajectory::read"></span><span class="target" id="classchemfiles_1_1_trajectory_1a6247e1a8ed641ca41dd1dbaa2c8acc78"></span>Frame <code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory4readEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the next frame in the trajectory.</p>
+<p>The trajectory must have been opened in read (<code class="docutils literal"><span class="pre">'r'</span></code>) or append (<code class="docutils literal"><span class="pre">'a'</span></code>) mode, and the underlying format must support reading.</p>
+<p>This function throws a <code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code> if there are no more frames to read in the trajectory.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="c1">// Use the frame for awesome science here!</span>
+
+<span class="c1">// This is one way to iterate over all the frames in a trajectory</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">trajectory</span><span class="p">.</span><span class="n">done</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: for all errors concerning the physical file: can not open it, can not read/write it, <em>etc.</em> </li>
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file is not valid for the used format, or if the format does not support reading. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory9read_stepE6size_t">
+<span id="Trajectory::read_step__s"></span><span class="target" id="classchemfiles_1_1_trajectory_1a17cde5e6e043c15fa728de04504c1e93"></span>Frame <code class="descname">read_step</code><span class="sig-paren">(</span>size_t <em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory9read_stepE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a single frame at specified <code class="docutils literal"><span class="pre">step</span></code> from the trajectory.</p>
+<p>The trajectory must have been opened in read (<code class="docutils literal"><span class="pre">'r'</span></code>) or append (<code class="docutils literal"><span class="pre">'a'</span></code>) mode, and the underlying format must support reading.</p>
+<p>This function throws a <code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code> if the step is bigger than the number of steps in the trajectory.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read_step</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="c1">// Use the frame for awesome science here!</span>
+
+<span class="c1">// This is one way to iterate over all the frames in a trajectory</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">nsteps</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read_step</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">step</span></code>: step to read from the trajectory</li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: for all errors concerning the physical file: can not open it, can not read/write it, <em>etc.</em> </li>
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file is not valid for the used format, or if the format does not support reading. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory5writeERK5Frame">
+<span id="Trajectory::write__FrameCR"></span><span class="target" id="classchemfiles_1_1_trajectory_1abf140b77f7fbd5fbd0f0d34cd7335d0b"></span>void <code class="descname">write</code><span class="sig-paren">(</span><em class="property">const</em> Frame &amp;<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory5writeERK5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a single frame to the trajectory.</p>
+<p>The trajectory must have been opened in write (<code class="docutils literal"><span class="pre">'w'</span></code>) or append (<code class="docutils literal"><span class="pre">'a'</span></code>) mode, and the underlying format must support writing.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
+
+<span class="n">trajectory</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">frame</span></code>: frame to write to this trajectory</li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: for all errors concerning the physical file: can not open it, can not read/write it, <em>etc.</em> </li>
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the format does not support writing. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory12set_topologyERK8Topology">
+<span id="Trajectory::set_topology__TopologyCR"></span><span class="target" id="classchemfiles_1_1_trajectory_1a80d45cce0b6cecc8d75083ba6aa60d3b"></span>void <code class="descname">set_topology</code><span class="sig-paren">(</span><em class="property">const</em> Topology &amp;<em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory12set_topologyERK8Topology" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the given <code class="docutils literal"><span class="pre">topology</span></code> instead of any pre-existing <code class="docutils literal"><a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref"><span class="pre">Topology</span></span></a></code> when reading or writing.</p>
+<p>This replace any topology in the file being read, or in the <code class="docutils literal"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> being written.</p>
+<p>This is mainly usefull when a format does not define topological information, as it can be the case with some molecular dynamic formats.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// A water topology</span>
+<span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="c1">// The topology of the frame is now a water molecule, regardless of</span>
+<span class="c1">// what was defined in the trajectory.</span>
+
+<span class="c1">// One can also set the topology from a file</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="s">&quot;water.pdb&quot;</span><span class="p">);</span>
+
+<span class="c1">// Or set it from a file with a specific format</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="s">&quot;water.mol&quot;</span><span class="p">,</span> <span class="s">&quot;XYZ&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">topology</span></code>: the topology to use with this frame</li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the topology does not contain the right number of atoms at any step. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory12set_topologyERKNSt6stringERKNSt6stringE">
+<span id="Trajectory::set_topology__ssCR.ssCR"></span><span class="target" id="classchemfiles_1_1_trajectory_1a19d25d8e3a8029c1bc2cceee33be5f52"></span>void <code class="descname">set_topology</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>filename</em>, <em class="property">const</em> std::string &amp;<em>format</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory12set_topologyERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the <code class="docutils literal"><a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref"><span class="pre">Topology</span></span></a></code> from the first <code class="docutils literal"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> of the <code class="docutils literal"><a class="reference internal" href="#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">Trajectory</span></span></a></code> at <code class="docutils literal"><span class="pre">filename</span></code> instead any pre-existing <code class="docutils literal"><a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref"><span class="pre">Topology</span></span></a></code> when reading or writing.</p>
+<p>This replace any topology in the file being read, or in the <code class="docutils literal"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> being written.</p>
+<p>This is mainly usefull when a format does not define topological information, as it can be the case with some molecular dynamic formats.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// A water topology</span>
+<span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="c1">// The topology of the frame is now a water molecule, regardless of</span>
+<span class="c1">// what was defined in the trajectory.</span>
+
+<span class="c1">// One can also set the topology from a file</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="s">&quot;water.pdb&quot;</span><span class="p">);</span>
+
+<span class="c1">// Or set it from a file with a specific format</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="s">&quot;water.mol&quot;</span><span class="p">,</span> <span class="s">&quot;XYZ&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">filename</span></code>: trajectory file path. </li>
+<li><code class="docutils literal"><span class="pre">format</span></code>: Specific format to use. Needed when there is no way to guess the format from the extension of the file, or when this guess would be wrong.</li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: for all errors concerning the physical file: can not open it, can not read it, <em>etc.</em> </li>
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file is not valid for the used format. </li>
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the topology does not contain the right number of atoms at any step. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory8set_cellERK8UnitCell">
+<span id="Trajectory::set_cell__UnitCellCR"></span><span class="target" id="classchemfiles_1_1_trajectory_1a347f2326312e346bba007a75ff98675c"></span>void <code class="descname">set_cell</code><span class="sig-paren">(</span><em class="property">const</em> UnitCell &amp;<em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory8set_cellERK8UnitCell" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the given <code class="docutils literal"><span class="pre">cell</span></code> instead of any pre-existing <code class="docutils literal"><a class="reference internal" href="unitcell.html#classchemfiles_1_1_unit_cell"><span class="std std-ref"><span class="pre">UnitCell</span></span></a></code> when reading or writing.</p>
+<p>This replace any unit cell in the file being read, or in the <code class="docutils literal"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> being written.</p>
+<p>This is mainly usefull when a format does not define unti cell information.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.xyz&quot;</span><span class="p">);</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="c1">// The frame cell is now an orthorhombic cell with lengths of</span>
+<span class="c1">// 11 A, 11 A and 22 A, regardless of what was defined in the file.</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">cell</span></code>: the unit cell to use with this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK10Trajectory6nstepsEv">
+<span id="Trajectory::nstepsC"></span><span class="target" id="classchemfiles_1_1_trajectory_1a06454995e651406cf921e84806d922d7"></span>size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK10Trajectory6nstepsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of steps (the number of frames) in this trajectory.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">nsteps</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nsteps</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read_step</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK10Trajectory4doneEv">
+<span id="Trajectory::doneC"></span><span class="target" id="classchemfiles_1_1_trajectory_1a475755ee3d99cb3c7b758d4ffbdedf3f"></span>bool <code class="descname">done</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK10Trajectory4doneEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if all the frames in this trajectory have been read, <em>i.e.</em> if the last read frame is the last frame of the trajectory.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">trajectory</span><span class="p">.</span><span class="n">done</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">/// When using read_step, done() return a value based on the last read frame</span>
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read_step</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">trajectory</span><span class="p">.</span><span class="n">done</span><span class="p">());</span>
+
+<span class="k">auto</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">nsteps</span><span class="p">();</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">.</span><span class="n">read_step</span><span class="p">(</span><span class="n">nsteps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">trajectory</span><span class="p">.</span><span class="n">done</span><span class="p">());</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10Trajectory5closeEv">
+<span id="Trajectory::close"></span><span class="target" id="classchemfiles_1_1_trajectory_1ac2dcdb04f3a8573a994e878c970ca1d3"></span>void <code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10Trajectory5closeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Close a trajectory, and synchronize all buffered content with the drive.</p>
+<p>Calling any function on a closed trajectory will throw a <code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">trajectory</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="s">&quot;water.nc&quot;</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="c1">// setup the frame</span>
+
+<span class="n">trajectory</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="n">trajectory</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

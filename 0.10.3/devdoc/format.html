@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Format classes &#8212; Chemfiles 0.10.3
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Binary files implementations" href="files/binary-files.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="files/binary-files.html" title="Previous Chapter: Binary files implementations"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Binary files ...</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Chemfiles internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="internals.html#sources-organization">Sources organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="internals.html#classes-organization">Classes organization</a></li>
+</ul>
+</li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="format-classes">
+<span id="class-format"></span><h1><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes<a class="headerlink" href="#format-classes" title="Permalink to this heading">¶</a></h1>
+<section id="interface-for-formats">
+<h2>Interface for formats<a class="headerlink" href="#interface-for-formats" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6FormatE">
+<span id="_CPPv3N9chemfiles6FormatE"></span><span id="_CPPv2N9chemfiles6FormatE"></span><span id="chemfiles::Format"></span><span class="target" id="classchemfiles_1_1_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Format</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles6FormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_format"><span class="std std-ref"><span class="pre">Format</span></span></a></code> class defines the interface to implement in order to add a new format to chemfiles. For text-based formats, it might be simpler to implement the <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_text_format"><span class="std std-ref"><span class="pre">TextFormat</span></span></a></code> interface instead.</p>
+<p>It is possible to implement only one of <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_format_1aa11b98ebc235a57f64b81feb3fa13ffb"><span class="std std-ref"><span class="pre">Format::read</span></span></a></code>; <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_format_1adbf0e8258e0b69a068078b39d33d1dbf"><span class="std std-ref"><span class="pre">Format::read_step</span></span></a></code> or <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_format_1ad592ef519f5e77caaa98bb6597824c7d"><span class="std std-ref"><span class="pre">Format::write</span></span></a></code>. In that case, only the corresponding operations will be available from the corresponding <code class="docutils literal notranslate"><a class="reference internal" href="../classes/trajectory.html#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">chemfiles::Trajectory</span></span></a></code>. </p>
+<p>Subclassed by chemfiles::AmberNetCDFBase, <a class="reference internal" href="#classchemfiles_1_1_c_i_f_format"><span class="std std-ref">chemfiles::CIFFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_c_m_l_format"><span class="std std-ref">chemfiles::CMLFormat</span></a>, chemfiles::DCDFormat, <a class="reference internal" href="#classchemfiles_1_1mm_c_i_f_format"><span class="std std-ref">chemfiles::mmCIFFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_m_m_t_f_format"><span class="std std-ref">chemfiles::MMTFFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_molfile"><span class="std std-ref">chemfiles::Molfile&lt; F &gt;</span></a>, <a class="reference internal" href="#classchemfiles_1_1_text_format"><span class="std std-ref">chemfiles::TextFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_t_n_g_format"><span class="std std-ref">chemfiles::TNGFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_t_r_r_format"><span class="std std-ref">chemfiles::TRRFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_x_t_c_format"><span class="std std-ref">chemfiles::XTCFormat</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6Format9read_stepE6size_tR5Frame">
+<span id="_CPPv3N9chemfiles6Format9read_stepE6size_tR5Frame"></span><span id="_CPPv2N9chemfiles6Format9read_stepE6size_tR5Frame"></span><span id="chemfiles::Format::read_step__s.FrameR"></span><span class="target" id="classchemfiles_1_1_format_1adbf0e8258e0b69a068078b39d33d1dbf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_step</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step</span></span>, <a class="reference internal" href="../classes/frame.html#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles6Format9read_stepE6size_tR5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a specific <code class="docutils literal notranslate"><span class="pre">step</span></code> from the trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the file does not follow the format </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if their is an OS error while reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>step</strong> – The step to read </p></li>
+<li><p><strong>frame</strong> – The frame to fill </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6Format4readER5Frame">
+<span id="_CPPv3N9chemfiles6Format4readER5Frame"></span><span id="_CPPv2N9chemfiles6Format4readER5Frame"></span><span id="chemfiles::Format::read__FrameR"></span><span class="target" id="classchemfiles_1_1_format_1aa11b98ebc235a57f64b81feb3fa13ffb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../classes/frame.html#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles6Format4readER5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the next step from the trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the file does not follow the format </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if their is an OS error while reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>frame</strong> – The frame to fill </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6Format5writeERK5Frame">
+<span id="_CPPv3N9chemfiles6Format5writeERK5Frame"></span><span id="_CPPv2N9chemfiles6Format5writeERK5Frame"></span><span id="chemfiles::Format::write__FrameCR"></span><span class="target" id="classchemfiles_1_1_format_1ad592ef519f5e77caaa98bb6597824c7d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../classes/frame.html#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles6Format5writeERK5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a frame to the trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the file does not follow the format </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if their is an OS error while reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>frame</strong> – The frame to be written </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles6Format6nstepsEv">
+<span id="_CPPv3N9chemfiles6Format6nstepsEv"></span><span id="_CPPv2N9chemfiles6Format6nstepsEv"></span><span id="chemfiles::Format::nsteps"></span><span class="target" id="classchemfiles_1_1_format_1ab21a31d4d11bbc0a95079ff74e71292a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nsteps</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles6Format6nstepsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of frames in the associated file. This function can be expensive to call since it may needs to scan the whole file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of frames </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10TextFormatE">
+<span id="_CPPv3N9chemfiles10TextFormatE"></span><span id="_CPPv2N9chemfiles10TextFormatE"></span><span id="chemfiles::TextFormat"></span><span class="target" id="classchemfiles_1_1_text_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TextFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles10TextFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_text_format"><span class="std std-ref"><span class="pre">TextFormat</span></span></a></code> class defines a common, simpler interface for text based formats.</p>
+<p>It is possible to implement only one of <code class="docutils literal notranslate"><span class="pre">TextFormat::read_next</span></code> or <code class="docutils literal notranslate"><span class="pre">TextFormat::write_next</span></code>. In that case, only the corresponding operations will be available from the corresponding <code class="docutils literal notranslate"><a class="reference internal" href="../classes/trajectory.html#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">chemfiles::Trajectory</span></span></a></code>. </p>
+<p>Subclassed by <a class="reference internal" href="#classchemfiles_1_1_c_s_s_r_format"><span class="std std-ref">chemfiles::CSSRFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_g_r_o_format"><span class="std std-ref">chemfiles::GROFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_l_a_m_m_p_s_data_format"><span class="std std-ref">chemfiles::LAMMPSDataFormat</span></a>, chemfiles::LAMMPSTrajectoryFormat, <a class="reference internal" href="#classchemfiles_1_1_m_o_l2_format"><span class="std std-ref">chemfiles::MOL2Format</span></a>, <a class="reference internal" href="#classchemfiles_1_1_p_d_b_format"><span class="std std-ref">chemfiles::PDBFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_s_d_f_format"><span class="std std-ref">chemfiles::SDFFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_s_m_i_format"><span class="std std-ref">chemfiles::SMIFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_tinker_format"><span class="std std-ref">chemfiles::TinkerFormat</span></a>, <a class="reference internal" href="#classchemfiles_1_1_x_y_z_format"><span class="std std-ref">chemfiles::XYZFormat</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10TextFormat9read_stepE6size_tR5Frame">
+<span id="_CPPv3N9chemfiles10TextFormat9read_stepE6size_tR5Frame"></span><span id="_CPPv2N9chemfiles10TextFormat9read_stepE6size_tR5Frame"></span><span id="chemfiles::TextFormat::read_step__s.FrameR"></span><span class="target" id="classchemfiles_1_1_text_format_1a55ff425041d355c8520d5b9e1f7927d0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_step</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step</span></span>, <a class="reference internal" href="../classes/frame.html#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10TextFormat9read_stepE6size_tR5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a specific <code class="docutils literal notranslate"><span class="pre">step</span></code> from the trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the file does not follow the format </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if their is an OS error while reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>step</strong> – The step to read </p></li>
+<li><p><strong>frame</strong> – The frame to fill </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10TextFormat4readER5Frame">
+<span id="_CPPv3N9chemfiles10TextFormat4readER5Frame"></span><span id="_CPPv2N9chemfiles10TextFormat4readER5Frame"></span><span id="chemfiles::TextFormat::read__FrameR"></span><span class="target" id="classchemfiles_1_1_text_format_1afa954c225d1bad2ba19a8da22885a233"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../classes/frame.html#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10TextFormat4readER5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the next step from the trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the file does not follow the format </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if their is an OS error while reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>frame</strong> – The frame to fill </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10TextFormat5writeERK5Frame">
+<span id="_CPPv3N9chemfiles10TextFormat5writeERK5Frame"></span><span id="_CPPv2N9chemfiles10TextFormat5writeERK5Frame"></span><span id="chemfiles::TextFormat::write__FrameCR"></span><span class="target" id="classchemfiles_1_1_text_format_1a482fb7a868bff75bdf4582fdf91624d8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../classes/frame.html#_CPPv4N9chemfiles5FrameE" title="chemfiles::Frame"><span class="n"><span class="pre">Frame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10TextFormat5writeERK5Frame" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a frame to the trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the file does not follow the format </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles9FileErrorE" title="chemfiles::FileError"><span class="n">FileError</span></a></span></span> – if their is an OS error while reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>frame</strong> – The frame to be written </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10TextFormat6nstepsEv">
+<span id="_CPPv3N9chemfiles10TextFormat6nstepsEv"></span><span id="_CPPv2N9chemfiles10TextFormat6nstepsEv"></span><span id="chemfiles::TextFormat::nsteps"></span><span class="target" id="classchemfiles_1_1_text_format_1ae7231c5f48644dd53d0df4e26f9ee4aa"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nsteps</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10TextFormat6nstepsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of frames in the associated file. This function can be expensive to call since it may needs to scan the whole file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of frames </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10TextFormat7forwardEv">
+<span id="_CPPv3N9chemfiles10TextFormat7forwardEv"></span><span id="_CPPv2N9chemfiles10TextFormat7forwardEv"></span><span id="chemfiles::TextFormat::forward"></span><span class="target" id="classchemfiles_1_1_text_format_1a7d5fbc5bfdd69374d6ec7d324f5b9a5c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../classes/helpers.html#_CPPv4I0EN9chemfiles8optionalE" title="chemfiles::optional"><span class="n"><span class="pre">optional</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">forward</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9chemfiles10TextFormat7forwardEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fast-forward the file for one step, returning a valid position if the file does contain one more step or <code class="docutils literal notranslate"><span class="pre">nullopt</span></code> if it does not. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="implemented-formats">
+<h2>Implemented formats<a class="headerlink" href="#implemented-formats" title="Permalink to this heading">¶</a></h2>
+<p>These classes implement the format interface defined previously.</p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles15AmberTrajectoryE">
+<span id="_CPPv3N9chemfiles15AmberTrajectoryE"></span><span id="_CPPv2N9chemfiles15AmberTrajectoryE"></span><span id="chemfiles::AmberTrajectory"></span><span class="target" id="classchemfiles_1_1_amber_trajectory"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AmberTrajectory</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">AmberNetCDFBase</span></span><a class="headerlink" href="#_CPPv4N9chemfiles15AmberTrajectoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Amber NetCDF trajectory file format. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12AmberRestartE">
+<span id="_CPPv3N9chemfiles12AmberRestartE"></span><span id="_CPPv2N9chemfiles12AmberRestartE"></span><span id="chemfiles::AmberRestart"></span><span class="target" id="classchemfiles_1_1_amber_restart"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AmberRestart</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">AmberNetCDFBase</span></span><a class="headerlink" href="#_CPPv4N9chemfiles12AmberRestartE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Amber NetCDF restart file format. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9TNGFormatE">
+<span id="_CPPv3N9chemfiles9TNGFormatE"></span><span id="_CPPv2N9chemfiles9TNGFormatE"></span><span id="chemfiles::TNGFormat"></span><span class="target" id="classchemfiles_1_1_t_n_g_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TNGFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9TNGFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TNG file format reader. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles12TinkerFormatE">
+<span id="_CPPv3N9chemfiles12TinkerFormatE"></span><span id="_CPPv2N9chemfiles12TinkerFormatE"></span><span id="chemfiles::TinkerFormat"></span><span class="target" id="classchemfiles_1_1_tinker_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TinkerFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles12TinkerFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tinker XYZ file format.</p>
+<p>The format is described here: <a class="reference external" href="http://chembytes.wikidot.com/tnk-tut00#toc2">http://chembytes.wikidot.com/tnk-tut00#toc2</a>. Additionally to the original Tinker XYZ format, chemfiles also supports the files with unit cell data, as introduced in Tinker 6.3.</p>
+<p>This format is associated with the .arc extension, but not the .xyz extension, which is used for the standard XYZ format. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I_13MolfileFormatEN9chemfiles7MolfileE">
+<span id="_CPPv3I_13MolfileFormatEN9chemfiles7MolfileE"></span><span id="_CPPv2I_13MolfileFormatEN9chemfiles7MolfileE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N9chemfiles13MolfileFormatE" title="chemfiles::MolfileFormat"><span class="n"><span class="pre">MolfileFormat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classchemfiles_1_1_molfile"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Molfile</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4I_13MolfileFormatEN9chemfiles7MolfileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use of VMD <a class="reference internal" href="#classchemfiles_1_1_molfile"><span class="std std-ref">Molfile</span></a> plugins as format reader. This class is templated by a value in the <code class="docutils literal notranslate"><span class="pre">MolfileFormat</span></code> enum. </p>
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13MolfileFormatE">
+<span id="_CPPv3N9chemfiles13MolfileFormatE"></span><span id="_CPPv2N9chemfiles13MolfileFormatE"></span><span class="target" id="namespacechemfiles_1aec3747f46780336a3f4005a397235c07"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">MolfileFormat</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles13MolfileFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>List all the VMD molfile plugins enabled. For more documentation about VMD molfile plugins, please see: <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/">http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/</a> </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13MolfileFormat3DCDE">
+<span id="_CPPv3N9chemfiles13MolfileFormat3DCDE"></span><span id="_CPPv2N9chemfiles13MolfileFormat3DCDE"></span><span class="target" id="namespacechemfiles_1aec3747f46780336a3f4005a397235c07a982dc3ced3afc0235445624eb7c37fec"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DCD</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles13MolfileFormat3DCDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCD binary file format. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13MolfileFormat3TRJE">
+<span id="_CPPv3N9chemfiles13MolfileFormat3TRJE"></span><span id="_CPPv2N9chemfiles13MolfileFormat3TRJE"></span><span class="target" id="namespacechemfiles_1aec3747f46780336a3f4005a397235c07a3756ce9f90a2c89e16edc1d7fdb23f08"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TRJ</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles13MolfileFormat3TRJE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gromacs .trj file format. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13MolfileFormat3PSFE">
+<span id="_CPPv3N9chemfiles13MolfileFormat3PSFE"></span><span id="_CPPv2N9chemfiles13MolfileFormat3PSFE"></span><span class="target" id="namespacechemfiles_1aec3747f46780336a3f4005a397235c07abfd199da65b7dd288ce7cdaead66775e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PSF</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles13MolfileFormat3PSFE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>PSF topology files. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13MolfileFormat6MOLDENE">
+<span id="_CPPv3N9chemfiles13MolfileFormat6MOLDENE"></span><span id="_CPPv2N9chemfiles13MolfileFormat6MOLDENE"></span><span class="target" id="namespacechemfiles_1aec3747f46780336a3f4005a397235c07a1a8f48e932d5bbd4fb84fab8577ecf91"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MOLDEN</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles13MolfileFormat6MOLDENE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Molden file format. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9CIFFormatE">
+<span id="_CPPv3N9chemfiles9CIFFormatE"></span><span id="_CPPv2N9chemfiles9CIFFormatE"></span><span id="chemfiles::CIFFormat"></span><span class="target" id="classchemfiles_1_1_c_i_f_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CIFFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9CIFFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CIF (Crystallographic Information Framework) files reader and writer.</p>
+<p>The reader code is based on the <a class="reference external" href="https://project-gemmi.github.io/">gemmi</a> project. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9CMLFormatE">
+<span id="_CPPv3N9chemfiles9CMLFormatE"></span><span id="_CPPv2N9chemfiles9CMLFormatE"></span><span id="chemfiles::CMLFormat"></span><span class="target" id="classchemfiles_1_1_c_m_l_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CMLFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9CMLFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CML file format reader. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles11mmCIFFormatE">
+<span id="_CPPv3N9chemfiles11mmCIFFormatE"></span><span id="_CPPv2N9chemfiles11mmCIFFormatE"></span><span id="chemfiles::mmCIFFormat"></span><span class="target" id="classchemfiles_1_1mm_c_i_f_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mmCIFFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles11mmCIFFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>mmCIF Crystallographic Information Framework for MacroMolecules reader and writer. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MMTFFormatE">
+<span id="_CPPv3N9chemfiles10MMTFFormatE"></span><span id="_CPPv2N9chemfiles10MMTFFormatE"></span><span id="chemfiles::MMTFFormat"></span><span class="target" id="classchemfiles_1_1_m_m_t_f_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MMTFFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles10MMTFFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>MMTF file format reader and writer.</p>
+<p>For multi-frame trajectories, we follow the PyMOL convention to use multiple models for different frames </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9TRRFormatE">
+<span id="_CPPv3N9chemfiles9TRRFormatE"></span><span id="_CPPv2N9chemfiles9TRRFormatE"></span><span id="chemfiles::TRRFormat"></span><span class="target" id="classchemfiles_1_1_t_r_r_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TRRFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9TRRFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GROMACS TRR file format reader. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9XTCFormatE">
+<span id="_CPPv3N9chemfiles9XTCFormatE"></span><span id="_CPPv2N9chemfiles9XTCFormatE"></span><span id="chemfiles::XTCFormat"></span><span class="target" id="classchemfiles_1_1_x_t_c_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">XTCFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles6FormatE" title="chemfiles::Format"><span class="n"><span class="pre">Format</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9XTCFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GROMACS XTC file format reader. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9XYZFormatE">
+<span id="_CPPv3N9chemfiles9XYZFormatE"></span><span id="_CPPv2N9chemfiles9XYZFormatE"></span><span id="chemfiles::XYZFormat"></span><span class="target" id="classchemfiles_1_1_x_y_z_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">XYZFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9XYZFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XYZ file format reader and writer.</p>
+<p>This class also support the extended XYZ specification, as defined in <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/io/formatoptions.html#extxyz">ASE</a> </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10CSSRFormatE">
+<span id="_CPPv3N9chemfiles10CSSRFormatE"></span><span id="_CPPv2N9chemfiles10CSSRFormatE"></span><span id="chemfiles::CSSRFormat"></span><span class="target" id="classchemfiles_1_1_c_s_s_r_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CSSRFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles10CSSRFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CSSR (Cambridge Structure Search and Retrieval) file format reader and writer. Only one frame can be read or written to this format. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9GROFormatE">
+<span id="_CPPv3N9chemfiles9GROFormatE"></span><span id="_CPPv2N9chemfiles9GROFormatE"></span><span id="chemfiles::GROFormat"></span><span class="target" id="classchemfiles_1_1_g_r_o_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GROFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9GROFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GRO file format reader and writer. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles16LAMMPSDataFormatE">
+<span id="_CPPv3N9chemfiles16LAMMPSDataFormatE"></span><span id="_CPPv2N9chemfiles16LAMMPSDataFormatE"></span><span id="chemfiles::LAMMPSDataFormat"></span><span class="target" id="classchemfiles_1_1_l_a_m_m_p_s_data_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LAMMPSDataFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles16LAMMPSDataFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>LAMMPS Data file format reader and writer.</p>
+<p>LAMMPS data files are not fully stand-alone, as one needs to know the atom style to read the data. This reader will try to guess the atom style by checking the first line of the header for <code class="docutils literal notranslate"><span class="pre">atom_style</span> <span class="pre">&lt;style&gt;</span></code>, and by reading any comment after the <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> section name. If no atom style is specified, the code default to <code class="docutils literal notranslate"><span class="pre">full</span></code> and send a warning.</p>
+<p>The code also tries to read atomic names at the end of data lines. For example, the atom at index 44 will have <code class="docutils literal notranslate"><span class="pre">C2</span></code> as atomic name.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">44</span> <span class="mi">44</span> <span class="mi">2</span> <span class="mf">0.000000</span> <span class="mf">1.094000</span> <span class="mf">2.061000</span> <span class="mf">69.552002</span> <span class="c1"># C2 RES</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles10MOL2FormatE">
+<span id="_CPPv3N9chemfiles10MOL2FormatE"></span><span id="_CPPv2N9chemfiles10MOL2FormatE"></span><span id="chemfiles::MOL2Format"></span><span class="target" id="classchemfiles_1_1_m_o_l2_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MOL2Format</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles10MOL2FormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tripos MOL2 format reader and writer. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9PDBFormatE">
+<span id="_CPPv3N9chemfiles9PDBFormatE"></span><span id="_CPPv2N9chemfiles9PDBFormatE"></span><span id="chemfiles::PDBFormat"></span><span class="target" id="classchemfiles_1_1_p_d_b_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PDBFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9PDBFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>PDB file format reader and writer.</p>
+<p>For multi-frame trajectories, we support both the convention from VMD to use multiple <code class="docutils literal notranslate"><span class="pre">END</span></code> records separating the steps; or the use of multiple <code class="docutils literal notranslate"><span class="pre">MODEL</span></code>/<code class="docutils literal notranslate"><span class="pre">ENDMODEL</span></code> pairs. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9SDFFormatE">
+<span id="_CPPv3N9chemfiles9SDFFormatE"></span><span id="_CPPv2N9chemfiles9SDFFormatE"></span><span id="chemfiles::SDFFormat"></span><span class="target" id="classchemfiles_1_1_s_d_f_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SDFFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9SDFFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SDF file format reader and writer. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles9SMIFormatE">
+<span id="_CPPv3N9chemfiles9SMIFormatE"></span><span id="_CPPv2N9chemfiles9SMIFormatE"></span><span id="chemfiles::SMIFormat"></span><span class="target" id="classchemfiles_1_1_s_m_i_format"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SMIFormat</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N9chemfiles10TextFormatE" title="chemfiles::TextFormat"><span class="n"><span class="pre">TextFormat</span></span></a><a class="headerlink" href="#_CPPv4N9chemfiles9SMIFormatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMI/OpenSMILES file format reader and writer. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

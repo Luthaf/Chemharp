@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Supported formats &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Selection language" href="selections.html" />
+    <link rel="prev" title="C Tutorials" href="c-tutorials.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/file.html"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devdoc/format.html"><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Supported formats</a><ul>
+<li><a class="reference internal" href="#list-of-supported-formats">List of supported formats</a></li>
+<li><a class="reference internal" href="#asking-for-a-new-format">Asking for a new format</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="c-tutorials.html" title="Previous Chapter: C Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; C Tutorials</span>
+    </a>
+  </li>
+  <li>
+    <a href="selections.html" title="Next Chapter: Selection language"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Selection language &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="supported-formats">
+<h1>Supported formats<a class="headerlink" href="#supported-formats" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="list-of-supported-formats">
+<h2>List of supported formats<a class="headerlink" href="#list-of-supported-formats" title="Permalink to this headline">¶</a></h2>
+<p>This page list the supported formats in chemfiles, with a link to the format
+specification. For eavch format, it is also indicated wether they have some
+information to create a <em>Topology</em>, and if you can read them, write them or both
+using chemfiles.</p>
+<p>The <em>Extension</em> column gives the extension used when trying to detect the format.
+If your file does not have this extension, you can also use the string in the
+<em>Format</em> column as a parameter to the <code class="docutils literal notranslate"><span class="pre">Trajectory</span></code> constructor to manually
+specify which format to use.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="18%" />
+<col width="28%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Format</th>
+<th class="head">Extension</th>
+<th class="head">Topology ?</th>
+<th class="head">Read ?</th>
+<th class="head">Write ?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://openbabel.org/wiki/XYZ">XYZ</a></td>
+<td>.xyz</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a> Atom names</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html">PDB</a></td>
+<td>.pdb</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://ambermd.org/netcdf/nctraj.xhtml">Amber NetCDF</a></td>
+<td>.nc</td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://doi.wiley.com/10.1002/jcc.23495">TNG</a></td>
+<td>.tng</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-even"><td>LAMMPS Data</td>
+<td>&#160;</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td>Tinker</td>
+<td>.arc</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-even"><td>LAMMPS</td>
+<td>.lammpstrj</td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://manual.gromacs.org/current/online/gro.html">GRO</a></td>
+<td>.gro</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a> Atom names</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://manual.gromacs.org/current/online/xtc.html">XTC</a></td>
+<td>.xtc</td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://manual.gromacs.org/current/online/trj.html">TRJ</a></td>
+<td>.trj</td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://manual.gromacs.org/current/online/trr.html">TRR</a></td>
+<td>.trr</td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/dcdplugin.html">DCD</a></td>
+<td>.dcd</td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://chemyang.ccnu.edu.cn/ccb/server/AIMMS/mol2.pdf">MOL2</a></td>
+<td>.mol2</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www.cmbi.ru.nl/molden/molden_format.html">Molden</a></td>
+<td>.molen</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a> Atom names</td>
+<td><a class="reference internal" href="_images/yes.png"><img alt="Yes" src="_images/yes.png" style="width: 16px; height: 16px;" /></a></td>
+<td><a class="reference internal" href="_images/no.png"><img alt="No" src="_images/no.png" style="width: 16px; height: 16px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<p>“LAMMPS” format correspond to trajectory files written by the LAMMPS
+<a class="reference external" href="http://lammps.sandia.gov/doc/dump.html">dump</a> command. “LAMMPS Data”
+correspond to LAMMPS data files, as read by the LAMMPS
+<a class="reference external" href="http://lammps.sandia.gov/doc/read_data.html">read_data</a> command.</p>
+</div>
+<div class="section" id="asking-for-a-new-format">
+<h2>Asking for a new format<a class="headerlink" href="#asking-for-a-new-format" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use chemfiles with a format which is not yet implemented, you may
+easily add it by yourself if you know some C++. See the <code class="docutils literal notranslate"><span class="pre">src/formats/XYZ.cpp</span></code>
+file for example. The list of planned formats can be found <a class="reference external" href="https://github.com/chemfiles/chemfiles/labels/A-formats">here</a>. If you can not find your favorite format in this list, you
+can <a class="reference external" href="https://github.com/chemfiles/chemfiles/issues/new">open an issue</a> with a description of the format, or even
+better a link to the format specification. If your format is in the <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/">list of
+formats</a> supported by VMD, then you are lucky! It will be easy
+to add support for this format. Please <a class="reference external" href="https://github.com/chemfiles/chemfiles/issues/new">open an issue</a> on and
+provide a file example to test the plugin against it.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

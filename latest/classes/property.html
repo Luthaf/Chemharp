@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Property &#8212; Chemfiles 0.11.0-dev documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=284a2d1d" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css?v=6ef80559" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=ea5b7e3f"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Miscelaneous" href="misc.html" />
+    <link rel="prev" title="Selection" href="selection.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11-dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="selection.html" title="Previous Chapter: Selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selection</span>
+    </a>
+  </li>
+  <li>
+    <a href="misc.html" title="Next Chapter: Miscelaneous"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Miscelaneous &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trajectory.html">Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#connectivity-elements">Connectivity elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residue.html">Residue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atom.html">Atom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unitcell.html">UnitCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html">Selection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">Miscelaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#exported-macro">Exported macro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="property">
+<span id="class-property"></span><h1>Property<a class="headerlink" href="#property" title="Permalink to this heading">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8PropertyE">
+<span id="_CPPv3N9chemfiles8PropertyE"></span><span id="_CPPv2N9chemfiles8PropertyE"></span><span id="chemfiles::Property"></span><span class="target" id="classchemfiles_1_1_property"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles8PropertyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This class holds the data used in properties by the <code class="docutils literal notranslate"><a class="reference internal" href="atom.html#classchemfiles_1_1_atom"><span class="std std-ref"><span class="pre">Atom</span></span></a></code> and the <code class="docutils literal notranslate"><a class="reference internal" href="frame.html#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> classes. A property can have various types: bool, double, string or <code class="docutils literal notranslate"><a class="reference internal" href="misc.html#classchemfiles_1_1_vector3_d"><span class="std std-ref"><span class="pre">Vector3D</span></span></a></code>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property4KindE">
+<span id="_CPPv3N9chemfiles8Property4KindE"></span><span id="_CPPv2N9chemfiles8Property4KindE"></span><span class="target" id="classchemfiles_1_1_property_1adcae81625d962302a0cb5e91d78d692f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Kind</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Property4KindE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Possible types held by a property. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property4Kind4BOOLE">
+<span id="_CPPv3N9chemfiles8Property4Kind4BOOLE"></span><span id="_CPPv2N9chemfiles8Property4Kind4BOOLE"></span><span class="target" id="classchemfiles_1_1_property_1adcae81625d962302a0cb5e91d78d692faf7d1ba419885c8bedb26560be46d3c14"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BOOL</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Property4Kind4BOOLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property4Kind6DOUBLEE">
+<span id="_CPPv3N9chemfiles8Property4Kind6DOUBLEE"></span><span id="_CPPv2N9chemfiles8Property4Kind6DOUBLEE"></span><span class="target" id="classchemfiles_1_1_property_1adcae81625d962302a0cb5e91d78d692fa987dbbedd59a943ed20aa01d1a2c865f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DOUBLE</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Property4Kind6DOUBLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property4Kind6STRINGE">
+<span id="_CPPv3N9chemfiles8Property4Kind6STRINGE"></span><span id="_CPPv2N9chemfiles8Property4Kind6STRINGE"></span><span class="target" id="classchemfiles_1_1_property_1adcae81625d962302a0cb5e91d78d692fa34569ab4b3da5eef6ce9c2f9fcd6e89d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">STRING</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Property4Kind6STRINGE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property4Kind8VECTOR3DE">
+<span id="_CPPv3N9chemfiles8Property4Kind8VECTOR3DE"></span><span id="_CPPv2N9chemfiles8Property4Kind8VECTOR3DE"></span><span class="target" id="classchemfiles_1_1_property_1adcae81625d962302a0cb5e91d78d692faf19f6e5d73e0869ac16dcecd7db9f6d9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">VECTOR3D</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles8Property4Kind8VECTOR3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEb">
+<span id="_CPPv3N9chemfiles8Property8PropertyEb"></span><span id="_CPPv2N9chemfiles8Property8PropertyEb"></span><span id="chemfiles::Property::Property__b"></span><span class="target" id="classchemfiles_1_1_property_1a71cf8a9d2e2e8365d31e2e845327b63c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a boolean value. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">BOOL</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_bool</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEd">
+<span id="_CPPv3N9chemfiles8Property8PropertyEd"></span><span id="_CPPv2N9chemfiles8Property8PropertyEd"></span><span id="chemfiles::Property::Property__double"></span><span class="target" id="classchemfiles_1_1_property_1afe8e7958f017be8a2988860b1e83168a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyE8Vector3D">
+<span id="_CPPv3N9chemfiles8Property8PropertyE8Vector3D"></span><span id="_CPPv2N9chemfiles8Property8PropertyE8Vector3D"></span><span id="chemfiles::Property::Property__Vector3D"></span><span class="target" id="classchemfiles_1_1_property_1ac30cc369f0cc1d902feebd4553d9fa72"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyE8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a <code class="docutils literal notranslate"><a class="reference internal" href="misc.html#classchemfiles_1_1_vector3_d"><span class="std std-ref"><span class="pre">Vector3D</span></span></a></code> value. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">33</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">VECTOR3D</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_vector3d</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">33</span><span class="p">));</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyENSt6stringE">
+<span id="_CPPv3N9chemfiles8Property8PropertyENSt6stringE"></span><span id="_CPPv2N9chemfiles8Property8PropertyENSt6stringE"></span><span id="chemfiles::Property::Property__ss"></span><span class="target" id="classchemfiles_1_1_property_1a714a0c21e9f7f3ffd55787fa70acccfd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a string value. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// from a std::string</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+
+<span class="c1">// from a const char*</span>
+<span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEPKc">
+<span id="_CPPv3N9chemfiles8Property8PropertyEPKc"></span><span id="_CPPv2N9chemfiles8Property8PropertyEPKc"></span><span id="chemfiles::Property::Property__cCP"></span><span class="target" id="classchemfiles_1_1_property_1a1207a07d3dd8f05501a56ad3569943df"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a string value from a const char*. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// from a std::string</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+
+<span class="c1">// from a const char*</span>
+<span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEi">
+<span id="_CPPv3N9chemfiles8Property8PropertyEi"></span><span id="_CPPv2N9chemfiles8Property8PropertyEi"></span><span id="chemfiles::Property::Property__i"></span><span class="target" id="classchemfiles_1_1_property_1ac4b69e5b0902c08c55f14b049dec680a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value from an int. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEl">
+<span id="_CPPv3N9chemfiles8Property8PropertyEl"></span><span id="_CPPv2N9chemfiles8Property8PropertyEl"></span><span id="chemfiles::Property::Property__l"></span><span class="target" id="classchemfiles_1_1_property_1a4018fd5652fbc146336b10139ef9d76b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value from a long. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEx">
+<span id="_CPPv3N9chemfiles8Property8PropertyEx"></span><span id="_CPPv2N9chemfiles8Property8PropertyEx"></span><span id="chemfiles::Property::Property__l-l"></span><span class="target" id="classchemfiles_1_1_property_1aae9b46795178186123bf4e9b3a8aa3fc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value from a long long. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEj">
+<span id="_CPPv3N9chemfiles8Property8PropertyEj"></span><span id="_CPPv2N9chemfiles8Property8PropertyEj"></span><span id="chemfiles::Property::Property__unsigned"></span><span class="target" id="classchemfiles_1_1_property_1afaa5555c44e0c59c5b2d24e4b511dde4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value from an unsigned. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEm">
+<span id="_CPPv3N9chemfiles8Property8PropertyEm"></span><span id="_CPPv2N9chemfiles8Property8PropertyEm"></span><span id="chemfiles::Property::Property__unsigned-l"></span><span class="target" id="classchemfiles_1_1_property_1a4c855de863d78797d9d2a6af291bc009"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEm" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value from an unsigned long. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property8PropertyEy">
+<span id="_CPPv3N9chemfiles8Property8PropertyEy"></span><span id="_CPPv2N9chemfiles8Property8PropertyEy"></span><span id="chemfiles::Property::Property__unsigned-l-l"></span><span class="target" id="classchemfiles_1_1_property_1a892271c48c6ca9b4a9d1905aa61a89e2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Property</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property8PropertyEy" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a property holding a double value from an unsigned long long. <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+
+<span class="c1">// Various overload convert integers to double</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">     </span><span class="c1">// int</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mf">45l</span><span class="n">l</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// long long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45u</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">    </span><span class="c1">// unsigned</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ul</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">   </span><span class="c1">// unsigned long</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">45ull</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// unsigned long long</span>
+</pre></div>
+</div>
+</p>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Property4kindEv">
+<span id="_CPPv3NK9chemfiles8Property4kindEv"></span><span id="_CPPv2NK9chemfiles8Property4kindEv"></span><span id="chemfiles::Property::kindC"></span><span class="target" id="classchemfiles_1_1_property_1a2fd0a4904ddbee0eb50a81cb82c1ae48"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles8Property4KindE" title="chemfiles::Property::Kind"><span class="n"><span class="pre">Kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kind</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Property4kindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the kind of property, <em>i.e.</em> the type of the held value</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">DOUBLE</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="nb">false</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">BOOL</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="s">&quot;string&quot;</span><span class="p">).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">STRING</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">Property</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)).</span><span class="n">kind</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Property</span><span class="o">::</span><span class="n">VECTOR3D</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Property7as_boolEv">
+<span id="_CPPv3NK9chemfiles8Property7as_boolEv"></span><span id="_CPPv2NK9chemfiles8Property7as_boolEv"></span><span id="chemfiles::Property::as_boolC"></span><span class="target" id="classchemfiles_1_1_property_1a5387b64b1ff217ca2a8652dcd71dbca1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">as_bool</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Property7as_boolEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the boolean value stored in this <a class="reference internal" href="#classchemfiles_1_1_property"><span class="std std-ref">Property</span></a></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_bool</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles13PropertyErrorE" title="chemfiles::PropertyError"><span class="n">PropertyError</span></a></span></span> – if this property does not hold a boolean value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Property9as_doubleEv">
+<span id="_CPPv3NK9chemfiles8Property9as_doubleEv"></span><span id="_CPPv2NK9chemfiles8Property9as_doubleEv"></span><span id="chemfiles::Property::as_doubleC"></span><span class="target" id="classchemfiles_1_1_property_1a8260b580397630d90c7458fe02dfbfa1"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">as_double</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Property9as_doubleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the double value stored in this <a class="reference internal" href="#classchemfiles_1_1_property"><span class="std std-ref">Property</span></a></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="mf">45.2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_double</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">45.2</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles13PropertyErrorE" title="chemfiles::PropertyError"><span class="n">PropertyError</span></a></span></span> – if this property does not hold a double value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Property11as_vector3dEv">
+<span id="_CPPv3NK9chemfiles8Property11as_vector3dEv"></span><span id="_CPPv2NK9chemfiles8Property11as_vector3dEv"></span><span id="chemfiles::Property::as_vector3dC"></span><span class="target" id="classchemfiles_1_1_property_1adf789522619816fe738c7582cfdb2647"></span><a class="reference internal" href="misc.html#_CPPv4N9chemfiles8Vector3DE" title="chemfiles::Vector3D"><span class="n"><span class="pre">Vector3D</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">as_vector3d</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Property11as_vector3dEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <a class="reference internal" href="misc.html#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a> value stored in this <a class="reference internal" href="#classchemfiles_1_1_property"><span class="std std-ref">Property</span></a></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">33</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_vector3d</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">33</span><span class="p">));</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles13PropertyErrorE" title="chemfiles::PropertyError"><span class="n">PropertyError</span></a></span></span> – if this property does not hold a <a class="reference internal" href="misc.html#classchemfiles_1_1_vector3_d"><span class="std std-ref">Vector3D</span></a> value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9chemfiles8Property9as_stringEv">
+<span id="_CPPv3NK9chemfiles8Property9as_stringEv"></span><span id="_CPPv2NK9chemfiles8Property9as_stringEv"></span><span id="chemfiles::Property::as_stringC"></span><span class="target" id="classchemfiles_1_1_property_1a9aef5fef12d97cdd4a163e4be8c5152b"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">as_string</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9chemfiles8Property9as_stringEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the string value stored in this <a class="reference internal" href="#classchemfiles_1_1_property"><span class="std std-ref">Property</span></a></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// from a std::string</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Property</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">property</span><span class="p">.</span><span class="n">as_string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="misc.html#_CPPv4N9chemfiles13PropertyErrorE" title="chemfiles::PropertyError"><span class="n">PropertyError</span></a></span></span> – if this property does not hold a string value </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles8Property14kind_as_stringE4Kind">
+<span id="_CPPv3N9chemfiles8Property14kind_as_stringE4Kind"></span><span id="_CPPv2N9chemfiles8Property14kind_as_stringE4Kind"></span><span id="chemfiles::Property::kind_as_string__Kind"></span><span class="target" id="classchemfiles_1_1_property_1a4aae48f8b0af9172f58e1764dd43da1d"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kind_as_string</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9chemfiles8Property4KindE" title="chemfiles::Property::Kind"><span class="n"><span class="pre">Kind</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles8Property14kind_as_stringE4Kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the given kind name as a string. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

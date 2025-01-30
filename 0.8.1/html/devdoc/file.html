@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>File classes &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Format classes" href="format.html" />
+    <link rel="prev" title="Chemfiles internals" href="internals.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a><ul>
+<li><a class="reference internal" href="#interface-for-files">Interface for files</a></li>
+<li><a class="reference internal" href="#implemented-classes">Implemented classes</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="internals.html" title="Previous Chapter: Chemfiles internals"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Chemfiles internals</span>
+    </a>
+  </li>
+  <li>
+    <a href="format.html" title="Next Chapter: Format classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Format classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="file-classes">
+<span id="class-file"></span><h1><code class="docutils literal notranslate"><span class="pre">File</span></code> classes<a class="headerlink" href="#file-classes" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">File</span></code> classes provide abstraction of the IO operation, allowing for the
+same format to be used with on-disk files, network files, memory-mapped files,
+compressed files, <em>etc.</em></p>
+<div class="section" id="interface-for-files">
+<h2>Interface for files<a class="headerlink" href="#interface-for-files" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv3N9chemfiles4FileE">
+<span id="_CPPv2N9chemfiles4FileE"></span><span id="chemfiles::File"></span><span class="target" id="classchemfiles_1_1_file"></span><em class="property">class </em><code class="descname">File</code><a class="headerlink" href="#_CPPv3N9chemfiles4FileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract base class for file representation. </p>
+<p>Subclassed by <a class="reference internal" href="#classchemfiles_1_1_nc_file"><span class="std std-ref">chemfiles::NcFile</span></a>, <a class="reference internal" href="#classchemfiles_1_1_text_file"><span class="std std-ref">chemfiles::TextFile</span></a>, <a class="reference internal" href="#classchemfiles_1_1_t_n_g_file"><span class="std std-ref">chemfiles::TNGFile</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv3N9chemfiles4File4ModeE">
+<span id="_CPPv2N9chemfiles4File4ModeE"></span><span id="chemfiles::File::Mode"></span><span class="target" id="classchemfiles_1_1_file_1a5d3d41cef85c7d10ce226ebeac6a5972"></span><em class="property">enum </em><code class="descname">Mode</code><a class="headerlink" href="#_CPPv3N9chemfiles4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Possible modes for opening a file. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv3N9chemfiles4File4READE">
+<span id="_CPPv2N9chemfiles4File4READE"></span><span class="target" id="classchemfiles_1_1_file_1a5d3d41cef85c7d10ce226ebeac6a5972a5444adbd5b810cff822f1a87e7aaa87d"></span><code class="descname">READ</code> = 'r'<a class="headerlink" href="#_CPPv3N9chemfiles4File4READE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open in read-only mode. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv3N9chemfiles4File5WRITEE">
+<span id="_CPPv2N9chemfiles4File5WRITEE"></span><span class="target" id="classchemfiles_1_1_file_1a5d3d41cef85c7d10ce226ebeac6a5972a08f7a6e542eb490dbd60df0cd715db9a"></span><code class="descname">WRITE</code> = 'w'<a class="headerlink" href="#_CPPv3N9chemfiles4File5WRITEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open in read-write mode, and replace the file if it is already present. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv3N9chemfiles4File6APPENDE">
+<span id="_CPPv2N9chemfiles4File6APPENDE"></span><span class="target" id="classchemfiles_1_1_file_1a5d3d41cef85c7d10ce226ebeac6a5972a25255f7b59144e2188d30ab8edb31c3f"></span><code class="descname">APPEND</code> = 'a'<a class="headerlink" href="#_CPPv3N9chemfiles4File6APPENDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open in read-write mode, and append new data at the end of the file. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles4File8filenameEv">
+<span id="_CPPv2NK9chemfiles4File8filenameEv"></span><span id="chemfiles::File::filenameC"></span><span class="target" id="classchemfiles_1_1_file_1a4d7407fe2acc04bc9db43e55f07e299c"></span><em class="property">const</em> std::string &amp;<code class="descname">filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles4File8filenameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classchemfiles_1_1_file"><span class="std std-ref">File</span></a> name, i.e. complete path to this file on disk. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles4File4modeEv">
+<span id="_CPPv2NK9chemfiles4File4modeEv"></span><span id="chemfiles::File::modeC"></span><span class="target" id="classchemfiles_1_1_file_1aa415f539c45e336d2a227eee1fa2093a"></span><a class="reference internal" href="#_CPPv3N9chemfiles4File4ModeE" title="chemfiles::File::Mode">Mode</a> <code class="descname">mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles4File4modeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classchemfiles_1_1_file"><span class="std std-ref">File</span></a> opening mode. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv3N9chemfiles8TextFileE">
+<span id="_CPPv2N9chemfiles8TextFileE"></span><span id="chemfiles::TextFile"></span><span class="target" id="classchemfiles_1_1_text_file"></span><em class="property">class </em><code class="descname">TextFile</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv3N9chemfiles4FileE" title="chemfiles::File">File</a>, <em class="property">public</em> iostream<a class="headerlink" href="#_CPPv3N9chemfiles8TextFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract base class representing a text file. This class is inteded to be inherited by any form of text files: compressed files, memory-mapped files, etc.</p>
+<p>All failling operations should throw a <code class="docutils literal notranslate"><a class="reference internal" href="../classes/misc.html#structchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code> instead of waiting for the user of the class to the current state. </p>
+<p>Subclassed by <a class="reference internal" href="#classchemfiles_1_1_basic_file"><span class="std std-ref">chemfiles::BasicFile</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv3N9chemfiles8TextFile8readlineEv">
+<span id="_CPPv2N9chemfiles8TextFile8readlineEv"></span><span id="chemfiles::TextFile::readline"></span><span class="target" id="classchemfiles_1_1_text_file_1a9c00fd9d247cdbe5617b1ffce0d07d7c"></span><em class="property">virtual</em> std::string <code class="descname">readline</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv3N9chemfiles8TextFile8readlineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a line from the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles8TextFile9readlinesE6size_t">
+<span id="_CPPv2N9chemfiles8TextFile9readlinesE6size_t"></span><span id="chemfiles::TextFile::readlines__s"></span><span class="target" id="classchemfiles_1_1_text_file_1a853e611a129a932b3525a8a86f8fe0ac"></span><em class="property">virtual</em> std::vector&lt;std::string&gt; <code class="descname">readlines</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv3N9chemfiles8TextFile9readlinesE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read <code class="docutils literal notranslate"><span class="pre">n</span></code> lines from the file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles8TextFile6rewindEv">
+<span id="_CPPv2N9chemfiles8TextFile6rewindEv"></span><span id="chemfiles::TextFile::rewind"></span><span class="target" id="classchemfiles_1_1_text_file_1ac912871fd4a6fd302226e52b8e359710"></span><em class="property">virtual</em> void <code class="descname">rewind</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv3N9chemfiles8TextFile6rewindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset the file cursor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles8TextFile3eofEv">
+<span id="_CPPv2N9chemfiles8TextFile3eofEv"></span><span id="chemfiles::TextFile::eof"></span><span class="target" id="classchemfiles_1_1_text_file_1af61dceb0c51e603a0133c1595c11928f"></span><em class="property">virtual</em> bool <code class="descname">eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv3N9chemfiles8TextFile3eofEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Are we at the end of the file ? </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv3N8TextFile6createERKNSt6stringEN4File4ModeE">
+<span id="_CPPv2N8TextFile6createERKNSt6stringEN4File4ModeE"></span><span id="TextFile::create__ssCR.File::Mode"></span><span class="target" id="classchemfiles_1_1_text_file_1a5afb93681c00e2807990fa78419f3e93"></span>std::unique_ptr&lt;TextFile&gt; <code class="descname">create</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>path</em>, File::Mode <em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N8TextFile6createERKNSt6stringEN4File4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open the most adaptated text file class for the given <code class="docutils literal notranslate"><span class="pre">path</span></code> and <code class="docutils literal notranslate"><span class="pre">mode</span></code> </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="implemented-classes">
+<h2>Implemented classes<a class="headerlink" href="#implemented-classes" title="Permalink to this headline">¶</a></h2>
+<p>These classes implement the <code class="docutils literal notranslate"><span class="pre">File</span></code> interface defined previously.</p>
+<dl class="class">
+<dt id="_CPPv3N9chemfiles9BasicFileE">
+<span id="_CPPv2N9chemfiles9BasicFileE"></span><span id="chemfiles::BasicFile"></span><span class="target" id="classchemfiles_1_1_basic_file"></span><em class="property">class </em><code class="descname">BasicFile</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv3N9chemfiles8TextFileE" title="chemfiles::TextFile">TextFile</a><a class="headerlink" href="#_CPPv3N9chemfiles9BasicFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Basic text file, only a thin wrapper on top of standard C++ fstreams. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv3N9chemfiles6NcFileE">
+<span id="_CPPv2N9chemfiles6NcFileE"></span><span id="chemfiles::NcFile"></span><span class="target" id="classchemfiles_1_1_nc_file"></span><em class="property">class </em><code class="descname">NcFile</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv3N9chemfiles4FileE" title="chemfiles::File">File</a><a class="headerlink" href="#_CPPv3N9chemfiles6NcFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>RAII wrapper around NetCDF 3 binary files</p>
+<p>This interface only provide basic functionalities needed by the Amber NetCDF format. All the operation are guaranteed to return a valid value or throw an error.</p>
+<p>The template functions are manually specialized for float and char data types. </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv3N9chemfiles7TNGFileE">
+<span id="_CPPv2N9chemfiles7TNGFileE"></span><span id="chemfiles::TNGFile"></span><span class="target" id="classchemfiles_1_1_t_n_g_file"></span><em class="property">class </em><code class="descname">TNGFile</code> : <em class="property">public</em> chemfiles::<a class="reference internal" href="#_CPPv3N9chemfiles4FileE" title="chemfiles::File">File</a><a class="headerlink" href="#_CPPv3N9chemfiles7TNGFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple RAII capsule for <code class="docutils literal notranslate"><span class="pre">tng_trajectory_t</span></code>, handling the creation and destruction of the file as needed. </p>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

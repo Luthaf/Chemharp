@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Unit Cell class &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Selection class" href="selection.html" />
+    <link rel="prev" title="Atom class" href="atom.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Unit Cell class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="atom.html" title="Previous Chapter: Atom class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Atom class</span>
+    </a>
+  </li>
+  <li>
+    <a href="selection.html" title="Next Chapter: Selection class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Selection class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="unit-cell-class">
+<span id="class-unitcell"></span><h1>Unit Cell class<a class="headerlink" href="#unit-cell-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles8UnitCellE">
+<span id="chemfiles::UnitCell"></span><span class="target" id="classchemfiles_1_1_unit_cell"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">UnitCell</code><a class="headerlink" href="#_CPPv2N9chemfiles8UnitCellE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <a class="reference internal" href="#classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> represent the box containing the atoms, and its periodicity</p>
+<p>A unit cell is fully represented by three lengths (a, b, c); and three angles (alpha, beta, gamma). The angles are stored in degrees, and the lengths in Angstroms.</p>
+<p>A cell also has a matricial representation, by projecting the three base vector into an orthonormal base. We choose to represent such matrix as an upper triangular matrix:</p>
+<p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">a_x</span>   <span class="n">b_x</span>   <span class="n">c_x</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="mi">0</span>    <span class="n">b_y</span>   <span class="n">c_y</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="mi">0</span>     <span class="mi">0</span>    <span class="n">c_z</span> <span class="o">|</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv2N9chemfiles8UnitCell9CellShapeE">
+<span id="chemfiles::UnitCell::CellShape"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a345017052d758d613b573682f88410ca"></span><em class="property">enum </em><code class="descname">CellShape</code><a class="headerlink" href="#_CPPv2N9chemfiles8UnitCell9CellShapeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Possible shapes for the unit cell. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv2N9chemfiles8UnitCell12ORTHORHOMBICE">
+<span class="target" id="classchemfiles_1_1_unit_cell_1a345017052d758d613b573682f88410caafba14d3710da1ef4e1769da67dac5d2d"></span><code class="descname">ORTHORHOMBIC</code> = 0<a class="headerlink" href="#_CPPv2N9chemfiles8UnitCell12ORTHORHOMBICE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Orthorhombic cell, with the three angles equals to 90° </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N9chemfiles8UnitCell9TRICLINICE">
+<span class="target" id="classchemfiles_1_1_unit_cell_1a345017052d758d613b573682f88410caaa1e3f9e4092dabb3c282c02223c12b2f"></span><code class="descname">TRICLINIC</code> = 1<a class="headerlink" href="#_CPPv2N9chemfiles8UnitCell9TRICLINICE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Triclinic cell, with any values for the angles. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv2N9chemfiles8UnitCell8INFINITEE">
+<span class="target" id="classchemfiles_1_1_unit_cell_1a345017052d758d613b573682f88410caabaa11061189696d382e045cf4180a166"></span><code class="descname">INFINITE</code> = 2<a class="headerlink" href="#_CPPv2N9chemfiles8UnitCell8INFINITEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Infinite cell, to use when there is no cell. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8UnitCell8UnitCellEv">
+<span id="UnitCell::UnitCell"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a7217ff77357c0a8529c3066efc97d23b"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell8UnitCellEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct an <code class="docutils literal"><span class="pre">INFINITE</span></code> unit cell, with all lengths set to 0</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">();</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">INFINITE</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell8UnitCellEd">
+<span id="UnitCell::UnitCell__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1ab84c14c358173a2abcc572e0c82fbe3b"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>double <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell8UnitCellEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct a cubic unit cell of side size <code class="docutils literal"><span class="pre">a</span></code></p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">32</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">32</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">32</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell8UnitCellEddd">
+<span id="UnitCell::UnitCell__double.double.double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a93d90cb3461642f7d8c424b4349c93c8"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>double <em>a</em>, double <em>b</em>, double <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell8UnitCellEddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct an <code class="docutils literal"><span class="pre">ORTHOROMBIC</span></code> unit cell of side size <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, <code class="docutils literal"><span class="pre">c</span></code></p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell8UnitCellEdddddd">
+<span id="UnitCell::UnitCell__double.double.double.double.double.double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a65c051fa7c5f393fbebf9f5b16493d56"></span><code class="descname">UnitCell</code><span class="sig-paren">(</span>double <em>a</em>, double <em>b</em>, double <em>c</em>, double <em>alpha</em>, double <em>beta</em>, double <em>gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell8UnitCellEdddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct an unit cell of side size <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code>, <code class="docutils literal"><span class="pre">c</span></code>, and cell angles <code class="docutils literal"><span class="pre">alpha</span></code>, <code class="docutils literal"><span class="pre">beta</span></code>, <code class="docutils literal"><span class="pre">gamma</span></code>.</p>
+<p>If all of <code class="docutils literal"><span class="pre">alpha</span></code>, <code class="docutils literal"><span class="pre">beta</span></code> and <code class="docutils literal"><span class="pre">gamma</span></code> are 90.0, then the cell is <code class="docutils literal"><span class="pre">ORTHOROMBIC</span></code>. Else a <code class="docutils literal"><span class="pre">TRICLINIC</span></code> cell is created.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell6matrixEv">
+<span id="chemfiles::UnitCell::matrixC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a0ec3371180bd70224f3b0dda3b7675e3"></span><a class="reference internal" href="misc.html#_CPPv2N9chemfiles8Matrix3DE" title="chemfiles::Matrix3D">Matrix3D</a> <code class="descname">matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell6matrixEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the cell matrix, defined as the upper triangular matrix</p>
+<p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">a_x</span>   <span class="n">b_x</span>   <span class="n">c_x</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="mi">0</span>    <span class="n">b_y</span>   <span class="n">c_y</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="mi">0</span>     <span class="mi">0</span>    <span class="n">c_z</span> <span class="o">|</span>
+</pre></div>
+</div>
+</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">matrix</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="n">matrix</span><span class="p">();</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell5shapeEv">
+<span id="chemfiles::UnitCell::shapeC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a45dfea26e310e4caad2545917645d2a2"></span><a class="reference internal" href="#_CPPv2N9chemfiles8UnitCell9CellShapeE" title="chemfiles::UnitCell::CellShape">CellShape</a> <code class="descname">shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell5shapeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the cell shape</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_shape</span><span class="p">(</span><span class="n">UnitCell</span><span class="o">::</span><span class="n">TRICLINIC</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">TRICLINIC</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell9set_shapeE9CellShape">
+<span id="UnitCell::set_shape__CellShape"></span><span class="target" id="classchemfiles_1_1_unit_cell_1aeb40807d1a7f4c6a59036d5c5523a29c"></span>void <code class="descname">set_shape</code><span class="sig-paren">(</span>CellShape <em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell9set_shapeE9CellShape" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the cell shape to <code class="docutils literal"><span class="pre">shape</span></code></p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_shape</span><span class="p">(</span><span class="n">UnitCell</span><span class="o">::</span><span class="n">TRICLINIC</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">TRICLINIC</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if <code class="docutils literal"><span class="pre">shape</span></code> is <code class="docutils literal"><span class="pre">ORTHORHOMBIC</span></code> and some angles are not 90°, or if <code class="docutils literal"><span class="pre">shape</span></code> is <code class="docutils literal"><span class="pre">INFINITE</span></code> and some lengths are not 0.0. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell1aEv">
+<span id="chemfiles::UnitCell::aC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1ab20b60490b5c3f00cfb41fd349f16c20"></span>double <code class="descname">a</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell1aEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the first lenght (a) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">111</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">222</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_c</span><span class="p">(</span><span class="mi">333</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">222</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">333</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell5set_aEd">
+<span id="UnitCell::set_a__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1ad5ff39afd0989b1871308471f675c153"></span>void <code class="descname">set_a</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell5set_aEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the first lenght (a) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">111</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">222</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_c</span><span class="p">(</span><span class="mi">333</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">222</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">333</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the cell shape is <code class="docutils literal"><span class="pre">INFINITE</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell1bEv">
+<span id="chemfiles::UnitCell::bC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a086c7758970b4764208b38db7e943315"></span>double <code class="descname">b</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell1bEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the second lenght (b) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">111</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">222</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_c</span><span class="p">(</span><span class="mi">333</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">222</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">333</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell5set_bEd">
+<span id="UnitCell::set_b__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1acff3f4d6cc9cb382a28cca14026b7783"></span>void <code class="descname">set_b</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell5set_bEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the second lenght (b) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">111</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">222</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_c</span><span class="p">(</span><span class="mi">333</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">222</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">333</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the cell shape is <code class="docutils literal"><span class="pre">INFINITE</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell1cEv">
+<span id="chemfiles::UnitCell::cC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1ad90a93a431965b01de2bcd60fcbca825"></span>double <code class="descname">c</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell1cEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the third lenght (c) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">111</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">222</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_c</span><span class="p">(</span><span class="mi">333</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">222</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">333</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell5set_cEd">
+<span id="UnitCell::set_c__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1af5cef828be2dd17872fddedbcf21e720"></span>void <code class="descname">set_c</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell5set_cEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the third lenght (c) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">22</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">33</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_a</span><span class="p">(</span><span class="mi">111</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_b</span><span class="p">(</span><span class="mi">222</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_c</span><span class="p">(</span><span class="mi">333</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">a</span><span class="p">()</span> <span class="o">==</span> <span class="mi">111</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">b</span><span class="p">()</span> <span class="o">==</span> <span class="mi">222</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">c</span><span class="p">()</span> <span class="o">==</span> <span class="mi">333</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the cell shape is <code class="docutils literal"><span class="pre">INFINITE</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell5alphaEv">
+<span id="chemfiles::UnitCell::alphaC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a1cbf6918228853852206e2d0016077cd"></span>double <code class="descname">alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell5alphaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the first angle (alpha) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">80</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_beta</span><span class="p">(</span><span class="mi">92</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_gamma</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">91</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">93</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell9set_alphaEd">
+<span id="UnitCell::set_alpha__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a4154999284d92d4cb256cce3b3b08521"></span>void <code class="descname">set_alpha</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell9set_alphaEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the first angle (alpha) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">80</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_beta</span><span class="p">(</span><span class="mi">92</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_gamma</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">91</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">93</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the cell shape is not <code class="docutils literal"><span class="pre">TRICLINIC</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell4betaEv">
+<span id="chemfiles::UnitCell::betaC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a19bb0a059cb8f79222406a30812fff2e"></span>double <code class="descname">beta</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell4betaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the second angle (beta) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">80</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_beta</span><span class="p">(</span><span class="mi">92</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_gamma</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">91</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">93</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell8set_betaEd">
+<span id="UnitCell::set_beta__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1adbe37df9f6249640055c192532e95d0b"></span>void <code class="descname">set_beta</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell8set_betaEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the second angle (beta) of the cell if possible</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">80</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_beta</span><span class="p">(</span><span class="mi">92</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_gamma</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">91</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">93</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the cell shape is not <code class="docutils literal"><span class="pre">TRICLINIC</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles8UnitCell5gammaEv">
+<span id="chemfiles::UnitCell::gammaC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a2eb68e4038906ff69f100c5b8d5a4588"></span>double <code class="descname">gamma</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK9chemfiles8UnitCell5gammaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the third angle (gamma) of the cell</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">80</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_beta</span><span class="p">(</span><span class="mi">92</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_gamma</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">91</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">93</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8UnitCell9set_gammaEd">
+<span id="UnitCell::set_gamma__double"></span><span class="target" id="classchemfiles_1_1_unit_cell_1a6f89858e81b39ede6443109184fafb14"></span>void <code class="descname">set_gamma</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8UnitCell9set_gammaEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the third angle (gamma) of the cell if possible</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">60</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">80</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="n">cell</span><span class="p">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_beta</span><span class="p">(</span><span class="mi">92</span><span class="p">);</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">set_gamma</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">alpha</span><span class="p">()</span> <span class="o">==</span> <span class="mi">91</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">beta</span><span class="p">()</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">gamma</span><span class="p">()</span> <span class="o">==</span> <span class="mi">93</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the cell shape is not <code class="docutils literal"><span class="pre">TRICLINIC</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8UnitCell6volumeEv">
+<span id="UnitCell::volumeC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1ad420d6af96bf2017d361ef50b2ead448"></span>double <code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8UnitCell6volumeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the unit cell volume</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">volume</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span> <span class="o">*</span> <span class="mi">22</span> <span class="o">*</span> <span class="mi">33</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK8UnitCell4wrapERK8Vector3D">
+<span id="UnitCell::wrap__Vector3DCRC"></span><span class="target" id="classchemfiles_1_1_unit_cell_1aa6e8ba9cafc2ab3af319a8dec0fe7051"></span>Vector3D <code class="descname">wrap</code><span class="sig-paren">(</span><em class="property">const</em> Vector3D &amp;<em>vector</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8UnitCell4wrapERK8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Wrap the <code class="docutils literal"><span class="pre">vector</span></code> in the unit cell, using periodic boundary conditions.</p>
+<p>For an orthorombic unit cell, this make sure that all the vector components are between <code class="docutils literal"><span class="pre">-L/2</span></code> and <code class="docutils literal"><span class="pre">L/2</span></code> where <code class="docutils literal"><span class="pre">L</span></code> is the corresponding cell length.</p>
+<p><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

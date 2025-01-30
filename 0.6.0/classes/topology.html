@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Topology &mdash; Chemfiles 0.6.0
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.0
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Chemfiles 0.6.0
+ documentation" href="../index.html" />
+    <link rel="up" title="C++ interface reference" href="index.html" />
+    <link rel="next" title="Atoms and atomic informations" href="atom.html" />
+    <link rel="prev" title="Frames" href="frame.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles features overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Topology</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="frame.html" title="Previous Chapter: Frames"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Frames</span>
+    </a>
+  </li>
+  <li>
+    <a href="atom.html" title="Next Chapter: Atoms and atomic informations"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Atoms and ato... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="topology">
+<h1>Topology<a class="headerlink" href="#topology" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology"></span><em>class</em> <code class="descname">chemfiles::Topology</code></dt>
+<dd><p>A topology contains the definition of all the atoms in the system, and the liaisons between the particles (bonds, angles, dihedrals, ...).</p>
+<p>Only the atoms and the bonds are stored, the angles and the dihedrals are computed automaticaly.</p>
+<p>Iterating over a <a class="reference internal" href="#project0classchemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> will yield the atoms in the system. </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a934f287e4c531fecd38bc0b47f76b9e2"></span><code class="descname">Topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Construct an empty topology. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1aaa61a3cc5719ece27b9f526bc9cdc46a"></span><a class="reference internal" href="atom.html#project0classchemfiles_1_1_atom"><span class="std std-ref">Atom</span></a> &amp; <code class="descname">operator[]</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span></dt>
+<dd><p>Get a reference to the atom at the position <code class="docutils literal"><span class="pre">index</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a2f388568626471297806d30d70dd6987"></span>const <a class="reference internal" href="atom.html#project0classchemfiles_1_1_atom"><span class="std std-ref">Atom</span></a> &amp; <code class="descname">operator[]</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Get a const (non-modifiable) reference to the atom at the position <code class="docutils literal"><span class="pre">index</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a096972eeac69d980b142f5e01fb69efd"></span>void <code class="descname">append</code><span class="sig-paren">(</span>const <a class="reference internal" href="atom.html#project0classchemfiles_1_1_atom"><span class="std std-ref">Atom</span></a> &amp; <em>_atom</em><span class="sig-paren">)</span></dt>
+<dd><p>Add an atom in the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a34fc18521d1e48a09ccfb9793d376527"></span>void <code class="descname">remove</code><span class="sig-paren">(</span>size_t <em>idx</em><span class="sig-paren">)</span></dt>
+<dd><p>Delete an atom in the system. If <code class="docutils literal"><span class="pre">idx</span></code> is out of bounds, do nothing. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a979a186d1ea3e0d277793d5462eb2d71"></span>void <code class="descname">add_bond</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em><span class="sig-paren">)</span></dt>
+<dd><p>Add a bond in the system, between the atoms at index <code class="docutils literal"><span class="pre">atom_i</span></code> and <code class="docutils literal"><span class="pre">atom_j</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1aa8de3bad0a02d2c81e7110b315a5d68f"></span>void <code class="descname">remove_bond</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove a bond in the system, between the atoms at index <code class="docutils literal"><span class="pre">atom_i</span></code> and <code class="docutils literal"><span class="pre">atom_j</span></code> </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1af3c2cb7d4cb884e8bd077aa1858e4866"></span>size_t <code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the number of atoms in the topology. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1ae8e66fc1e3bfd9e26cfe1b283e647220"></span>void <code class="descname">resize</code><span class="sig-paren">(</span>size_t <em>natoms</em><span class="sig-paren">)</span></dt>
+<dd><p>Resize the topology to hold <code class="docutils literal"><span class="pre">natoms</span></code> atoms, adding <code class="docutils literal"><span class="pre">UNDEFINED</span></code> atoms as needed. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1abfacfa2af67338a94a05921cf7314e20"></span>bool <code class="descname">isbond</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Check wether the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code> are bonded or not. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a5a71ab68e72ba9857ffd5eae0bd4872b"></span>bool <code class="descname">isangle</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Check wether the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code>, <code class="docutils literal"><span class="pre">j</span></code> and <code class="docutils literal"><span class="pre">k</span></code> constitues an angle </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a64b1e3b995ad47a7d7c0e451bb964dea"></span>bool <code class="descname">isdihedral</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, size_t <em>m</em><span class="sig-paren">)</span> const</dt>
+<dd><p>Check wether the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code> <code class="docutils literal"><span class="pre">j</span></code>, <code class="docutils literal"><span class="pre">k</span></code> and <code class="docutils literal"><span class="pre">m</span></code> constitues a dihedral angle </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1a241821c23858634717cb5eccd2ef8ad8"></span>std::vector&lt; Bond &gt; <code class="descname">bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the bonds in the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1afa7d2548ce0e45bd65ce01464043b2cc"></span>std::vector&lt; Angle &gt; <code class="descname">angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the angles in the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1afbd8d729e1da24a08c087b0a2beec1ae"></span>std::vector&lt; Dihedral &gt; <code class="descname">dihedrals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> const</dt>
+<dd><p>Get the dihedral angles in the system. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="project0classchemfiles_1_1_topology_1adfecec28c7cc1ad9b38171ae33107e8e"></span>void <code class="descname">clear_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Remove all bonding information in the topology (bonds, angles and dihedrals) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="http://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Frame class &#8212; Chemfiles 0.8.0
+ documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Topology class" href="topology.html" />
+    <link rel="prev" title="Trajectory class" href="trajectory.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/file.html"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devdoc/format.html"><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Frame class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="trajectory.html" title="Previous Chapter: Trajectory class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Trajectory class</span>
+    </a>
+  </li>
+  <li>
+    <a href="topology.html" title="Next Chapter: Topology class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Topology class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="frame-class">
+<span id="class-frame"></span><h1>Frame class<a class="headerlink" href="#frame-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv3N9chemfiles5FrameE">
+<span id="_CPPv2N9chemfiles5FrameE"></span><span id="chemfiles::Frame"></span><span class="target" id="classchemfiles_1_1_frame"></span><em class="property">class </em><code class="descname">Frame</code><a class="headerlink" href="#_CPPv3N9chemfiles5FrameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A frame contains data from one simulation step The <a class="reference internal" href="#classchemfiles_1_1_frame"><span class="std std-ref">Frame</span></a> class holds data from one step of a simulation: the current topology, the positions, and the velocities of the particles in the system. If some information is missing the corresponding data is filled with a default value. Specifically:</p>
+<p><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">cell</span></code> is an infinite unit cell;</li>
+<li><code class="docutils literal notranslate"><span class="pre">topology</span></code> is empty, and contains no data;</li>
+<li><code class="docutils literal notranslate"><span class="pre">positions</span></code> is filled with zeros;</li>
+<li><code class="docutils literal notranslate"><span class="pre">velocities</span></code> is the nullopt variant of <a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::optional</span></code></a>.</li>
+</ul>
+</p>
+<p>Iterating over a <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame"><span class="std std-ref"><span class="pre">Frame</span></span></a></code> will yield all the atoms in the system.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">});</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">Atom</span><span class="o">&amp;</span> <span class="nl">atom</span><span class="p">:</span> <span class="n">frame</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Fe&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv3N5Frame5FrameEv">
+<span id="_CPPv2N5Frame5FrameEv"></span><span id="Frame::Frame"></span><span class="target" id="classchemfiles_1_1_frame_1ad2e5946cf41d4817e750500acf05d02b"></span><code class="descname">Frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame5FrameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an empty frame with no atoms and an infinite unit cell.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="p">());</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame5FrameE8Topology8UnitCell">
+<span id="_CPPv2N5Frame5FrameE8Topology8UnitCell"></span><span id="Frame::Frame__Topology.UnitCell"></span><span class="target" id="classchemfiles_1_1_frame_1a132698434c52f9b3cf3ce9363e4ac59d"></span><code class="descname">Frame</code><span class="sig-paren">(</span>Topology <em>topology</em>, UnitCell <em>cell</em> = UnitCell()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame5FrameE8Topology8UnitCell" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a frame containing the atoms in the <code class="docutils literal notranslate"><span class="pre">topology</span></code>, and the given unit <code class="docutils literal notranslate"><span class="pre">cell</span></code>.</p>
+<p>The positions of each atom will be initiliazed to <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></code>, and the frame will not contain any velocity.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">25</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">25</span><span class="p">));</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">topology</span></code>: <code class="docutils literal notranslate"><a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref"><span class="pre">Topology</span></span></a></code> containing the atoms to use in this frame </li>
+<li><code class="docutils literal notranslate"><span class="pre">cell</span></code>: <code class="docutils literal notranslate"><a class="reference internal" href="unitcell.html#classchemfiles_1_1_unit_cell"><span class="std std-ref"><span class="pre">UnitCell</span></span></a></code> bounding the new frame. It default to an <code class="docutils literal notranslate"><span class="pre">INFINITE</span></code> unit cell. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5Frame5cloneEv">
+<span id="_CPPv2NK9chemfiles5Frame5cloneEv"></span><span id="chemfiles::Frame::cloneC"></span><span class="target" id="classchemfiles_1_1_frame_1a55a30870b3f0e1a4b4f7657d4776421f"></span><a class="reference internal" href="#_CPPv3N9chemfiles5FrameE" title="chemfiles::Frame">Frame</a> <code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5Frame5cloneEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a clone (exact copy) of this frame.</p>
+<p>This replace the implicit copy constructor (which is private) to make an explicit copy of the frame.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<span class="n">copy</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">copy</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5Frame8topologyEv">
+<span id="_CPPv2NK9chemfiles5Frame8topologyEv"></span><span id="chemfiles::Frame::topologyC"></span><span class="target" id="classchemfiles_1_1_frame_1aa902a7cddd97453792b5cd75499dafdc"></span><em class="property">const</em> <a class="reference internal" href="topology.html#_CPPv3N9chemfiles8TopologyE" title="chemfiles::Topology">Topology</a> &amp;<code class="descname">topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5Frame8topologyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the topology of this frame</p>
+<p>It is not possible to get a modifiable reference to the topology, because it would then be possible to remove/add atoms without changing the actual positions and velocity storage. Instead, all the mutating functionalities of the topology are mirrored on the frame (adding and removing bonds, adding residues, <em>etc.</em>)</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="c1">// Manually constructing a topology</span>
+<span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;H&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame12set_topologyE8Topology">
+<span id="_CPPv2N5Frame12set_topologyE8Topology"></span><span id="Frame::set_topology__Topology"></span><span class="target" id="classchemfiles_1_1_frame_1a3ffee122d2ef73b9d3250e23a9c00854"></span>void <code class="descname">set_topology</code><span class="sig-paren">(</span>Topology <em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame12set_topologyE8Topology" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the topology of this frame to <code class="docutils literal notranslate"><span class="pre">topology</span></code></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="k">auto</span> <span class="n">topology</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">topology</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="c1">// Manually constructing a topology</span>
+<span class="n">topology</span> <span class="o">=</span> <span class="n">Topology</span><span class="p">();</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">));</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">topology</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">set_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;H&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">topology</span></code>: the new <a class="reference internal" href="topology.html#classchemfiles_1_1_topology"><span class="std std-ref">Topology</span></a> to use for this frame</li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the topology size does not match the size of this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5Frame4cellEv">
+<span id="_CPPv2NK9chemfiles5Frame4cellEv"></span><span id="chemfiles::Frame::cellC"></span><span class="target" id="classchemfiles_1_1_frame_1a684dfbc93ebae13e9806d14cab28d711"></span><em class="property">const</em> <a class="reference internal" href="unitcell.html#_CPPv3N9chemfiles8UnitCellE" title="chemfiles::UnitCell">UnitCell</a> &amp;<code class="descname">cell</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5Frame4cellEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the unit cell of this frame</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+
+<span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">INFINITE</span><span class="p">);</span>
+
+<span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">().</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame4cellEv">
+<span id="_CPPv2N9chemfiles5Frame4cellEv"></span><span id="chemfiles::Frame::cell"></span><span class="target" id="classchemfiles_1_1_frame_1a56a2051c5586ac0b02c67aa78f3e67f9"></span><a class="reference internal" href="unitcell.html#_CPPv3N9chemfiles8UnitCellE" title="chemfiles::UnitCell">UnitCell</a> &amp;<code class="descname">cell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame4cellEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a reference to the unit cell of this frame</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+
+<span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">INFINITE</span><span class="p">);</span>
+
+<span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">().</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame8set_cellE8UnitCell">
+<span id="_CPPv2N9chemfiles5Frame8set_cellE8UnitCell"></span><span id="chemfiles::Frame::set_cell__UnitCell"></span><span class="target" id="classchemfiles_1_1_frame_1aca7b0fe8237ad3f9c2cba97fd5cdf5c3"></span>void <code class="descname">set_cell</code><span class="sig-paren">(</span><a class="reference internal" href="unitcell.html#_CPPv3N9chemfiles8UnitCellE" title="chemfiles::UnitCell">UnitCell</a> <em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame8set_cellE8UnitCell" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the unit cell for this frame to <code class="docutils literal notranslate"><span class="pre">cell</span></code></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+
+<span class="k">auto</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">INFINITE</span><span class="p">);</span>
+
+<span class="n">cell</span> <span class="o">=</span> <span class="n">UnitCell</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">cell</span><span class="p">().</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">UnitCell</span><span class="o">::</span><span class="n">ORTHORHOMBIC</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">cell</span></code>: the new <a class="reference internal" href="unitcell.html#classchemfiles_1_1_unit_cell"><span class="std std-ref">UnitCell</span></a> to use for this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK5Frame4sizeEv">
+<span id="_CPPv2NK5Frame4sizeEv"></span><span id="Frame::sizeC"></span><span class="target" id="classchemfiles_1_1_frame_1a2947ced64d7ad22979bd71e40337964e"></span>size_t <code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK5Frame4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of atoms in this frame</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame9positionsEv">
+<span id="_CPPv2N9chemfiles5Frame9positionsEv"></span><span id="chemfiles::Frame::positions"></span><span class="target" id="classchemfiles_1_1_frame_1ad2fe6c710ecb7d5663a9a28ff75a15c3"></span><a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles4spanE" title="chemfiles::span">span</a>&lt;<a class="reference internal" href="misc.html#_CPPv3N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a>&gt; <code class="descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame9positionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the positions of the atoms in this frame.</p>
+<p>A <a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles4spanE" title="chemfiles::span"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::span</span></code></a> is a view inside a vector allowing
+mutation of the values, but no memory allocation.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">});</span>
+
+<span class="k">auto</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">// Indexing the positions</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">));</span>
+
+<span class="c1">// Iteration on positions</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">position</span><span class="p">:</span> <span class="n">positions</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="n">position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5Frame9positionsEv">
+<span id="_CPPv2NK9chemfiles5Frame9positionsEv"></span><span id="chemfiles::Frame::positionsC"></span><span class="target" id="classchemfiles_1_1_frame_1afa2697a46827febe7cad5b7ae844fec0"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="misc.html#_CPPv3N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a>&gt; &amp;<code class="descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5Frame9positionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the positions in this frame as a const reference</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">});</span>
+
+<span class="k">auto</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">// Indexing the positions</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">));</span>
+
+<span class="c1">// Iteration on positions</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">position</span><span class="p">:</span> <span class="n">positions</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="n">position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame14add_velocitiesEv">
+<span id="_CPPv2N5Frame14add_velocitiesEv"></span><span id="Frame::add_velocities"></span><span class="target" id="classchemfiles_1_1_frame_1acee262e99f26e6db358be73a3abded80"></span>void <code class="descname">add_velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame14add_velocitiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add velocities data storage to this frame.</p>
+<p>If velocities are already defined, this functions does nothing. The new velocities are initialized to 0.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="c1">// Default constructed frames does not contains velocities</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">());</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_velocities</span><span class="p">();</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">());</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame10velocitiesEv">
+<span id="_CPPv2N9chemfiles5Frame10velocitiesEv"></span><span id="chemfiles::Frame::velocities"></span><span class="target" id="classchemfiles_1_1_frame_1a660cb837a4d5e37daf660b3e6bc5510d"></span><a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles8optionalE" title="chemfiles::optional">optional</a>&lt;<a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles4spanE" title="chemfiles::span">span</a>&lt;<a class="reference internal" href="misc.html#_CPPv3N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a>&gt;&gt; <code class="descname">velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame10velocitiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get an velocities of the atoms in this frame, if this frame contains velocity data.</p>
+<p><p>This function returna an <a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal notranslate"><span class="pre">std::optional</span></code>.</p>
+<p>A <a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles4spanE" title="chemfiles::span"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::span</span></code></a> is a view inside a vector allowing
+mutation of the values, but no memory allocation.</p>
+</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="c1">// Default constructed frames does not contains velocities</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">());</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">add_velocities</span><span class="p">();</span>
+
+<span class="c1">// adding a few atoms with velocity data</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="p">{</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="p">{</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">});</span>
+
+<span class="k">auto</span> <span class="n">velocities</span> <span class="o">=</span> <span class="o">*</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">// Indexing the velocities</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">));</span>
+
+<span class="c1">// Iteration on positions</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">velocity</span><span class="p">:</span> <span class="n">velocities</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">velocity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="n">velocity</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5Frame10velocitiesEv">
+<span id="_CPPv2NK9chemfiles5Frame10velocitiesEv"></span><span id="chemfiles::Frame::velocitiesC"></span><span class="target" id="classchemfiles_1_1_frame_1ab36d724675be58f15df4cdd2ab6790e4"></span><a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles8optionalE" title="chemfiles::optional">optional</a>&lt;<em class="property">const</em> std::vector&lt;<a class="reference internal" href="misc.html#_CPPv3N9chemfiles8Vector3DE" title="chemfiles::Vector3D">Vector3D</a>&gt;&amp;&gt; <code class="descname">velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5Frame10velocitiesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get an velocities of the atoms in this frame as a const reference, if this frame contains velocity data.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="c1">// Default constructed frames does not contains velocities</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">());</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">add_velocities</span><span class="p">();</span>
+
+<span class="c1">// adding a few atoms with velocity data</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="p">{</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="p">{</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">});</span>
+
+<span class="k">auto</span> <span class="n">velocities</span> <span class="o">=</span> <span class="o">*</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">// Indexing the velocities</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">));</span>
+
+<span class="c1">// Iteration on positions</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">velocity</span><span class="p">:</span> <span class="n">velocities</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">velocity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="n">velocity</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame6resizeE6size_t">
+<span id="_CPPv2N5Frame6resizeE6size_t"></span><span id="Frame::resize__s"></span><span class="target" id="classchemfiles_1_1_frame_1a4968d0617c32b7ab2933e1ca96d8b2eb"></span>void <code class="descname">resize</code><span class="sig-paren">(</span>size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame6resizeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resize the frame to contain <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms.</p>
+<p>If the new number of atoms is bigger than the old one, missing data is initializd to 0. Pre-existing values are conserved.</p>
+<p>If the new size if smaller than the old one, all atoms and connectivity elements after the new size are removed.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// new atoms contains default data</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">position</span><span class="p">:</span> <span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">atom</span><span class="p">:</span> <span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame7reserveE6size_t">
+<span id="_CPPv2N5Frame7reserveE6size_t"></span><span id="Frame::reserve__s"></span><span class="target" id="classchemfiles_1_1_frame_1a97f8d85afcd90c3fcd5fdb1fc6dcc86e"></span>void <code class="descname">reserve</code><span class="sig-paren">(</span>size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame7reserveE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocate memory in the frame to have enough size for <code class="docutils literal notranslate"><span class="pre">size</span></code> atoms.</p>
+<p>This function does not change the actual number of atoms in the frame, and should be used as an optimisation.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// reserve allocate memory, but does not change the size</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame8add_atomE4Atom8Vector3D8Vector3D">
+<span id="_CPPv2N5Frame8add_atomE4Atom8Vector3D8Vector3D"></span><span id="Frame::add_atom__Atom.Vector3D.Vector3D"></span><span class="target" id="classchemfiles_1_1_frame_1a0bd4ab2359d27103123161321c06b194"></span>void <code class="descname">add_atom</code><span class="sig-paren">(</span>Atom <em>atom</em>, Vector3D <em>position</em>, Vector3D <em>velocity</em> = Vector3D()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame8add_atomE4Atom8Vector3D8Vector3D" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add an <code class="docutils literal notranslate"><span class="pre">atom</span></code> at the given <code class="docutils literal notranslate"><span class="pre">position</span></code> and optionally with the given <code class="docutils literal notranslate"><span class="pre">velocity</span></code>. The <code class="docutils literal notranslate"><span class="pre">velocity</span></code> value will only be used if this frame contains velocity data.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="c1">// add atom without velocities</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">));</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">add_velocities</span><span class="p">();</span>
+<span class="c1">// add atom with velocities</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">velocities</span> <span class="o">=</span> <span class="o">*</span><span class="n">frame</span><span class="p">.</span><span class="n">velocities</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">velocities</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
+
+<span class="c1">// using brace initialization for smaller code</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">},</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">});</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame6removeE6size_t">
+<span id="_CPPv2N5Frame6removeE6size_t"></span><span id="Frame::remove__s"></span><span class="target" id="classchemfiles_1_1_frame_1a098ce3757568127c2f329cb4aa8eb7c9"></span>void <code class="descname">remove</code><span class="sig-paren">(</span>size_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame6removeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in the system.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">});</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">()[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;O&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="c1">// Removing an atom changes the indexes of atoms after the one removed</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">()[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;H&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">positions</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">));</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">chemfiles::OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> is bigger than the number of atoms in this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5Frame4stepEv">
+<span id="_CPPv2NK9chemfiles5Frame4stepEv"></span><span id="chemfiles::Frame::stepC"></span><span class="target" id="classchemfiles_1_1_frame_1a2b10f8c7667477ebe8b4f1696f8adea5"></span>size_t <code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5Frame4stepEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the current simulation step.</p>
+<p>The step is set by the <code class="docutils literal notranslate"><a class="reference internal" href="trajectory.html#classchemfiles_1_1_trajectory"><span class="std std-ref"><span class="pre">Trajectory</span></span></a></code> when reading a frame.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">step</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">set_step</span><span class="p">(</span><span class="mi">424</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">step</span><span class="p">()</span> <span class="o">==</span> <span class="mi">424</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame8set_stepE6size_t">
+<span id="_CPPv2N9chemfiles5Frame8set_stepE6size_t"></span><span id="chemfiles::Frame::set_step__s"></span><span class="target" id="classchemfiles_1_1_frame_1af20388be1532cdb99ad3be10a1a0c8fe"></span>void <code class="descname">set_step</code><span class="sig-paren">(</span>size_t <em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame8set_stepE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the current simulation step to <code class="docutils literal notranslate"><span class="pre">step</span></code></p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">step</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">set_step</span><span class="p">(</span><span class="mi">424</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">step</span><span class="p">()</span> <span class="o">==</span> <span class="mi">424</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame14guess_topologyEv">
+<span id="_CPPv2N5Frame14guess_topologyEv"></span><span id="Frame::guess_topology"></span><span class="target" id="classchemfiles_1_1_frame_1a3619d19517c48a8d7bed13f3d43c1000"></span>void <code class="descname">guess_topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame14guess_topologyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Guess the bonds, angles, dihedrals and impropers angles in this frame.</p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles, dihedrals and impropers are guessed from the bonds.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Building a frame containing a Cl2 molecule</span>
+<span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Cl&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Cl&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">guess_topology</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if the Van der Waals radius in unknown for a given atom.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame11clear_bondsEv">
+<span id="_CPPv2N9chemfiles5Frame11clear_bondsEv"></span><span id="chemfiles::Frame::clear_bonds"></span><span class="target" id="classchemfiles_1_1_frame_1a5e24beee41ac2c50f2a649ee0f88a58e"></span>void <code class="descname">clear_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame11clear_bondsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove all connectivity information in the frame’s topology</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">angles</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">clear_bonds</span><span class="p">();</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">angles</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame11add_residueE7Residue">
+<span id="_CPPv2N9chemfiles5Frame11add_residueE7Residue"></span><span id="chemfiles::Frame::add_residue__Residue"></span><span class="target" id="classchemfiles_1_1_frame_1a3a2b1ad8511740039883e1cf96c8d85f"></span>void <code class="descname">add_residue</code><span class="sig-paren">(</span><a class="reference internal" href="residue.html#_CPPv3N9chemfiles7ResidueE" title="chemfiles::Residue">Residue</a> <em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame11add_residueE7Residue" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this frame’s topology.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Zn&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+
+<span class="k">auto</span> <span class="n">residue</span> <span class="o">=</span> <span class="n">Residue</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">);</span>
+<span class="n">residue</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_residue</span><span class="p">(</span><span class="n">residue</span><span class="p">);</span>
+
+<span class="c1">// residues are actually stored in the topology</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">residues</span><span class="p">().</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">residue</span></code>: the residue to add to this topology </li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">chemfiles::Error</span></span></a></code>: if any atom in the <code class="docutils literal notranslate"><span class="pre">residue</span></code> is already in another residue in this topology. In that case, the topology is not modified. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame8add_bondE6size_t6size_t">
+<span id="_CPPv2N9chemfiles5Frame8add_bondE6size_t6size_t"></span><span id="chemfiles::Frame::add_bond__s.s"></span><span class="target" id="classchemfiles_1_1_frame_1ac1fe4408d56b537c3866533e358c234e"></span>void <code class="descname">add_bond</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame8add_bondE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bond in the system, between the atoms at index <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="c1">// the bonds are actually stored inside the topology</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+<span class="c1">// angles are automaticaly computed too</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">angles</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Angle</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">atom_i</span></code>: the index of the first atom in the bond </li>
+<li><code class="docutils literal notranslate"><span class="pre">atom_j</span></code>: the index of the second atom in the bond </li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a2947ced64d7ad22979bd71e40337964e"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </li>
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_error"><span class="std std-ref"><span class="pre">Error</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span> <span class="pre">==</span> <span class="pre">atom_j</span></code>, as this is an invalid bond </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5Frame11remove_bondE6size_t6size_t">
+<span id="_CPPv2N9chemfiles5Frame11remove_bondE6size_t6size_t"></span><span id="chemfiles::Frame::remove_bond__s.s"></span><span class="target" id="classchemfiles_1_1_frame_1af57201969b5967e7f3a51cf36170f48b"></span>void <code class="descname">remove_bond</code><span class="sig-paren">(</span>size_t <em>atom_i</em>, size_t <em>atom_j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5Frame11remove_bondE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove a bond in the system, between the atoms at index <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_j</span></code>.</p>
+<p>If the bond does not exist, this does nothing.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;O&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">remove_bond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+
+<span class="c1">// This does nothing</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">remove_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">topology</span><span class="p">().</span><span class="n">bonds</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Bond</span><span class="o">&gt;</span><span class="p">({{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}}));</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">atom_i</span></code>: the index of the first atom in the bond </li>
+<li><code class="docutils literal notranslate"><span class="pre">atom_j</span></code>: the index of the second atom in the bond </li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">atom_i</span></code> or <code class="docutils literal notranslate"><span class="pre">atom_j</span></code> are greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a2947ced64d7ad22979bd71e40337964e"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N9chemfiles5FrameixE6size_t">
+<span id="_CPPv2N9chemfiles5FrameixE6size_t"></span><span id="chemfiles::Frame::subscript-operator__s"></span><span class="target" id="classchemfiles_1_1_frame_1a0da9fd18261d4a195519f6739b5a9b5a"></span><a class="reference internal" href="atom.html#_CPPv3N9chemfiles4AtomE" title="chemfiles::Atom">Atom</a> &amp;<code class="descname">operator[]</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N9chemfiles5FrameixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a reference to the atom at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Co&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Co&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;V&quot;</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">set_mass</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mi">45</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">index</span></code>: the atomic index </li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">index</span></code> is greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a2947ced64d7ad22979bd71e40337964e"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK9chemfiles5FrameixE6size_t">
+<span id="_CPPv2NK9chemfiles5FrameixE6size_t"></span><span id="chemfiles::Frame::subscript-operator__sC"></span><span class="target" id="classchemfiles_1_1_frame_1a70ff94e9f3cb406b47a0f73cbeabcaaf"></span><em class="property">const</em> <a class="reference internal" href="atom.html#_CPPv3N9chemfiles4AtomE" title="chemfiles::Atom">Atom</a> &amp;<code class="descname">operator[]</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK9chemfiles5FrameixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a const reference to the atom at the position <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Co&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;Fe&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Co&quot;</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;V&quot;</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">set_mass</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">mass</span><span class="p">()</span> <span class="o">==</span> <span class="mi">45</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">index</span></code>: the atomic index </li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">index</span></code> is greater than <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_frame_1a2947ced64d7ad22979bd71e40337964e"><span class="std std-ref"><span class="pre">size()</span></span></a></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK5Frame8distanceE6size_t6size_t">
+<span id="_CPPv2NK5Frame8distanceE6size_t6size_t"></span><span id="Frame::distance__s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a6a02e01a7d5c07fb7239a99db41c1a91"></span>double <code class="descname">distance</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK5Frame8distanceE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the distance between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>, accounting for periodic boundary conditions. The distance is expressed in angstroms.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">distance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">14</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">chemfiles::OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code> or <code class="docutils literal notranslate"><span class="pre">j</span></code> are bigger than the number of atoms in this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK5Frame5angleE6size_t6size_t6size_t">
+<span id="_CPPv2NK5Frame5angleE6size_t6size_t6size_t"></span><span id="Frame::angle__s.s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1ab57cb605193e4776a3db16cf807f3c5a"></span>double <code class="descname">angle</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK5Frame5angleE6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code>, accounting for periodic boundary conditions. The angle is expressed in radians.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">angle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">chemfiles::OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> or <code class="docutils literal notranslate"><span class="pre">k</span></code> are bigger than the number of atoms in this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK5Frame8dihedralE6size_t6size_t6size_t6size_t">
+<span id="_CPPv2NK5Frame8dihedralE6size_t6size_t6size_t6size_t"></span><span id="Frame::dihedral__s.s.s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a64fd0f7e8beddf1b917be134765dc613"></span>double <code class="descname">dihedral</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, size_t <em>m</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK5Frame8dihedralE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the dihedral angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code>, accounting for periodic boundary conditions. The angle is expressed in radians.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">dihedral</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">chemfiles::OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> or <code class="docutils literal notranslate"><span class="pre">m</span></code> are bigger than the number of atoms in this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK5Frame12out_of_planeE6size_t6size_t6size_t6size_t">
+<span id="_CPPv2NK5Frame12out_of_planeE6size_t6size_t6size_t6size_t"></span><span id="Frame::out_of_plane__s.s.s.sC"></span><span class="target" id="classchemfiles_1_1_frame_1a9d6bf9e1436d34d47fa3c830c726633e"></span>double <code class="descname">out_of_plane</code><span class="sig-paren">(</span>size_t <em>i</em>, size_t <em>j</em>, size_t <em>k</em>, size_t <em>m</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK5Frame12out_of_planeE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the out of plane distance formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code>, accounting for periodic boundary conditions. The distance is expressed in angstroms.</p>
+<p>This is the distance betweent the atom j and the ikm plane. The j atom is the center of the improper dihedral angle formed by i, j, k and m.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">Atom</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">});</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">out_of_plane</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><a class="reference internal" href="misc.html#structchemfiles_1_1_out_of_bounds"><span class="std std-ref"><span class="pre">chemfiles::OutOfBounds</span></span></a></code>: if <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> or <code class="docutils literal notranslate"><span class="pre">m</span></code> are bigger than the number of atoms in this frame</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N5Frame3setENSt6stringE8Property">
+<span id="_CPPv2N5Frame3setENSt6stringE8Property"></span><span id="Frame::set__ss.Property"></span><span class="target" id="classchemfiles_1_1_frame_1a82437e7aadc44c5072875f044d2a45b1"></span>void <code class="descname">set</code><span class="sig-paren">(</span>std::string <em>name</em>, Property <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N5Frame3setENSt6stringE8Property" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set an arbitrary property for this frame with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>. If a property with this name already exist, it is silently replaced with the new value.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+
+<span class="n">frame</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Property</span><span class="p">(</span><span class="o">-</span><span class="mi">23</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">23</span><span class="p">);</span>
+
+<span class="c1">// Override the &#39;foo&#39; property</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Property</span><span class="p">(</span><span class="nb">false</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_bool</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK5Frame3getERKNSt6stringE">
+<span id="_CPPv2NK5Frame3getERKNSt6stringE"></span><span id="Frame::get__ssCRC"></span><span class="target" id="classchemfiles_1_1_frame_1a15fa2e755e98858df84227bdb6cec23a"></span>optional&lt;<em class="property">const</em> Property&amp;&gt; <code class="descname">get</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK5Frame3getERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> for this frame if it exists.</p>
+<p>If no property with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> is found, this function returns <code class="docutils literal notranslate"><span class="pre">nullopt</span></code>.</p>
+<p>This function returna an <a class="reference internal" href="helpers.html#_CPPv3I0EN9chemfiles8optionalE" title="chemfiles::optional"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">chemfiles::optional</span></code></a> value that is
+close to C++17 <code class="docutils literal notranslate"><span class="pre">std::optional</span></code>.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">();</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Property</span><span class="p">(</span><span class="mi">23</span><span class="p">));</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">));</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">as_double</span><span class="p">()</span> <span class="o">==</span> <span class="mi">23</span><span class="p">);</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright Guillaume Fraux and contributors.<br/>
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

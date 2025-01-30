@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Format classes &#8212; Chemfiles 0.7.4
+ documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/chemfiles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.4
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Chemfiles 0.7.4
+ documentation" href="../index.html" />
+    <link rel="up" title="Chemfiles internals" href="internals.html" />
+    <link rel="prev" title="File classes" href="file.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Chemfiles classes overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others.html">Other libraries for reading trajectories</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="internals.html">Chemfiles internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html"><code class="docutils literal"><span class="pre">File</span></code> classes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">Format</span></code> classes</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Content <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">Format</span></code> classes</a><ul>
+<li><a class="reference internal" href="#interface-for-formats">Interface for formats</a></li>
+<li><a class="reference internal" href="#implemented-formats">Implemented formats</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="file.html" title="Previous Chapter: File classes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; File classes</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="format-classes">
+<span id="class-format"></span><h1><code class="docutils literal"><span class="pre">Format</span></code> classes<a class="headerlink" href="#format-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="interface-for-formats">
+<h2>Interface for formats<a class="headerlink" href="#interface-for-formats" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv2N9chemfiles6FormatE">
+<span id="chemfiles::Format"></span><span class="target" id="chemfilesclasschemfiles_1_1_format"></span><em class="property">class </em><code class="descclassname">chemfiles::</code><code class="descname">Format</code><a class="headerlink" href="#_CPPv2N9chemfiles6FormatE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The `Format` class defines the interface to implement in order to add a new format to chemfiles. It is possible to implement only one of `Format::read`; `Format::read_step` or `Format::write`. In that case, only the corresponding operations will be available from the corresponding `chemfiles::Trajectory`. </p>
+<p>Subclassed by chemfiles::final&lt; F &gt;, chemfiles::final&lt; F &gt;, chemfiles::final&lt; F &gt;, chemfiles::final&lt; F &gt;, chemfiles::final&lt; F &gt;</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N6Format9read_stepE6size_tR5Frame">
+<span id="Format::read_step__s.FrameR"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_1a6f0123869061451f63bd3cbfe28e17a9"></span>void <code class="descname">read_step</code><span class="sig-paren">(</span>size_t <em>step</em>, Frame &amp;<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6Format9read_stepE6size_tR5Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific step from the trajectory file. </p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="../classes/errors.html#chemfilesstructchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file does not follow the format </li>
+<li><code class="docutils literal"><a class="reference internal" href="../classes/errors.html#chemfilesstructchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: if their is an OS error while reading the file</li>
+</ul>
+</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">step</span></code>: The step to read </li>
+<li><code class="docutils literal"><span class="pre">frame</span></code>: The frame to fill </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N6Format4readER5Frame">
+<span id="Format::read__FrameR"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_1a2ea00a560141414be2a9ca6df7d6eaa0"></span>void <code class="descname">read</code><span class="sig-paren">(</span>Frame &amp;<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6Format4readER5Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific step from the trajectory file. </p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="../classes/errors.html#chemfilesstructchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file does not follow the format </li>
+<li><code class="docutils literal"><a class="reference internal" href="../classes/errors.html#chemfilesstructchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: if their is an OS error while reading the file</li>
+</ul>
+</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">frame</span></code>: The frame to fill </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N6Format5writeERK5Frame">
+<span id="Format::write__FrameCR"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_1a3d0dd5090644bef622abd1adfd583270"></span>void <code class="descname">write</code><span class="sig-paren">(</span><em class="property">const</em> Frame &amp;<em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N6Format5writeERK5Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a frame to the trajectory file. </p>
+<p><dl class="docutils">
+<dt><strong>Exceptions</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><a class="reference internal" href="../classes/errors.html#chemfilesstructchemfiles_1_1_format_error"><span class="std std-ref"><span class="pre">FormatError</span></span></a></code>: if the file does not follow the format </li>
+<li><code class="docutils literal"><a class="reference internal" href="../classes/errors.html#chemfilesstructchemfiles_1_1_file_error"><span class="std std-ref"><span class="pre">FileError</span></span></a></code>: if their is an OS error while reading the file</li>
+</ul>
+</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">frame</span></code>: The frame to be writen </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N9chemfiles6Format6nstepsEv">
+<span id="chemfiles::Format::nsteps"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_1ab21a31d4d11bbc0a95079ff74e71292a"></span><em class="property">virtual</em> size_t <code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv2N9chemfiles6Format6nstepsEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of frames in the associated file. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The number of frames </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK9chemfiles6Format11descriptionEv">
+<span id="chemfiles::Format::descriptionC"></span><span class="target" id="chemfilesclasschemfiles_1_1_format_1acf6a4c488a14aa184bc3bf79a9dbf875"></span><em class="property">virtual</em> std::string <code class="descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv2NK9chemfiles6Format11descriptionEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a short description of the format. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="implemented-formats">
+<h2>Implemented formats<a class="headerlink" href="#implemented-formats" title="Permalink to this headline">¶</a></h2>
+<p>These classes implement the format interface defined previously.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">doxygenclass: Cannot find class &#8220;chemfiles::XYZFormat&#8221; in doxygen xml output for project &#8220;chemfiles&#8221; from directory: /home/travis/build/chemfiles/chemfiles/build/doc/doxygen/xml</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">doxygenclass: Cannot find class &#8220;chemfiles::PDBFormat&#8221; in doxygen xml output for project &#8220;chemfiles&#8221; from directory: /home/travis/build/chemfiles/chemfiles/build/doc/doxygen/xml</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">doxygenclass: Cannot find class &#8220;chemfiles::NCFormat&#8221; in doxygen xml output for project &#8220;chemfiles&#8221; from directory: /home/travis/build/chemfiles/chemfiles/build/doc/doxygen/xml</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">doxygenclass: Cannot find class &#8220;chemfiles::TNGFormat&#8221; in doxygen xml output for project &#8220;chemfiles&#8221; from directory: /home/travis/build/chemfiles/chemfiles/build/doc/doxygen/xml</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">doxygenclass: Cannot find class &#8220;chemfiles::Molfile&#8221; in doxygen xml output for project &#8220;chemfiles&#8221; from directory: /home/travis/build/chemfiles/chemfiles/build/doc/doxygen/xml</p>
+</div>
+<dl class="type">
+<dt id="_CPPv2N9chemfiles13MolfileFormatE">
+<span id="chemfiles::MolfileFormat"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07"></span><em class="property">enum </em><code class="descclassname">chemfiles::</code><code class="descname">MolfileFormat</code><a class="headerlink" href="#_CPPv2N9chemfiles13MolfileFormatE" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all the VMD molfile plugins enabled. For more documentation about VMD molfile plugins, please see: <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/">http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/</a> </p>
+<p><em>Values:</em></p>
+<dl class="member">
+<dt id="_CPPv2N9chemfiles3DCDE">
+<span id="chemfiles::DCD"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07a982dc3ced3afc0235445624eb7c37fec"></span><code class="descname">DCD</code><a class="headerlink" href="#_CPPv2N9chemfiles3DCDE" title="Permalink to this definition">¶</a></dt>
+<dd><p>DCD binary file format. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N9chemfiles3GROE">
+<span id="chemfiles::GRO"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07a3862453a9abde5072b33e5f323bf7aeb"></span><code class="descname">GRO</code><a class="headerlink" href="#_CPPv2N9chemfiles3GROE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gromacs .gro file format. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N9chemfiles3TRRE">
+<span id="chemfiles::TRR"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07a3f4ca16e1234812a65e318a4972cb19b"></span><code class="descname">TRR</code><a class="headerlink" href="#_CPPv2N9chemfiles3TRRE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gromacs .trr file format. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N9chemfiles3XTCE">
+<span id="chemfiles::XTC"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07af2246565dbd706afd7dde1e2a77916d1"></span><code class="descname">XTC</code><a class="headerlink" href="#_CPPv2N9chemfiles3XTCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gromacs .xtc file format. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N9chemfiles3TRJE">
+<span id="chemfiles::TRJ"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07a3756ce9f90a2c89e16edc1d7fdb23f08"></span><code class="descname">TRJ</code><a class="headerlink" href="#_CPPv2N9chemfiles3TRJE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gromacs .trj file format. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N9chemfiles6LAMMPSE">
+<span id="chemfiles::LAMMPS"></span><span class="target" id="chemfilesnamespacechemfiles_1aec3747f46780336a3f4005a397235c07a5ff3459e4c46a5295b078cbad382f8ef"></span><code class="descname">LAMMPS</code><a class="headerlink" href="#_CPPv2N9chemfiles6LAMMPSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lammps trajectory files. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux.<br/>
+        Sources available under MPL-v2 licence on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

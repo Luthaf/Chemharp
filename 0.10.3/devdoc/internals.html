@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Chemfiles internals &#8212; Chemfiles 0.10.3
+ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/chemfiles.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="File classes" href="files/index.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles internals</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="contributing.html" title="Previous Chapter: Contributing"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Contributing</span>
+    </a>
+  </li>
+  <li>
+    <a href="files/index.html" title="Next Chapter: File classes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">File classes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cxx-tutorials.html">C++ Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c-tutorials.html">C Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../formats.html">Supported formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selections.html">Selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties.html">Properties</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../classes/index.html">C++ interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capi/index.html">C interface reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemfiles internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sources-organization">Sources organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes-organization">Classes organization</a></li>
+</ul>
+</li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="chemfiles-internals">
+<h1>Chemfiles internals<a class="headerlink" href="#chemfiles-internals" title="Permalink to this heading">¶</a></h1>
+<section id="sources-organization">
+<h2>Sources organization<a class="headerlink" href="#sources-organization" title="Permalink to this heading">¶</a></h2>
+<p>You will find the following directory in chemfiles source code:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span></code>: CMake modules used for build configuration;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc</span></code>: the source for this documentation;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples</span></code>: usage examples for C and C++ interfaces;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">external</span></code>: external libraries used by chemfiles;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include</span></code>: the headers of chemfiles;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts</span></code>: some python and bash scripts used in development.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code>: the sources of the library;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests</span></code>: the sources of the unit tests;</p></li>
+</ul>
+</section>
+<section id="classes-organization">
+<h2>Classes organization<a class="headerlink" href="#classes-organization" title="Permalink to this heading">¶</a></h2>
+<p>Chemfiles is written in C++11, in an object-oriented fashion. A <code class="docutils literal notranslate"><span class="pre">Trajectory</span></code>
+is built on the top of two other private classes: a <a class="reference internal" href="files/index.html#class-file"><span class="std std-ref">File</span></a> and
+a <a class="reference internal" href="format.html#class-format"><span class="std std-ref">Format</span></a>. These are pure abstract class defining the
+interface for reading and writing data.</p>
+<p>Adding new formats and tweaking behavior of existing formats should be done
+either in the <code class="docutils literal notranslate"><span class="pre">File</span></code> implementation for everything related to interactions
+with the actual file, or in the <code class="docutils literal notranslate"><span class="pre">Format</span></code> implementation for everything related
+with parsing data from the file.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="files/index.html"><code class="docutils literal notranslate"><span class="pre">File</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="files/text-files.html">Text file implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/binary-files.html">Binary files implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format.html"><code class="docutils literal notranslate"><span class="pre">Format</span></code> classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format.html#interface-for-formats">Interface for formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#implemented-formats">Implemented formats</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Every <code class="docutils literal notranslate"><span class="pre">Format</span></code> class can be associated to an extension and a format name, the
+associations are managed by the <code class="docutils literal notranslate"><span class="pre">FormatFactory</span></code> class. New file and formats
+should be registered with this class, by specializing the
+<a class="reference internal" href="#_CPPv4I0EN9chemfiles15format_metadataERK14FormatMetadatav" title="chemfiles::format_metadata"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chemfiles::format_metadata()</span></code></a> template and calling
+<a class="reference internal" href="#_CPPv4I0_11enable_if_tIN16SupportsMemoryIOI6FormatE5valueEiEEN9chemfiles13FormatFactory10add_formatEvv" title="chemfiles::FormatFactory::add_format"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">chemfiles::FormatFactory::add_format()</span></code></a>.</p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13FormatFactoryE">
+<span id="_CPPv3N9chemfiles13FormatFactoryE"></span><span id="_CPPv2N9chemfiles13FormatFactoryE"></span><span id="chemfiles::FormatFactory"></span><span class="target" id="classchemfiles_1_1_format_factory"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FormatFactory</span></span></span><a class="headerlink" href="#_CPPv4N9chemfiles13FormatFactoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This class allow to register <a class="reference internal" href="format.html#classchemfiles_1_1_format"><span class="std std-ref">Format</span></a> with names and file extensions. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13FormatFactory7by_nameERKNSt6stringE">
+<span id="_CPPv3N9chemfiles13FormatFactory7by_nameERKNSt6stringE"></span><span id="_CPPv2N9chemfiles13FormatFactory7by_nameERKNSt6stringE"></span><span id="chemfiles::FormatFactory::by_name__ssCR"></span><span class="target" id="classchemfiles_1_1_format_factory_1a721b97cab9ff32e0fb959c3a2b46aabc"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">RegisteredFormat</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">by_name</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles13FormatFactory7by_nameERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a <code class="docutils literal notranslate"><span class="pre">RegisteredFormat</span></code> from a format name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – the format name </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the format can not be found </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13FormatFactory12by_extensionERKNSt6stringE">
+<span id="_CPPv3N9chemfiles13FormatFactory12by_extensionERKNSt6stringE"></span><span id="_CPPv2N9chemfiles13FormatFactory12by_extensionERKNSt6stringE"></span><span id="chemfiles::FormatFactory::by_extension__ssCR"></span><span class="target" id="classchemfiles_1_1_format_factory_1a6481726ea3c6ec38cd761c2ca8eb6a8a"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">RegisteredFormat</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">by_extension</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">extension</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles13FormatFactory12by_extensionERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a <code class="docutils literal notranslate"><span class="pre">RegisteredFormat</span></code> from a format extention.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>extension</strong> – the format extention </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles11FormatErrorE" title="chemfiles::FormatError"><span class="n">FormatError</span></a></span></span> – if the format can not be found </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_11enable_if_tIN16SupportsMemoryIOI6FormatE5valueEiEEN9chemfiles13FormatFactory10add_formatEvv">
+<span id="_CPPv3I0_11enable_if_tIN16SupportsMemoryIOI6FormatE5valueEiEEN9chemfiles13FormatFactory10add_formatEv"></span><span id="_CPPv2I0_11enable_if_tIN16SupportsMemoryIOI6FormatE5valueEiEEN9chemfiles13FormatFactory10add_formatEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Format</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">enable_if_t</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">SupportsMemoryIO</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_11enable_if_tIN16SupportsMemoryIOI6FormatE5valueEiEEN9chemfiles13FormatFactory10add_formatEvv" title="chemfiles::FormatFactory::add_format::Format"><span class="n"><span class="pre">Format</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classchemfiles_1_1_format_factory_1a19b386705a071198948c77ef3afb85fc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_format</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_11enable_if_tIN16SupportsMemoryIOI6FormatE5valueEiEEN9chemfiles13FormatFactory10add_formatEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Register a given <code class="docutils literal notranslate"><a class="reference internal" href="format.html#classchemfiles_1_1_format"><span class="std std-ref"><span class="pre">Format</span></span></a></code> in the factory if it supports memory IO</p>
+<p>The format informations are taken from the specialization of the template function <code class="docutils literal notranslate"><a class="reference internal" href="#namespacechemfiles_1ae1becf0fb3d0ac8d576c4b2152e687d2"><span class="std std-ref"><span class="pre">chemfiles::format_metadata</span></span></a></code> for this format. The second template argument is used to determine if the <code class="docutils literal notranslate"><a class="reference internal" href="format.html#classchemfiles_1_1_format"><span class="std std-ref"><span class="pre">Format</span></span></a></code> supports memory IO. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_11enable_if_tIXntN16SupportsMemoryIOI6FormatE5valueEEiEEN9chemfiles13FormatFactory10add_formatEvv">
+<span id="_CPPv3I0_11enable_if_tIXntN16SupportsMemoryIOI6FormatE5valueEEiEEN9chemfiles13FormatFactory10add_formatEv"></span><span id="_CPPv2I0_11enable_if_tIX!SupportsMemoryIO<Format>::valueEiEEN9chemfiles13FormatFactory10add_formatEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Format</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">enable_if_t</span></span><span class="p"><span class="pre">&lt;</span></span><span class="o"><span class="pre">!</span></span><span class="n"><span class="pre">SupportsMemoryIO</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_11enable_if_tIXntN16SupportsMemoryIOI6FormatE5valueEEiEEN9chemfiles13FormatFactory10add_formatEvv" title="chemfiles::FormatFactory::add_format::Format"><span class="n"><span class="pre">Format</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classchemfiles_1_1_format_factory_1a19b386705a071198948c77ef3afb85fc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add_format</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_11enable_if_tIXntN16SupportsMemoryIOI6FormatE5valueEEiEEN9chemfiles13FormatFactory10add_formatEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Register a given <code class="docutils literal notranslate"><a class="reference internal" href="format.html#classchemfiles_1_1_format"><span class="std std-ref"><span class="pre">Format</span></span></a></code> in the factory if it does not support memory IO</p>
+<p>The format informations are taken from the specialization of the template function <code class="docutils literal notranslate"><a class="reference internal" href="#namespacechemfiles_1ae1becf0fb3d0ac8d576c4b2152e687d2"><span class="std std-ref"><span class="pre">chemfiles::format_metadata</span></span></a></code> for this format. The second template argument is used to determine if the <code class="docutils literal notranslate"><a class="reference internal" href="format.html#classchemfiles_1_1_format"><span class="std std-ref"><span class="pre">Format</span></span></a></code> supports memory IO. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13FormatFactory7formatsEv">
+<span id="_CPPv3N9chemfiles13FormatFactory7formatsEv"></span><span id="_CPPv2N9chemfiles13FormatFactory7formatsEv"></span><span id="chemfiles::FormatFactory::formats"></span><span class="target" id="classchemfiles_1_1_format_factory_1a23440d3a81ebd192b0592bda448eda9d"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">reference_wrapper</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles14FormatMetadataE" title="chemfiles::FormatMetadata"><span class="n"><span class="pre">FormatMetadata</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">formats</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles13FormatFactory7formatsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the metadata for all registered formats. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9chemfiles13FormatFactory3getEv">
+<span id="_CPPv3N9chemfiles13FormatFactory3getEv"></span><span id="_CPPv2N9chemfiles13FormatFactory3getEv"></span><span id="chemfiles::FormatFactory::get"></span><span class="target" id="classchemfiles_1_1_format_factory_1ac09accbcbe9b87cce3dcdb82a3a37dde"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N9chemfiles13FormatFactoryE" title="chemfiles::FormatFactory"><span class="n"><span class="pre">FormatFactory</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9chemfiles13FormatFactory3getEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the instance of the <code class="docutils literal notranslate"><a class="reference internal" href="#classchemfiles_1_1_format_factory"><span class="std std-ref"><span class="pre">FormatFactory</span></span></a></code> </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN9chemfiles15format_metadataERK14FormatMetadatav">
+<span id="_CPPv3I0EN9chemfiles15format_metadataEv"></span><span id="_CPPv2I0EN9chemfiles15format_metadataEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Format</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacechemfiles_1ae1becf0fb3d0ac8d576c4b2152e687d2"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../classes/misc.html#_CPPv4N9chemfiles14FormatMetadataE" title="chemfiles::FormatMetadata"><span class="n"><span class="pre">FormatMetadata</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-prename descclassname"><span class="n"><span class="pre">chemfiles</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">format_metadata</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN9chemfiles15format_metadataERK14FormatMetadatav" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the metadata associated with <code class="docutils literal notranslate"><a class="reference internal" href="format.html#classchemfiles_1_1_format"><span class="std std-ref"><span class="pre">Format</span></span></a></code>.</p>
+<p>The metadata should be a reference to static memory.</p>
+<p>In order to implement a new format, one should specialise this function with the corresponding format:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyFormat</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Format</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">chemfiles</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FormatMetadata</span><span class="o">&amp;</span><span class="w"> </span><span class="n">format_metadata</span><span class="o">&lt;</span><span class="n">MyFormat</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">FormatMetadata</span><span class="w"> </span><span class="n">metadata</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">metadata</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MyFormat&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">metadata</span><span class="p">.</span><span class="n">extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;.mtf&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">metadata</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
